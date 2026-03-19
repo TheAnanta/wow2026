@@ -1,0 +1,60 @@
+[
+    {
+        "id": "101",
+        "name": "Light Up the Leaderboard ✨",
+        "link": "/arcade/diwali-quiz",
+        "image": "diwali-dhamaka.png",
+        "available": true,
+        "description": "Ready to shine brighter than a diya 🪔? From mythology to traditions, put your Diwali knowledge to the test in this exciting quiz!",
+        "author": [
+            {
+                "name": "Kavya Chandana",
+                "image": "kavya.png"
+            },
+            {
+                "name": "Manas Malla",
+                "image": "manas.jpg"
+            }
+        ],
+        "difficulty": "Beginner",
+        "category": "Festive",
+        "badge": {
+            "id": "diwali",
+            "name": "Diwali Dhamaka",
+            "image": "diwali-dhamaka-badge.svg",
+            "description": {
+                "earned": "Boom! Victory is yours! You're a Diwali Quiz Mastermind, Illuminator!\nThis badge is proof of your festive brilliance.\nShare your triumph and inspire others to shine! #DevFestDiwali",
+                "default": "Think you know Diwali? A hidden Diwali treasure awaits!\nIgnite your Diwali spirit! Unravel the secrets of the Festival of Lights by conquering the Diwali Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Diwali Quiz. "
+            }
+        }
+    },
+    {
+        "id": "102",
+        "name": "Google Guru Quiz 🧙‍♂️",
+        "link": "/arcade/google-quiz",
+        "image": "google-guru.png",
+        "available": true,
+        "description": "Think you know Google inside out 🤔? Put your knowledge to the test with this fun quiz!",
+        "author": [
+            {
+                "name": "Varshita Palleti",
+                "image": "varshita.jpeg"
+            },
+            {
+                "name": "Jayadhar Ummadisingu",
+                "image": "jayadhar.jpg"
+            }
+        ],
+        "difficulty": "Intermediate",
+        "category": "Google Knowledge",
+        "badge": {
+            "id": "google",
+            "name": "Google Guru",
+            "image": "google-guru-badge.svg",
+            "description": {
+                "earned": "Congratulations, Google Guru! 🎉 You've aced the quiz and proven your tech expertise! This badge is a symbol of your tech brilliance and your passion for learning. #DevFestGoogleGuru. Let the world know your tech skills. Share your success and inspire others! 🚀",
+                "default": "Think you know all Google? A Googolous adventure treasure awaits!\nIgnite your Google spirit! Unravel the secrets of the tech giant by conquering the Google Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Google Quiz. "
+            }
+        }
+    }
+]

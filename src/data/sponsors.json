@@ -1,0 +1,27 @@
+[
+  {
+    "category_name": "Sponsors",
+    "sponsors": [
+      {
+        "name": "GITAM Deemed to be University",
+        "link": "https://gitam.edu",
+        "logo": "gitam.png"
+      }
+    ]
+  },
+  {
+    "category_name": "",
+    "sponsors": []
+  },
+  {
+    "category_name": "Partners",
+    "sponsors": [
+      {
+        "name": "the ananta",
+        "link": "https://theananta.in",
+        "logo": "theananta.png",
+        "dark-logo": "dark-theananta.png"
+      }
+    ]
+  }
+]

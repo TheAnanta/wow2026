@@ -1,0 +1,378 @@
+[
+  {
+    "id": "100",
+    "name": "Adit Lal",
+    "company": {
+      "name": "Equal",
+      "designation": "Android Architect"
+    },
+    "community_title": "Google Developer Expert for Android",
+    "image": "adit.jpeg",
+    "bio": "Adit is the CTO and Co-Founder of Travv World, a global travel platform revolutionizing personalized travel experiences. With over 12 years of experience in Android development and system architecture, Adit has played a key role in designing and scaling mobile platforms. Previously, he contributed significantly to the development of large-scale streaming applications at Viacom18. His expertise spans Kotlin Multiplatform, Jetpack Compose, and mobile performance optimization. In his free time, Adit enjoys stargazing, travel, and landscape photography.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/aditlal/",
+      "twitter": "https://x.com/aditlal",
+      "github": "https://github.com/aldefy",
+      "web": "https://topmate.io/aditlal"
+    },
+    "mentor": true,
+    "expert": true
+  },
+  {
+    "id": "101",
+    "name": "Dhrumil Shah",
+    "company": {
+      "name": "Tata Digital",
+      "designation": "Lead Architect"
+    },
+    "community_title": "Google Developer Expert for Flutter and Dart",
+    "image": "dhrumil.png",
+    "bio": "Dhrumil Shah, the Lead Architect at TATA Digital Pvt Ltd, GDE for Flutter & Dart, the co-organiser of GDG Ahmedabad, Creator of @Flutter_Flakes. Startup Mentor, Experienced Speaker, Industry Advisory Board Member.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/dhuma1981/",
+      "instagram": "https://www.instagram.com/dhuma1981/",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": true
+  },
+  {
+    "id": "102",
+    "name": "Sampath Balivada",
+    "company": {
+      "name": "PayPal",
+      "designation": "Software Engineer"
+    },
+    "community_title": "",
+    "image": "sampath-balivada.jpeg",
+    "bio": "Sai Sampath Kumar Balivada is a seasoned Software Engineer at PayPal, based in Visakhapatnam, India. With a passion for crafting intuitive and engaging experiences, he specializes in ensuring transactional compliance across PayPal and its partners. Previously, he contributed significantly to Amazon Web Services (AWS), excelling in roles such as Cloud Support Associate. Sai Sampath holds a Bachelor's degree in Computer Science and Engineering and boasts certifications in AWS, Google Go programming, and open-source software development. As an organizer for GDG Vizag, he combines technical prowess with a commitment to community engagement, reflecting his dedication to both professional excellence and knowledge sharing.",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/sampathbalivada",
+      "instagram": "https://www.instagram.com/sampathbalivada/",
+      "github": "https://github.com/sampathbalivada",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "103",
+    "name": "Sasi Teja",
+    "company": {
+      "name": "Atlan",
+      "designation": "Solutions Architect"
+    },
+    "community_title": "",
+    "image": "Sasi-Teja.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "http://in.linkedin.com/in/kamsusasiteja/",
+      "twitter": "https://x.com/kamsusasi/",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "104",
+    "name": "Mani Teja",
+    "company": {
+      "name": "Laiout",
+      "designation": "Frontend Developer"
+    },
+    "community_title": "",
+    "image": "Mani-teja.jpeg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/maniteja-pratha-2a1469197",
+      "twitter": "https://x.com/pratamanitej/",
+      "github": "",
+      "web": "https://manitej.vercel.app/"
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "105",
+    "name": "Vasanth Korada",
+    "company": {
+      "name": "HDFC securities",
+      "designation": "Senior Software Engineer"
+    },
+    "community_title": "",
+    "image": "Vasanth-korada.jpeg",
+    "bio": "Highly motivated in building products. AI-focused Software Engineer. Startup-minded. Customer-obsessed engineer. Passionate about building products.",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/vasanth-korada-96285b167",
+      "twitter": "https://x.com/kamsusasi/",
+      "github": "https://github.com/Vasanth-Korada",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "106",
+    "name": "Diksha Patro B",
+    "company": {
+      "name": "Skai Lama",
+      "designation": "Product Manager"
+    },
+    "community_title": "",
+    "image": "Diksha-patro.jpeg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/dikshapatrob",
+      "twitter": "https://x.com/diksha_patro_b",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "107",
+    "name": "Charan Manikanta N",
+    "company": {
+      "name": "Aegion Dynamic Solutions",
+      "designation": "Software Engineer Intern"
+    },
+    "community_title": "",
+    "image": "Charan-manikanta.jpeg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/charan-manikanta",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "108",
+    "name": "Swapna Dande",
+    "company": {
+      "name": "Tata Consultancy Services",
+      "designation": "System Engineer"
+    },
+    "community_title": "",
+    "image": "swapna-dande.png",
+    "bio": "",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/swapna-dande-82ba06208",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "109",
+    "name": "Vijay Kumar Kagupati",
+    "company": {
+      "name": "CXR GITAM",
+      "designation": "VR Developer Intern"
+    },
+    "community_title": "",
+    "image": "Vijay-Kumar.jpeg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/vijaykagupati",
+      "instagram": "https://www.instagram.com/vijaykagupati/",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "110",
+    "name": "Rithwik Burra",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/rumpelstiltskin/",
+      "instagram": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "111",
+    "name": "Gireesh Kumar Yejju",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "",
+    "image": "Gireesh-kumar.jpeg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/gireeshyejju",
+      "instagram": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "112",
+    "name": "Usha Ramani Vemuru",
+    "company": {
+      "name": "GURUJADA IT Solutions",
+      "designation": "C0-Founder"
+    },
+    "community_title": "",
+    "image": "Usha-ramani-min.png",
+    "bio": "",
+    "social": {
+      "linkedin": "https://in.linkedin.com/in/usha-ramani-vemuru-66286723",
+      "instagram": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "121",
+    "name": "Manas Malla",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "Founder, CEO"
+    },
+    "community_title": "Google Product Expert: Android, Flutter and KMM",
+    "image": "manas.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/manasmalla/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "122",
+    "name": "Kavya Chandana",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "COO, CFO"
+    },
+    "community_title": "Core Contributor",
+    "image": "kavya.png",
+    "bio": "A problem solver who uses her creative talents to tackle design-related challenges. With a keen eye for detail and an innate understanding of infographics, visual design, and UI/UX. I am able to transform complex information into visually compelling and user-friendly designs. Whether it includes working on a brand-new project or revamping an existing design.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/kavya-chandana-834748259/",
+      "instagram": "https://www.instagram.com/kavya_chandana__"
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "123",
+    "name": "Chandan Khamitkar",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "CIO"
+    },
+    "community_title": "",
+    "image": "chandan.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/chandankhamitkar/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "124",
+    "name": "Varshita Palleti",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "Web Intern"
+    },
+    "community_title": "",
+    "image": "varshita.jpeg",
+    "bio": "A full stack developer and designer who loves creating smooth, user-friendly digital experiences. I work on everything from how things look to how they work behind the scenes—bringing ideas to life through clean design, thoughtful interfaces, and solid code.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/varshita-palleti-34209625a/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "125",
+    "name": "Jayadhar Ummadisingu",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "ML Intern"
+    },
+    "community_title": "Core Volunteer",
+    "image": "jayadhar.jpg",
+    "bio": "Passionate about Machine Learning, I enjoy solving problems, learning new technologies, and creating impactful solutions. Eager to grow and contribute to tech.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/jayadhar-ummadisingu-2a825b25a/",
+      "twitter": "https://x.com/8Jayadhar8",
+      "github": "https://github.com/U-Jayadhar",
+      "web": "https://u-jayadhar.github.io/My-Portfolio-Website/"
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "126",
+    "name": "Revanth Peethala",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "ML Intern"
+    },
+    "community_title": "Core Volunteer",
+    "image": "revanth.jpg",
+    "bio": "Passionate about solving real-world problems, exploring machine learning and its derivatives and eager to apply my skills in a dynamic, growth-oriented environment.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/revanthpeethala/",
+      "twitter": "https://x.com/RevanthP21",
+      "github": "https://github.com/P-Revanth"
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "127",
+    "name": "Neharika Sathagopam",
+    "company": {
+      "name": "Natwest Group",
+      "designation": "Software Engineer"
+    },
+    "community_title": "Core Volunteer",
+    "image": "neharika.jpeg",
+    "bio": "I am a software engineer with a passion for building scalable and efficient systems. I am a quick learner and I am always looking for new challenges and opportunities to grow.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/neharika-sathagopam-0000000000/",
+      "twitter": "https://x.com/neharika_sathagopam",
+      "github": "https://github.com/neharika-sathagopam"
+    },
+    "mentor": true,
+    "expert": false
+  }
+]

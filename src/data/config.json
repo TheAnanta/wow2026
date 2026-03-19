@@ -1,0 +1,133 @@
+{
+  "communityName": "GDG on Campus",
+  "communityLocation": {
+    "country": "India",
+    "city": "Andhra Pradesh"
+  },
+  "communityDescription": "",
+  "communityLinks": {
+    "page": "",
+    "website": "",
+    "instagram": "https://www.instagram.com/gdgocwowap?igsh=MW1veWJvZjdiODU5bg==",
+    "linkedin": "https://www.linkedin.com/company/gdgoc-wow-2025-ap/",
+    "youtube": ""
+  },
+  "hero": {
+    "title": "wonder of wonders",
+    "subtitle": "of learning",
+    "description": "GDG on Campus is a community of students and tech enthusiasts who are passionate about technology and innovation. We aim to create a platform for students to learn, share, and collaborate on various tech-related projects and initiatives. Our community is dedicated to fostering a culture of learning and growth, where students can connect with industry experts, gain hands-on experience, and develop their skills in a supportive environment.",
+    "cta": {
+      "text": "register now",
+      "link": "/register"
+    },
+    "image": "hero-landing.png",
+    "theme": "Learn, Connect, Grow."
+  },
+  "eventInfo": {
+    "name": "WoW 2025",
+    "date": "June 28-29, 2025",
+    "time": "9 AM - 9 PM",
+    "venue": {
+      "address": "GITAM University",
+      "map_link": ""
+    },
+    "registration": {
+      "link": "/register",
+      "end_date": "2025-06-21T23:59:59Z",
+      "start_date": "2025-06-05T12:30:00Z"
+    },
+    "callForSpeakers": {
+      "link": "",
+      "end_date": "",
+      "start_date": ""
+    },
+    "event_startDate": "June 28, 2025 08:30 GMT+5:30",
+    "event_endDate": "2025-06-29",
+    "description": {
+      "short": "A celebration of tech, talent, and teamwork — that’s GDGoC WOW AP 2025.",
+      "long": "GDGoC WOW AP 2025 is an electrifying 2-day tech experience curated , bringing together passionate minds from various institutions. The event features inspiring speaker sessions, panel discussions, interactive ice-breakers, and an intense overnight hackathon that challenges participants to innovate and collaborate under pressure. With opportunities for learning, networking, and celebrating tech culture, WOW 2025 is designed to leave a lasting impact on everyone involved—whether you're a developer, designer, or enthusiast."
+    },
+    "stats": [
+      {
+        "name": "Flagship Events",
+        "value": "6+",
+        "color": "#F44F09",
+        "image": "img/common/blue.png"
+      },
+      {
+        "name": "Participants",
+        "value": "800+",
+        "color": "#F37A19",
+        "image": "img/common/pink.png"
+      },
+      {
+        "name": "Days",
+        "value": "2",
+        "color": "#F37A19",
+        "image": "img/common/green.png"
+      },
+      {
+        "name": "Workshops",
+        "value": "TBA",
+        "color": "#F44F09",
+        "image": "img/common/yellow.png"
+      }
+    ],
+    "benefits": [
+      {
+        "title": "learn tech from the experts",
+        "image": "https://www.gitam.edu/sites/default/files/banners/know-gitam_0.jpg",
+        "bgcolor": "rgba(195, 236, 246, 0.3)",
+        "color": "#174EA6",
+        "benefits": [
+          "Exposure to Industry Experts & Technologies, Discover new career opportunities, new skills, professional contacts",
+          "Hands-on Hackathon Experience to Boost Practical Skills, Learn how to work in a team.",
+          "Networking Opportunities with Peers and Professionals"
+        ]
+      },
+      {
+        "title": "build a startup",
+        "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/220304_GGstartups_interior_4350.width-1300.jpg",
+        "bgcolor": "rgba(204, 246, 197,0.3)",
+        "color": "#0D652D",
+        "benefits": [
+          "Connect with Potential Collaborators and Mentors",
+          "Gain Insights from Industry Leaders through Panel Discussions, Learn business tips from successful people.",
+          "Showcase Startup Ideas and Explore Partnership Avenues"
+        ]
+      },
+      {
+        "title": "build a career in Tech",
+        "image": "https://heinzegers.com/wp-content/uploads/2017/08/Visiting-Google-1024x576.jpg",
+        "bgcolor": "rgba(255, 231, 165, 0.3)",
+        "color": "#B06000",
+        "benefits": [
+          "Brand Visibility through Sponsorships and Talks",
+          "Engage with Young Tech Talent, Connect with other companies and startups, business connections, collaborations",
+          "Opportunities to Collaborate on Innovative Projects & Hackathon Solutions, Support student innovation through sponsorship."
+        ]
+      },
+      {
+        "title": "be a freelancer",
+        "image": "https://images.businessnewsdaily.com/app/uploads/2022/04/04072326/freelancer_Prostock-Studio_getty.jpg",
+        "bgcolor": "rgba(248, 216, 216, 0.3)",
+        "color": "#B31412",
+        "benefits": [
+          "Explore the talks and workshops to understand where and when to make your next step.",
+          "Build a network of like minded people that can help you reach the next level.",
+          "Ask and get the best practices from the amazing line-up of speakers to reach the correct clients and companies."
+        ]
+      }
+    ],
+    "whatToExpect": [],
+    "pastDevFest": {
+      "summery": "",
+      "images": [],
+      "stats": []
+    }
+  },
+  "seo": {
+    "keywords": "GDGoC, WOW, Google, GDGOC WOW",
+    "hostUrl": ""
+  }
+}

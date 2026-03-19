@@ -1,0 +1,259 @@
+[
+    {
+        "day": "1",
+        "date": "June 28",
+        "schedule": [
+            {
+                "startTime": "08:30",
+                "endTime": "10:00",
+                "session": 1001
+            },
+            {
+                "startTime": "10:00",
+                "endTime": "10:10",
+                "session": 1002
+            },
+            {
+                "startTime": "10:10",
+                "endTime": "10:20",
+                "session": 1003
+            },
+            {
+                "startTime": "10:20",
+                "endTime": "10:30",
+                "session": 1004
+            },
+            {
+                "startTime": "10:30",
+                "endTime": "11:20",
+                "session": 1005
+            },
+            {
+                "startTime": "11:20",
+                "endTime": "11:30",
+                "session": 1006
+            },
+            {
+                "startTime": "11:40",
+                "endTime": "12:10",
+                "session": 1007
+            },
+            {
+                "startTime": "12:15",
+                "endTime": "12:30",
+                "session": 1008
+            },
+            {
+                "startTime": "12:30",
+                "endTime": "14:00",
+                "session": 1009
+            },
+            {
+                "startTime": "14:00",
+                "endTime": "14:30",
+                "session": 1010
+            },
+            {
+                "startTime": "14:30",
+                "endTime": "14:40",
+                "session": 1012
+            },
+            {
+                "startTime": "14:50",
+                "endTime": "15:00",
+                "session": 1013
+            },
+            {
+                "startTime": "15:10",
+                "endTime": "15:50",
+                "session": 1014
+            },
+            {
+                "startTime": "15:40",
+                "endTime": "15:50",
+                "session": 1015
+            },
+            {
+                "startTime": "15:50",
+                "endTime": "16:00",
+                "session": 1016
+            },
+            {
+                "startTime": "11:40",
+                "endTime": "12:10",
+                "session": 1017
+            },
+            {
+                "startTime": "12:15",
+                "endTime": "12:30",
+                "session": 1018
+            },
+            {
+                "startTime": "14:00",
+                "endTime": "14:20",
+                "session": 1022
+            },
+            {
+                "startTime": "11:40",
+                "endTime": "12:10",
+                "session": 1023
+            },
+            {
+                "startTime": "11:40",
+                "endTime": "12:10",
+                "session": 1024
+            },
+            {
+                "startTime": "14:20",
+                "endTime": "14:30",
+                "session": 1025
+            },
+            {
+                "startTime": "11:40",
+                "endTime": "11:55",
+                "session": 1030
+            },
+            {
+                "startTime": "11:55",
+                "endTime": "12:10",
+                "session": 1032
+            },
+            {
+                "startTime": "14:00",
+                "endTime": "14:30",
+                "session": 1031
+            },
+            {
+                "startTime": "14:20",
+                "endTime": "14:30",
+                "session": 1034
+            },
+            {
+                "startTime": "12:15",
+                "endTime": "12:30",
+                "session": 1037
+            },
+            {
+                "startTime": "14:00",
+                "endTime": "14:30",
+                "session": 1041
+            },
+            {
+                "startTime": "16:00",
+                "endTime": "17:00",
+                "session": 1044
+            },
+            {
+                "startTime": "17:00",
+                "endTime": "19:30",
+                "session": 1045
+            },
+            {
+                "startTime": "19:30",
+                "endTime": "21:30",
+                "session": 1046
+            },
+            {
+                "startTime": "21:30",
+                "endTime": "23:59",
+                "session": 1047
+            },
+            {
+                "startTime": "10:30",
+                "endTime": "12:30",
+                "session": 1048
+            },
+            {
+                "startTime": "11:40",
+                "endTime": "12:30",
+                "session": 1049
+            },
+            {
+                "startTime": "14:30",
+                "endTime": "15:10",
+                "session": 1050
+            },
+            {
+                "startTime": "14:00",
+                "endTime": "14:40",
+                "session": 1051
+            },
+            {
+                "startTime": "16:00",
+                "endTime": "17:00",
+                "session": 1052
+            },
+            {
+                "startTime": "16:00",
+                "endTime": "17:00",
+                "session": 1053
+            },
+            {
+                "startTime": "14:30",
+                "endTime": "16:00",
+                "session": 1067
+            },
+            {
+                "startTime": "14:00",
+                "endTime": "14:30",
+                "session": 1068
+            }
+        ]
+    },
+    {
+        "day": "2",
+        "date": "June 29",
+        "schedule": [
+            {
+                "startTime": "00:00",
+                "endTime": "07:00",
+                "session": 1055
+            },
+            {
+                "startTime": "07:00",
+                "endTime": "08:30",
+                "session": 1056
+            },
+            {
+                "startTime": "08:30",
+                "endTime": "13:00",
+                "session": 1057
+            },
+            {
+                "startTime": "13:00",
+                "endTime": "14:30",
+                "session": 1058
+            },
+            {
+                "startTime": "14:30",
+                "endTime": "15:30",
+                "session": 1059
+            },
+            {
+                "startTime": "15:30",
+                "endTime": "16:00",
+                "session": 1060
+            },
+            {
+                "startTime": "16:00",
+                "endTime": "16:30",
+                "session": 1061
+            },
+            {
+                "startTime": "16:30",
+                "endTime": "16:40",
+                "session": 1062
+            },
+            {
+                "startTime": "16:40",
+                "endTime": "17:30",
+                "session": 1063
+            },
+            {
+                "startTime": "17:30",
+                "endTime": "18:30",
+                "session": 1064
+            }
+        ]
+    }
+]

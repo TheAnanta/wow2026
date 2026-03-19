@@ -1,0 +1,19 @@
+[
+  {
+    "text": "Follow us on Instagram.",
+    "action": {
+      "link": "https://instagram.com/gdgocwowap/",
+      "linkText": "Follow Now"
+    }
+  },
+  {
+    "text": "Happy Coding. 😊"
+  },
+  {
+    "text": "Tickets open!",
+    "action": {
+      "link": "https://wow.vizag.dev/register",
+      "linkText": "Register Now"
+    }
+  }
+]
