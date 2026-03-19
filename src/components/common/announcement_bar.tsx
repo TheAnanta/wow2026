@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import React from "react";
 import announcements from "@/data/announcements.json";
 import Marquee from "react-fast-marquee";
 
@@ -19,8 +20,8 @@ export default function AnnouncementBar() {
       </p>
       <Marquee>
         {getAnnouncements(announcements).map((item, index) => (
-          <>
-            <div key={index} className="w-max mx-5 google-font">
+          <React.Fragment key={index}>
+            <div className="w-max mx-5 google-font">
               {item.text}
               {item.action && (
                 <a
@@ -33,7 +34,7 @@ export default function AnnouncementBar() {
               )}
             </div>
             <p className="inline">•</p>
-          </>
+          </React.Fragment>
         ))}
       </Marquee>
     </div>
