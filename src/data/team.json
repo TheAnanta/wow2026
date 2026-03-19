@@ -19,6 +19,22 @@
     "type": "Core"
   },
   {
+    "id": "6004",
+    "name": "Kavya Chandana",
+    "company": {
+      "name": "Gandhi Institute of Technology and Management",
+      "designation": ""
+    },
+    "community_title": "Lead",
+    "image": "https://github.com/Kavya-chandana.png",
+    "bio": "A problem solver who uses his creative talents to tackle design-related challenges. With a keen eye for detail and an innate understanding of infographics, visual design, and UI/UX. I am able to transform complex information into visually compelling and user-friendly designs. Whether it includes working on a brand-new project or revamping an existing design.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/kavya-chandana-834748259/",
+      "instagram": "https://www.instagram.com/kavya_chandana__"
+    },
+    "type": "Core"
+  },
+  {
     "id": "6019",
     "name": "G. Sai Akhil",
     "company": {
@@ -66,7 +82,7 @@
     },
     "type": "Core"
   },
-   {
+  {
     "id": "6014",
     "name": "Naga Sathvik Rapelli",
     "company": {
@@ -98,7 +114,6 @@
     },
     "type": "Core"
   },
- 
   {
     "id": "6015",
     "name": "Ashish Nallana",
@@ -180,29 +195,13 @@
     "type": "Core"
   },
   {
-    "id": "6004",
-    "name": "Kavya Chandana",
-    "company": {
-      "name": "The Ananta Studio",
-      "designation": "COO, CFO, Co-Founder"
-    },
-    "community_title": "Core Contributor",
-    "image": "kavya.png",
-    "bio": "A problem solver who uses his creative talents to tackle design-related challenges. With a keen eye for detail and an innate understanding of infographics, visual design, and UI/UX. I am able to transform complex information into visually compelling and user-friendly designs. Whether it includes working on a brand-new project or revamping an existing design.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/kavya-chandana-834748259/",
-      "instagram": "https://www.instagram.com/kavya_chandana__"
-    },
-    "type": "Core-Contributor"
-  },
-  {
     "id": "6007",
     "name": "Chandan Khamitkar",
     "company": {
-      "name": "The Ananta Studio",
-      "designation": "Full Stack Developer"
+      "name": "",
+      "designation": ""
     },
-    "community_title": "Core Contributor, Web",
+    "community_title": "GDGoC GITAM Core Team",
     "image": "chandan.jpg",
     "bio": "A developer and student pursuing Bachelors in Computer Science Engineering. Experienced in over 19 languages- frameworks with over a year experience building rich experiences as a Full-Stack Web Developer. Interned at Ati Uttam (a SAAS based company)",
     "social": {
@@ -217,10 +216,10 @@
     "id": "6008",
     "name": "Jayadhar Ummadisingu",
     "company": {
-      "name": "The Ananta Studio",
-      "designation": "Backend Engineer"
+      "name": "",
+      "designation": ""
     },
-    "community_title": "Core Volunteer",
+    "community_title": "GDGoC GITAM Core Team",
     "image": "jayadhar.jpg",
     "bio": "Passionate about Machine Learning, I enjoy solving problems, learning new technologies, and creating impactful solutions. Eager to grow and contribute to tech.",
     "social": {
@@ -232,36 +231,291 @@
     "type": "Core-Contributor"
   },
   {
-    "id": "6009",
-    "name": "Palleti Varshita",
+    "id": "113",
+    "name": "Yashwanth Kamireddi",
     "company": {
-      "name": "The Ananta Studio",
-      "designation": "Frontend Developer"
+      "name": "",
+      "designation": ""
     },
-    "community_title": "Core Volunteer",
-    "image": "varshita.jpeg",
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991613/Yashwanth_Kamireddi_os8fu1.jpg",
     "bio": "",
     "social": {
-      "linkedin": "https://www.linkedin.com/in/varshita-palleti-34209625a/",
-      "github": "https://github.com/Palleti-Varshita",
-      "web": "https://varshitapalleti.vercel.app/"
+      "linkedin": "https://www.linkedin.com/in/yashwanthkamireddi/?originalSubdomain=in",
+      "twitter": "",
+      "web": "https://www.yashwanthkamireddi.dev/"
     },
     "type": "Core-Contributor"
   },
   {
-    "id": "6010",
-    "name": "Revanth Peethala",
+    "id": "114",
+    "name": "Aafthab Ali",
     "company": {
-      "name": "The Ananta Studio",
-      "designation": "ML Developer"
+      "name": "",
+      "designation": ""
     },
-    "community_title": "Core Volunteer",
-    "image": "revanth.jpg",
-    "bio": "Passionate about solving real-world problems, exploring machine learning and its derivatives and eager to apply my skills in a dynamic, growth-oriented environment.",
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991622/Aftab_Ali_j7xluo.jpg",
+    "bio": "",
     "social": {
-      "linkedin": "https://www.linkedin.com/in/revanthpeethala/",
-      "twitter": "https://x.com/RevanthP21",
-      "github": "https://github.com/P-Revanth"
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "115",
+    "name": "Chaitanya Sameer",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991618/Chaitanya_Sameer_az2ci0.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "116",
+    "name": "Deva Harshini",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991620/Deva_Harshini_tiogrf.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "117",
+    "name": "Gagana",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991619/Gagana_sgp8gf.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "118",
+    "name": "Jaswanth Kumar",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991628/Jaswanth_Kumar_cz9e9w.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "119",
+    "name": "K Sharvan",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991623/K_Sharvan_znnlot.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "120",
+    "name": "M.G.S.S Srikar",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991625/M.G.S.S_Srikar_xvimcj.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "121",
+    "name": "Pavan Kumar",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991627/Pavan_Kumar_axeprk.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "122",
+    "name": "Sanvi Seetha",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991616/Sanvi_Seetha_osj2tt.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "123",
+    "name": "Tummala Somanadh",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991623/Tummala_Somanadh_nabuku.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "124",
+    "name": "V Sohana",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991615/V_Sohana_hmydkm.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "125",
+    "name": "Vaibhav",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991617/Vaibhav_af7o5n.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "126",
+    "name": "Satwika Rejeti",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991614/Satwika_Rejeti_rnn0fh.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "127",
+    "name": "Aashita",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Aashita_fq7qbd.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "128",
+    "name": "Srinivasam Konchada",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Srinivasam_Konchada_rfp5ku.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "111",
+    "name": "Varshita Palleti",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Core Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767189232/Varshita_fqkkzb.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
     },
     "type": "Core-Contributor"
   }

@@ -4,6 +4,14 @@ const nextConfig: NextConfig = {
   /* config options here */
   devIndicators: false,
   reactStrictMode: false,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      }
+    ],
+  },
   env: {
     SECRET_AES_KEY_STRING: process.env.SECRET_AES_KEY_STRING,
   },

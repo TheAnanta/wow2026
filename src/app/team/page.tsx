@@ -62,7 +62,9 @@ function TeamProfileCard({ data }: { data: any }) {
   const [open, setOpen] = useState(false);
 
   const avatarSrc = data.image?.length
-    ? `/images/team/${data.image}`
+    ? data.image.startsWith("http")
+      ? data.image
+      : `/images/team/${data.image}`
     : "/common/avatar.png";
 
   return (
@@ -190,11 +192,26 @@ export default function TeamPage() {
     (item: { type: string }) => item.type !== "Core"
   );
 
+  const coreTeamByCollege = otherTeam.reduce((acc: any, member: any) => {
+    let college = "Central Core Team";
+    if (member.community_title) {
+      if (member.community_title.includes("GITAM")) {
+        college = "GDGoC GITAM";
+      } else if (member.community_title.includes("GDGoC")) {
+        const match = member.community_title.match(/GDGoC\s+(.*?)\s+(Core )?Team/);
+        if (match) college = `GDGoC ${match[1]}`;
+      }
+    }
+    if (!acc[college]) acc[college] = [];
+    acc[college].push(member);
+    return acc;
+  }, {});
+
   return (
     <div>
       <div className="container mx-auto px-4 mt-10">
         <div className="mb-10">
-          <h1 className="text-4xl font-bold mb-4">Leads</h1>
+          <h1 className="text-4xl font-bold mb-4">Leads/Organizers</h1>
           <p className="text-gray-700 dark:text-gray-300 mb-4 max-w-[64ch]">
             Our mission is to equip our community members with practical skills,
             enabling them to communicate their insights and drive innovative
@@ -211,14 +228,22 @@ export default function TeamPage() {
         </div>
 
         <div className="mb-6">
-          <h1 className="text-4xl font-bold mb-4">Crew</h1>
+          <h1 className="text-4xl font-bold mb-4">Core Team </h1>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-          {otherTeam.map((item: any, index: any) => (
-            <TeamProfileCard key={index} data={item} />
-          ))}
-        </div>
+        {Object.entries(coreTeamByCollege)
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([college, mems]: [string, any], i: number) => (
+          <div key={i} className="mb-12">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">{college}</h2>
+             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+              {mems.map((item: any, index: any) => (
+                <TeamProfileCard key={index} data={item} />
+              ))}
+            </div>
+          </div>
+        ))}
+
       </div>
     </div>
   );
