@@ -20,8 +20,8 @@ export default function AnnouncementBar() {
       </p>
       <Marquee>
         {getAnnouncements(announcements).map((item, index) => (
-          <React.Fragment key={index}>
-            <div className="w-max mx-5 google-font">
+          <>
+            <div key={index} className="w-max mx-5 google-font">
               {item.text}
               {item.action && (
                 <a
@@ -34,7 +34,7 @@ export default function AnnouncementBar() {
               )}
             </div>
             <p className="inline">•</p>
-          </React.Fragment>
+          </>
         ))}
       </Marquee>
     </div>
