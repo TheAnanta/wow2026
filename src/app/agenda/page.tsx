@@ -280,14 +280,14 @@ const AgendaPage: React.FC = () => {
     };
 
     // Hardcoded dates based on original Nuxt code
-    const day1Tracks = getTracksForDay("28 June 2025");
-    const day2Tracks = getTracksForDay("29 June 2025");
+    const day1Tracks = getTracksForDay("04 July 2026");
+    const day2Tracks = getTracksForDay("05 July 2026");
 
     console.log(day1Tracks);
 
     return [
-      { weekday: "Sat", day: 28, tracks: day1Tracks },
-      { weekday: "Sun", day: 29, tracks: day2Tracks },
+      { weekday: "Sat", day: 04, tracks: day1Tracks },
+      { weekday: "Sun", day: 05, tracks: day2Tracks },
     ].filter((day) => day.tracks.length > 0); // Only include days with events after filtering
   }, [
     formatFilter,

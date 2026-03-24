@@ -149,7 +149,7 @@ export default function TaskList({
           <h3 className="text-2xl font-medium">Your Checklist</h3>{" "}
           <p className="max-w-[32ch] mt-2 opacity-70">
             Register now to view the checklist to unlock the best experience
-            through WOW 2025
+            through WOW 2026
           </p>
         </div>
       ) : (
@@ -157,7 +157,7 @@ export default function TaskList({
           <h3 className="text-2xl font-medium">Your Checklist</h3>{" "}
           <p className="max-w-[32ch] mt-2 opacity-70">
             Sign in to view the checklist to unlock the best experience through
-            WOW 2025
+            WOW 2026
           </p>
         </div>
       )}

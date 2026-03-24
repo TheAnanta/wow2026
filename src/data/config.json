@@ -9,7 +9,7 @@
     "page": "",
     "website": "",
     "instagram": "https://www.instagram.com/gdgocwowap?igsh=MW1veWJvZjdiODU5bg==",
-    "linkedin": "https://www.linkedin.com/company/gdgoc-wow-2025-ap/",
+    "linkedin": "https://www.linkedin.com/company/gdgoc-wow-2026-ap/",
     "youtube": ""
   },
   "hero": {
@@ -24,8 +24,8 @@
     "theme": "Learn, Connect, Grow."
   },
   "eventInfo": {
-    "name": "WoW 2025",
-    "date": "June 28-29, 2025",
+    "name": "WoW 2026",
+    "date": "July 2026",
     "time": "9 AM - 9 PM",
     "venue": {
       "address": "GITAM University",
@@ -33,19 +33,19 @@
     },
     "registration": {
       "link": "/register",
-      "end_date": "2025-06-21T23:59:59Z",
-      "start_date": "2025-06-05T12:30:00Z"
+      "end_date": "2026-07-31T23:59:59Z",
+      "start_date": "2026-05-05T12:30:00Z"
     },
     "callForSpeakers": {
       "link": "",
       "end_date": "",
       "start_date": ""
     },
-    "event_startDate": "June 28, 2025 08:30 GMT+5:30",
-    "event_endDate": "2025-06-29",
+    "event_startDate": "July 01, 2026 08:30 GMT+5:30",
+    "event_endDate": "2026-07-02",
     "description": {
-      "short": "A celebration of tech, talent, and teamwork — that’s GDGoC WOW AP 2025.",
-      "long": "GDGoC WOW AP 2025 is an electrifying 2-day tech experience curated , bringing together passionate minds from various institutions. The event features inspiring speaker sessions, panel discussions, interactive ice-breakers, and an intense overnight hackathon that challenges participants to innovate and collaborate under pressure. With opportunities for learning, networking, and celebrating tech culture, WOW 2025 is designed to leave a lasting impact on everyone involved—whether you're a developer, designer, or enthusiast."
+      "short": "A celebration of tech, talent, and teamwork — that’s GDGoC WOW AP 2026.",
+      "long": "GDGoC WOW AP 2026 is an electrifying 2-day tech experience curated , bringing together passionate minds from various institutions. The event features inspiring speaker sessions, panel discussions, interactive ice-breakers, and an intense overnight hackathon that challenges participants to innovate and collaborate under pressure. With opportunities for learning, networking, and celebrating tech culture, WOW 2026 is designed to leave a lasting impact on everyone involved—whether you're a developer, designer, or enthusiast."
     },
     "stats": [
       {

@@ -306,7 +306,7 @@ export default function Confirmation() {
               We've reserved you a seat.
             </h2>
 
-            <p className="mt-3 text-lg">28-29th June 2025</p>
+            <p className="mt-3 text-lg">July 2026</p>
             <p>GITAM Deemed to be University, Visakhapatnam</p>
           </div>
           <img
@@ -689,7 +689,7 @@ export default function Confirmation() {
                   <EmojiEventsOutlined fontSize="large" className="mt-8" />
                   <h2 className="text-2xl font-medium mt-4">You're in.</h2>
                   <p className="text-sm mt-4 mb-8 max-w-[420px]">
-                    Excited to host you for WoW 2025.
+                    Excited to host you for WoW 2026.
                     <br />
                     Earn badges and have fun before the event.
                     <br />

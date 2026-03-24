@@ -9,7 +9,7 @@
     "link": "",
     "time": "08:30 AM to 10:00 AM",
     "format": "Check In",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "90",
     "speakers": [],
     "callForSpeaker": false
@@ -24,7 +24,7 @@
     "link": "",
     "time": "10:00 AM to 10:10 AM",
     "format": "Lightening of Lamp",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "10",
     "speakers": [],
     "callForSpeaker": false
@@ -39,7 +39,7 @@
     "link": "",
     "time": "10:10 AM to 10:20 AM",
     "format": "Keynote",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "10",
     "speakers": [],
     "callForSpeaker": false
@@ -54,7 +54,7 @@
     "link": "",
     "time": "10:20 AM to 11:05 AM",
     "format": "Panel Discussion",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "50",
     "speakers": [],
     "callForSpeaker": false
@@ -69,7 +69,7 @@
     "link": "",
     "time": "11:05 AM to 11:15 AM",
     "format": "Sponsor",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "10",
     "speakers": [],
     "callForSpeaker": false
@@ -84,7 +84,7 @@
     "link": "",
     "time": "11:15 AM to 11:45 PM",
     "format": "Tech Byte",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "30",
     "speakers": [
       101
@@ -101,7 +101,7 @@
     "link": "",
     "time": "11:15 AM to 11:45 AM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "30",
     "speakers": [
       100
@@ -118,7 +118,7 @@
     "link": "",
     "time": "11:15 AM to 11:45 AM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "15",
     "speakers": [],
     "callForSpeaker": true
@@ -133,7 +133,7 @@
     "link": "",
     "time": "11:15 AM to 11:45 PM",
     "format": "Workshop",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "30",
     "speakers": [],
     "callForSpeaker": false
@@ -148,7 +148,7 @@
     "link": "",
     "time": "11:15 AM to 12:15 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "60",
     "speakers": [],
     "callForSpeaker": true
@@ -163,7 +163,7 @@
     "link": "",
     "time": "11:15 AM to 11:45 AM",
     "format": "Open Mic",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "10",
     "speakers": [],
     "callForSpeaker": true
@@ -178,7 +178,7 @@
     "link": "",
     "time": "11:45 AM to 12:00 PM",
     "format": "Open Mic",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "15",
     "speakers": [],
     "callForSpeaker": true
@@ -193,7 +193,7 @@
     "link": "",
     "time": "03:10 PM to 03:50 PM",
     "format": "Panel",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "40",
     "speakers": [
       121,
@@ -215,7 +215,7 @@
     "link": "",
     "time": "11:45 AM to 12:00 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "15",
     "speakers": [],
     "callForSpeaker": false
@@ -230,7 +230,7 @@
     "link": "",
     "time": "11:45 AM to 12:15 PM",
     "format": "Workshop",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "30",
     "speakers": [],
     "callForSpeaker": true
@@ -245,7 +245,7 @@
     "link": "",
     "time": "11:45 AM to 12:00 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "15",
     "speakers": [],
     "callForSpeaker": true
@@ -260,7 +260,7 @@
     "link": "",
     "time": "12:00 PM to 12:15 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "30",
     "speakers": [],
     "callForSpeaker": true
@@ -275,7 +275,7 @@
     "link": "",
     "time": "12:00 PM to 12:15 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "15",
     "speakers": [],
     "callForSpeaker": true
@@ -290,7 +290,7 @@
     "link": "",
     "time": "12:00 PM to 12:15 PM",
     "format": "Case Study",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "15",
     "speakers": [],
     "callForSpeaker": true
@@ -305,7 +305,7 @@
     "link": "",
     "time": "08:30 AM to 12:15 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "30",
     "speakers": [],
     "callForSpeaker": true
@@ -320,7 +320,7 @@
     "link": "",
     "time": "02:00 PM to 02:40 PM",
     "format": "Workshop",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "40",
     "speakers": [],
     "callForSpeaker": false
@@ -335,7 +335,7 @@
     "link": "",
     "time": "02:00 PM to 02:30 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "30",
     "speakers": [],
     "callForSpeaker": true
@@ -350,7 +350,7 @@
     "link": "",
     "time": "02:00 PM to 02:30 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "30",
     "speakers": [],
     "callForSpeaker": true
@@ -365,7 +365,7 @@
     "link": "",
     "time": "02:30 PM to 02:40 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "10",
     "speakers": [],
     "callForSpeaker": true
@@ -380,7 +380,7 @@
     "link": "",
     "time": "02:30 PM to 02:40 PM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "10",
     "speakers": [],
     "callForSpeaker": true
@@ -395,7 +395,7 @@
     "link": "",
     "time": "02:00 PM to 02:40 PM",
     "format": "Activity",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "40",
     "speakers": [],
     "callForSpeaker": false
@@ -410,7 +410,7 @@
     "link": "",
     "time": "07:30 PM to 09:00 PM",
     "format": "Break",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "120",
     "speakers": [],
     "callForSpeaker": false
@@ -425,7 +425,7 @@
     "link": "",
     "time": "09:30 PM to 11:59 PM",
     "format": "Activity",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "149",
     "speakers": [],
     "callForSpeaker": false
@@ -440,7 +440,7 @@
     "link": "",
     "time": "03:50 PM to 04:00 PM",
     "format": "Quiz",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "10",
     "speakers": [],
     "callForSpeaker": false
@@ -455,7 +455,7 @@
     "link": "",
     "time": "05:00 PM to 07:30 PM",
     "format": "Activity",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "150",
     "speakers": [],
     "callForSpeaker": false
@@ -470,7 +470,7 @@
     "link": "",
     "time": "10:30 AM to 12:30 PM",
     "format": "Showcase",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "120",
     "speakers": [],
     "callForSpeaker": false
@@ -485,7 +485,7 @@
     "link": "",
     "time": "02:50 PM to 03:10 PM",
     "format": "Networking",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "20",
     "speakers": [],
     "callForSpeaker": false
@@ -500,7 +500,7 @@
     "link": "",
     "time": "02:00 PM to 02:40 PM",
     "format": "Activity",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "40",
     "speakers": [],
     "callForSpeaker": false
@@ -515,7 +515,7 @@
     "link": "",
     "time": "04:00 PM to 05:00 PM",
     "format": "Activity",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "60",
     "speakers": [],
     "callForSpeaker": false
@@ -530,7 +530,7 @@
     "link": "",
     "time": "12:00 AM to 07:00 AM",
     "format": "Activity",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "420",
     "speakers": [],
     "callForSpeaker": false
@@ -545,7 +545,7 @@
     "link": "",
     "time": "07:00 AM to 08:30 AM",
     "format": "Break",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "90",
     "speakers": [],
     "callForSpeaker": false
@@ -560,7 +560,7 @@
     "link": "",
     "time": "08:30 AM to 01:00 PM",
     "format": "Activity",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "270",
     "speakers": [],
     "callForSpeaker": false
@@ -575,7 +575,7 @@
     "link": "",
     "time": "01:00 PM to 02:30 PM",
     "format": "Break",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "90",
     "speakers": [],
     "callForSpeaker": false
@@ -590,7 +590,7 @@
     "link": "",
     "time": "02:30 PM to 03:30 PM",
     "format": "Entertainment",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "60",
     "speakers": [],
     "callForSpeaker": false
@@ -605,7 +605,7 @@
     "link": "",
     "time": "03:30 PM to 04:00 PM",
     "format": "Competition",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "30",
     "speakers": [],
     "callForSpeaker": false
@@ -620,7 +620,7 @@
     "link": "",
     "time": "04:00 PM to 04:30 PM",
     "format": "Ceremony",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "30",
     "speakers": [],
     "callForSpeaker": false
@@ -635,7 +635,7 @@
     "link": "",
     "time": "04:30 PM to 04:40 PM",
     "format": "Closing Remarks",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "10",
     "speakers": [],
     "callForSpeaker": false
@@ -650,7 +650,7 @@
     "link": "",
     "time": "04:40 PM to 05:30 PM",
     "format": "Activity",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "50",
     "speakers": [],
     "callForSpeaker": false
@@ -665,7 +665,7 @@
     "link": "",
     "time": "05:30 PM to 06:30 PM",
     "format": "Activity",
-    "date": "29 June 2025",
+    "date": "05 July 2026",
     "timeDuration": "60",
     "speakers": [],
     "callForSpeaker": false
@@ -680,7 +680,7 @@
     "link": "",
     "time": "02:00 PM to 03:10 PM",
     "format": "Activity",
-    "date": "28 June 2025",
+    "date": "04 July 2026",
     "timeDuration": "90",
     "speakers": [
       127

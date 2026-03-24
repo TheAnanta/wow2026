@@ -27,7 +27,7 @@ const CodeOfConduct = () => {
           Code of Conduct
         </h1>
         <p className="text-lg text-gray-600 mt-2 mb-10 dark:text-gray-400">
-          All participants of GDGoC WOW AP 2025 event, attendees, event staff,
+          All participants of GDGoC WOW AP 2026 event, attendees, event staff,
           and speakers, must abide by the following policy:
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

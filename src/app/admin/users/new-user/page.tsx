@@ -79,7 +79,7 @@ const NewUserForm: React.FC = () => {
 
         // check if user with email id exists in firestore
         const url =
-            `https://asia-south1-wonder-of-wonders-2025.cloudfunctions.net/createOnSpotUser?email=${formState.email}&displayName=${formState.firstName + ' ' + formState.lastName}`;
+            `https://asia-south1-wonder-of-wonders-2026.cloudfunctions.net/createOnSpotUser?email=${formState.email}&displayName=${formState.firstName + ' ' + formState.lastName}`;
         try {
             const response = await fetch(url, {
                 method: "POST",
@@ -212,9 +212,9 @@ const NewUserForm: React.FC = () => {
                 <div className="flex flex-col justify-center items-center md:rounded-xl md:border-[1.5px] border-gray-500 md:w-4/5">
                     <div className="w-full md:rounded-t-xl bg-gray-200 dark:bg-gray-900 flex flex-col md:flex-row md:items-center p-[20px] pt-[32px] pb-0 border-gray-500 border-b-[1.5px]">
                         <div className="md:grow pt-[20px] pb-[40px] md:p-10">
-                            <h1 className="text-3xl font-medium">On-Spot Registration for WoW 2025</h1>
+                            <h1 className="text-3xl font-medium">On-Spot Registration for WoW 2026</h1>
 
-                            <p className="opacity-60 mt-3 text-lg">28-29th June 2025</p>
+                            <p className="opacity-60 mt-3 text-lg">4-5th July 2026</p>
 
                             <p className="opacity-60">
                                 GITAM Deemed to be University, Visakhapatnam

@@ -202,7 +202,7 @@ const MyForm: React.FC = () => {
               const originalBody = {
                 course: formState.course,
                 accommodation: formState.accommodation === 1,
-                description: "WoW 2025 Registration",
+                description: "WoW 2026 Registration",
                 userId: user?.uid,
                 amount: calculatedAmount * 100, // Convert to paise
                 firstName: formState.firstName,
@@ -211,7 +211,7 @@ const MyForm: React.FC = () => {
               // Prepare the request body - send the encrypted parts
               const requestBodyToSend = JSON.stringify(encryptedPayload);
               const url =
-                "https://asia-south1-wonder-of-wonders-2025.cloudfunctions.net/createOrder";
+                "https://asia-south1-wonder-of-wonders-2026.cloudfunctions.net/createOrder";
               try {
                 const response = await fetch(url, {
                   method: "POST",
@@ -406,7 +406,7 @@ const MyForm: React.FC = () => {
     const originalBody = {
       course: formState.course,
       accommodation: formState.accommodation === 1,
-      description: "WoW 2025 Registration",
+      description: "WoW 2026 Registration",
       userId: user?.uid,
       amount: calculatedAmount * 100, // Convert to paise
       firstName: formState.firstName,
@@ -415,7 +415,7 @@ const MyForm: React.FC = () => {
     // Prepare the request body - send the encrypted parts
     const requestBodyToSend = JSON.stringify(encryptedPayload);
     const url =
-      "https://asia-south1-wonder-of-wonders-2025.cloudfunctions.net/createOrder";
+      "https://asia-south1-wonder-of-wonders-2026.cloudfunctions.net/createOrder";
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -470,9 +470,9 @@ const MyForm: React.FC = () => {
         <div className="flex flex-col justify-center items-center md:rounded-xl md:border-[1.5px] border-gray-500 md:w-4/5">
           <div className="w-full md:rounded-t-xl bg-gray-200 dark:bg-gray-900 flex flex-col md:flex-row md:items-center p-[20px] pt-[32px] pb-0 border-gray-500 border-b-[1.5px]">
             <div className="md:grow pt-[20px] pb-[40px] md:p-10">
-              <h1 className="text-3xl font-medium">Register for WoW 2025</h1>
+              <h1 className="text-3xl font-medium">Register for WoW 2026</h1>
 
-              <p className="opacity-60 mt-3 text-lg">28-29th June 2025</p>
+              <p className="opacity-60 mt-3 text-lg">July 2026</p>
 
               <p className="opacity-60">
                 GITAM Deemed to be University, Visakhapatnam
@@ -501,7 +501,7 @@ const MyForm: React.FC = () => {
                 <li>
                   <b>Get funded</b> for your amazing projects
                 </li>
-                <li>Official 2025 WOW Merchandise</li>
+                <li>Official 2026 WOW Merchandise</li>
                 <li>
                   Access to the <b>official Pixel 9 Photo Booth</b>
                 </li>
@@ -520,7 +520,7 @@ const MyForm: React.FC = () => {
             {/* <h3 className="text-xl font-medium">Create a developer profile</h3>
             <p className="mt-2 max-w-[480px] md:text-base text-sm">
               Create your developer profile to apply for a ticket to GDGoC WOW
-              AP 2025 Visakhapatnam so that you don&apos;t miss out on the fun
+              AP 2026 Visakhapatnam so that you don&apos;t miss out on the fun
               and learning. You can also use your profile to earn badges during
               the conference.
             </p>
@@ -1023,7 +1023,7 @@ const MyForm: React.FC = () => {
                 <EmojiEventsOutlined fontSize="large" className="mt-8" />
                 <h2 className="text-2xl font-medium mt-4">You&apos;re in.</h2>
                 <p className="text-sm mt-4 mb-8 max-w-[420px]">
-                  Excited to host you for WoW 2025.
+                  Excited to host you for WoW 2026.
                   <br />
                   Earn badges and have fun before the event.
                   <br />

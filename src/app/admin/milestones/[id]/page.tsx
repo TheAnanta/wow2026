@@ -95,13 +95,13 @@ export default function Page() {
                     const d6 =
                       (new Date(uR[`${data?.id}_time`].toDate()) as any) -
                         (new Date(
-                          Date.parse("24 Mar 2025 15:30:00 GMT+0530")
+                          Date.parse("24 Mar 2026 15:30:00 GMT+0530")
                         ) as any) <
                       -3600000
                         ? 5
                         : (new Date(uR[`${data?.id}_time`].toDate()) as any) -
                             (new Date(
-                              Date.parse("24 Mar 2025 15:30:00 GMT+0530")
+                              Date.parse("24 Mar 2026 15:30:00 GMT+0530")
                             ) as any) >
                           1800000
                         ? -5

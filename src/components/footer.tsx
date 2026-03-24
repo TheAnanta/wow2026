@@ -8,7 +8,7 @@ export default function Footer() {
       {/* <img src="inline_logo.svg" className="h-16 w-auto mr-auto" /> */}
       <div className="flex flex-col md:flex-row justify-start md:items-center space-y-[14px] md:space-y-[unset] md:space-x-9 text-[13px] md:text-[14px] text-[#727272] cursor-pointer">
         <Link href="/#" className="hover:text-[#1a73e8] font-medium">
-          GDGoC WOW AP 2025
+          GDGoC WOW AP 2026
         </Link>
         <Link href="/agenda" className="hover:text-[#1a73e8] font-medium">
           Agenda

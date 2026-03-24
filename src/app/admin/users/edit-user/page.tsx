@@ -230,7 +230,7 @@ const EditUserForm: React.FC = () => {
                         <div className="md:grow pt-[20px] pb-[40px] md:p-10">
                             <h1 className="text-3xl font-medium">Edit User Information</h1>
 
-                            <p className="opacity-60 mt-3 text-lg">WoW 2025</p>
+                            <p className="opacity-60 mt-3 text-lg">WoW 2026</p>
 
                             <p className="opacity-60">
                                 GITAM Deemed to be University, Visakhapatnam

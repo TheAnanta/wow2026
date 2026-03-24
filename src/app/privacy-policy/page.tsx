@@ -22,13 +22,13 @@ export default function PrivacyPolicyPage() {
     <main className="max-w-3xl mx-auto px-4 py-10 text-gray-800 dark:text-gray-200">
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
-        Effective Date: 28-29th June 2025
+        Effective Date: July 2026
       </p>
 
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">1. Introduction</h2>
         <p>
-          GDGoC WoW 2025 Andhra Pradesh (&quot;we,&quot; &quot;our,&quot; or
+          GDGoC WoW 2026 Andhra Pradesh (&quot;we,&quot; &quot;our,&quot; or
           &quot;us&quot;) is committed to protecting your privacy. This Privacy
           Policy outlines how we collect, use, disclose, and safeguard your
           information when you visit our website{" "}
@@ -152,7 +152,7 @@ export default function PrivacyPolicyPage() {
           If you have any questions or concerns about this Privacy Policy,
           please contact us at:
         </p>
-        <p>GDGoC WoW 2025 Andhra Pradesh</p>
+        <p>GDGoC WoW 2026 Andhra Pradesh</p>
         <p>
           Email:{" "}
           <a

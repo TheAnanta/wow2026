@@ -51,13 +51,13 @@ export default function Page() {
           <br />
           <h3>Date and location</h3>
           <p>
-            World of Wonders (WoW) 2025 Visakhapatnam will take place on the
-            28-29th June 2025 at GITAM (Deemed to be University), Visakhapatnam.
+            World of Wonders (WoW) 2026 Visakhapatnam will take place on the
+            4-5th July 2026 at GITAM (Deemed to be University), Visakhapatnam.
           </p>{" "}
           <br />
-          <h3>The official WOW25 app</h3>
+          <h3>The official WOW26 app</h3>
           <p>
-            The official WoW 2025 Visakhapatnam app will be your go-to resource
+            The official WoW 2026 Visakhapatnam app will be your go-to resource
             to unlocking the best experience at the event. It will be your
             companion for the event, providing you with all the event-related
             information. You can access the schedule, speaker details, and more
@@ -68,11 +68,11 @@ export default function Page() {
           <h3>Stay Informed</h3>
           <p>
             To stay up to date on the latest information on sessions, speakers,
-            and activities, be sure to visit the WoW 2025 Visakapatnam website,
+            and activities, be sure to visit the WoW 2026 Visakapatnam website,
             and follow us on{" "}
             <a href="https://instagram.com/gdgocwowap">Instagram Page</a>. You
-            can also follow and join the social conversation about WoW 2025
-            Visakhapatnam via official hashtags <b>#wowxap25</b>. In addition,
+            can also follow and join the social conversation about WoW 2026
+            Visakhapatnam via official hashtags <b>#wowxap26</b>. In addition,
             we'll be emailing important information to all registered attendees,
             along with check-in instructions prior to the conference. Make sure
             to add gdscwowvizag@gmail.com to your contacts to not let a mail
@@ -86,7 +86,7 @@ export default function Page() {
           </p>
           <br />
           <h3>Language</h3>
-          <p>All presentations at WoW 2025 Visakhapatnam will be in English.</p>
+          <p>All presentations at WoW 2026 Visakhapatnam will be in English.</p>
           <br />
         </div>
       </div>
@@ -97,17 +97,17 @@ export default function Page() {
         <div className="mt-6 md:mt-[unset]">
           <h3>Overview</h3>
           <p>
-            The WoW 2025 Visakhapatnam Hackathon is a 24-hour event where
+            The WoW 2026 Visakhapatnam Hackathon is a 24-hour event where
             participants will work in teams to build innovative solutions using
             the latest technologies.
             <br />
             <br />
-            The hackathon will take place on the 28th-29th June 2025, starting
+            The hackathon will take place on the 4th-5th July 2026, starting
             at 06:00 PM on the 28th and ending at 01:00 PM on the 29th.
           </p>{" "}
           <h3>Eligibility</h3>
           <p>
-            The hackathon is open to all registered attendees of WoW 2025
+            The hackathon is open to all registered attendees of WoW 2026
             Visakhapatnam. Participants can register as individuals or in teams
             of up to 5 members. Teams can be formed on the spot during the
             event.
@@ -181,7 +181,7 @@ export default function Page() {
             Accommodation details will be shared with registered attendees
             closer to the event date. Accommodation will be provided for the{" "}
             <span className="text-blue-500 google-font font-bold">
-              night of 28th June 2025
+              night of 4th July 2026
             </span>{" "}
             at GITAM (Deemed to be University), Visakhapatnam. The cost of
             accommodation is ₹200, which will be{" "}
@@ -191,7 +191,7 @@ export default function Page() {
             in the event registration fee. The checkout time for accommodation
             is{" "}
             <span className="text-amber-500 google-font font-bold">
-              7:00 PM on 29th June 2025
+              7:00 PM on 5th July 2026
             </span>
             .
             <br /> Accommodation will be provided in the{" "}
@@ -203,7 +203,7 @@ export default function Page() {
             <span className="text-blue-500 google-font font-bold">
               If you wish to extend your stay
             </span>
-            , you can manage your stay through the official WoW 2025
+            , you can manage your stay through the official WoW 2026
             Visakhapatnam app, which will be available for download closer to
             the event date.
           </p>{" "}
@@ -232,7 +232,7 @@ export default function Page() {
             </li>
             <li>
               By registering and accepting any discounts, gifts, or items of
-              value related to WoW 2025 Visakhapatnam, you certify that you are
+              value related to WoW 2026 Visakhapatnam, you certify that you are
               able to do so in compliance with applicable laws and the internal
               rules of your organization.
             </li>
@@ -242,7 +242,7 @@ export default function Page() {
               null and void without any responsibility to GDGoC Andhra Pradesh.
             </li>
             <li>
-              Attendees aren't permitted to bring guests to WoW 2025
+              Attendees aren't permitted to bring guests to WoW 2026
               Visakhapatnam.
             </li>
             <li>
@@ -250,7 +250,7 @@ export default function Page() {
               themselves and purchase an attendee ticket.
             </li>
             <li>
-              Photographs and/or video taken at WoW 2025 Visakhapatnam by GDGoC
+              Photographs and/or video taken at WoW 2026 Visakhapatnam by GDGoC
               Andhra Pradesh, or others on behalf of GDGoC Andhra Pradesh, may
               include your image or likeness.
             </li>
@@ -274,16 +274,16 @@ export default function Page() {
             </li>
             <li>
               You agree to be solely responsible for your own safety,
-              belongings, and well-being while participating in WoW 2025
+              belongings, and well-being while participating in WoW 2026
               Visakhapatnam.
             </li>
             <li>
               GDGoC Andhra Pradesh won't be liable for your participation in WoW
-              2025 Visakhapatnam.
+              2026 Visakhapatnam.
             </li>
             <li>
               No solicitation or selling of items or services is allowed at WoW
-              2025 Visakhapatnam.
+              2026 Visakhapatnam.
             </li>
             <li>
               Any attendee conducting these activities may be removed from the
@@ -299,7 +299,7 @@ export default function Page() {
         <div className="mt-6 md:mt-[unset]">
           <h3>Event Attire</h3>
           <p>
-            WoW 2025 Visakhapatnam is a developer event, so please be
+            WoW 2026 Visakhapatnam is a developer event, so please be
             comfortable and casual. There is no enforced dress code.
           </p>
           <h3>Onsite food & beverages</h3>
@@ -312,7 +312,7 @@ export default function Page() {
           <h3>No Soliciting</h3>
           <p>
             No solicitation or selling of items or services is allowed at WoW
-            2025 Visakhapatnam. Any attendee conducting these activities may be
+            2026 Visakhapatnam. Any attendee conducting these activities may be
             removed from the conference.
           </p>
           <h3>Community Guidelines</h3>

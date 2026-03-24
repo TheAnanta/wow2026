@@ -28,7 +28,7 @@ export default function SponsorUs() {
       </p> */}
       <iframe
         title="Sponsorship Prospectus"
-        src="https://docs.google.com/gview?url=https://wow.vizag.dev/Wonder%20of%20Wonders%202025%20-%20Default.pdf&embedded=true"
+        src="https://docs.google.com/gview?url=https://wow.vizag.dev/Wonder%20of%20Wonders%202026%20-%20Default.pdf&embedded=true"
         className="w-full h-[80vh] border-2 border-black dark:border-white rounded-3xl"
       ></iframe>
     </div>

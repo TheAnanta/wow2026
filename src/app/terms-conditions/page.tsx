@@ -23,23 +23,23 @@ export default function TermsConditionsPage() {
   return (
     <div className="p-[20px] md:p-[60px] faq flex flex-col mt-6 md:mt-[unset]">
       <h1 className="font-bold text-4xl mb-5">
-        GDGoC WoW 2025 Terms & Conditions
+        GDGoC WoW 2026 Terms & Conditions
       </h1>
       <div className="pb-10">
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-10">
-          Last updated on: May 24, 2025
+          Last updated on: May 24, 2026
         </p>
 
         <p className="mb-6">
           These Terms and Conditions, along with the Privacy Policy and any
           additional terms (“Terms”), constitute a binding agreement between
-          GDGoC WoW 2025 Andhra Pradesh (“we,” “our,” “us”) and you (“you,”
+          GDGoC WoW 2026 Andhra Pradesh (“we,” “our,” “us”) and you (“you,”
           “your”), and govern your use of our website and mobile application{" "}
           <a href="https://wow.vizag.dev" className="text-blue-600 underline">
             wow.vizag.dev
           </a>{" "}
-          , dev.theananta.wow2025 and participation in any event, service, or interaction associated
-          with GDGoC WoW 2025 (collectively, the “Services”).
+          , dev.theananta.wow2026 and participation in any event, service, or interaction associated
+          with GDGoC WoW 2026 (collectively, the “Services”).
         </p>
 
         <p className="mb-6">
@@ -70,7 +70,7 @@ export default function TermsConditionsPage() {
         </h2>
         <p className="mb-6">
           All content, branding, logos, and materials are the intellectual
-          property of GDGoC WoW 2025 Andhra Pradesh or its partners. You may not
+          property of GDGoC WoW 2026 Andhra Pradesh or its partners. You may not
           reuse them without written permission.
         </p>
 
@@ -151,7 +151,7 @@ export default function TermsConditionsPage() {
         </h2>
         <p className="mb-6">
           The website, app and related digital infrastructure are developed and
-          maintained by <strong>Manas Malla</strong> for the GDGoC WoW 2025
+          maintained by <strong>Manas Malla</strong> for the GDGoC WoW 2026
           Andhra Pradesh initiative.
         </p>
       </div>

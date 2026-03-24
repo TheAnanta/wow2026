@@ -229,7 +229,7 @@ export default function AdminTeamConfirmation() {
                             {mainData.eventInfo.name}
                         </h2>
 
-                        <p className="mt-3 text-lg">28-29th June 2025</p>
+                        <p className="mt-3 text-lg">28-29th June 2026</p>
                         <p>GITAM Deemed to be University, Visakhapatnam</p>
                     </div>
                     <img

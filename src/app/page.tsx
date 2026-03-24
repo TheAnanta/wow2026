@@ -94,7 +94,7 @@ function HeroBentoLeft({
             </a>{" "}
             <Tooltip
               id="coming-soon"
-              content="Registration will open soon on 5th June 2025 6:00 PM IST"
+              content="Registration will open soon on 5th July 2026 6:00 PM IST"
             ></Tooltip>
           </>
         )}
@@ -403,10 +403,10 @@ export default function Home() {
           <HeroBentoLeft userProgress={userProgress} />
           <div className="py-2 bg-[#000000] w-full text-white overflow-hidden md:hidden">
             <Marquee>
-              <p className="mx-4">WOW 2025 Andhra Pradesh •</p>
-              <p className="mx-4">WOW 2025 Andhra Pradesh •</p>
-              <p className="mx-4">WOW 2025 Andhra Pradesh •</p>
-              <p className="mx-4">WOW 2025 Andhra Pradesh •</p>
+              <p className="mx-4">WOW 2026 Andhra Pradesh •</p>
+              <p className="mx-4">WOW 2026 Andhra Pradesh •</p>
+              <p className="mx-4">WOW 2026 Andhra Pradesh •</p>
+              <p className="mx-4">WOW 2026 Andhra Pradesh •</p>
             </Marquee>
           </div>
           <div className="mt-4 md:mt-[unset] md:w-full flex flex-col gap-4 mx-4 md:mx-[auto]">

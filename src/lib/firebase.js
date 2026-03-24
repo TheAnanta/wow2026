@@ -15,9 +15,9 @@ const provider = new GoogleAuthProvider();
 
 const firebaseConfig = {
   apiKey: "AIzaSyCjVYUXWpzZ237nGgMEC2Qb2G61tYjSOLY",
-  authDomain: "wonder-of-wonders-2025.firebaseapp.com",
-  projectId: "wonder-of-wonders-2025",
-  storageBucket: "wonder-of-wonders-2025.firebasestorage.app",
+  authDomain: "wonder-of-wonders-2026.firebaseapp.com",
+  projectId: "wonder-of-wonders-2026",
+  storageBucket: "wonder-of-wonders-2026.firebasestorage.app",
   messagingSenderId: "1065450620167",
   appId: "1:1065450620167:web:48e8ffefd5ede78b7031a2",
   measurementId: "G-YVLFWJQSR1",

@@ -204,7 +204,7 @@ export default function Confirmation() {
               {teamName} #{teamNumber == -1 ? "" : teamNumber}
             </h2>
 
-            <p className="mt-3 text-lg">28-29th June 2025</p>
+            <p className="mt-3 text-lg">July 2026</p>
             <p>GITAM Deemed to be University Visakhapatnam</p>
           </div>
           <img
@@ -416,7 +416,7 @@ export default function Confirmation() {
                   <PeopleOutline fontSize="large" className="mt-8" />
                   <h2 className="text-2xl font-medium mt-4">Team Updated.</h2>
                   <p className="text-sm mt-4 mb-8 max-w-[420px]">
-                    Excited to host your team for WoW 2025.
+                    Excited to host your team for WoW 2026.
                     <br />
                     Earn badges and have fun before the event.
                   </p>

@@ -231,8 +231,8 @@ export default function CertificatePage() {
 
     const certificateName =
       type === "participation"
-        ? "GDGoC_WoW_AP_2025_Participation_Certificate.png"
-        : "GDGoC_WoW_AP_2025_Achievement_Certificate.png";
+        ? "GDGoC_WoW_AP_2026_Participation_Certificate.png"
+        : "GDGoC_WoW_AP_2026_Achievement_Certificate.png";
 
     // Create a temporary anchor element to trigger download
     const link = document.createElement("a");
@@ -428,7 +428,7 @@ export default function CertificatePage() {
               Certificates
             </h1>
             <p className="text-lg text-gray-600 dark:text-white">
-              Download your certificates for GDGoC WoW AP 2025
+              Download your certificates for GDGoC WoW AP 2026
             </p>
             {isWinner && (
               <div className="mt-4 p-3 bg-green-100 border border-green-400 rounded-lg">
@@ -454,7 +454,7 @@ export default function CertificatePage() {
                 </h2>
                 <p className="text-gray-600 mb-6">
                   This is to certify that you have successfully participated in
-                  GDGoC WoW AP 2025
+                  GDGoC WoW AP 2026
                 </p>
                 <div className="border-2 border-gray-900 rounded-lg p-4 mb-6 bg-gray-100 relative">
                   <div className="relative w-full h-64">
@@ -548,7 +548,7 @@ export default function CertificatePage() {
                   </h2>
                   <p className="text-gray-600 mb-6">
                     For hackathon winners and outstanding performers at GDGoC
-                    WoW AP 2025
+                    WoW AP 2026
                   </p>
                   <div className="border-2 border-gray-900 rounded-lg p-4 mb-6 bg-gray-100 relative">
                     <div className="relative w-full h-64">
