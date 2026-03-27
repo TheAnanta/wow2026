@@ -1,0 +1,108 @@
+/* src/components/sections/Hero.module.css */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.logoGraphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.logoRect {
+  width: 100px;
+  height: 200px;
+  background: linear-gradient(to bottom, var(--color-yellow), var(--color-green));
+  border: 1px solid var(--color-border);
+}
+
+.logoSlash {
+  width: 1px;
+  height: 240px;
+  background: var(--color-border);
+  transform: rotate(20deg);
+}
+
+.logoCircle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  border: 1px solid var(--color-border);
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.timeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  width: 140px;
+  height: 120px;
+  background: var(--color-bg);
+  position: relative;
+}
+
+/* Bottom color ribbons */
+.timeBox::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+}
+
+.timeBox:nth-child(1)::after { background: var(--color-blue); }
+.timeBox:nth-child(2)::after { background: var(--color-yellow); }
+.timeBox:nth-child(3)::after { background: var(--color-green); }
+.timeBox:nth-child(4)::after { background: var(--color-red); }
+
+.timeNumber {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.timeLabel {
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+}
