@@ -33,17 +33,17 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
   };
 
   const handleNext = async () => {
-    if (currentStep === 3) {
+    if (currentStep === 2) {
       setIsSubmitting(true);
       try {
         const result = await submitRegistration(data);
         if (result.success) {
-          setCurrentStep(4);
+          setCurrentStep(3);
         } else {
-          setErrorType('signin'); // Simulated sign-in error
+          setErrorType('signin');
         }
       } catch (err) {
-        setErrorType('account'); // Simulated account error
+        setErrorType('account');
       } finally {
         setIsSubmitting(false);
       }
@@ -56,6 +56,7 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
     setCurrentStep((prev) => Math.max(1, prev - 1));
   };
 
+
   const handleTryAgain = () => {
     setErrorType(null);
     setCurrentStep(1);
@@ -65,7 +66,7 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
     <div className={styles.overlay}>
       <div className={styles.modal}>
         {/* Header (not visible on success/error states according to some screens) */}
-        {!errorType && currentStep < 4 && (
+        {!errorType && currentStep < 3 && (
           <div className={styles.header}>
             <h2 className={styles.headerTitle}>Register for I/O</h2>
             <button className={styles.closeButton} onClick={onClose} aria-label="Close">
@@ -75,27 +76,50 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
         )}
 
         {/* Global Progress Graphic Area */}
-        {!errorType && currentStep < 4 && (
+        {!errorType && currentStep < 3 && (
           <div className={styles.banner}>
             <div className={styles.bannerGraphic}>
-              {/* Simple CSS Graphic Placeholder */}
-              <div style={{
-                width: '60px',
-                height: '60px',
-                border: '2px solid black',
-                borderRadius: '50%',
-                background: 'var(--primary-gradient)',
-                position: 'relative'
-              }}>
+              {/* Abstract Google I/O Shapes per screenshot */}
+              <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                {/* Fan Spectrum */}
                 <div style={{
                   position: 'absolute',
-                  top: '-10px',
-                  right: '-10px',
+                  bottom: '0',
+                  width: '200px',
+                  height: '100px',
+                  background: 'conic-gradient(from 180deg at 50% 100%, #8BC34A, #FFEB3B, #FF9800, #F44336, #9C27B0, #2196F3, #00BCD4)',
+                  borderRadius: '100px 100px 0 0',
+                  opacity: 0.8
+                }}></div>
+                {/* Pentagon */}
+                <div style={{
+                  position: 'absolute',
+                  top: '10px',
+                  left: '60px',
                   width: '30px',
                   height: '30px',
-                  border: '2px solid black',
-                  background: 'white'
+                  background: '#f1f3f4',
+                  border: '1px solid black',
+                  clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)'
                 }}></div>
+                {/* Square */}
+                <div style={{
+                  position: 'absolute',
+                  top: '40px',
+                  left: '100px',
+                  width: '24px',
+                  height: '24px',
+                  background: 'white',
+                  border: '1px solid black',
+                  transform: 'rotate(15deg)'
+                }}></div>
+                {/* Star/Pencil Sparkle */}
+                <div style={{
+                  position: 'absolute',
+                  top: '15px',
+                  right: '70px',
+                  fontSize: '24px'
+                }}>✨</div>
               </div>
             </div>
           </div>
@@ -117,7 +141,7 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
         )}
 
         {/* Mobile Close Button for full-screen states if needed */}
-        {(errorType || currentStep === 4) && (
+        {(errorType || currentStep === 3) && (
           <button 
             className={styles.closeButton} 
             style={{ position: 'absolute', top: '20px', right: '20px' }} 

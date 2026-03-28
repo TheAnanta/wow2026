@@ -2,7 +2,7 @@
 
 export interface RegistrationProfile {
   displayName: string;
-  pronoun?: string;
+  pronoun: string;
   cityTown: string;
   role: string;
 }
@@ -14,20 +14,92 @@ export interface RegistrationData extends RegistrationProfile {
   marketingConsent: boolean;
 }
 
+import { getBearerToken, auth } from './firebase';
+
+const API_BASE_URL = 'https://jqs21msv-54321.inc1.devtunnels.ms/functions/v1/nowingoogle-backend/api';
+
 export const validateProfile = (data: Partial<RegistrationProfile>): { [key: string]: string } => {
   const errors: { [key: string]: string } = {};
-  if (!data.displayName) errors.displayName = 'Display name is required';
-  if (!data.cityTown) errors.cityTown = 'City/town is required';
-  if (!data.role) errors.role = 'Role or job title is required';
+  if (!data.displayName?.trim()) errors.displayName = 'Display name is required.';
+  if (!data.cityTown?.trim()) errors.cityTown = 'City or town is required.';
   return errors;
 };
 
-export const submitRegistration = async (formData: RegistrationData): Promise<{ success: boolean; message: string }> => {
-  console.log('Submitting Registration:', formData);
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      // Simulate success
-      resolve({ success: true, message: 'Successfully registered!' });
-    }, 1500);
-  });
+/**
+ * Real Registration Integration with Dynamic Firebase Token
+ */
+export const submitRegistration = async (data: RegistrationData): Promise<{ success: boolean; data?: any; error?: string }> => {
+  try {
+    const token = await getBearerToken();
+    const user = auth.currentUser;
+    if (!token || !user) return { success: false, error: 'User is not authenticated with Firebase' };
+
+    // Robust Name Splitting or Fallback to Firebase Data
+    const fullName = data.displayName || user.displayName || 'User';
+    const nameParts = fullName.trim().split(/\s+/);
+    const firstName = nameParts[0] || 'User';
+    const lastName = nameParts.slice(1).join(' ') || '.'; // Fallback '.' if empty
+
+    // Map UI Data to API Model using Real Firebase Context
+    const apiPayload = {
+      username: (data.displayName || user.displayName || 'user').toLowerCase().replace(/\s+/g, '_'),
+      first_name: firstName,
+      last_name: lastName,
+      email: user.email || 'manasmalla.dev@gmail.com',
+      phone: '', 
+      gender: 'MALE', 
+      bio: 'Developer at I/O 2026', // Improved default
+      designation: data.role || 'Developer',
+      organization: 'Google', 
+      city: data.cityTown || 'Global',
+      interests: data.interests || [],
+      profile_url: user.photoURL || ''
+    };
+
+    console.log('Sending Registration to API:', apiPayload);
+
+    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(apiPayload)
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('API Error Response:', errorData);
+      return { success: false, error: errorData.message || 'Registration failed' };
+    }
+
+    const result = await response.json();
+    return { success: true, data: result };
+
+  } catch (error: any) {
+    console.error('Registration Catch Error:', error);
+    return { success: false, error: error.message };
+  }
+};
+
+/**
+ * Fetch profile using the dynamic Firebase Token
+ */
+export const fetchCurrentUser = async () => {
+  try {
+    const token = await getBearerToken();
+    if (!token) return null;
+
+    const response = await fetch(`${API_BASE_URL}/auth/me`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    if (!response.ok) return null;
+    return await response.json();
+  } catch (err) {
+    return null;
+  }
 };

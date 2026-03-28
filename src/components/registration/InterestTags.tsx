@@ -8,8 +8,7 @@ interface InterestTagsProps {
 }
 
 const INTERESTS = [
-  'Accessibility', 'Android', 'AI/Machine Learning', 'AR/VR', 'Chrome OS', 'Cloud', 
-  'Design', 'Firebase', 'Mobile', 'Open Source', 'Security', 'Web', 'Workshop'
+  'Android', 'Mobile', 'AI/Machine Learning', 'Web', 'Cloud', 'Open Source', 'Design', 'Location/Maps'
 ];
 
 export const InterestTags: React.FC<InterestTagsProps> = ({ selectedInterests, toggleInterest }) => {
