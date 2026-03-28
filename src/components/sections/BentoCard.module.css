@@ -29,6 +29,7 @@
   margin-bottom: 1.5rem;
   z-index: 1;
   max-width: 80%;
+  white-space: pre-wrap;
 }
 
 .action {

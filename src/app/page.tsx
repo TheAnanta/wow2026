@@ -1,66 +1,179 @@
+// src/app/page.tsx
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/home.module.css';
 import { Header } from '../components/sections/Header';
-import { Hero } from '../components/sections/Hero';
-import { BentoCard } from '../components/sections/BentoCard';
 import { Footer } from '../components/sections/Footer';
-import { RegistrationOverlay } from '../components/sections/RegistrationOverlay';
-import { handleSaveToMyIO } from '../services/stubs';
+import { RegistrationWizard } from '../components/registration/RegistrationWizard';
+import { BentoCard } from '../components/sections/BentoCard';
+import { SessionCard } from '../components/dashboard/SessionCard';
+import { FilterSidebar } from '../components/dashboard/FilterSidebar';
+import { fetchSessions } from '../services/stubs';
 
 export default function Home() {
   const [showRegistration, setShowRegistration] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
+  const [sessions, setSessions] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState<'saved' | 'recommended'>('recommended');
+
+  useEffect(() => {
+    const loadSessions = async () => {
+      setLoading(true);
+      const data = await fetchSessions({});
+      setSessions(data);
+      setLoading(false);
+    };
+    loadSessions();
+  }, []);
 
   return (
     <div className={styles.main}>
+      {showBanner && (
+        <div className={styles.banner}>
+          <span>All content will be available May 14 at 8 AM PT.</span>
+          <button className={styles.bannerClose} onClick={() => setShowBanner(false)}>&times;</button>
+        </div>
+      )}
+
       <Header onRegisterClick={() => setShowRegistration(true)} />
-      
-      <div className={styles.perspectiveGridWrapper}>
-        <div className={styles.perspectiveBg}></div>
-        <Hero onRegisterClick={() => setShowRegistration(true)} />
-      </div>
 
-      <main className={styles.contentContainer}>
-        {/* Top Bento Grid Row */}
-        <div className={styles.bentoGrid}>
-          <BentoCard 
-            title="Join a community group" 
-            description="Meet developers, discover local groups, and build your global network."
-            buttonText="Get started"
-            onButtonClick={() => console.log('Get started community group')}
-            className="grid-col-span-8"
-            style={{ gridColumn: 'span 8' }}
+      {/* Plan your I/O Hero */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <h1 className={styles.title}>Plan your I/O</h1>
+          <p className={styles.subtitle}>
+            Save keynotes, technical sessions, and learning experiences so you don't miss a thing.
+          </p>
+          <button 
+            style={{ 
+              background: '#1a73e8', 
+              color: '#fff', 
+              border: 'none', 
+              padding: '0.75rem 2rem', 
+              borderRadius: '9999px',
+              fontWeight: 700,
+              cursor: 'pointer'
+            }}
+            onClick={() => console.log('See all content')}
           >
-            <div style={{ width: '120px', height: '120px', borderTopLeftRadius: '100%', background: 'var(--primary-gradient)', border: '1px solid var(--color-border)' }}></div>
-          </BentoCard>
+            See all content
+          </button>
+        </div>
+        
+        <div className={styles.heroGraphic}>
+          <div className={styles.floorGrid}></div>
+          <div className={styles.monitorWrapper}>
+            <div className={styles.monitorContent}></div>
+            <div style={{
+              position: 'absolute',
+              top: '10px',
+              left: '10px',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              color: '#000000',
+              zIndex: 10
+            }}>OOO</div>
+          </div>
+        </div>
+      </section>
 
-          <BentoCard 
-            title="Plan your I/O" 
-            description="Notify I/O for saved content and recommendations based on your personal interests."
-            buttonText="Get started"
-            onButtonClick={() => handleSaveToMyIO('plan-io')}
-            className="grid-col-span-4"
-            style={{ gridColumn: 'span 4' }}
-          >
-            <div style={{ width: '80px', height: '80px', borderTopLeftRadius: '16px', background: 'linear-gradient(135deg, var(--color-blue), var(--color-red))' }}></div>
-          </BentoCard>
+      {/* Featured Categories (Bento) */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>What are you building for?</h2>
+          <a href="/speakers" className={styles.sectionLink}>Meet the I/O speakers</a>
+        </div>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
+          {[
+            { title: 'Mobile', desc: 'Develop for a range of audiences and form factors.' },
+            { title: 'Web', desc: 'Create fast, secure sites and apps for the open web.' },
+            { title: 'ML/AI', desc: 'Access cutting edge AI models and open source tools for machine learning.' },
+            { title: 'Cloud', desc: 'Simplify and scale end-to-end development.' },
+          ].map((cat, i) => (
+            <BentoCard key={i} title={cat.title} description={cat.desc} />
+          ))}
+        </div>
+      </section>
+
+      {/* My I/O Section */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle} style={{ marginBottom: '1rem' }}>My I/O</h2>
+        <p style={{ fontSize: '0.875rem', color: '#5f6368', marginBottom: '2.5rem' }}>
+          Your saved content are automatically saved in your <a href="#" style={{ textDecoration: 'underline', color: 'inherit' }}>developer profile.</a>
+        </p>
+
+        {/* Dashboard Widget */}
+        <div className={styles.myIOWidget}>
+          <div className={styles.widgetHeader}>
+            <div 
+              className={`${styles.widgetTab} ${activeTab === 'saved' ? styles.widgetTabActive : ''}`}
+              onClick={() => setActiveTab('saved')}
+            >
+              <span style={{ fontSize: '1.5rem' }}>📘</span>
+              <span>Saved content</span>
+            </div>
+            <div 
+              className={`${styles.widgetTab} ${activeTab === 'recommended' ? styles.widgetTabActive : ''}`}
+              onClick={() => setActiveTab('recommended')}
+            >
+              <span style={{ fontSize: '1.5rem' }}>🎯</span>
+              <span>Recommended for you</span>
+              <span style={{ marginLeft: 'auto', fontSize: '0.75rem', fontWeight: 500, opacity: 0.6 }}>Hide ▲</span>
+            </div>
+          </div>
+          <div className={styles.widgetContent}>
+            {loading ? (
+              <p>Loading sessions...</p>
+            ) : (
+              sessions.slice(0, 3).map(session => (
+                <div key={session.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', borderBottom: '1px solid #E0E0E0' }}>
+                  <div style={{ fontWeight: 600 }}>{session.title}</div>
+                  <div style={{ fontSize: '1.25rem' }}>🔖</div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
 
-        {/* Second Bento Grid Row */}
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 500, margin: '3rem 0 1rem', color: 'var(--color-text)' }}>What are you building for?</h2>
-        <div className={styles.bentoGrid} style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-          <BentoCard title="Mobile" description="Develop for a range of audiences and form factors." style={{ height: '240px' }} />
-          <BentoCard title="Web" description="Create fast, secure sites and apps for the open web." style={{ height: '240px' }} />
-          <BentoCard title="ML/AI" description="Access cutting edge AI models and open source tools for machine learning." style={{ height: '240px' }} />
-          <BentoCard title="Cloud" description="Simplify and scale end-to-end development." style={{ height: '240px' }} />
+        {/* Main Dashboard Layout */}
+        <div className={styles.dashboard}>
+          <div className={styles.sidebarWrapper}>
+            <FilterSidebar />
+          </div>
+          
+          <div className={styles.mainContent}>
+            <div className={styles.sessionGrid}>
+              {loading ? (
+                <p>Loading grid...</p>
+              ) : (
+                sessions.map(session => (
+                    <SessionCard 
+                      key={session.id} 
+                      id={session.id} 
+                      title={session.title} 
+                      time={session.time} 
+                      tags={session.tags}
+                      bookmarkedInitial={session.bookmarked}
+                    />
+                ))
+              )}
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Mobile FAB */}
+      <button className={styles.filterFab} onClick={() => console.log('Open mobile filters')}>
+        Filter
+      </button>
 
       <Footer />
 
       {showRegistration && (
-        <RegistrationOverlay onClose={() => setShowRegistration(false)} />
+        <RegistrationWizard onClose={() => setShowRegistration(false)} />
       )}
     </div>
   );

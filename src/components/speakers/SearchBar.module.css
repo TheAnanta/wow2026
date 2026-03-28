@@ -1,0 +1,27 @@
+/* src/components/speakers/SearchBar.module.css */
+.container {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background-color: var(--color-bg);
+  padding: 0.75rem 1.5rem;
+  width: 100%;
+}
+
+.icon {
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 100%;
+  background: transparent;
+  color: var(--color-text);
+}

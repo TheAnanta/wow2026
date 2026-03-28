@@ -1,0 +1,205 @@
+/* src/styles/community.module.css */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem 2rem 4rem;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 600px;
+  z-index: 10;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+.graphic {
+  position: absolute;
+  right: 2rem;
+  bottom: -40px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+  transform: perspective(1000px) rotateX(20deg) rotateZ(-15deg);
+  overflow: hidden;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.graphicQ1 { position: absolute; top:0; left: 50%; right:0; bottom: 50%; background: var(--color-blue); }
+.graphicQ2 { position: absolute; top:0; left: 0; right: 50%; bottom: 50%; background: var(--color-green); }
+.graphicQ3 { position: absolute; top:50%; left: 0; right: 50%; bottom: 0; background: var(--color-yellow); }
+.graphicQ4 { position: absolute; top:50%; left: 50%; right:0; bottom: 0; background: var(--color-red); }
+
+/* Main Section */
+.main {
+  padding: 4rem 2rem;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.searchInput input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  width: 100%;
+  background: transparent;
+}
+
+.seeAllLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* Results Grid */
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+}
+
+.resultIcon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  margin-right: 1rem;
+  background: linear-gradient(135deg, var(--color-green), var(--color-blue));
+}
+
+.resultInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultTitle {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.resultLink {
+  font-size: 0.875rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Community Cards Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.communityCard {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.cardTop {
+  height: 200px;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.cardBottom {
+  padding: 1.5rem;
+  background: #202124;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 120px;
+}
+
+.cardBottomTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.cardBottomLink {
+  font-size: 0.875rem;
+  text-decoration: underline;
+  color: #FFFFFF;
+}
+
+.bottomPromoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}

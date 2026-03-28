@@ -11,11 +11,12 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        Google <span>I/O</span>
+        <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>Google <span>I/O</span></a>
       </div>
       <nav className={styles.nav}>
-        <a href="#explore">Explore</a>
-        <a href="#community">Community</a>
+        <a href="/">Explore</a>
+        <a href="/speakers">Speakers</a>
+        <a href="/community">Community</a>
         <a href="#about">About</a>
       </nav>
       <div className={styles.actions}>
