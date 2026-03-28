@@ -38,6 +38,7 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
       try {
         const result = await submitRegistration(data);
         if (result.success) {
+          window.dispatchEvent(new CustomEvent('registrationSuccess'));
           setCurrentStep(3);
         } else {
           setErrorType('signin');
@@ -137,6 +138,7 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
             updateData={updateData} 
             onNext={handleNext} 
             onPrevious={handlePrevious} 
+            onClose={onClose}
           />
         )}
 

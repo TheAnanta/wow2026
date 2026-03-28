@@ -46,11 +46,11 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
       first_name: firstName,
       last_name: lastName,
       email: user.email || 'manasmalla.dev@gmail.com',
-      phone: '', 
-      gender: 'MALE', 
+      phone: '',
+      gender: 'MALE',
       bio: 'Developer at I/O 2026', // Improved default
       designation: data.role || 'Developer',
-      organization: 'Google', 
+      organization: 'Google',
       city: data.cityTown || 'Global',
       interests: data.interests || [],
       profile_url: user.photoURL || ''
@@ -70,6 +70,12 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       console.error('API Error Response:', errorData);
+
+      // If user already exists, treat as success so we don't get stuck in a loop
+      if (errorData.message?.toLowerCase().includes('already exists')) {
+        return { success: true, data: errorData.data || errorData };
+      }
+
       return { success: false, error: errorData.message || 'Registration failed' };
     }
 
@@ -97,9 +103,20 @@ export const fetchCurrentUser = async () => {
       }
     });
 
-    if (!response.ok) return null;
-    return await response.json();
+    //return {isError: false, status: 200};
+
+    if (response.status === 404) return null; // Explicitly unregistered
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('Fetch Current User Error:', response.status, errorData);
+      return { isError: true, status: response.status }; // Indicate a server error
+    }
+
+    const result = await response.json();
+    return result.data || result; // Handle potential nesting
   } catch (err) {
-    return null;
+    console.error('Fetch Current User Cache Error:', err);
+    return { isError: true };
   }
 };

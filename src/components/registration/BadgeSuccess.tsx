@@ -2,7 +2,11 @@
 import React from 'react';
 import styles from './Badge.module.css';
 
-export const BadgeSuccess: React.FC = () => {
+interface BadgeSuccessProps {
+  onClose?: () => void;
+}
+
+export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ onClose }) => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>You earned a badge!</h2>
@@ -35,6 +39,13 @@ export const BadgeSuccess: React.FC = () => {
         <div className={styles.socialBtn}>t</div>
         <div className={styles.socialBtn}>in</div>
         <div className={styles.socialBtn}>🔗</div>
+      </div>
+
+      {/* Done Button */}
+      <div className={styles.doneContainer}>
+        <button className={styles.doneButton} onClick={onClose}>
+          Done
+        </button>
       </div>
 
       <div className={styles.footerLink}>

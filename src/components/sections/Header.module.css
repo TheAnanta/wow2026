@@ -37,5 +37,27 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profilePic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  background-color: #f1f3f4;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profilePic:hover {
+  transform: scale(1.05);
 }

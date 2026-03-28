@@ -1,7 +1,7 @@
 // src/app/page.tsx
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/home.module.css';
 import { Header } from '../components/sections/Header';
 import { Hero } from '../components/sections/Hero';
@@ -9,9 +9,18 @@ import { BentoCard } from '../components/sections/BentoCard';
 import { Footer } from '../components/sections/Footer';
 import { RegistrationWizard } from '../components/registration/RegistrationWizard';
 import { handleSaveToMyIO } from '../services/stubs';
+import { useAuth } from '../context/AuthContext';
 
 export default function Home() {
   const [showRegistration, setShowRegistration] = useState(false);
+  const { isUnregistered, isLoggedIn } = useAuth();
+
+  // Effectively handle the auto-prompt based on Centralized Auth State
+  useEffect(() => {
+    if (isLoggedIn && isUnregistered) {
+      setShowRegistration(true);
+    }
+  }, [isLoggedIn, isUnregistered]);
 
   return (
     <div className={styles.main}>

@@ -14,13 +14,15 @@ interface StepManagerProps {
   updateData: (updates: Partial<RegistrationData>) => void;
   onNext: () => void;
   onPrevious: () => void;
+  onClose?: () => void;
 }
 
 export const StepManager: React.FC<StepManagerProps> = ({ 
   currentStep, 
   data, 
   updateData, 
-  onNext 
+  onNext,
+  onClose
 }) => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isFirebaseLoading, setIsFirebaseLoading] = useState(true);
@@ -223,7 +225,7 @@ export const StepManager: React.FC<StepManagerProps> = ({
         );
 
       case 3:
-        return <BadgeSuccess />;
+        return <BadgeSuccess onClose={onClose} />;
 
       default:
         return null;
