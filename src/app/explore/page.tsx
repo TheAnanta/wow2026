@@ -2,7 +2,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import styles from '../../styles/explore.module.css';
 import { Header } from '../../components/sections/Header';
 import { Footer } from '../../components/sections/Footer';
 import { RegistrationWizard } from '../../components/registration/RegistrationWizard';
@@ -29,64 +28,66 @@ export default function ExplorePage() {
   }, []);
 
   return (
-    <div className={styles.main}>
+    <div className="w-full min-h-screen bg-white">
+      {/* Banner */}
       {showBanner && (
-        <div className={styles.banner}>
+        <div className="bg-[#202124] text-white py-3 px-4 text-center text-sm flex justify-center items-center relative">
           <span>All content will be available May 14 at 8 AM PT.</span>
-          <button className={styles.bannerClose} onClick={() => setShowBanner(false)}>&times;</button>
+          <button
+            className="absolute right-4 bg-transparent border-none text-white text-xl cursor-pointer"
+            onClick={() => setShowBanner(false)}
+          >
+            &times;
+          </button>
         </div>
       )}
 
       <Header onRegisterClick={() => setShowRegistration(true)} />
 
       {/* Plan your I/O Hero */}
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <h1 className={styles.title}>Plan your I/O</h1>
-          <p className={styles.subtitle}>
+      <section className="flex justify-between items-center px-8 pt-24 pb-16 border-b border-[#000000] overflow-hidden relative max-md:flex-col max-md:px-6 max-md:pt-16 max-md:text-center">
+        <div className="max-w-[500px] z-10">
+          <h1 className="text-[4rem] font-bold mb-4 tracking-[-0.02em]">Plan your I/O</h1>
+          <p className="text-lg text-[#5f6368] mb-8">
             Save keynotes, technical sessions, and learning experiences so you don't miss a thing.
           </p>
-          <button 
-            style={{ 
-              background: '#1a73e8', 
-              color: '#fff', 
-              border: 'none', 
-              padding: '0.75rem 2rem', 
-              borderRadius: '9999px',
-              fontWeight: 700,
-              cursor: 'pointer'
-            }}
+          <button
+            style={{ background: '#1a73e8', color: '#fff', border: 'none', padding: '0.75rem 2rem', borderRadius: '9999px', fontWeight: 700, cursor: 'pointer' }}
             onClick={() => console.log('See all content')}
           >
             See all content
           </button>
         </div>
-        
-        <div className={styles.heroGraphic}>
-          <div className={styles.floorGrid}></div>
-          <div className={styles.monitorWrapper}>
-            <div className={styles.monitorContent}></div>
-            <div style={{
-              position: 'absolute',
-              top: '10px',
-              left: '10px',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              color: '#000000',
-              zIndex: 10
-            }}>OOO</div>
+
+        <div className="w-[500px] h-[350px] relative flex justify-center items-center max-md:w-full max-md:mt-8">
+          {/* Floor grid */}
+          <div
+            className="absolute bottom-0 w-full h-[150px] z-[1]"
+            style={{
+              backgroundImage: 'linear-gradient(to right, #E0E0E0 1px, transparent 1px), linear-gradient(to bottom, #E0E0E0 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+              transform: 'perspective(500px) rotateX(60deg)',
+              transformOrigin: 'top',
+            }}
+          />
+          {/* Monitor */}
+          <div className="w-[320px] h-[240px] border-4 border-[#000000] rounded-xl bg-white relative overflow-hidden flex justify-center items-center shadow-[20px_20px_0_#E0E0E0]">
+            <div
+              className="w-[80%] h-[60%] border-4 border-[#000000] rounded-[40px_10px_40px_10px]"
+              style={{ background: 'linear-gradient(135deg, #a4f21d 0%, #00ffff 33%, #4169e1 66%, #ff00ff 100%)' }}
+            />
+            <div className="absolute top-[10px] left-[10px] text-xs font-bold text-[#000000] z-10">OOO</div>
           </div>
         </div>
       </section>
 
-      {/* Featured Categories (Bento) */}
-      <section className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>What are you building for?</h2>
-          <a href="/speakers" className={styles.sectionLink}>Meet the I/O speakers</a>
+      {/* Featured Categories */}
+      <section className="px-8 py-16 max-w-[1440px] mx-auto">
+        <div className="flex justify-between items-end mb-8">
+          <h2 className="text-3xl font-bold">What are you building for?</h2>
+          <a href="/speakers" className="text-sm font-bold underline text-[#000000]">Meet the I/O speakers</a>
         </div>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
+        <div className="grid grid-cols-4 gap-6">
           {[
             { title: 'Mobile', desc: 'Develop for a range of audiences and form factors.' },
             { title: 'Web', desc: 'Create fast, secure sites and apps for the open web.' },
@@ -99,39 +100,39 @@ export default function ExplorePage() {
       </section>
 
       {/* My I/O Section */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle} style={{ marginBottom: '1rem' }}>My I/O</h2>
-        <p style={{ fontSize: '0.875rem', color: '#5f6368', marginBottom: '2.5rem' }}>
-          Your saved content are automatically saved in your <a href="#" style={{ textDecoration: 'underline', color: 'inherit' }}>developer profile.</a>
+      <section className="px-8 py-16 max-w-[1440px] mx-auto pt-0">
+        <h2 className="text-3xl font-bold mb-4">My I/O</h2>
+        <p className="text-sm text-[#5f6368] mb-10">
+          Your saved content are automatically saved in your <a href="#" className="underline text-inherit">developer profile.</a>
         </p>
 
         {/* Dashboard Widget */}
-        <div className={styles.myIOWidget}>
-          <div className={styles.widgetHeader}>
-            <div 
-              className={`${styles.widgetTab} ${activeTab === 'saved' ? styles.widgetTabActive : ''}`}
+        <div className="mb-16 border border-[#000000] rounded-xl overflow-hidden">
+          <div className="bg-white border-b border-[#000000] grid grid-cols-2 gap-0 max-md:grid-cols-1">
+            <div
+              className={`flex items-center gap-4 p-4 cursor-pointer border-r border-[#000000] font-bold max-md:border-r-0 max-md:border-b max-md:border-[#000000] ${activeTab === 'saved' ? 'bg-white' : 'bg-[#f8f9fa]'}`}
               onClick={() => setActiveTab('saved')}
             >
-              <span style={{ fontSize: '1.5rem' }}>📘</span>
+              <span className="text-2xl">📘</span>
               <span>Saved content</span>
             </div>
-            <div 
-              className={`${styles.widgetTab} ${activeTab === 'recommended' ? styles.widgetTabActive : ''}`}
+            <div
+              className={`flex items-center gap-4 p-4 cursor-pointer font-bold ${activeTab === 'recommended' ? 'bg-white' : 'bg-[#f8f9fa]'}`}
               onClick={() => setActiveTab('recommended')}
             >
-              <span style={{ fontSize: '1.5rem' }}>🎯</span>
+              <span className="text-2xl">🎯</span>
               <span>Recommended for you</span>
-              <span style={{ marginLeft: 'auto', fontSize: '0.75rem', fontWeight: 500, opacity: 0.6 }}>Hide ▲</span>
+              <span className="ml-auto text-xs font-medium opacity-60">Hide ▲</span>
             </div>
           </div>
-          <div className={styles.widgetContent}>
+          <div className="p-8 bg-white grid grid-cols-3 gap-6 max-md:grid-cols-1">
             {loading ? (
               <p>Loading sessions...</p>
             ) : (
               sessions.slice(0, 3).map(session => (
-                <div key={session.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', borderBottom: '1px solid #E0E0E0' }}>
-                  <div style={{ fontWeight: 600 }}>{session.title}</div>
-                  <div style={{ fontSize: '1.25rem' }}>🔖</div>
+                <div key={session.id} className="flex justify-between items-center p-4 border-b border-[#E0E0E0]">
+                  <div className="font-semibold">{session.title}</div>
+                  <div className="text-xl">🔖</div>
                 </div>
               ))
             )}
@@ -139,25 +140,24 @@ export default function ExplorePage() {
         </div>
 
         {/* Main Dashboard Layout */}
-        <div className={styles.dashboard}>
-          <div className={styles.sidebarWrapper}>
+        <div className="grid gap-12 items-start max-lg:grid-cols-[240px_1fr] max-lg:gap-8 max-md:grid-cols-1" style={{ gridTemplateColumns: '280px 1fr' }}>
+          <div className="max-md:hidden">
             <FilterSidebar />
           </div>
-          
-          <div className={styles.mainContent}>
-            <div className={styles.sessionGrid}>
+          <div className="flex flex-col w-full">
+            <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
               {loading ? (
                 <p>Loading grid...</p>
               ) : (
                 sessions.map(session => (
-                    <SessionCard 
-                      key={session.id} 
-                      id={session.id} 
-                      title={session.title} 
-                      time={session.time} 
-                      tags={session.tags}
-                      bookmarkedInitial={session.bookmarked}
-                    />
+                  <SessionCard
+                    key={session.id}
+                    id={session.id}
+                    title={session.title}
+                    time={session.time}
+                    tags={session.tags}
+                    bookmarkedInitial={session.bookmarked}
+                  />
                 ))
               )}
             </div>
@@ -166,7 +166,10 @@ export default function ExplorePage() {
       </section>
 
       {/* Mobile FAB */}
-      <button className={styles.filterFab} onClick={() => console.log('Open mobile filters')}>
+      <button
+        className="hidden max-md:block fixed bottom-8 right-6 px-8 py-3 bg-[#000000] text-white border-none rounded-full font-bold z-[100] shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
+        onClick={() => console.log('Open mobile filters')}
+      >
         Filter
       </button>
 

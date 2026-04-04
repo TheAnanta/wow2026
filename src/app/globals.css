@@ -1,35 +1,103 @@
-/* Google I/O 2026 Design System */
-@import '../styles/variables.css';
+/* Google I/O 2024 Design System */
+@import "tailwindcss";
 
-:root {
-  /* Provide Geist as font-geom fallback if available */
-  --font-geom: var(--font-geist-sans), "Google Sans", sans-serif;
+@theme {
+  /* Official Colors */
+  --color-bg: #ffffff;
+  --color-text: #202124;
+  --color-grey-900: #202124;
+  --color-grey-bg: #eeeeee;
+  --color-grey-text: #5f6368;
+  --color-google-blue: #4285f4;
+  --color-google-red: #ea4335;
+  --color-google-yellow: #fbbc04;
+  --color-google-green: #34a853;
+  --color-blue-link: #185abc;
+
+  /* Typography */
+  --font-sans: "Google Sans", "Google Sans Text", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Google Sans Display", "Google Sans", sans-serif;
 }
 
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-geom);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+@layer base {
+  @font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/googlesans/v58/4UaGrENHsxJlGDuGo1OIlL3Kwp5eKQtGblc.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Google Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://fonts.gstatic.com/s/googlesans/v58/4UaGrENHsxJlGDuGo1OIlL3Kwp5eKQtGblc.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Google Sans Display';
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://fonts.gstatic.com/s/googlesansdisplay/v22/L0x5DF02iFML4hGCyOCzL363C96_zHiaP8lbeXm39mY.woff2) format('woff2');
+  }
+
+  body {
+    @apply bg-white text-grey-900;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-/* Base resets */
-*, *::before, *::after {
-  box-sizing: border-box;
+@layer components {
+  /* Official Button Classes */
+  .cta-primary {
+    @apply min-w-[100px] max-w-fit rounded-full px-[18px] py-[8px] md:px-[20px] md:py-[12px] text-[14px] md:text-[20px] font-medium bg-google-blue text-white hover:bg-[#4285f4] transition-colors duration-200;
+  }
+
+  .cta-secondary {
+    @apply min-w-[100px] max-w-fit rounded-full px-[18px] py-[8px] md:px-[20px] md:py-[12px] text-[14px] md:text-[20px] font-medium border-[1.2px] md:border-2 border-grey-900 bg-transparent text-grey-900 hover:bg-grey-900 hover:text-white transition-colors duration-200;
+  }
+
+  .nav-cta-btn {
+    @apply min-w-[100px] max-w-fit rounded-full px-[24px] py-[8px] text-[14px] md:text-[20px] font-medium bg-google-blue text-white hover:bg-[#4285f4] transition-colors duration-200;
+  }
+
+  /* Official Typography Helpers */
+  .l-h1 { @apply font-display text-[100px] leading-[100px] -tracking-[2px] font-medium; }
+  .l-h2 { @apply font-display text-[64px] leading-[70px] tracking-normal font-medium; }
+  .s-h3 { @apply font-display text-[36px] leading-[36px] -tracking-[0.5px] font-medium; }
+  .l-p1 { @apply font-sans text-[16px] leading-[24px] font-normal; }
+  .s-p1 { @apply font-display text-[18px] leading-[24px] font-normal; }
+  
+  /* Additional scale */
+  .sm\:l-h4 { @apply font-sans text-[44px] leading-[48px] tracking-normal font-medium; }
+  .sm\:l-h5 { @apply font-sans text-[24px] leading-[30px] -tracking-[0.25px] font-medium; }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  margin: 0;
+.dark .cta-secondary {
+  @apply border-white text-white hover:bg-white hover:text-grey-900;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Custom Utilities for I/O 24 aesthetics */
+.drawer-nav {
+  @apply fixed top-0 left-0 z-50 h-full w-full max-w-[90%] -translate-x-full transition-transform duration-300 ease-in-out bg-white border-r-2 border-grey-900 rounded-r-[20px] overflow-y-auto;
+}
+
+.drawer-nav.show {
+  @apply translate-x-0;
+}
+
+.drawer-mask {
+  @apply fixed inset-0 z-40 bg-black/80;
+}
+
+/* Animations matching official site */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s ease-out forwards;
 }
