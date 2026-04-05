@@ -7,6 +7,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { ExploreHero } from "./components/ExploreHero";
 import { MyIOSection } from "./components/MyIOSection";
 import { FilterSection } from "./components/FilterSection";
+import FilterDrawer from "./components/FilterDrawer";
 import { SessionCard } from "./components/SessionCard";
 import { FILTER_CATEGORIES } from "./constants";
 
@@ -37,11 +38,20 @@ function ExploreContent() {
   const [isTopicsExpanded, setIsTopicsExpanded] = useState(false);
   const [isTypeExpanded, setIsTypeExpanded] = useState(false);
   const [isLevelExpanded, setIsLevelExpanded] = useState(false);
-  
+
   const [isMyIoVisible, setIsMyIoVisible] = useState(false);
   const [isSavedVisible, setIsSavedVisible] = useState(true);
   const [isRecommendedVisible, setIsRecommendedVisible] = useState(true);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 1200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const dataLayer = (globalThis as any).dataLayer || { push: () => { } };
   const trackEvent = (globalThis as any).trackEvent || (() => { });
@@ -94,30 +104,26 @@ function ExploreContent() {
     });
   }, [sessions, activeFilters]);
 
-  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { checked, dataset, id } = e.target;
-    const classification = dataset.classification;
-    if (!classification) return;
-
+  const handleFilterChange = (id: string, checked: boolean, classification: string) => {
     setActiveFilters(prev => {
       const current = prev[classification] || [];
-      const updated = checked 
-        ? [...current, id]
+      const updated = checked
+        ? [...new Set([...current, id])]
         : current.filter(fid => fid !== id);
-      
+
       const newFilters = { ...prev, [classification]: updated };
-      
+
       const queryFilters: string[] = [];
       FILTER_CATEGORIES.forEach(cat => {
         cat.items.forEach(item => {
-          if (newFilters[cat.classification].includes(item.id)) {
+          if (newFilters[cat.classification]?.includes(item.id)) {
             queryFilters.push(item.label.toLowerCase().replace(/\s+/g, '-'));
           }
         });
       });
       const newQuery = queryFilters.join(',');
       router.push(`/explore/${newQuery ? `?q=${newQuery}` : ''}`, { scroll: false });
-      
+
       return newFilters;
     });
   };
@@ -154,8 +160,8 @@ function ExploreContent() {
           </button>
         </div>
       )}
-      
-      <Header onRegisterClick={() => {}} />
+
+      <Header onRegisterClick={() => { }} />
 
       <main id="content" className="dark:bg-grey-900 flex-1">
         <ExploreHero />
@@ -203,7 +209,7 @@ function ExploreContent() {
             </div>
           </div>
 
-          <MyIOSection 
+          <MyIOSection
             isMyIoVisible={isMyIoVisible}
             isSavedVisible={isSavedVisible}
             isRecommendedVisible={isRecommendedVisible}
@@ -214,7 +220,7 @@ function ExploreContent() {
 
           <div className="program-content pt-4 md:pt-10">
             <div className="program-content__left">
-              <FilterSection 
+              <FilterSection
                 categories={FILTER_CATEGORIES}
                 expandedCategories={{
                   stack: isFocusExpanded,
@@ -222,6 +228,7 @@ function ExploreContent() {
                   type: isTypeExpanded,
                   level: isLevelExpanded
                 }}
+                selectedFilters={activeFilters}
                 onCategoryClick={handleCategoryToggle}
                 onFilterChange={handleFilterChange}
                 trackFilter={trackFilter}
@@ -229,6 +236,94 @@ function ExploreContent() {
             </div>
 
             <div className="program-content__right" id="sessions-results" data-role="region" aria-live="polite">
+              <div className="h-pill-board">
+                <div className={`flex w-full h-auto ${searchQuery ? "pb-8" : ""}`}>
+                  <div className="z-10 block fixed bottom-4 right-0 md:hidden">
+                    <button
+                      id="filter-burger"
+                      onClick={() => setIsFilterDrawerOpen(true)}
+                      className={`m-filter__chip w-[102px] ring-offset-2 focus:outline-none focus:ring focus:ring-blue dark:focus:ring-blue-dark bg-grey-900 dark:bg-white rounded-full px-3 py-2 ${isScrolled
+                        ? ""
+                        : "hidden"
+                        }`}
+                      aria-expanded={isFilterDrawerOpen}
+                      aria-label="Filter button"
+                      aria-controls="filter-drawer"
+                    >
+                      <img
+                        className="dark:hidden"
+                        aria-hidden="true"
+                        src="https://io.google/2024/app/images/filter-icon.svg"
+                        width="24"
+                        height="24"
+                      />
+                      <img
+                        className="hidden dark:block"
+                        aria-hidden="true"
+                        src="https://io.google/2024/app/images/filter-icon-dark.svg"
+                        width="24"
+                        height="24"
+                      />
+                      <span className="font-medium text-white dark:text-grey-900 ml-3">
+                        Filter
+                      </span>
+                    </button>
+                  </div>
+                  {searchQuery && (
+                    <div className="w-full overflow-x-auto flex gap-1 py-3 px-2 md:flex-wrap items-center">
+                      {searchQuery.split(',').filter(Boolean).map(term => {
+                        let title = term;
+                        for (const cat of FILTER_CATEGORIES) {
+                          const found = cat.items.find(item => item.label.toLowerCase().replace(/\s+/g, '-') === term);
+                          if (found) {
+                            title = found.label;
+                            break;
+                          }
+                        }
+
+                        return (
+                          <button
+                            key={term}
+                            role="presentation"
+                            data-chip="true"
+                            className="m-filter__chip flex flex-row items-center ring-offset-2 focus:outline-none focus:ring focus:ring-blue dark:focus:ring-blue-dark dark:bg-white bg-grey-900 rounded-lg py-3 px-5 gap-2"
+                            aria-label={`remove filter for ${term}`}
+                            onClick={() => {
+                              const newQuery = searchQuery.split(',').filter(q => q !== term).join(',');
+                              router.push(`/explore/${newQuery ? `?q=${newQuery}` : ''}`, { scroll: false });
+                            }}
+                          >
+                            <span className="m-filter__chip-title text-white font-medium dark:text-grey">
+                              {title}
+                            </span>
+                            <img
+                              aria-hidden="true"
+                              className="dark:block hidden"
+                              src="https://io.google/2024/app/images/program-close-icon.svg"
+                              width="16"
+                              height="16"
+                            />
+                            <img
+                              aria-hidden="true"
+                              className="block dark:hidden"
+                              src="https://io.google/2024/app/images/program-close-icon-white.svg"
+                              width="16"
+                              height="16"
+                            />
+                          </button>
+                        );
+                      })}
+                      <button
+                        className="font-medium underline-link ml-2 dark:text-white"
+                        onClick={() => router.push('/explore/', { scroll: false })}
+                        aria-label="Clear all"
+                      >
+                        Clear all
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
               {loading ? (
                 <div className="w-full flex justify-center py-20">
                   <span className="title">Loading...</span>
@@ -236,9 +331,9 @@ function ExploreContent() {
               ) : (
                 <div role="list" className="w-full grid justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredSessions.map(session => (
-                    <SessionCard 
-                      key={session.id} 
-                      session={session} 
+                    <SessionCard
+                      key={session.id}
+                      session={session}
                       trackEvent={trackEvent}
                     />
                   ))}
@@ -249,7 +344,17 @@ function ExploreContent() {
         </div>
       </main>
 
-      {/* Mobile drawer and other components as needed */}
+
+      <FilterDrawer
+        isOpen={isFilterDrawerOpen}
+        onClose={() => setIsFilterDrawerOpen(false)}
+        categories={FILTER_CATEGORIES}
+        selectedFilters={activeFilters}
+        onFilterChange={handleFilterChange}
+        onClearAll={() => setActiveFilters({ stack: [], topic: [], type: [], level: [] })}
+        resultsCount={filteredSessions.length}
+      />
+
     </div>
   );
 }

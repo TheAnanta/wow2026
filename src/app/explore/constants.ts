@@ -1,4 +1,18 @@
-export const FILTER_CATEGORIES = [
+export interface FilterOption {
+  id: string;
+  label: string;
+  classification: string;
+  analyticsFilter: string;
+}
+
+export interface FilterCategory {
+  id: string;
+  title: string;
+  classification: string;
+  items: FilterOption[];
+}
+
+export const FILTER_CATEGORIES: FilterCategory[] = [
   {
     id: 'focus-category',
     title: 'Focus',

@@ -18,14 +18,16 @@ interface FilterCategory {
 interface FilterSectionProps {
   categories: FilterCategory[];
   expandedCategories: Record<string, boolean>;
+  selectedFilters: Record<string, string[]>;
   onCategoryClick: (id: string, event: React.MouseEvent) => void;
-  onFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFilterChange: (id: string, checked: boolean, classification: string) => void;
   trackFilter?: (e: any) => void;
 }
 
 export const FilterSection: React.FC<FilterSectionProps> = ({
   categories,
   expandedCategories,
+  selectedFilters,
   onCategoryClick,
   onFilterChange,
   trackFilter
@@ -73,9 +75,10 @@ export const FilterSection: React.FC<FilterSectionProps> = ({
                     id={item.id}
                     name={item.id}
                     className="checkbox"
+                    checked={selectedFilters[category.classification]?.includes(item.id) || false}
                     onChange={(e) => {
                        if (trackFilter) trackFilter(e);
-                       onFilterChange(e);
+                       onFilterChange(item.id, e.target.checked, category.classification);
                     }}
                     data-classification={item.classification}
                     data-analytics-filter={item.analyticsFilter}
