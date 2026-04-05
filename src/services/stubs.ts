@@ -5,7 +5,7 @@ export const handleRegistration = async (data: any) => {
   return new Promise((resolve) => setTimeout(() => resolve({ success: true }), 1000));
 };
 
-export const fetchSessions = async (filters: any) => {
+export const fetchSessions = async (filters: { q?: string }) => {
   console.log('Fetching sessions with filters:', filters);
   const mockSessions = [
     { id: '1', title: 'Google keynote', time: '10:00AM [PT]', tags: ['Keynote', 'Beginner'], bookmarked: false },
@@ -15,6 +15,16 @@ export const fetchSessions = async (filters: any) => {
     { id: '5', title: 'Progressive Web Applications', time: 'Ongoing', tags: ['Keynote', 'Android', 'Beginner'], bookmarked: false },
     { id: '6', title: 'What\'s new in Material Design', time: 'Ongoing', tags: ['Keynote', 'Android', 'Beginner'], bookmarked: false },
   ];
+
+  if (filters.q) {
+    const query = filters.q.toLowerCase();
+    const filtered = mockSessions.filter(s =>
+      s.title.toLowerCase().includes(query) ||
+      s.tags.some(tag => tag.toLowerCase().includes(query))
+    );
+    return new Promise((resolve) => setTimeout(() => resolve(filtered), 500));
+  }
+
   return new Promise((resolve) => setTimeout(() => resolve(mockSessions), 500));
 };
 

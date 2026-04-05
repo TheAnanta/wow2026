@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
   ];
 
   return (
-    <header id="main-header" className="bg-white border-grey-900 border-b-[1.2px] md:border-b-2 w-full sticky top-0 z-50">
+    <header id="main-header" className="bg-white border-grey-900 border-b-[1.2px] md:border-b-2 w-full">
       <nav className="max-w-[1640px] mx-auto h-[66px] px-[20px] md:px-[60px] flex items-center justify-between">
         <div className="flex items-center">
           {/* Logo */}
