@@ -22,10 +22,10 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
   };
 
   const navLinks = [
-    { label: 'Program', href: '/program' },
+    { label: 'Explore', href: '/explore' },
     { label: 'Speakers', href: '/speakers' },
-    { label: 'FAQ', href: '/faq' },
-    { label: 'My I/O', href: '/my-io' },
+    { label: 'Community', href: '/community' },
+    { label: 'About', href: '/faq' },
   ];
 
   return (
@@ -34,25 +34,16 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
         <div className="flex items-center">
           {/* Logo */}
           <a href="/" className="mr-[24px]" aria-label="Google I/O homepage">
-            <img 
-              src="https://io.google/2024/app/images/io24-logo-mobile.svg" 
-              alt="Google I/O" 
-              className="block md:hidden h-[30px]" 
-            />
-            <img 
-              src="https://io.google/2024/app/images/io24-logo-desktop.svg" 
-              alt="Google I/O" 
-              className="hidden md:block h-[40px]" 
-            />
+            GDG<span className='font-black'>WOW</span>
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
             {navLinks.map((link) => (
-              <a 
-                key={link.label} 
-                href={link.href} 
-                className="nav-links text-[16px] font-medium hover:underline mr-[24px]"
+              <a
+                key={link.label}
+                href={link.href}
+                className="nav-links text-[16px] font-medium mr-[24px]"
               >
                 {link.label}
               </a>
@@ -62,12 +53,12 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
 
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center">
-             <span className="mr-4 text-[14px] font-medium hidden xl:block">English</span>
+            <span className="mr-4 text-[14px] font-medium hidden xl:block">English</span>
           </div>
 
           <div className="flex items-center gap-4">
             {!isLoggedIn ? (
-              <button 
+              <button
                 onClick={handleAction}
                 className="nav-cta-btn px-[24px] py-[8px] rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]"
               >
@@ -75,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
               </button>
             ) : (
               <div className="flex items-center gap-4">
-                <button 
+                <button
                   onClick={handleAction}
                   className="text-[16px] font-medium hover:underline"
                 >
@@ -113,16 +104,16 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
       <div className={`drawer-nav md:hidden ${isMobileMenuOpen ? 'show' : ''}`}>
         <div className="p-[20px]">
           <div className="flex justify-between items-center mb-[32px]">
-             <img src="https://io.google/2024/app/images/io24-logo-mobile.svg" alt="Google I/O" className="h-[30px]" />
-             <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#202124"/></svg>
-             </button>
+            <img src="https://io.google/2024/app/images/io24-logo-mobile.svg" alt="Google I/O" className="h-[30px]" />
+            <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#202124" /></svg>
+            </button>
           </div>
           <div className="flex flex-col gap-[16px]">
             {navLinks.map((link) => (
-              <a 
-                key={link.label} 
-                href={link.href} 
+              <a
+                key={link.label}
+                href={link.href}
                 className="text-[20px] font-medium text-grey-900 py-3 border-b border-grey-bg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -131,14 +122,14 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
             ))}
             <div className="mt-8">
               {!isLoggedIn ? (
-                <button 
+                <button
                   onClick={() => { setIsMobileMenuOpen(false); handleAction(); }}
                   className="nav-cta-btn w-full py-4 text-[20px] rounded-full bg-google-blue text-white font-medium"
                 >
                   Sign in
                 </button>
               ) : (
-                <button 
+                <button
                   onClick={() => { setIsMobileMenuOpen(false); handleAction(); }}
                   className="text-center w-full py-4 text-[20px] font-medium border-2 border-grey-900 rounded-full"
                 >
