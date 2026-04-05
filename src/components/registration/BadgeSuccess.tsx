@@ -9,7 +9,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ onClose }) => {
   return (
     <div className="flex flex-col items-center text-center py-6">
       <h2 className="text-2xl font-bold mb-1">You earned a badge!</h2>
-      <p className="text-sm text-[#5f6368] mb-8">I/O 2026 - Registered</p>
+      <p className="text-sm text-[#5f6368] mb-8">WOW 2026 - Registered</p>
 
       <p className="text-sm text-[#5f6368] mb-8">
         This badge was saved to your Google Developer Profile.
@@ -35,13 +35,13 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ onClose }) => {
                 backgroundSize: '100% 100%, 20px 20px, 20px 20px',
               }}
             />
-            <p className="text-white text-[4rem] font-extrabold leading-none m-0 z-[2] [text-shadow:0_2px_10px_rgba(0,0,0,0.3)]">I/O</p>
+            <p className="text-white text-[4rem] font-extrabold leading-none m-0 z-[2] [text-shadow:0_2px_10px_rgba(0,0,0,0.3)]">WOW</p>
             <p className="text-white text-xl font-semibold mt-[5px] z-[2] [text-shadow:0_2px_5px_rgba(0,0,0,0.3)]">2026</p>
           </div>
         </div>
       </div>
 
-      <p className="text-lg font-bold my-6 text-[#202124]">I/O 2026 - Registered</p>
+      <p className="text-lg font-bold my-6 text-[#202124]">WOW 2026 - Registered</p>
 
       <div className="text-xs font-bold uppercase text-[#5f6368] tracking-[0.05em] mt-8">Share your badge</div>
       <div className="flex gap-5 mt-4">

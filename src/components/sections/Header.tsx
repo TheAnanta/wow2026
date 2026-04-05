@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
       <nav className="max-w-[1640px] mx-auto h-[66px] px-[20px] md:px-[60px] flex items-center justify-between">
         <div className="flex items-center">
           {/* Logo */}
-          <a href="/" className="mr-[24px]" aria-label="Google I/O homepage">
+          <a href="/" className="mr-[24px]" aria-label="Google WOW homepage">
             GDG<span className='font-black'>WOW</span>
           </a>
 
@@ -104,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
       <div className={`drawer-nav md:hidden ${isMobileMenuOpen ? 'show' : ''}`}>
         <div className="p-[20px]">
           <div className="flex justify-between items-center mb-[32px]">
-            <img src="https://io.google/2024/app/images/io24-logo-mobile.svg" alt="Google I/O" className="h-[30px]" />
+            <img src="https://io.google/2024/app/images/io24-logo-mobile.svg" alt="Google WOW" className="h-[30px]" />
             <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#202124" /></svg>
             </button>

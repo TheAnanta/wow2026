@@ -51,7 +51,7 @@ function KeynoteCard({ sessionId, sessionCode, href, time, title, description, t
           <div className="r-bookmark" data-bm-session-id={sessionId} data-session-code={sessionCode} data-disable-dark-mode="False" data-white-spinner="" data-myio-label="True" data-title={calendarTitle} data-force-white-color="True" data-label-style="sm:s-cta1 md:l-cta2">
             <button type="button" className="flex items-center  cursor-pointer" aria-label="Bookmark this session">
               <span className="flex justify-center items-center w-6 h-6"><BookmarkIcon /></span>
-              <span className="ml-1 truncate text-white! sm:s-cta1 md:l-cta2">Save to My I/O</span>
+              <span className="ml-1 truncate text-white! sm:s-cta1 md:l-cta2">Save to My WOW</span>
             </button>
           </div>
         </div>

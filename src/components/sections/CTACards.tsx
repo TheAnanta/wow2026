@@ -3,20 +3,20 @@
 export function CTACards() {
   return (
     <div className="flex flex-col align-center items-stretch justify-center mt-4 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row">
-      {/* Plan your I/O card */}
+      {/* Plan your WOW card */}
       <div className="flex w-full md:w-2/3">
         <div className="h-full flex flex-col bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white lg:flex-row flex-1">
           <div className="flex flex-col items-start p-6 pb-0 ml:p-10 ml:pb-0 lg:pr-0 lg:w-2/5">
             <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4">
-              Plan your I/O
+              Plan your WOW
             </span>
             <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:s-h6 md:l-h6">
-              Visit My I/O for saved content and recommendations based on your personal interests.
+              Visit My WOW for saved content and recommendations based on your personal interests.
             </p>
             <a
               href="https://io.google/2024/explore/#my-io-2024"
               className="cta-secondary"
-              aria-label="Get started with planning your I/O, opens explore page"
+              aria-label="Get started with planning your WOW, opens explore page"
               rel="noopener"
               data-analytics-event="cta_event_info"
               data-analytics-event-data='{"cta_position": "body"}'
@@ -54,7 +54,7 @@ export function CTACards() {
               data-analytics-event="cta_community"
               data-analytics-event-data='{"cta_position": "body"}'
               className="cta-secondary"
-              aria-label="Get started with joining an I/O community group, opens Community page"
+              aria-label="Get started with joining an WOW community group, opens Community page"
               rel="noopener"
             >
               Get started

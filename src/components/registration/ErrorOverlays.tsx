@@ -10,7 +10,7 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain }) 
   const content = {
     signin: {
       title: 'Whoops!\nUnable to sign in.',
-      text: 'To register, grant permission to view, edit and create your Google Developer Profile. A developer profile will allow you to get custom recommendations and create your own agenda with save sessions and learning material in My I/O.',
+      text: 'To register, grant permission to view, edit and create your Google Developer Profile. A developer profile will allow you to get custom recommendations and create your own agenda with save sessions and learning material in My WOW.',
       button: 'Try again',
     },
     account: {
@@ -40,7 +40,7 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain }) 
       </button>
 
       <div className="mt-auto py-8 text-sm">
-        <p>Google I/O 2026</p>
+        <p>Google WOW 2026</p>
       </div>
     </div>
   );

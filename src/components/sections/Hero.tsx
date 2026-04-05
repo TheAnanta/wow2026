@@ -12,7 +12,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
           <div className="flex flex-col items-center text-center p-6 max-w-[800px]">
             <h1 className="font-medium text-grey dark:text-white max-w-[360px] md:max-w-500px mb-4 sm:s-h3 md:l-h4">
               <span>
-                <p>Tune in for Google I/O</p>
+                <p>Tune in for Google WOW</p>
                 <p>May 14, 2024</p>
               </span>
             </h1>

@@ -68,7 +68,7 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
         {/* Header */}
         {!errorType && currentStep < 3 && (
           <div className="px-8 py-6 flex justify-between items-center bg-white z-10">
-            <h2 className="text-2xl font-medium text-[#202124]">Register for I/O</h2>
+            <h2 className="text-2xl font-medium text-[#202124]">Register for WOW</h2>
             <button
               className="bg-transparent border-none text-2xl cursor-pointer w-8 h-8 flex justify-center items-center transition-opacity duration-200 hover:opacity-60"
               onClick={onClose}
@@ -86,7 +86,7 @@ export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose 
             style={{ background: 'linear-gradient(135deg, #a4f21d 0%, #00ffff 33%, #4169e1 66%, #ff00ff 100%)' }}
           >
             <div className="w-[280px] h-[140px] bg-white border border-[#000000] border-b-0 rounded-tl-[140px] rounded-tr-[140px] flex justify-center items-center relative translate-y-[1px]">
-              {/* Abstract Google I/O Shapes */}
+              {/* Abstract Google WOW Shapes */}
               <div className="relative w-full h-full flex justify-center items-center">
                 <div style={{
                   position: 'absolute', bottom: '0',

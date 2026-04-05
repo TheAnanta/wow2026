@@ -58,7 +58,7 @@ export default function SpeakersPage() {
       <section className="flex justify-between items-center px-8 pt-24 pb-16 border-b border-[#000000] relative overflow-hidden">
         <div className="max-w-[500px] z-10">
           <h1 className="text-[4rem] font-medium leading-[1.1] mb-4">Meet the speakers</h1>
-          <p className="text-lg text-[#202124]">Learn about the Googlers presenting at Google I/O.</p>
+          <p className="text-lg text-[#202124]">Learn about the Googlers presenting at Google WOW.</p>
         </div>
 
         {/* Mic Graphic */}
@@ -176,13 +176,13 @@ export default function SpeakersPage() {
           title="Join a community group"
           description="Meet developers, discover local groups, and build your global network."
           buttonText="Get started"
-          onButtonClick={() => {}}
+          onButtonClick={() => { }}
         />
         <BentoCard
-          title="Plan your I/O"
-          description="Visit My I/O for saved content and recommendations based on your personal interests."
+          title="Plan your WOW"
+          description="Visit My WOW for saved content and recommendations based on your personal interests."
           buttonText="Get started"
-          onButtonClick={() => {}}
+          onButtonClick={() => { }}
         />
       </div>
 

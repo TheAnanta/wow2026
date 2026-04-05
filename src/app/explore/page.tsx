@@ -44,10 +44,10 @@ export default function ExplorePage() {
 
       <Header onRegisterClick={() => setShowRegistration(true)} />
 
-      {/* Plan your I/O Hero */}
+      {/* Plan your WOW Hero */}
       <section className="flex justify-between items-center px-8 pt-24 pb-16 border-b border-[#000000] overflow-hidden relative max-md:flex-col max-md:px-6 max-md:pt-16 max-md:text-center">
         <div className="max-w-[500px] z-10">
-          <h1 className="text-[4rem] font-bold mb-4 tracking-[-0.02em]">Plan your I/O</h1>
+          <h1 className="text-[4rem] font-bold mb-4 tracking-[-0.02em]">Plan your WOW</h1>
           <p className="text-lg text-[#5f6368] mb-8">
             Save keynotes, technical sessions, and learning experiences so you don't miss a thing.
           </p>
@@ -85,7 +85,7 @@ export default function ExplorePage() {
       <section className="px-8 py-16 max-w-[1440px] mx-auto">
         <div className="flex justify-between items-end mb-8">
           <h2 className="text-3xl font-bold">What are you building for?</h2>
-          <a href="/speakers" className="text-sm font-bold underline text-[#000000]">Meet the I/O speakers</a>
+          <a href="/speakers" className="text-sm font-bold underline text-[#000000]">Meet the WOW speakers</a>
         </div>
         <div className="grid grid-cols-4 gap-6">
           {[
@@ -99,9 +99,9 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* My I/O Section */}
+      {/* My WOW Section */}
       <section className="px-8 py-16 max-w-[1440px] mx-auto pt-0">
-        <h2 className="text-3xl font-bold mb-4">My I/O</h2>
+        <h2 className="text-3xl font-bold mb-4">My WOW</h2>
         <p className="text-sm text-[#5f6368] mb-10">
           Your saved content are automatically saved in your <a href="#" className="underline text-inherit">developer profile.</a>
         </p>

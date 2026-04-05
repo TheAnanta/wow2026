@@ -37,7 +37,7 @@ export default function CommunityPage() {
           <h1 className="text-[3.5rem] font-medium mb-4">Community</h1>
           <p className="text-lg mb-8 text-[#202124]">Meet developers, discover local groups, and build your global network.</p>
           <Button style={{ background: '#1a73e8', color: '#fff', border: 'none' }} onClick={() => setShowRegistration(true)}>
-            Register for Google I/O
+            Register for Google WOW
           </Button>
         </div>
 
@@ -131,14 +131,14 @@ export default function CommunityPage() {
         {/* Bottom Promo Grid */}
         <div className="grid grid-cols-2 gap-6 mt-16">
           <BentoCard
-            title="Tune in for Google I/O"
+            title="Tune in for Google WOW"
             description={"May 14, 2026\nWatch live keynotes and on-demand sessions to hear our latest announcements."}
             buttonText="Register"
             onButtonClick={() => setShowRegistration(true)}
           />
           <BentoCard
-            title="Get ready for I/O"
-            description="Learn everything you need to know about Google I/O."
+            title="Get ready for WOW"
+            description="Learn everything you need to know about Google WOW."
             buttonText="Learn more"
             onButtonClick={() => console.log('Learn more')}
           />

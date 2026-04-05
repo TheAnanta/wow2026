@@ -76,7 +76,7 @@ export const StepManager: React.FC<StepManagerProps> = ({
         <div className="text-center py-8">
           <h2 className="text-lg font-bold mb-3 text-[#202124]">Sign in to continue</h2>
           <p className="text-xs text-[#5f6368] mb-8 leading-[1.5]">
-            To register for Google I/O 2026, please sign in with your Google account.
+            To register for Google WOW 2026, please sign in with your Google account.
           </p>
           <button
             onClick={handleGoogleSignIn}
@@ -99,7 +99,7 @@ export const StepManager: React.FC<StepManagerProps> = ({
           <>
             <h2 className="text-lg font-bold mb-3 text-[#202124]">Create a developer profile</h2>
             <p className="text-xs text-[#5f6368] mb-8 leading-[1.5]">
-              Create a developer profile to get recommendations for the best I/O sessions and content for you. You can also use your profile to save content to watch on demand.
+              Create a developer profile to get recommendations for the best WOW sessions and content for you. You can also use your profile to save content to watch on demand.
             </p>
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-[0.35rem]">
@@ -158,7 +158,7 @@ export const StepManager: React.FC<StepManagerProps> = ({
 
               <div className="mt-8">
                 <h3 className={`${labelCls} mb-4`}>Select your interests</h3>
-                <p className="text-xs text-[#5f6368] mb-6">This will help us provide you with the most relevant I/O content.</p>
+                <p className="text-xs text-[#5f6368] mb-6">This will help us provide you with the most relevant WOW content.</p>
                 <InterestTags selectedInterests={data.interests} toggleInterest={toggleInterest} />
                 <a href="#" className="block mt-4 text-sm font-bold underline">See all</a>
               </div>
@@ -186,8 +186,8 @@ export const StepManager: React.FC<StepManagerProps> = ({
             <div className="flex flex-col gap-4">
               {[
                 { key: 'termsAgreed' as keyof RegistrationData, label: 'I am 18 years of age or older.', required: true },
-                { key: 'agreeToTerms' as keyof RegistrationData, label: 'I agree to I/O 2026 Terms and Conditions, including Google Terms and Community Guidelines.', required: true },
-                { key: 'marketingConsent' as keyof RegistrationData, label: 'I would like to receive marketing and events emails and updates about Google I/O.', required: false },
+                { key: 'agreeToTerms' as keyof RegistrationData, label: 'I agree to WOW 2026 Terms and Conditions, including Google Terms and Community Guidelines.', required: true },
+                { key: 'marketingConsent' as keyof RegistrationData, label: 'I would like to receive marketing and events emails and updates about Google WOW.', required: false },
               ].map(({ key, label, required }) => (
                 <div
                   key={key}

@@ -31,7 +31,7 @@ export const RegistrationOverlay: React.FC<RegistrationOverlayProps> = ({ onClos
       <div className="bg-white border border-[#000000] rounded-xl w-full max-w-[600px] max-h-[90vh] overflow-y-auto shadow-[0_10px_40px_rgba(0,0,0,0.2)] flex flex-col">
         {/* Header */}
         <div className="px-8 py-6 border-b border-[#000000] flex justify-between items-center">
-          <h2 className="text-xl font-medium">Register for I/O</h2>
+          <h2 className="text-xl font-medium">Register for WOW</h2>
           <button className="bg-none border-none text-2xl cursor-pointer text-[#202124]" onClick={onClose}>&times;</button>
         </div>
 
@@ -43,7 +43,7 @@ export const RegistrationOverlay: React.FC<RegistrationOverlayProps> = ({ onClos
         {/* Body */}
         <div className="p-8">
           <p className="mb-8">
-            Create a developer profile to get recommendations for the best I/O content and custom I/O pins. You'll be able to see your profile across Google for Developers on demand.
+            Create a developer profile to get recommendations for the best WOW content and custom WOW pins. You'll be able to see your profile across Google for Developers on demand.
           </p>
 
           <div className="mb-6">
@@ -62,7 +62,7 @@ export const RegistrationOverlay: React.FC<RegistrationOverlayProps> = ({ onClos
           </div>
 
           <h3 className="text-sm font-medium mt-8">Select your interests</h3>
-          <p className="text-sm text-[#5f6368]">This will help us provide you with the most relevant I/O content.</p>
+          <p className="text-sm text-[#5f6368]">This will help us provide you with the most relevant WOW content.</p>
 
           <div className="flex flex-wrap gap-3 mt-4">
             {INTERESTS.map(interest => (
