@@ -1,0 +1,522 @@
+[
+  {
+    "id": "6003",
+    "name": "Manas Malla",
+    "company": {
+      "name": "Gandhi Institute of Technology and Management",
+      "designation": "CEO, the ananta | Lead"
+    },
+    "community_title": "Google Product Expert for Android",
+    "image": "manas.jpg",
+    "bio": "A student, designer, and developer with experience in over 45+ languages and frameworks over the last 6+ years. Built over 10+ sustainable solutions, 35+ apps and 56+ UI designs. Building solutions is my ikigai #BeingAForceForChange. My journey has been fueled by a desire to create experiences that are both functional, engaging, intuitive and accessible, empowering individuals and communities. I am always striving to push the boundaries of what's possible with technology.",
+    "social": {
+      "instagram": "https://www.instagram.com/manas_malla",
+      "linkedin": "https://www.linkedin.com/in/manasmalla/",
+      "twitter": "https://twitter.com/_malla_manas_",
+      "github": "https://github.com/ManasMalla",
+      "web": "https://manasmalla.dev/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6004",
+    "name": "Kavya Chandana",
+    "company": {
+      "name": "Gandhi Institute of Technology and Management",
+      "designation": ""
+    },
+    "community_title": "Lead",
+    "image": "https://github.com/Kavya-chandana.png",
+    "bio": "A problem solver who uses his creative talents to tackle design-related challenges. With a keen eye for detail and an innate understanding of infographics, visual design, and UI/UX. I am able to transform complex information into visually compelling and user-friendly designs. Whether it includes working on a brand-new project or revamping an existing design.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/kavya-chandana-834748259/",
+      "instagram": "https://www.instagram.com/kavya_chandana__"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6019",
+    "name": "G. Sai Akhil",
+    "company": {
+      "name": "Aditya College of Engineering and Technology",
+      "designation": "Lead"
+    },
+    "image": "akhil.jpg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6011",
+    "name": "Himavarshini Mahapatruni",
+    "company": {
+      "name": "Vignan's Institute Of Information Technology",
+      "designation": "Lead"
+    },
+    "image": "himavarshini.jpg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6012",
+    "name": "L. Thanuja Sai",
+    "company": {
+      "name": "Vignan's Institute of Engineering For Women",
+      "designation": "Lead"
+    },
+    "image": "thanuja.jpg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6014",
+    "name": "Naga Sathvik Rapelli",
+    "company": {
+      "name": "Narayana Engineering College",
+      "designation": "Lead"
+    },
+    "image": "sathvik.png",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6013",
+    "name": "Charan M D S",
+    "company": {
+      "name": "Pace Institute of Technology and Sciences",
+      "designation": "Lead"
+    },
+    "image": "charan_m_d_s.jpeg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6015",
+    "name": "Ashish Nallana",
+    "company": {
+      "name": "Gayatri Vidya Parishad College of Engineering",
+      "designation": "Lead"
+    },
+    "image": "ashish.jpg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6016",
+    "name": "Saathwika Dhenuvakonda",
+    "company": {
+      "name": "Shri Vishnu Engineering College for Women",
+      "designation": "Lead"
+    },
+    "image": "saathwika.jpg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6017",
+    "name": "Shaik Ayesha Siddiqa",
+    "company": {
+      "name": "Geethanjali Institute of Science and Technology",
+      "designation": "Lead"
+    },
+    "image": "ayesha.jpg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6018",
+    "name": "Sirisha Arangi",
+    "company": {
+      "name": "Gayatri Vidya Parishad College of Engineering for Women",
+      "designation": "Lead"
+    },
+    "image": "sirisha.jpg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6020",
+    "name": "Dinesh Baratam",
+    "company": {
+      "name": "Andhra University College of Engineering",
+      "designation": "Lead"
+    },
+    "image": "dinesh.jpg",
+    "bio": "Sample Bio",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/",
+      "twitter": "https://x.com/",
+      "medium": "https://medium.com/"
+    },
+    "type": "Core"
+  },
+  {
+    "id": "6007",
+    "name": "Chandan Khamitkar",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Core Team",
+    "image": "chandan.jpg",
+    "bio": "A developer and student pursuing Bachelors in Computer Science Engineering. Experienced in over 19 languages- frameworks with over a year experience building rich experiences as a Full-Stack Web Developer. Interned at Ati Uttam (a SAAS based company)",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/khamitkar-sai-chandan-b91802259/",
+      "twitter": "https://x.com/chandan_k_dev",
+      "github": "https://github.com/ChandanKhamitkar",
+      "web": "https://chandan-khamitkar-dev.vercel.app/"
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "6008",
+    "name": "Jayadhar Ummadisingu",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Core Team",
+    "image": "jayadhar.jpg",
+    "bio": "Passionate about Machine Learning, I enjoy solving problems, learning new technologies, and creating impactful solutions. Eager to grow and contribute to tech.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/jayadhar-ummadisingu-2a825b25a/",
+      "twitter": "https://x.com/8Jayadhar8",
+      "github": "https://github.com/U-Jayadhar",
+      "web": "https://u-jayadhar.github.io/My-Portfolio-Website/"
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "113",
+    "name": "Yashwanth Kamireddi",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991613/Yashwanth_Kamireddi_os8fu1.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/yashwanthkamireddi/?originalSubdomain=in",
+      "twitter": "",
+      "web": "https://www.yashwanthkamireddi.dev/"
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "114",
+    "name": "Aafthab Ali",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991622/Aftab_Ali_j7xluo.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "115",
+    "name": "Chaitanya Sameer",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991618/Chaitanya_Sameer_az2ci0.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "116",
+    "name": "Deva Harshini",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991620/Deva_Harshini_tiogrf.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "117",
+    "name": "Gagana",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991619/Gagana_sgp8gf.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "118",
+    "name": "Jaswanth Kumar",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991628/Jaswanth_Kumar_cz9e9w.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "119",
+    "name": "K Sharvan",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991623/K_Sharvan_znnlot.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "120",
+    "name": "M.G.S.S Srikar",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991625/M.G.S.S_Srikar_xvimcj.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "121",
+    "name": "Pavan Kumar",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991627/Pavan_Kumar_axeprk.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "122",
+    "name": "Sanvi Seetha",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991616/Sanvi_Seetha_osj2tt.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "123",
+    "name": "Tummala Somanadh",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991623/Tummala_Somanadh_nabuku.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "124",
+    "name": "V Sohana",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991615/V_Sohana_hmydkm.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "125",
+    "name": "Vaibhav",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991617/Vaibhav_af7o5n.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "126",
+    "name": "Satwika Rejeti",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991614/Satwika_Rejeti_rnn0fh.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "127",
+    "name": "Aashita",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Aashita_fq7qbd.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "128",
+    "name": "Srinivasam Konchada",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Srinivasam_Konchada_rfp5ku.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "111",
+    "name": "Varshita Palleti",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "GDGoC GITAM Core Team",
+    "image": "https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767189232/Varshita_fqkkzb.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "web": ""
+    },
+    "type": "Core-Contributor"
+  }
+]
