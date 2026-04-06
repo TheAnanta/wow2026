@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Check-in",
+    "track": "General",
+    "venue": "Auditorium",
+    "time": "08:30 AM to 10:00 AM",
+    "format": "Check In",
+    "date": "28 June 2025",
+    "speakers": []
+  },
+  {
+    "id": 2,
+    "title": "Inauguration (Lighting of lamp, keynote)",
+    "track": "General",
+    "venue": "Auditorium",
+    "time": "10:00 AM to 10:10 AM",
+    "format": "Talk",
+    "date": "28 June 2025",
+    "speakers": []
+  },
+  {
+    "id": 3,
+    "title": "Welcome By GITAM",
+    "track": "General",
+    "venue": "Auditorium",
+    "time": "10:10 AM to 10:20 AM",
+    "format": "Talk",
+    "date": "28 June 2025",
+    "speakers": []
+  },
+  {
+    "id": 7,
+    "title": "Building with Gemini",
+    "track": "AI/ML",
+    "venue": "Auditorium",
+    "time": "11:40 AM to 12:10 PM",
+    "format": "Workshop",
+    "date": "28 June 2025",
+    "speakers": []
+  }
+]

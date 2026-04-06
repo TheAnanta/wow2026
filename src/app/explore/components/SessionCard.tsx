@@ -4,11 +4,13 @@ import { Session } from '../../../services/stubs';
 
 interface SessionCardProps {
   session: Session;
+  isBookmarked?: boolean;
   onBookmarkClick?: (id: string) => void;
   trackEvent?: (name: string, data: any) => void;
 }
 
-export const SessionCard: React.FC<SessionCardProps> = ({ session, onBookmarkClick, trackEvent }) => {
+export const SessionCard: React.FC<SessionCardProps> = ({ session, isBookmarked, onBookmarkClick, trackEvent }) => {
+  const bookmarked = isBookmarked || session.bookmarked;
   return (
     <div
       role="listitem"
@@ -126,13 +128,13 @@ export const SessionCard: React.FC<SessionCardProps> = ({ session, onBookmarkCli
                     width="16"
                     height="20"
                     viewBox="0 0 16 20"
-                    fill="none"
+                    fill={bookmarked ? "currentColor" : "none"}
                     xmlns="http://www.w3.org/2000/svg"
-                    className="forced-white-color"
+                    className={bookmarked ? "text-google-blue" : "forced-white-color"}
                   >
                     <path
                       d="M1 1v18l6.079-4.5 7.184 4.5V1H1Z"
-                      stroke="#000000"
+                      stroke="currentColor"
                       strokeWidth="1.5"
                       strokeLinejoin="round"
                       className="hcm-link-text-stroke black dark:stroke-grey-bg"

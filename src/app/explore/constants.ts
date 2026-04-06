@@ -21,7 +21,9 @@ export const FILTER_CATEGORIES: FilterCategory[] = [
       { id: '14574666-1892-4a0e-b305-44d6e3f66c56', label: 'AI', classification: 'stack', analyticsFilter: 'AI' },
       { id: '622b18d9-a6c2-4d31-b506-a2d58e034186', label: 'Cloud', classification: 'stack', analyticsFilter: 'Cloud' },
       { id: 'b31f8e49-c3ba-438e-a7e1-589b4da62640', label: 'Mobile', classification: 'stack', analyticsFilter: 'Mobile' },
-      { id: '13eba1ea-1c78-47b8-86ef-c7808d2507db', label: 'Web', classification: 'stack', analyticsFilter: 'Web' }
+      { id: '13eba1ea-1c78-47b8-86ef-c7808d2507db', label: 'Web', classification: 'stack', analyticsFilter: 'Web' },
+      { id: 'stack-general', label: 'General', classification: 'stack', analyticsFilter: 'General' },
+      { id: 'stack-other', label: 'Other', classification: 'stack', analyticsFilter: 'Other' }
     ]
   },
   {
@@ -44,7 +46,9 @@ export const FILTER_CATEGORIES: FilterCategory[] = [
       { id: '700fed55-dc35-40c0-976b-788a66f332ed', label: 'Location/Maps', classification: 'topic', analyticsFilter: 'Location/Maps' },
       { id: '1232df61-7b3a-4efa-89be-b26714c3d6e4', label: 'Smart Home', classification: 'topic', analyticsFilter: 'Smart Home' },
       { id: 'd52ff67c-f7fe-463d-a978-3fcaf989fb21', label: 'Wear OS', classification: 'topic', analyticsFilter: 'Wear OS' },
-      { id: 'f753bf55-c398-4f4a-941b-329b296bd287', label: 'Web', classification: 'topic', analyticsFilter: 'Web' }
+      { id: 'f753bf55-c398-4f4a-941b-329b296bd287', label: 'Web', classification: 'topic', analyticsFilter: 'Web' },
+      { id: 'topic-general', label: 'General', classification: 'topic', analyticsFilter: 'General' },
+      { id: 'topic-other', label: 'Other', classification: 'topic', analyticsFilter: 'Other' }
     ]
   },
   {
@@ -54,7 +58,15 @@ export const FILTER_CATEGORIES: FilterCategory[] = [
     items: [
       { id: 'keynote-filter', label: 'Keynote', classification: 'type', analyticsFilter: 'Keynote' },
       { id: '71b9babb-77d8-4a81-b8b3-8d9d7d71081e', label: 'Technical session', classification: 'type', analyticsFilter: 'Technical session' },
-      { id: '98b75245-0ae8-4524-9272-760afbbd1458', label: 'Workshop', classification: 'type', analyticsFilter: 'Workshop' }
+      { id: '98b75245-0ae8-4524-9272-760afbbd1458', label: 'Workshop', classification: 'type', analyticsFilter: 'Workshop' },
+      { id: 'type-talk', label: 'Talk', classification: 'type', analyticsFilter: 'Talk' },
+      { id: 'type-panel', label: 'Panel', classification: 'type', analyticsFilter: 'Panel' },
+      { id: 'type-sponsor', label: 'Sponsor', classification: 'type', analyticsFilter: 'Sponsor' },
+      { id: 'type-networking', label: 'Networking', classification: 'type', analyticsFilter: 'Networking' },
+      { id: 'type-case-study', label: 'Case Study', classification: 'type', analyticsFilter: 'Case Study' },
+      { id: 'type-tech-byte', label: 'Tech Byte', classification: 'type', analyticsFilter: 'Tech Byte' },
+      { id: 'type-arcade', label: 'Arcade', classification: 'type', analyticsFilter: 'Arcade' },
+      { id: 'type-check-in', label: 'Check In', classification: 'type', analyticsFilter: 'Check In' }
     ]
   },
   {
