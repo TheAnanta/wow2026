@@ -33,20 +33,20 @@ export default function TeamPage() {
 
   useEffect(() => {
     let results = [...team];
-    
+
     if (searchQuery.trim().length > 0) {
       const q = searchQuery.toLowerCase();
       results = results.filter(m => m.name.toLowerCase().includes(q) || m.role.toLowerCase().includes(q));
     }
-    
+
     if (selectedResponsibilities.length > 0) {
       results = results.filter(m => selectedResponsibilities.includes(m.responsibility));
     }
-    
+
     if (selectedUniversities.length > 0) {
       results = results.filter(m => selectedUniversities.includes(m.university));
     }
-    
+
     setFilteredTeam(results);
   }, [searchQuery, selectedResponsibilities, selectedUniversities, team]);
 
@@ -91,22 +91,22 @@ export default function TeamPage() {
             </div>
 
             <div className="flex justify-end items-end w-full md:w-3/5">
-              <img 
+              <img
                 className="hidden md:inline-block h-full object-cover object-left dark:hidden max-h-[407px] text-md:pl-[74px] lg:pl-0"
                 src="https://io.google/2024/app/images/io24-about-hero.webp"
                 alt="Team hero"
               />
-              <img 
+              <img
                 className="hidden dark:md:inline-block h-full object-cover object-left max-h-[407px] text-md:pl-[74px] lg:pl-0"
                 src="https://io.google/2024/app/images/io24-about-hero-dark.webp"
                 alt="Team hero dark"
               />
-              <img 
+              <img
                 className="block md:hidden dark:hidden "
                 src="https://io.google/2024/app/images/io24-about-hero-mobile.webp"
                 alt="Team hero mobile"
               />
-              <img 
+              <img
                 className="hidden dark:inline-block dark:md:hidden "
                 src="https://io.google/2024/app/images/io24-about-hero-mobile-dark.webp"
                 alt="Team hero mobile dark"
@@ -117,7 +117,7 @@ export default function TeamPage() {
 
         <div className="page-wrapper pt-12 pb-24">
           <div className="flex flex-col text-md:flex-row gap-8">
-            
+
             {/* Sidebar Filters */}
             <div className="hidden text-md:block w-full md:w-1/4">
               <div className="flex flex-col gap-6">
@@ -201,7 +201,7 @@ export default function TeamPage() {
                         <h2 className="sm:l-h3 md:l-h2">Leads</h2>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {leads.map(member => (
+                        {leads.sort((a, b) => { return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1 }).map(member => (
                           <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} />
                         ))}
                       </div>
@@ -214,7 +214,7 @@ export default function TeamPage() {
                         <h2 className="sm:l-h3 md:l-h2">Core Team</h2>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {coreTeam.map(member => (
+                        {coreTeam.sort((a, b) => { return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1 }).map(member => (
                           <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} />
                         ))}
                       </div>

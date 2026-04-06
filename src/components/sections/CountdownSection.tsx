@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 
 // Target: Google WOW 2026 — May 20, 2026 10:00 AM PDT (UTC-7)
-const TARGET_DATE = new Date('2026-06-04T08:00:00+05:30');
+const TARGET_DATE = new Date('2026-07-04T08:00:00+05:30');
 
 const BASE_IMAGE_URL = 'https://io.google/2024/app/images/io24-cd-';
 

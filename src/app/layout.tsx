@@ -18,12 +18,14 @@ export const metadata: Metadata = {
 };
 
 import { AuthProvider } from "../context/AuthContext";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html
       lang="en"
@@ -31,6 +33,9 @@ export default function RootLayout({
     >
       <body>
         <AuthProvider>
+          {/* Banner */}
+          <AnnouncementBanner props={{ announcement: "GDG WOW 2026 is happening this year, bigger, better and bolder • Tickets open • Register Now • Follow us on Instagram • @gdgwowap" }} />
+
           {children}
         </AuthProvider>
       </body>

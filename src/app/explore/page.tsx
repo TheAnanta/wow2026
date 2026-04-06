@@ -27,7 +27,6 @@ function ExploreContent() {
 
   const [sessions, setSessions] = useState<Session[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showBanner, setShowBanner] = useState(true);
   const [activeFilters, setActiveFilters] = useState<Record<string, string[]>>({
     stack: [],
     topic: [],
@@ -106,7 +105,7 @@ function ExploreContent() {
       const dateA = a.tags?.[3] || ""; // Date from tags
       const dateB = b.tags?.[3] || "";
       if (dateA !== dateB) return dateA.localeCompare(dateB);
-      
+
       const timeA = a.time || "00:00 AM";
       const timeB = b.time || "00:00 AM";
       const [startA] = parseTime(timeA);
@@ -159,18 +158,6 @@ function ExploreContent() {
 
   return (
     <div className="w-full min-h-screen bg-white">
-      {/* Banner */}
-      {showBanner && (
-        <div className="bg-[#202124] text-white py-3 px-4 text-center text-sm flex justify-center items-center relative">
-          <span>All content will be available May 14 at 8 AM PT.</span>
-          <button
-            className="absolute right-4 bg-transparent border-none text-white text-xl cursor-pointer"
-            onClick={() => setShowBanner(false)}
-          >
-            &times;
-          </button>
-        </div>
-      )}
 
       <Header onRegisterClick={() => { }} />
 

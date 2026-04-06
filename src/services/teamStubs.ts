@@ -6,7 +6,7 @@ export interface TeamMember {
   role: string;
   avatar?: string;
   pronouns?: string;
-  category: 'Organizer' | 'Lead' | 'Core Team';
+  category: 'Organizer' | 'Lead' | 'Core Team' | 'Contributors';
   responsibility: string;
   university: string;
 }
@@ -14,10 +14,10 @@ export interface TeamMember {
 const mockTeam: TeamMember[] = [
   // Organizers
   {
-    id: '6003',
+    id: '100',
     name: 'Manas Malla',
     role: 'Google Product Expert for Android',
-    avatar: 'https://wow2026.vercel.app/_next/image?url=%2Fcommon%2Fframe.png&w=384&q=75',
+    avatar: 'https://manasmalla.dev/_next/image?url=%2Fgallery%2Fimage-main.jpg&w=384&q=100',
     category: 'Organizer',
     pronouns: 'He/Him',
     responsibility: 'Technology',
@@ -26,11 +26,11 @@ const mockTeam: TeamMember[] = [
 
   // Leads
   {
-    id: '6004',
+    id: '101',
     name: 'Kavya Chandana',
     role: 'Lead',
     category: 'Lead',
-    pronouns: 'He/Him',
+    pronouns: 'She/Her',
     responsibility: 'Design',
     university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://github.com/Kavya-chandana.png'
@@ -38,22 +38,68 @@ const mockTeam: TeamMember[] = [
 
   // Core Team
   {
-    id: '6007',
-    name: 'Chandan Khamitkar',
+    id: '102',
+    name: 'Varshita Palleti',
     role: 'GDGoC GITAM Core Team',
     category: 'Core Team',
-    pronouns: 'He/Him',
-    responsibility: 'Technology',
-    university: 'GITAM'
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    university: 'Gandhi Institute of Technology and Management',
+    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767189232/Varshita_fqkkzb.jpg'
   },
   {
-    id: '6008',
+    id: '103',
     name: 'Jayadhar Ummadisingu',
     role: 'GDGoC GITAM Core Team',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Technology',
-    university: 'GITAM'
+    university: 'Gandhi Institute of Technology and Management'
+  },
+  {
+    id: '104',
+    name: 'Harshith Lanki',
+    role: 'GDGoC GITAM Core Team',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technology',
+    university: 'Gandhi Institute of Technology and Management'
+  },
+  {
+    id: '105',
+    name: 'Danush Yallamilli',
+    role: 'GDGoC GITAM Team',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Operations',
+    university: 'Gandhi Institute of Technology and Management',
+  },
+  {
+    id: '106',
+    name: 'Nikhila Pathi',
+    role: 'GDGoC GITAM Team',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    university: 'Gandhi Institute of Technology and Management',
+  },
+  {
+    id: '107',
+    name: 'Sai Vardhan K',
+    role: 'GDGoC GITAM Team',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Operations',
+    university: 'Gandhi Institute of Technology and Management',
+  },
+  {
+    id: '108',
+    name: 'Aneesha Yerra',
+    role: 'GDGoC GITAM Team',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    university: 'Gandhi Institute of Technology and Management',
   },
   {
     id: '113',
@@ -62,7 +108,7 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991613/Yashwanth_Kamireddi_os8fu1.jpg'
   },
   {
@@ -72,7 +118,7 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991622/Aftab_Ali_j7xluo.jpg'
   },
   {
@@ -82,27 +128,27 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991618/Chaitanya_Sameer_az2ci0.jpg'
   },
   {
     id: '116',
-    name: 'Deva Harshini',
+    name: 'Deva Harshini M',
     role: 'GDGoC GITAM Team',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991620/Deva_Harshini_tiogrf.jpg'
   },
   {
     id: '117',
-    name: 'Gagana',
+    name: 'Gagana Bandaru',
     role: 'GDGoC GITAM Team',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991619/Gagana_sgp8gf.jpg'
   },
   {
@@ -112,17 +158,17 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991628/Jaswanth_Kumar_cz9e9w.jpg'
   },
   {
     id: '119',
-    name: 'K Sharvan',
+    name: 'K Sharvan Babu',
     role: 'GDGoC GITAM Team',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991623/K_Sharvan_znnlot.jpg'
   },
   {
@@ -132,7 +178,7 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991625/M.G.S.S_Srikar_xvimcj.jpg'
   },
   {
@@ -142,7 +188,7 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991627/Pavan_Kumar_axeprk.jpg'
   },
   {
@@ -152,7 +198,7 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991616/Sanvi_Seetha_osj2tt.jpg'
   },
   {
@@ -162,27 +208,27 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991623/Tummala_Somanadh_nabuku.jpg'
   },
   {
     id: '124',
-    name: 'V Sohana',
+    name: 'Sohana Vuppala',
     role: 'GDGoC GITAM Team',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991615/V_Sohana_hmydkm.jpg'
   },
   {
     id: '125',
-    name: 'Vaibhav',
+    name: 'Vaibhav TSLV',
     role: 'GDGoC GITAM Team',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991617/Vaibhav_af7o5n.jpg'
   },
   {
@@ -192,17 +238,17 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991614/Satwika_Rejeti_rnn0fh.jpg'
   },
   {
     id: '127',
-    name: 'Aashita',
+    name: 'Aashita Jolly',
     role: 'GDGoC GITAM Team',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Aashita_fq7qbd.jpg'
   },
   {
@@ -212,19 +258,20 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
-    university: 'GITAM',
+    university: 'Gandhi Institute of Technology and Management',
     avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Srinivasam_Konchada_rfp5ku.jpg'
   },
+  //Contributors
   {
-    id: '111',
-    name: 'Varshita Palleti',
-    role: 'GDGoC GITAM Core Team',
-    category: 'Core Team',
+    id: '129',
+    name: 'Pranathi',
+    role: 'GDGoC GITAM Team',
+    category: 'Contributors',
     pronouns: 'She/Her',
     responsibility: 'Operations',
-    university: 'GITAM',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767189232/Varshita_fqkkzb.jpg'
-  }
+    university: 'Gandhi Institute of Technology and Management',
+    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Srinivasam_Konchada_rfp5ku.jpg'
+  },
 ];
 
 export const getTeam = async (): Promise<TeamMember[]> => {

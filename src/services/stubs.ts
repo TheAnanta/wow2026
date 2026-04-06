@@ -1296,6 +1296,6 @@ export const handleSaveToMyIO = async (id: string) => {
   return new Promise((resolve) => setTimeout(() => resolve({ success: true }), 300));
 };
 
-export const handleSearchCommunities = async (query: string) => {
+export const handleSearchCommunities = async (query: string): Promise<{ id: string, name: string, type: string }[]> => {
   return new Promise((resolve) => setTimeout(() => resolve([]), 300));
 };
