@@ -10,6 +10,7 @@ import { FilterSection } from "./components/FilterSection";
 import FilterDrawer from "./components/FilterDrawer";
 import { SessionCard } from "./components/SessionCard";
 import { FILTER_CATEGORIES } from "./constants";
+import { parseTime } from "../../utils/timeutils";
 
 export default function ExplorePage() {
   return (
@@ -101,6 +102,16 @@ function ExploreContent() {
         }
       }
       return true;
+    }).sort((a, b) => {
+      const dateA = a.tags?.[3] || ""; // Date from tags
+      const dateB = b.tags?.[3] || "";
+      if (dateA !== dateB) return dateA.localeCompare(dateB);
+      
+      const timeA = a.time || "00:00 AM";
+      const timeB = b.time || "00:00 AM";
+      const [startA] = parseTime(timeA);
+      const [startB] = parseTime(timeB);
+      return startA.getTime() - startB.getTime();
     });
   }, [sessions, activeFilters]);
 

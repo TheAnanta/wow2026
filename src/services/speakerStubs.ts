@@ -6,6 +6,7 @@ export interface Speaker {
   title: string;
   avatar: string;
   topics: string[];
+  pronouns?: string;
 }
 
 const mockSpeakers: Speaker[] = [

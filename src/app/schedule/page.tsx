@@ -314,37 +314,44 @@ const AgendaPage: React.FC = () => {
           {daysData.map((day: any, dayIndex: any) => (
             <div
               key={dayIndex}
-              className="day flex flex-col md:flex-row border-t border-gray-200 dark:border-gray-800 pt-10 mt-10 first:mt-0 first:pt-0 first:border-0"
+              className="day border-t border-gray-200 dark:border-gray-800 pt-10 mt-10 first:mt-0 first:pt-0 first:border-0"
             >
-              {/* Day Header - Left Side */}
-              <div className="date-header flex flex-row items-baseline gap-2 mb-8 md:flex-col md:items-center md:w-32 md:flex-shrink-0 md:sticky md:top-24 h-fit">
-                <span className="date-weekday text-lg md:text-sm font-medium text-blue-600 dark:text-blue-400 font-display">
-                  {day.weekday}
-                </span>
-                <span className="date-day-number text-3xl md:text-4xl font-bold text-gray-900 dark:text-white font-display leading-none">
-                  {day.day}
-                </span>
-              </div>
-
-              {/* Tracks Rows - Content Area */}
-              <div className="cal-content flex-1 max-w-full">
-                <div className="space-y-10">
+              {/* Content Area */}
+              <div className="cal-content w-full overflow-hidden">
+                <div className="space-y-2 text-stone-900 dark:text-stone-100">
                   {day.tracks.map((track: any, trackIndex: any) => (
-                    <div key={trackIndex} className="track-row">
-                      <div className="text-sm font-bold text-gray-500 dark:text-gray-400 mb-4 tracking-wider uppercase">
-                        {track.track}
-                      </div>
-                      <div className="flex flex-row overflow-x-auto gap-4 pb-4 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
-                        {track.events.map((event: any) => (
-                          <div key={event.id} className="flex-shrink-0">
-                            <AgendaBar
-                              event={event}
-                              hasBoughtTicket={userBoughtTicket}
-                              isSessionInSchedule={schedule.includes(event.id)}
-                              onAddToSchedule={() => handleAddToSchedule(event.id)}
-                            />
+                    <div key={trackIndex} className="track-row flex flex-col md:flex-row gap-4 items-center">
+                      {/* Left Column for Metadata (Date + Venue) */}
+                      <div className="md:w-32 flex-shrink-0 flex flex-col items-center justify-center text-center">
+                        {trackIndex === 0 ? (
+                          <div className="mb-4">
+                            <span className="block text-blue-600 dark:text-blue-400 font-medium text-xs uppercase font-display">
+                              {day.weekday}
+                            </span>
+                            <span className="block text-3xl font-bold text-gray-900 dark:text-white font-display leading-none">
+                              {day.day}
+                            </span>
                           </div>
-                        ))}
+                        ) : null}
+                        <div className="text-[10px] font-bold text-gray-400 dark:text-gray-500 tracking-wider uppercase max-w-full break-words leading-tight">
+                          {track.track}
+                        </div>
+                      </div>
+
+                      {/* Right Area for Cards */}
+                      <div className="flex-1 w-full overflow-x-auto pb-4 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+                        <div className="flex flex-row gap-4">
+                          {track.events.map((event: any) => (
+                            <div key={event.id} className="flex-shrink-0">
+                              <AgendaBar
+                                event={event}
+                                hasBoughtTicket={userBoughtTicket}
+                                isSessionInSchedule={schedule.includes(event.id)}
+                                onAddToSchedule={() => handleAddToSchedule(event.id)}
+                              />
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   ))}

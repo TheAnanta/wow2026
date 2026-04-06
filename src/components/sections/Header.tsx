@@ -24,6 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
   const navLinks = [
     { label: 'Explore', href: '/explore' },
     { label: 'Speakers', href: '/speakers' },
+    { label: 'Team', href: '/team' },
     { label: 'Community', href: '/community' },
     { label: 'About', href: '/faq' },
   ];
