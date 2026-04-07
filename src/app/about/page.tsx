@@ -257,26 +257,13 @@ export default function AboutIO() {
                                     Registration
                                 </button>
                                 <button
-                                    onClick={() => scrollToFaq("section-four")}
-                                    className={`faq-pill ${activeFaq === "section-four" ? "faq-pill__active" : ""}`}
-                                    style={{ borderRadius: "8px", minWidth: "fit-content" }}
-                                >
-                                    Google Developer Profile
-                                </button>
-                                <button
                                     onClick={() => scrollToFaq("section-five")}
                                     className={`faq-pill ${activeFaq === "section-five" ? "faq-pill__active" : ""}`}
                                     style={{ borderRadius: "8px", minWidth: "fit-content" }}
                                 >
                                     Amenities & Details
                                 </button>
-                                <button
-                                    onClick={() => scrollToFaq("section-six")}
-                                    className={`faq-pill ${activeFaq === "section-six" ? "faq-pill__active" : ""}`}
-                                    style={{ borderRadius: "8px", minWidth: "fit-content" }}
-                                >
-                                    Community
-                                </button>
+                                
                                 <button
                                     onClick={() => scrollToFaq("section-seven")}
                                     className={`last-pill faq-pill ${activeFaq === "section-seven" ? "faq-pill__active" : ""}`}
@@ -302,52 +289,48 @@ export default function AboutIO() {
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">When is Google I/O 2024?</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">When is GDGWOW 2026?</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
-                                                    This year&apos;s event will be broadcast in front of a small live audience and is open to everyone online on May 14, 2024. Tune in to the livestreamed keynotes, then dive into technical content and learning material on demand.
+                                                    GDGWOW is taking place in Vizag at GITAM University from 4th, July  to 5th, July this year.
                                                 </p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">How will Google I/O 2024 work for attendees outside of the US?</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">How will GDGWOW 2026 work for attendees unable to attend in person?</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
-                                                    One of the exciting things about a digital experience is the opportunity to reach a global audience. Content will be provided on demand and in different languages to serve everyone. Some translated content such as captioned videos may be available shortly after the event. Check out what your local{" "}
-                                                    <a href="https://gdg.community.dev/" target="_blank" rel="noopener noreferrer">developer community</a> is offering as well.
+                                                    One of the exciting things about this event is the opportunity to reach a wider audience. Conference recordings will be provided on demand to serve every Arcade pass holder.
                                                 </p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">How can I stay informed on the latest from Google I/O?</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">How can I stay informed on the latest from GDGWOW 2026?</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
-                                                    Register to receive important information via email about the digital event. To stay up-to-date on the latest information on sessions, speakers, and other activities, check the Google I/O 2024 website, visit the{" "}
-                                                    <a href="https://developers.googleblog.com/" target="_blank" rel="noopener noreferrer">Google Developers blog</a>, and follow us on{" "}
-                                                    <a href="https://twitter.com/googledevs" target="_blank" rel="noopener noreferrer">X</a>,{" "}
-                                                    <a href="https://www.linkedin.com/showcase/googledevelopers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>, and{" "}
-                                                    <a href="https://www.instagram.com/googlefordevs/" target="_blank" rel="noopener noreferrer">Instagram</a>. Join the social conversation about Google I/O 2024 via the official #GoogleIO hashtag.
+                                                    Create an account now to receive important information via email about the event. To stay up-to-date on the latest information on sessions, speakers, and other activities, check the GDGWOW 2026 website and follow our instagram page{" "}
+                                                    <a href="https://www.instagram.com/gdgoncampusgitam/" target="_blank" rel="noopener noreferrer">@gdgoncampusgitam</a>,{" "}. Join the social conversation about GDGWOW 2026 via the official #GDGWOW2026 hashtag.
                                                 </p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Session Schedule</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Where can we know more about the schedule?</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>The schedule can be found <a href="/agenda">here</a> soon.</p>
+                                                <p>The schedule can be found <a href="/agenda">here</a>.</p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
@@ -363,51 +346,22 @@ export default function AboutIO() {
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Date and location</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">The official GDGWOW 26 app</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>World of Wonders (WoW) 2025 Visakhapatnam will take place on the 28-29th June 2025 at GITAM (Deemed to be University), Visakhapatnam.</p>
+                                                <p>The official GDGWOW 26 app will be your go-to resource to unlocking the best experience at the event. It will be your companion for the event, providing you with all the event-related information. You can access the schedule, speaker details, and more through the app. Be sure to download it once it's available very soon!</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">The official WOW25 app</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>The official WoW 2025 Visakhapatnam app will be your go-to resource to unlocking the best experience at the event. It will be your companion for the event, providing you with all the event-related information. You can access the schedule, speaker details, and more through the app. Be sure to download it once it's available very soon!</p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Stay Informed</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>To stay up to date on the latest information on sessions, speakers, and activities, be sure to visit the WoW 2025 Visakapatnam website, and follow us on Instagram Page. You can also follow and join the social conversation about WoW 2025 Visakhapatnam via official hashtags #wowxap25. In addition, we&apos;ll be emailing important information to all registered attendees, along with check-in instructions prior to the conference. Make sure to add gdscwowvizag@gmail.com to your contacts to not let a mail pass your inbox.</p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Content Formats</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>During the conference, attendees will be able to attend sessions and hands-on workshops, chat with experts and attendees.</p>
-                                            </dd>
-                                        </div>
+                                        
                                         <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Language</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Medium of communication</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 md:mt-5 faq-entry">
-                                                <p>All presentations at WoW 2025 will be in English.</p>
+                                                <p>All the conferences, sessions and workshops will be conducted in English.</p>
                                             </dd>
                                         </div>
                                     </dl>
@@ -431,8 +385,8 @@ export default function AboutIO() {
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p className="mb-2">The WoW 2025 Visakhapatnam Hackathon is a 24-hour event where participants will work in teams to build innovative solutions using the latest technologies.</p>
-                                                <p>The hackathon will take place on the 28th-29th June 2025, starting at 06:00 PM on the 28th and ending at 01:00 PM on the 29th.</p>
+                                                <p className="mb-2">The GDGWOW 2026 Visakhapatnam Hackathon is a 14-hour event where participants will work in teams to build innovative solutions using the latest technologies.</p>
+                                                <p>The hackathon will take place on the 4th-5th July 2026, starting at 04:00 PM on the 4th and ending at 06:00 AM on the 5th.</p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
@@ -442,7 +396,7 @@ export default function AboutIO() {
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>The hackathon is open to all registered attendees of WoW 2025 Visakhapatnam. Participants can register as individuals or in teams of up to 5 members. Teams can be formed on the spot during the event.</p>
+                                                <p>The hackathon is open to all registered attendees of GDGWOW 2026 Visakhapatnam. Participants can register as teams ranging from 3 to 5 members. Teams can be formed on the spot during the event. The team registration panel can be found <a href="#">here</a>. You can explore the community page of the GDGWOW 26 app to find teamates.</p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
@@ -471,7 +425,7 @@ export default function AboutIO() {
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>The top three teams will be awarded exciting prizes, including cash prizes, tech gadgets, and exclusive swag. All participants will receive a certificate of participation.</p>
+                                                <p>The top three teams will be awarded exciting cash prizes and exclusive swags. All participants will receive a certificate of participation.</p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
@@ -533,34 +487,11 @@ export default function AboutIO() {
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
-                                                    Registration for Google I/O 2024 enables you to stay up to date about the schedule and content along with relevant developer news via email. As a registrant, you can also create a{" "}
-                                                    <a href="https://developers.google.com/profile/u/me" target="_blank" rel="noopener noreferrer">developer profile</a> to get the most out of the digital experience by saving and viewing content that&apos;s relevant to you.
+                                                    Registration for GDGWOW 26 enables you to stay up to date about the schedule and content along with relevant developer news via email.
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">What happens if I choose not to register?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>
-                                                    If you&apos;re unregistered you can still view the keynotes and sessions, but you won&apos;t receive communications related to the event. In addition, you won&apos;t be able to save content to view later or get recommendations via your{" "}
-                                                    <a href="https://developers.google.com/profile/u/me" target="_blank" rel="noopener noreferrer">developer profile</a>.
-                                                </p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">I&apos;m under 18 years old. Can I register for Google I/O?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>Attendees must be at least 18 years of age to participate in Google I/O.</p>
-                                            </dd>
-                                        </div>
+                                
                                         <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
@@ -575,83 +506,7 @@ export default function AboutIO() {
                                 </div>
                             </section>
 
-                            {/* SECTION FOUR - Google Developer Profile IO */}
-                            <section id="section-four" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
-                                    <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
-                                        style={{ background: "linear-gradient(270deg, #5382EB 1.91%, #5382EB 25.69%, #9F6CD4 51.37%, #EA4335 79.9%, #EA4335 97.02%)" }}
-                                    >
-                                        <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Google Developer Profile</h2>
-                                    </div>
-                                    <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Why do I need a developer profile for Google I/O?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>
-                                                    Creating a <a href="https://developers.google.com/profile/u/me" target="_blank" rel="noopener noreferrer">developer profile</a> allows you to select interests, receive content recommendations, and save content to your personal My I/O.
-                                                </p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Is My I/O different from my developer profile?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p className="mb-2">
-                                                    Yes. My I/O is powered by your <a href="https://developers.google.com/profile/u/me" target="_blank" rel="noopener noreferrer">developer profile</a> interests, which can be changed anytime in your <a href="https://developers.google.com/profile/u/me/settings#account" target="_blank" rel="noopener noreferrer">settings</a>.
-                                                </p>
-                                                <p className="mb-2">
-                                                    My I/O is a custom panel on the event website that helps you keep track of content you&apos;re interested in.
-                                                </p>
-                                                <p>
-                                                    Content you save to My I/O will also be saved to your <a href="https://developers.google.com/profile/u/me" target="_blank" rel="noopener noreferrer">developer profile</a> dashboard so you can watch it after the event is over.
-                                                </p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">I&apos;m unable to sign in with my Google account. Why is that?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p className="mb-2">
-                                                    If you&apos;re having trouble signing in to register, it may be that you did not grant developer profile access. This applies regardless of whether or not you have created a profile.
-                                                </p>
-                                                <p>To grant permission, try signing in again and checking the box.</p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">I&apos;m unable to create a profile with my Google Workspace account. Why is that?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 md:mt-5 faq-entry">
-                                                <p className="mb-2">
-                                                    The developer profile supports Google Workspace account types. If you&apos;re getting an error, you might need your organization&apos;s administrator to enable access to the Google Developers service. If you&apos;re having this issue, share the following instructions with your organization administrator:
-                                                </p>
-                                                <p className="mb-2">Enable your developer profile for the whole Google Workspace account:</p>
-                                                <p className="mb-2">1) From the Admin console Home page, go to Menu &gt; Apps &gt; Additional Google Services</p>
-                                                <p className="mb-2">2) Check Google Developers and set Service State to &quot;ON&quot;</p>
-                                                <p className="mb-2">3) Click Save.</p>
-                                                <p className="mb-2">
-                                                    Note: Groups and Organizational units can also be used to enable or disable the developer profile service. An Admin may have a more custom configuration that enables/disables the service across different user groups, in these situations the Admin can view an individual&apos;s account to debug the issue further. See <a href="https://support.google.com/a/answer/10621196" target="_blank" rel="noopener noreferrer">Turn Google Developers on and off for users</a> for more information.
-                                                </p>
-                                                <p>It might take up to 24 hours for changes to appear.</p>
-                                            </dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                            </section>
-
+                            
                             {/* SECTION FIVE - Amenities & Details WoW Merged */}
                             <section id="section-five" className="pb-10">
                                 <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
@@ -689,9 +544,9 @@ export default function AboutIO() {
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p className="mb-2">Accommodation details will be shared with registered attendees closer to the event date. Accommodation will be provided for the night of <b>28th June 2025</b> at <b>GITAM (Deemed to be University), Visakhapatnam</b>. The cost of accommodation is <b>₹200</b>, which will be included in the event registration fee. The checkout time for accommodation is <b>7:00 PM on 29th June 2025</b>.</p>
+                                                <p className="mb-2">Accommodation details will be shared with registered attendees closer to the event date. Accommodation will be provided for the night of <b>3rd July 2026</b> at <b>GITAM (Deemed to be University), Visakhapatnam</b>. The cost of accommodation is <b>₹300</b>, which is not included in the event registration fee. The checkout time for accommodation is <b>11:59 AM on 4th July 2026</b>.</p>
                                                 <p className="mb-2">Accommodation will be provided in the <b>GITAM hostel</b>, and it will be <b>shared accommodation</b>. Attendees are expected to maintain decorum and follow the hostel rules during their stay.</p>
-                                                <p>Accommodation can be extended for an additional fee of <b>₹100 per night</b>, subject to availability. If you wish to extend your stay, you can manage your stay through the <b>official WoW 2025 Visakhapatnam app</b>, which will be available for download closer to the event date.</p>
+                                                <p>Accommodation can be extended for an additional fee of <b>₹200 per night</b>, subject to availability. The stay can be extended until <b>11:59 AM</b> 6th July 2026. If you wish to extend your stay, you can manage your stay through the <b>official GDGDWOW 2026 Visakhapatnam app</b>, which will be available for download soon.</p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
@@ -721,7 +576,7 @@ export default function AboutIO() {
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>WoW 2025 Visakhapatnam is a developer event, so please be <b>comfortable and casual</b>. There is no enforced dress code.</p>
+                                                <p>GDGWOW Visakhapatnam is a developer event, so please be <b>comfortable and casual</b>. There is no enforced dress code.</p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
@@ -741,81 +596,14 @@ export default function AboutIO() {
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 md:mt-5 faq-entry">
-                                                <p>No solicitation or selling of items or services is allowed at WoW 2025 Visakhapatnam. Any attendee conducting these activities <b>may be removed</b> from the conference.</p>
+                                                <p>No solicitation or selling of items or services is allowed at GDGWOW 2026 Visakhapatnam. Any attendee conducting these activities <b>may be removed</b> from the conference.</p>
                                             </dd>
                                         </div>
                                     </dl>
                                 </div>
                             </section>
 
-                            {/* SECTION SIX - Community IO */}
-                            <section id="section-six" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
-                                    <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
-                                        style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
-                                    >
-                                        <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Community</h2>
-                                    </div>
-                                    <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Will there be community-led events (I/O Extended)?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>
-                                                    Yes. Check the <Link href="/community">Community</Link> page to learn more.
-                                                </p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">What is the difference between Google I/O, I/O Connect, and I/O Extended?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p className="mb-2">
-                                                    Google I/O is Google&apos;s flagship event featuring the latest announcements and updates in technology. Developers can tune in online for the livestreamed keynotes, watch on demand technical sessions, and explore self-paced learning material.
-                                                </p>
-                                                <p className="mb-2">
-                                                    <a href="https://developers.google.com/events" target="_blank" rel="noopener noreferrer">I/O Connect</a> is a hands-on, in-person developer event series by Google, focused on applying the technology and announcements from Google I/O through live sessions, demos, office hours, and more.
-                                                </p>
-                                                <p>
-                                                    <a href="https://gdg.community.dev/ioextended" target="_blank" rel="noopener noreferrer">I/O Extended</a> is a series of community-hosted, global events by Google Developer Groups and each event can vary in its format.
-                                                </p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">What happens if I violate the Community Guidelines?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p>
-                                                    Google reserves the right to refuse admittance to, or remove any person from, any Google hosted event (including future Google events) at any time in its sole discretion. This includes, but is not limited to, attendees behaving in a disorderly manner or failing to comply with{" "}
-                                                    <a href="https://developers.google.com/community-guidelines" target="_blank" rel="noopener noreferrer">this policy, and the terms and conditions herein.</a> If a participant engages in harassing or uncomfortable behavior, the conference organizers may take any action they deem appropriate, including warning or expelling the offender from the conference with no refund or blocking the offender&apos;s account from participating online.
-                                                </p>
-                                            </dd>
-                                        </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">How do I report a violation of the Community Guidelines?</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 md:mt-5 faq-entry">
-                                                <p>
-                                                    Please file a report with <a href="mailto:io-saysomething@google.com">io-saysomething@google.com</a>. Our team will review escalations and take the necessary actions.
-                                                </p>
-                                            </dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                            </section>
+                            
 
                             {/* SECTION SEVEN - Terms and conditions IO */}
                             <section id="section-seven">
@@ -835,27 +623,21 @@ export default function AboutIO() {
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p className="mb-2">
-                                                    By registering you acknowledge that your information will be used in accordance with Google&apos;s{" "}
-                                                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and{" "}
-                                                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>.
+                                                    By registering you acknowledge that your information will be used in accordance with GDGWOW&apos;s{" "}
+                                                    <a href="" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and{" "}
+                                                    <a href="" target="_blank" rel="noopener noreferrer">Terms of Service</a>.
                                                 </p>
                                                 <p className="mb-2">
-                                                    You may not register on behalf of anyone else. Google I/O registration must be used by the original registrant and is non-transferable.
+                                                    You may not register on behalf of anyone else. GDGWOW registration must be used by the original registrant and is non-transferable.
                                                 </p>
                                                 <p className="mb-2">
-                                                    All information entered into the registration form must be correct and accurate to the best of your knowledge. All information must be entered in English. Some of the information entered (such as name and company), will be displayed to other users if you contribute to Q&amp;As or participate in Chat.
+                                                    All information entered into the registration form must be correct and accurate to the best of your knowledge. All information must be entered in English. Some of the information entered (such as name and company), will be displayed to other users.
                                                 </p>
-                                                <p className="mb-2">
-                                                    Attendees must be at least 18 years of age to attend Google I/O. By registering, you are attesting that you are 18 years of age or older.
-                                                </p>
-                                                <p className="mb-2">Virtual attendance at Google I/O is not allowed by the following:</p>
-                                                <ul className="list-disc pl-5">
-                                                    <li>Residents of or individuals ordinarily resident in embargoed countries; or</li>
-                                                    <li>Individuals otherwise prohibited by applicable exports controls or local law.</li>
-                                                </ul>
-                                                <p className="mb-2">By registering and accepting any discounts, gifts, or items of value related to WoW 2025 Visakhapatnam, you certify that you are able to do so in compliance with applicable laws and the internal rules of your organization.</p>
-                                                <p className="mb-2">Tickets may not be sold, bartered, or auctioned in any way, and doing so may result in GDGoC Andhra Pradesh rendering the ticket null and void without any responsibility to GDGoC Andhra Pradesh.</p>
-                                                <p className="mb-2">Attendees aren&apos;t permitted to bring guests to WoW 2025 Visakhapatnam. If you have someone traveling with you, they&apos;ll need to register themselves and purchase an attendee ticket.</p>
+                                                
+                                    
+                                                <p className="mb-2">By registering and accepting any discounts, gifts, or items of value related to GDGWOW 2026 Visakhapatnam, you certify that you are able to do so in compliance with applicable laws and the internal rules of your organization.</p>
+                                                <p className="mb-2">Tickets may not be sold, bartered, or auctioned in any way, and doing so may result in GDGWOW AP rendering the ticket null and void without any responsibility to GDGWOW AP.</p>
+                                                <p className="mb-2">Attendees aren&apos;t permitted to bring guests to GDGWOW 2026 Visakhapatnam. If you have someone traveling with you, they&apos;ll need to register themselves and purchase an attendee ticket.</p>
 
                                             </dd>
                                         </div>
@@ -871,21 +653,7 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
-                                            <dt>
-                                                <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Communications</span>
-                                                </div>
-                                            </dt>
-                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p className="mb-2">
-                                                    Applicants and attendees can delete their registration data at any time by deleting their Google I/O 2024 registration badge from their developer profile. Email <a href="mailto:io-online@google.com">io-online@google.com</a> with any questions.
-                                                </p>
-                                                <p>
-                                                    All registered attendees agree to allow Google to contact them regarding their registration and attendance at the event. By registering, you agree to allow Google to communicate with you via email with information regarding the event.
-                                                </p>
-                                            </dd>
-                                        </div>
+                                        
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
@@ -893,8 +661,8 @@ export default function AboutIO() {
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                <p className="mb-2">Photographs and/or video taken at WoW 2025 Visakhapatnam by GDGoC Andhra Pradesh, or others on behalf of GDGoC Andhra Pradesh, may include your image or likeness.</p>
-                                                <p>You agree that GDGoC Andhra Pradesh may use such photographs and/or video for any purpose without compensation to you.</p>
+                                                <p className="mb-2">Photographs and/or video taken at GDGWOW 2026 Visakhapatnam by GDGWOW AP, or others on behalf of GDGWOW AP, may include your image or likeness.</p>
+                                                <p>You agree that GDGWOW AP may use such photographs and/or video for any purpose without compensation to you.</p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
@@ -904,8 +672,8 @@ export default function AboutIO() {
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 md:mt-5 faq-entry">
-                                                <p className="mb-2">You agree to be solely responsible for your own safety, belongings, and well-being while participating in WoW 2025 Visakhapatnam.</p>
-                                                <p>GDGoC Andhra Pradesh won&apos;t be liable for your participation in WoW 2025 Visakhapatnam.</p>
+                                                <p className="mb-2">You agree to be solely responsible for your own safety, belongings, and well-being while participating in GDGWOW 2026 Visakhapatnam.</p>
+                                                <p>GDGWOW AP won&apos;t be liable for your participation in GDGWOW 2026 Visakhapatnam.</p>
                                             </dd>
                                         </div>
                                     </dl>
