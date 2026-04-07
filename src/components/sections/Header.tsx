@@ -7,9 +7,10 @@ import { signInWithGoogle } from '../../services/firebase';
 
 interface HeaderProps {
   onRegisterClick: () => void;
+  className?: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
+export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) => {
   const { user, profile, isLoggedIn, isUnregistered } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -30,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
   ];
 
   return (
-    <header id="main-header" className="bg-white border-grey-900 border-b-[1.2px] md:border-b-2 w-full">
+    <header id="main-header" className={`bg-white border-grey-900 border-b-[1.2px] md:border-b-2 w-full ${className}`}>
       <nav className="max-w-[1640px] mx-auto h-[66px] px-[20px] md:px-[60px] flex items-center justify-between">
         <div className="flex items-center">
           {/* Logo */}

@@ -68,22 +68,22 @@ export default function SpeakersPage() {
             </div>
 
             <div className="flex justify-end items-end w-full md:w-3/5">
-              <img 
+              <img
                 className="hidden md:inline-block h-full object-cover object-left dark:hidden max-h-[407px] text-md:pl-[74px] lg:pl-0"
                 src="https://io.google/2024/app/images/io24-speakers-hero.webp"
                 alt="Speakers hero"
               />
-              <img 
+              <img
                 className="hidden dark:md:inline-block h-full object-cover object-left max-h-[407px] text-md:pl-[74px] lg:pl-0"
                 src="https://io.google/2024/app/images/io24-speakers-hero-dark.webp"
                 alt="Speakers hero dark"
               />
-              <img 
+              <img
                 className="block md:hidden dark:hidden "
                 src="https://io.google/2024/app/images/io24-speakers-hero-mobile.webp"
                 alt="Speakers hero mobile"
               />
-              <img 
+              <img
                 className="hidden dark:inline-block dark:md:hidden "
                 src="https://io.google/2024/app/images/io24-speakers-hero-mobile-dark.webp"
                 alt="Speakers hero mobile dark"
@@ -134,17 +134,18 @@ export default function SpeakersPage() {
 
             <div className={`grid w-full grid-cols-1 md:mt-6 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${loading ? 'opacity-50 pointer-events-none' : ''}`}>
               {speakers.length > 0 ? (
-                speakers.map(speaker => (
-                  <SpeakerCard 
-                    key={speaker.id} 
-                    name={speaker.name} 
+                speakers.sort((a, b) => ((a.isGDE ? -1 : 1) + (b.isGDE ? 1 : -1)) || a.name.localeCompare(b.name)).map(speaker => (
+                  <SpeakerCard
+                    key={speaker.id}
+                    name={speaker.name}
                     title={speaker.title}
                     pronouns={speaker.pronouns || 'They/Them'}
+                    image={speaker.avatar}
                   />
                 ))
               ) : (
                 <div className="col-span-full py-10 text-center">
-                   <p className="sm:l-h5">No speakers found matching your filters.</p>
+                  <p className="sm:l-h5">No speakers found matching your filters.</p>
                 </div>
               )}
             </div>
