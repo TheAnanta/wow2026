@@ -7,11 +7,11 @@ import { SpeakerCard as TeamMemberCard } from '../../components/speakers/Speaker
 import { SearchBar } from '../../components/speakers/SearchBar';
 import { FilterSidebar } from '../../components/speakers/FilterSidebar';
 import { BentoCard } from '../../components/sections/BentoCard';
-import { RegistrationWizard } from '../../components/registration/RegistrationWizard';
 import { TeamMember, getTeam } from '../../services/teamStubs';
+import { useRouter } from 'next/navigation';
 
 export default function TeamPage() {
-  const [showRegistration, setShowRegistration] = useState(false);
+  const router = useRouter();
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [filteredTeam, setFilteredTeam] = useState<TeamMember[]>([]);
@@ -75,7 +75,7 @@ export default function TeamPage() {
 
   return (
     <div className="w-full">
-      <Header onRegisterClick={() => setShowRegistration(true)} />
+      <Header onRegisterClick={() => router.push('/register')} />
 
       <main id="content" className="dark:bg-grey-900 flex-1">
         {/* Team Hero */}
@@ -276,9 +276,7 @@ export default function TeamPage() {
         Filter
       </button>
 
-      {showRegistration && (
-        <RegistrationWizard onClose={() => setShowRegistration(false)} />
-      )}
+      <Footer />
     </div>
   );
 }

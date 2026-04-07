@@ -5,6 +5,7 @@ export interface RegistrationProfile {
   pronoun: string;
   cityTown: string;
   role: string;
+  phoneNumber: string;
 }
 
 export interface RegistrationData extends RegistrationProfile {
@@ -22,6 +23,14 @@ export const validateProfile = (data: Partial<RegistrationProfile>): { [key: str
   const errors: { [key: string]: string } = {};
   if (!data.displayName?.trim()) errors.displayName = 'Display name is required.';
   if (!data.cityTown?.trim()) errors.cityTown = 'City or town is required.';
+  
+  // 10-digit Indian mobile number validation
+  if (!data.phoneNumber?.trim()) {
+    errors.phoneNumber = 'Phone number is required.';
+  } else if (!/^\d{10}$/.test(data.phoneNumber)) {
+    errors.phoneNumber = 'Please enter a valid 10-digit mobile number.';
+  }
+  
   return errors;
 };
 
@@ -46,7 +55,7 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
       first_name: firstName,
       last_name: lastName,
       email: user.email || 'manasmalla.dev@gmail.com',
-      phone: '',
+      phone: data.phoneNumber || '',
       gender: 'MALE',
       bio: 'Developer at I/O 2026', // Improved default
       designation: data.role || 'Developer',

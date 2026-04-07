@@ -3,7 +3,8 @@
 
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { signInWithGoogle } from '../../services/firebase';
+import { signInWithGoogle, logout } from '../../services/firebase';
+import { useRouter } from 'next/navigation';
 
 interface HeaderProps {
   onRegisterClick: () => void;
@@ -13,12 +14,15 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) => {
   const { user, profile, isLoggedIn, isUnregistered } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
 
   const handleAction = () => {
     if (isLoggedIn && (isUnregistered || !profile)) {
-      onRegisterClick();
+      router.push('/register');
     } else if (!isLoggedIn) {
       signInWithGoogle().catch(console.error);
+    } else {
+      logout().catch(console.error);
     }
   };
 

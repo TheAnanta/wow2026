@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import { Header } from '../../components/sections/Header';
 import { Footer } from '../../components/sections/Footer';
-import { RegistrationWizard } from '../../components/registration/RegistrationWizard';
 import { handleSearchCommunities } from '../../services/stubs';
+import { useRouter } from 'next/navigation';
 
 export default function CommunityPage() {
-  const [showRegistration, setShowRegistration] = useState(false);
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<{ id: string, name: string, type: string }[] | null>(null);
   const [isSearching, setIsSearching] = useState(false);
@@ -327,7 +327,7 @@ export default function CommunityPage() {
 
   return (
     <div className="w-full">
-      <Header onRegisterClick={() => setShowRegistration(true)} />
+      <Header onRegisterClick={() => router.push('/register')} />
 
       <main id="content" className="dark:bg-grey-900 flex-1">
         {/* Section 1: Hero */}
@@ -344,7 +344,7 @@ export default function CommunityPage() {
                 <button
                   type="button"
                   className="cta-primary block"
-                  onClick={() => setShowRegistration(true)}
+                  onClick={() => router.push('/register')}
                 >
                   <span>Register for GDG WOW</span>
                 </button>
@@ -547,9 +547,7 @@ export default function CommunityPage() {
 
       <Footer />
 
-      {showRegistration && (
-        <RegistrationWizard onClose={() => setShowRegistration(false)} />
-      )}
+      <Footer />
     </div>
   );
 }

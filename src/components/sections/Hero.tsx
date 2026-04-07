@@ -1,10 +1,12 @@
-// src/components/sections/Hero.tsx
+'use client';
+import { useRouter } from 'next/navigation';
 
 interface HeroProps {
   onRegisterClick?: () => void;
 }
 
 export function Hero({ onRegisterClick }: HeroProps) {
+  const router = useRouter();
   return (
     <div className="flex flex-col items-center bg-grey-bg dark:bg-grey">
       <div className="mb-6 mt-6 md:mb-10 md:mt-12">
@@ -23,7 +25,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
             <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
               <span>Watch live keynotes and on-demand sessions to hear our latest announcements.</span>
             </h2>
-            <button type="button" className="cta-primary block" onClick={onRegisterClick}>
+            <button type="button" className="cta-primary block" onClick={() => router.push('/register')}>
               <span>Register</span>
             </button>
           </div>

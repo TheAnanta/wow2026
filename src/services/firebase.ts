@@ -1,6 +1,6 @@
 // src/services/firebase.ts
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 
@@ -60,6 +60,15 @@ export const getBearerToken = async (): Promise<string | null> => {
       }
     });
   });
+};
+
+export const logout = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.error("Sign Out Error:", error);
+    throw error;
+  }
 };
 
 export { auth, db };

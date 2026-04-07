@@ -7,8 +7,8 @@ import { SpeakerCard } from '../../components/speakers/SpeakerCard';
 import { FilterSidebar } from '../../components/speakers/FilterSidebar';
 import { SearchBar } from '../../components/speakers/SearchBar';
 import { BentoCard } from '../../components/sections/BentoCard';
-import { RegistrationWizard } from '../../components/registration/RegistrationWizard';
 import { Speaker, getSpeakers, searchSpeakers } from '../../services/speakerStubs';
+import { useRouter } from 'next/navigation';
 
 const TOPICS = [
   'Accessibility', 'Ads', 'AI/Machine Learning', 'Android', 'AR/VR',
@@ -16,7 +16,7 @@ const TOPICS = [
 ];
 
 export default function SpeakersPage() {
-  const [showRegistration, setShowRegistration] = useState(false);
+  const router = useRouter();
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -52,7 +52,7 @@ export default function SpeakersPage() {
 
   return (
     <div className="w-full">
-      <Header onRegisterClick={() => setShowRegistration(true)} />
+      <Header onRegisterClick={() => router.push('/register')} />
 
       <main id="content" className="dark:bg-grey-900 flex-1">
         {/* Speakers Hero */}
@@ -207,9 +207,7 @@ export default function SpeakersPage() {
         Filter
       </button>
 
-      {showRegistration && (
-        <RegistrationWizard onClose={() => setShowRegistration(false)} />
-      )}
+      <Footer />
     </div>
   );
 }
