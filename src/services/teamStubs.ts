@@ -28,7 +28,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '101',
     name: 'Kavya Chandana',
-    role: 'Lead',
+    role: 'GDGoC GITAM Lead',
     category: 'Lead',
     pronouns: 'She/Her',
     responsibility: 'Design',
@@ -40,7 +40,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '102',
     name: 'Varshita Palleti',
-    role: 'GDGoC GITAM Core Team',
+    role: 'SWE, TCS',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -50,7 +50,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '103',
     name: 'Jayadhar Ummadisingu',
-    role: 'GDGoC GITAM Core Team',
+    role: 'SWE, Tata Consultancy Services',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Technology',
@@ -59,7 +59,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '104',
     name: 'Harshith Lanki',
-    role: 'GDGoC GITAM Core Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Technology',
@@ -68,7 +68,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '105',
     name: 'Danush Yallamilli',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -77,7 +77,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '106',
     name: 'Nikhila Pathi',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -86,7 +86,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '107',
     name: 'Sai Vardhan K',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -95,7 +95,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '108',
     name: 'Aneesha Yerra',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -104,7 +104,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '113',
     name: 'Yashwanth Kamireddi',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -114,7 +114,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '114',
     name: 'Aafthab Ali',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -124,7 +124,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '115',
     name: 'Chaitanya Sameer',
-    role: 'GDGoC GITAM Team',
+    role: 'CTO, the ananta',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -134,7 +134,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '116',
     name: 'Deva Harshini M',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -144,7 +144,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '117',
     name: 'Gagana Bandaru',
-    role: 'GDGoC GITAM Team',
+    role: 'Founding Engineer, the ananta',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -154,7 +154,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '118',
     name: 'Jaswanth Kumar',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -164,7 +164,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '119',
     name: 'K Sharvan Babu',
-    role: 'GDGoC GITAM Team',
+    role: 'Founder, Luna',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -174,7 +174,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '120',
     name: 'M.G.S.S Srikar',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -184,7 +184,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '121',
     name: 'Pavan Kumar',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -194,7 +194,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '122',
     name: 'Sanvi Seetha',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -204,7 +204,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '123',
     name: 'Tummala Somanadh',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -214,7 +214,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '124',
     name: 'Sohana Vuppala',
-    role: 'GDGoC GITAM Team',
+    role: 'Co-Founder, Luna',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -224,7 +224,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '125',
     name: 'Vaibhav TSLV',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',
@@ -234,7 +234,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '126',
     name: 'Satwika Rejeti',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -244,7 +244,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '127',
     name: 'Aashita Jolly',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Operations',
@@ -254,7 +254,7 @@ const mockTeam: TeamMember[] = [
   {
     id: '128',
     name: 'Srinivasam Konchada',
-    role: 'GDGoC GITAM Team',
+    role: 'Student, GITAM',
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Operations',

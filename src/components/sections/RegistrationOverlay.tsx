@@ -1,7 +1,6 @@
 // src/components/sections/RegistrationOverlay.tsx
 import React, { useState } from 'react';
 import { Button } from '../ui/Button';
-import { handleRegister } from '../../services/stubs';
 
 interface RegistrationOverlayProps {
   onClose: () => void;
@@ -21,7 +20,7 @@ export const RegistrationOverlay: React.FC<RegistrationOverlayProps> = ({ onClos
 
   const onSubmit = async () => {
     setLoading(true);
-    await handleRegister();
+    // await handleRegister();
     setLoading(false);
     onClose();
   };

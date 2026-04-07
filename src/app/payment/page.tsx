@@ -1,9 +1,9 @@
 'use client';
 import { Header } from "@/components/sections/Header";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
-export default function PaymentPage() {
+function PaymentPage() {
     const searchParams = useSearchParams();
     const type = searchParams.get('type');
     const isTermsAgreed = searchParams.get('terms') == 'true' && searchParams.get('ack') == 'true';
@@ -158,3 +158,11 @@ export default function PaymentPage() {
         </div>
     )
 }
+
+export default function SuspensefulPaymentPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <PaymentPage />
+        </Suspense>
+    )
+} 
