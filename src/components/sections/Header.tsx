@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick }) => {
     { label: 'Speakers', href: '/speakers' },
     { label: 'Team', href: '/team' },
     { label: 'Community', href: '/community' },
-    { label: 'About', href: '/faq' },
+    { label: 'About', href: '/about' },
   ];
 
   return (

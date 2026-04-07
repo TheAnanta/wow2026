@@ -3910,12 +3910,13 @@ p.start-learning p a {
 }
 
 
-.md\:grid-cols-countdown-cards-4 {
+
+@media (min-width: 960px) {
+
+.grid-cols-countdown-cards-2 {
     grid-template-columns:repeat(4, minmax(155px, 1fr))
 }
 
-
-@media (min-width: 960px) {
     .text-md\:-mr-40 {
         margin-right:-10rem
     }

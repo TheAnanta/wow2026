@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { Header } from "@/components/sections/Header";
 
 export default function AboutIO() {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function AboutIO() {
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-        const sections = ["section-one", "section-two", "section-three", "section-four", "section-five"];
+        const sections = ["section-one", "section-two", "section-three", "section-four", "section-five", "section-six", "section-seven"];
         sections.forEach((id) => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);
@@ -54,7 +55,7 @@ export default function AboutIO() {
                 <title>About Google I/O 2024</title>
                 <meta
                     name="description"
-                    content="Discover everything you need to know about Google I/O and get answers to your questions."
+                    content="Discover everything you need to know about World of Wonders 2026 and get answers to your questions."
                 />
             </Head>
 
@@ -64,189 +65,7 @@ export default function AboutIO() {
                 </div>
 
                 {/* Header */}
-                <header
-                    id="main-header"
-                    data-show-map="true"
-                    className="bg-grey-bg dark:bg-grey border-black border-b-2 dark:border-white w-full z-30"
-                >
-                    <nav
-                        id="top-nav"
-                        className="mx-auto h-[64px] border-black dark:border-grey-300 relative header-nav py-4 md:pr-8 text-md:ml-3 flex items-center"
-                        aria-label="Top"
-                    >
-                        {/* Mobile Nav Button */}
-                        <div className="block text-md:hidden">
-                            <div className="flex">
-                                <button
-                                    id="hamburger"
-                                    className="mobileHamburger"
-                                    tabIndex={0}
-                                    aria-label="Toggle Navigation Bar"
-                                    aria-expanded={isNavOpen}
-                                    onClick={toggleNav}
-                                >
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="24" height="24" fill="white" fillOpacity={0.01}></rect>
-                                        <path
-                                            id="hamburger-path"
-                                            fillRule="evenodd"
-                                            clipRule="evenodd"
-                                            d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z"
-                                            fill="#202124"
-                                            className="fill-grey-900 dark:fill-grey-200"
-                                        ></path>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            {/* Mobile Drawer */}
-                            <div
-                                id="drawer-nav"
-                                aria-modal="true"
-                                aria-hidden={!isNavOpen}
-                                className={`drawer-nav ${isNavOpen ? "show" : ""}`}
-                            >
-                                <div id="drawer-nav-a" className="flex justify-between bg-grey dark:bg-white h-[64px] border-black dark:border-white relative header-nav py-4 md:pr-8 items-center google-home-logo">
-                                    <Link href="/" aria-label="Google I/O home page" className="focus-trapped ml-5">
-                                        <img
-                                            id="normal-logo"
-                                            src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/Logo-dark.svg"
-                                            className="block dark:hidden"
-                                            width="154"
-                                            height="64"
-                                            role="presentation"
-                                            aria-hidden="true"
-                                            alt=""
-                                        />
-                                        <img
-                                            id="dark-logo"
-                                            src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/Logo.svg"
-                                            className="hidden dark:block"
-                                            width="154"
-                                            height="64"
-                                            role="presentation"
-                                            aria-hidden="true"
-                                            alt=""
-                                        />
-                                    </Link>
-                                    <button id="close-drawer-btn" type="button" className="ml-auto z-50 p-3 focus-trapped" aria-label="Exit" onClick={toggleNav}>
-                                        <svg className="fill-current text-white w-6 h-6 dark:text-grey-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                            <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                                {/* Mobile Drawer Links */}
-                                <div className="flex justify-between items-center pr-2">
-                                    <div className="flex justify-between items-center ml-5 mt-4 pr-2">
-                                        <div className="nav-links inline sm:s-cta2 lg:s-button-default">
-                                            <Link href="/explore" className="focus-trapped">Explore</Link>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex justify-between items-center ml-5 mt-7 pr-2">
-                                    <div className="nav-links inline sm:s-cta2 lg:s-button-default">
-                                        <Link href="/community" className="focus-trapped">Community</Link>
-                                    </div>
-                                </div>
-                                <div className="flex justify-between items-center ml-5 mt-7 pr-2">
-                                    <div className="nav-links inline sm:s-cta2 lg:s-button-default active-underline">
-                                        <Link href="/about" className="focus-trapped">About</Link>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="nav-mask" className={`drawer-mask ${isNavOpen ? "" : "hidden"}`} onClick={toggleNav}></div>
-                        </div>
-
-                        {/* Desktop Nav Logos */}
-                        <div className="flex google-home-logo">
-                            <Link id="site-logo" href="/" className="mr-[1rem] text-md:ml-3" aria-label="Google I/O home page">
-                                <img
-                                    id="medium-main-logo"
-                                    className="block dark:hidden"
-                                    src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/Logo.svg"
-                                    aria-hidden="true"
-                                    role="presentation"
-                                    width="128"
-                                    height="28"
-                                    alt="I/O Logo"
-                                />
-                                <img
-                                    id="medium-dark-logo"
-                                    className="hidden dark:block"
-                                    src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/Logo-light.svg"
-                                    aria-hidden="true"
-                                    role="presentation"
-                                    width="128"
-                                    height="28"
-                                    alt="I/O Logo Light"
-                                />
-                            </Link>
-                        </div>
-
-                        {/* Desktop Nav Links */}
-                        <div id="desktop-nav-links" className="hidden text-md:flex md:flex items-center justify-start flex-nowrap ml-[30px]">
-                            <div className="nav-links inline md:s-button-default">
-                                <Link href="/explore">Explore</Link>
-                            </div>
-                            <div className="nav-links inline md:s-button-default">
-                                <Link href="/community">Community</Link>
-                            </div>
-                            <div className="nav-links inline md:s-button-default active-underline">
-                                <Link href="/about" className="active">About</Link>
-                            </div>
-                        </div>
-
-                        {/* Header Actions */}
-                        <div id="header-actions" className="flex ml-auto">
-                            <div className="hidden text-md:flex md:flex items-center">
-                                <div className="h-choose-language">
-                                    <select
-                                        name="language-select"
-                                        aria-label="Drop down to select language"
-                                        className="font-medium language-select focus-trapped bg-white md:bg-grey-bg dark:bg-grey text-grey-900 dark:text-white w-full border-none pl-0 ml:w-32 ml:pl-4 sm:s-cta2 md:s-cta1"
-                                        defaultValue="en"
-                                    >
-                                        <option value="en">English</option>
-                                        <option value="es">Español</option>
-                                        <option value="pt">Português</option>
-                                        <option value="fr">Français</option>
-                                        <option value="id">Indonesia</option>
-                                        <option value="ko">한국어</option>
-                                        <option value="zh">中文</option>
-                                        <option value="ja">日本語</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="flex">
-                                <div className="hidden md:flex">
-                                    <div className="h-header-actions flex justify-between">
-                                        <div className="flex flex-row">
-                                            <div className="flex ml-3 mr-5">
-                                                <button className="font-medium sm:s-cta1 dark:text-white" aria-label="Sign in to Google I/O developer profile">
-                                                    Sign in
-                                                </button>
-                                            </div>
-                                            <div className="flex ml-5 mr-3">
-                                                <button className="nav-cta-btn" aria-label="Register for Google I/O">
-                                                    Register
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex md:hidden">
-                                    <div id="h-header-actions-mobile" className="flex self-center md:hidden text-grey-900 dark:text-grey-200">
-                                        <button className="font-medium mr-5 sm:s-cta1 dark:text-white" aria-label="Sign in to Google I/O developer profile">
-                                            Sign in
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                </header>
+                <Header onRegisterClick={() => { }} />
 
                 {/* Main Content */}
                 <main id="content" className="dark:bg-grey-900 flex-1">
@@ -257,7 +76,7 @@ export default function AboutIO() {
                                 About I/O
                             </h1>
                             <div className="font-medium sm:s-h6 md:l-h6 mb-4">
-                                <p>Discover Google&apos;s latest product launches and more.</p>
+                                <p>Discover Google&apos;s latest product launches and more. Discover everything you need to know about World of Wonders 2025 and get answers to your questions.</p>
                                 <p>It&apos;s open to everyone online!</p>
                             </div>
                         </div>
@@ -428,25 +247,39 @@ export default function AboutIO() {
                                     className={`faq-pill ${activeFaq === "section-two" ? "faq-pill__active" : ""}`}
                                     style={{ borderRadius: "8px", minWidth: "fit-content" }}
                                 >
-                                    Registration
+                                    Hackathon
                                 </button>
                                 <button
                                     onClick={() => scrollToFaq("section-three")}
                                     className={`faq-pill ${activeFaq === "section-three" ? "faq-pill__active" : ""}`}
                                     style={{ borderRadius: "8px", minWidth: "fit-content" }}
                                 >
-                                    Google Developer Profile
+                                    Registration
                                 </button>
                                 <button
                                     onClick={() => scrollToFaq("section-four")}
                                     className={`faq-pill ${activeFaq === "section-four" ? "faq-pill__active" : ""}`}
                                     style={{ borderRadius: "8px", minWidth: "fit-content" }}
                                 >
-                                    Community
+                                    Google Developer Profile
                                 </button>
                                 <button
                                     onClick={() => scrollToFaq("section-five")}
-                                    className={`last-pill faq-pill ${activeFaq === "section-five" ? "faq-pill__active" : ""}`}
+                                    className={`faq-pill ${activeFaq === "section-five" ? "faq-pill__active" : ""}`}
+                                    style={{ borderRadius: "8px", minWidth: "fit-content" }}
+                                >
+                                    Amenities & Details
+                                </button>
+                                <button
+                                    onClick={() => scrollToFaq("section-six")}
+                                    className={`faq-pill ${activeFaq === "section-six" ? "faq-pill__active" : ""}`}
+                                    style={{ borderRadius: "8px", minWidth: "fit-content" }}
+                                >
+                                    Community
+                                </button>
+                                <button
+                                    onClick={() => scrollToFaq("section-seven")}
+                                    className={`last-pill faq-pill ${activeFaq === "section-seven" ? "faq-pill__active" : ""}`}
                                     style={{ borderRadius: "8px", minWidth: "fit-content" }}
                                 >
                                     Terms and conditions
@@ -456,7 +289,7 @@ export default function AboutIO() {
 
                         {/* FAQ Sections */}
                         <div className="flex-1 flex flex-col w-full max-w-xl mx-auto faq-sections">
-                            {/* SECTION ONE */}
+                            {/* SECTION ONE - General Merged */}
                             <section id="section-one" className="pb-10">
                                 <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
                                     <div
@@ -491,13 +324,13 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">How can I stay informed on the latest from Google I/O?</span>
                                                 </div>
                                             </dt>
-                                            <dd className="mt-4 md:mt-5 faq-entry">
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
                                                     Register to receive important information via email about the digital event. To stay up-to-date on the latest information on sessions, speakers, and other activities, check the Google I/O 2024 website, visit the{" "}
                                                     <a href="https://developers.googleblog.com/" target="_blank" rel="noopener noreferrer">Google Developers blog</a>, and follow us on{" "}
@@ -507,16 +340,187 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Session Schedule</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>The schedule can be found <a href="/agenda">here</a> soon.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Community Guidelines</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>Our community guidelines can be found <a href="/coc" target="_blank">here</a>. Be nice to each other, and be respectful and constructive.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Date and location</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>World of Wonders (WoW) 2025 Visakhapatnam will take place on the 28-29th June 2025 at GITAM (Deemed to be University), Visakhapatnam.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">The official WOW25 app</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>The official WoW 2025 Visakhapatnam app will be your go-to resource to unlocking the best experience at the event. It will be your companion for the event, providing you with all the event-related information. You can access the schedule, speaker details, and more through the app. Be sure to download it once it's available very soon!</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Stay Informed</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>To stay up to date on the latest information on sessions, speakers, and activities, be sure to visit the WoW 2025 Visakapatnam website, and follow us on Instagram Page. You can also follow and join the social conversation about WoW 2025 Visakhapatnam via official hashtags #wowxap25. In addition, we&apos;ll be emailing important information to all registered attendees, along with check-in instructions prior to the conference. Make sure to add gdscwowvizag@gmail.com to your contacts to not let a mail pass your inbox.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Content Formats</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>During the conference, attendees will be able to attend sessions and hands-on workshops, chat with experts and attendees.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Language</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 md:mt-5 faq-entry">
+                                                <p>All presentations at WoW 2025 will be in English.</p>
+                                            </dd>
+                                        </div>
                                     </dl>
                                 </div>
                             </section>
 
-                            {/* SECTION TWO */}
+                            {/* SECTION TWO - Hackathon WoW */}
                             <section id="section-two" className="pb-10">
                                 <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
                                     <div
                                         className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
                                         style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
+                                    >
+                                        <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Hackathon</h2>
+                                    </div>
+                                    <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Overview</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p className="mb-2">The WoW 2025 Visakhapatnam Hackathon is a 24-hour event where participants will work in teams to build innovative solutions using the latest technologies.</p>
+                                                <p>The hackathon will take place on the 28th-29th June 2025, starting at 06:00 PM on the 28th and ending at 01:00 PM on the 29th.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Eligibility</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>The hackathon is open to all registered attendees of WoW 2025 Visakhapatnam. Participants can register as individuals or in teams of up to 5 members. Teams can be formed on the spot during the event.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Domains</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p className="mb-2">The hackathon will focus on the following domains:</p>
+                                                <ul className="list-disc ml-6 space-y-1 mb-4">
+                                                    <li>Web Development</li>
+                                                    <li>Mobile App Development</li>
+                                                    <li>AI/ML Solutions</li>
+                                                    <li>Cloud Computing</li>
+                                                    <li>No-Code Development</li>
+                                                </ul>
+                                                <p className="mb-2">Teams can choose any of these domains, or any other relevant domain, to work on their projects.</p>
+                                                <p className="italic text-grey-600 dark:text-grey-400">Participants are encouraged to think outside the box and come up with innovative solutions that can make a difference in the world and impact the community around us in meaningful ways.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Prizes</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>The top three teams will be awarded exciting prizes, including cash prizes, tech gadgets, and exclusive swag. All participants will receive a certificate of participation.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Judging</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p className="mb-2">The hackathon projects will be judged by a panel of experts based on the following criteria:</p>
+                                                <ul className="list-disc ml-6 space-y-1">
+                                                    <li>Innovation and Creativity</li>
+                                                    <li>Technical Implementation</li>
+                                                    <li>User Experience</li>
+                                                    <li>Impact and Scalability</li>
+                                                </ul>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">AI Usage</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>Participants are encouraged to use AI tools and technologies in their projects. However, the use of AI should be ethical and transparent, with proper attribution to any AI models or datasets used.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Late night stay</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 md:mt-5 faq-entry">
+                                                <p className="mb-2">Participants are expected to stay overnight at the venue during the hackathon. However, in case of any emergency, participants can leave the venue and return the next day by 08:00 AM sharp.</p>
+                                                <p>However, they must inform the organizers about their absence and provide a valid reason. Also, atleast two members of the team must be present at the venue at all times.</p>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </section>
+
+                            {/* SECTION THREE - Registration Merged */}
+                            <section id="section-three" className="pb-10">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                    <div
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Registration</h2>
                                     </div>
@@ -547,26 +551,36 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">I&apos;m under 18 years old. Can I register for Google I/O?</span>
                                                 </div>
                                             </dt>
-                                            <dd className="mt-4 md:mt-5 faq-entry">
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>Attendees must be at least 18 years of age to participate in Google I/O.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Registration terms & conditions</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 md:mt-5 faq-entry">
+                                                <p>Tickets are non-transferable and solo individual purchase only.</p>
                                             </dd>
                                         </div>
                                     </dl>
                                 </div>
                             </section>
 
-                            {/* SECTION THREE */}
-                            <section id="section-three" className="pb-10">
+                            {/* SECTION FOUR - Google Developer Profile IO */}
+                            <section id="section-four" className="pb-10">
                                 <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
                                     <div
                                         className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
-                                        style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
+                                        style={{ background: "linear-gradient(270deg, #5382EB 1.91%, #5382EB 25.69%, #9F6CD4 51.37%, #EA4335 79.9%, #EA4335 97.02%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Google Developer Profile</h2>
                                     </div>
@@ -638,12 +652,108 @@ export default function AboutIO() {
                                 </div>
                             </section>
 
-                            {/* SECTION FOUR */}
-                            <section id="section-four" className="pb-10">
+                            {/* SECTION FIVE - Amenities & Details WoW Merged */}
+                            <section id="section-five" className="pb-10">
                                 <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
                                     <div
                                         className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
-                                        style={{ background: "linear-gradient(270deg, #5382EB 1.91%, #5382EB 25.69%, #9F6CD4 51.37%, #EA4335 79.9%, #EA4335 97.02%)" }}
+                                        style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
+                                    >
+                                        <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Amenities & Details</h2>
+                                    </div>
+                                    <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Internet Access</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>WIFI: <span className="font-bold">GITAM_5GHz</span><br />Password: <b>Gitam$$123</b></p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Onsite food & beverages</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>Breakfast, lunch, and dinner are complimentary for attendees.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Accommodation</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p className="mb-2">Accommodation details will be shared with registered attendees closer to the event date. Accommodation will be provided for the night of <b>28th June 2025</b> at <b>GITAM (Deemed to be University), Visakhapatnam</b>. The cost of accommodation is <b>₹200</b>, which will be included in the event registration fee. The checkout time for accommodation is <b>7:00 PM on 29th June 2025</b>.</p>
+                                                <p className="mb-2">Accommodation will be provided in the <b>GITAM hostel</b>, and it will be <b>shared accommodation</b>. Attendees are expected to maintain decorum and follow the hostel rules during their stay.</p>
+                                                <p>Accommodation can be extended for an additional fee of <b>₹100 per night</b>, subject to availability. If you wish to extend your stay, you can manage your stay through the <b>official WoW 2025 Visakhapatnam app</b>, which will be available for download closer to the event date.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Washroom</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>Washrooms can be found on either side (<b>East and West</b>) of the <b>ICT building</b>, located <b>behind the elevator lobbies</b>.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Drinking Fountain</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>Drinking fountain/bottle filling stations can be found <b>next to all washroom entrances</b>.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Event Attire</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>WoW 2025 Visakhapatnam is a developer event, so please be <b>comfortable and casual</b>. There is no enforced dress code.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Smoking</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>Smoking is <b>strictly prohibited</b> at the venue.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">No Soliciting</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 md:mt-5 faq-entry">
+                                                <p>No solicitation or selling of items or services is allowed at WoW 2025 Visakhapatnam. Any attendee conducting these activities <b>may be removed</b> from the conference.</p>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </section>
+
+                            {/* SECTION SIX - Community IO */}
+                            <section id="section-six" className="pb-10">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                    <div
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Community</h2>
                                     </div>
@@ -707,8 +817,8 @@ export default function AboutIO() {
                                 </div>
                             </section>
 
-                            {/* SECTION FIVE */}
-                            <section id="section-five">
+                            {/* SECTION SEVEN - Terms and conditions IO */}
+                            <section id="section-seven">
                                 <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
                                     <div
                                         className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
@@ -743,6 +853,10 @@ export default function AboutIO() {
                                                     <li>Residents of or individuals ordinarily resident in embargoed countries; or</li>
                                                     <li>Individuals otherwise prohibited by applicable exports controls or local law.</li>
                                                 </ul>
+                                                <p className="mb-2">By registering and accepting any discounts, gifts, or items of value related to WoW 2025 Visakhapatnam, you certify that you are able to do so in compliance with applicable laws and the internal rules of your organization.</p>
+                                                <p className="mb-2">Tickets may not be sold, bartered, or auctioned in any way, and doing so may result in GDGoC Andhra Pradesh rendering the ticket null and void without any responsibility to GDGoC Andhra Pradesh.</p>
+                                                <p className="mb-2">Attendees aren&apos;t permitted to bring guests to WoW 2025 Visakhapatnam. If you have someone traveling with you, they&apos;ll need to register themselves and purchase an attendee ticket.</p>
+
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
@@ -757,19 +871,41 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Communications</span>
                                                 </div>
                                             </dt>
-                                            <dd className="mt-4 md:mt-5 faq-entry">
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p className="mb-2">
                                                     Applicants and attendees can delete their registration data at any time by deleting their Google I/O 2024 registration badge from their developer profile. Email <a href="mailto:io-online@google.com">io-online@google.com</a> with any questions.
                                                 </p>
                                                 <p>
                                                     All registered attendees agree to allow Google to contact them regarding their registration and attendance at the event. By registering, you agree to allow Google to communicate with you via email with information regarding the event.
                                                 </p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Photography and Media</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p className="mb-2">Photographs and/or video taken at WoW 2025 Visakhapatnam by GDGoC Andhra Pradesh, or others on behalf of GDGoC Andhra Pradesh, may include your image or likeness.</p>
+                                                <p>You agree that GDGoC Andhra Pradesh may use such photographs and/or video for any purpose without compensation to you.</p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Liability and Safety</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 md:mt-5 faq-entry">
+                                                <p className="mb-2">You agree to be solely responsible for your own safety, belongings, and well-being while participating in WoW 2025 Visakhapatnam.</p>
+                                                <p>GDGoC Andhra Pradesh won&apos;t be liable for your participation in WoW 2025 Visakhapatnam.</p>
                                             </dd>
                                         </div>
                                     </dl>
