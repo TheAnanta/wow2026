@@ -9,28 +9,27 @@ import { CTACards } from '../components/sections/CTACards';
 import { KeynotesSection } from '../components/sections/KeynotesSection';
 import { StackCardsSection } from '../components/sections/StackCardsSection';
 import { Footer } from '../components/sections/Footer';
-import { RegistrationWizard } from '../components/registration/RegistrationWizard';
 import { useAuth } from '../context/AuthContext';
+import { useRouter } from 'next/navigation';
 import WhatToExpectSection from '@/components/sections/WhatToExpectSection';
 import EventMetricsSection from '@/components/sections/EventMetricsSection';
 
 export default function Home() {
-  const [showRegistration, setShowRegistration] = useState(false);
   const { isUnregistered, isLoggedIn } = useAuth();
-
+  const router = useRouter();
 
   useEffect(() => {
     if (isLoggedIn && isUnregistered) {
-      setShowRegistration(true);
+      router.push('/register');
     }
-  }, [isLoggedIn, isUnregistered]);
+  }, [isLoggedIn, isUnregistered, router]);
 
   return (
     <div className="w-full min-h-screen bg-white text-grey-900 overflow-x-hidden">
-      <Header onRegisterClick={() => setShowRegistration(true)} />
+      <Header onRegisterClick={() => router.push('/register')} />
 
       <main>
-        <Hero onRegisterClick={() => setShowRegistration(true)} />
+        <Hero onRegisterClick={() => router.push('/register')} />
 
         <div className="page-wrapper flex flex-col">
           <CountdownSection />
@@ -87,10 +86,6 @@ export default function Home() {
       </main>
 
       <Footer />
-
-      {showRegistration && (
-        <RegistrationWizard onClose={() => setShowRegistration(false)} />
-      )}
     </div>
   );
 }
