@@ -140,7 +140,7 @@ export default function SpeakersPage() {
                     name={speaker.name}
                     title={speaker.title}
                     pronouns={speaker.pronouns || 'They/Them'}
-                    image={speaker.avatar}
+                    image={speaker.avatar ? `/images/speakers/${speaker.avatar}` : ''}
                   />
                 ))
               ) : (

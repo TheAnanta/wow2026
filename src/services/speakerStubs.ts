@@ -87,22 +87,6 @@ const mockSpeakers: Speaker[] = [
   },
   {
     id: '109',
-    name: 'Vijay Kumar Kagupati',
-    title: 'VR Developer Intern, CXR GITAM',
-    avatar: '/Vijay-Kumar.jpeg',
-    pronouns: 'He/Him',
-    topics: ['AR/VR', 'Design']
-  },
-  {
-    id: '110',
-    name: 'Rithwik Burra',
-    title: 'Professional',
-    avatar: '',
-    pronouns: 'He/Him',
-    topics: ['Other']
-  },
-  {
-    id: '111',
     name: 'Gireesh Kumar Yejju',
     title: 'Professional',
     avatar: '/Gireesh-kumar.jpeg',
@@ -110,7 +94,7 @@ const mockSpeakers: Speaker[] = [
     topics: ['Other']
   },
   {
-    id: '112',
+    id: '110',
     name: 'Usha Ramani Vemuru',
     title: 'C0-Founder, GURUJADA IT Solutions',
     avatar: '/Usha-ramani-min.png',
@@ -118,7 +102,7 @@ const mockSpeakers: Speaker[] = [
     topics: ['General', 'Other']
   },
   {
-    id: '121',
+    id: '111',
     name: 'Manas Malla',
     title: 'Founder, CEO, The Ananta Studio',
     avatar: '/manas.jpg',
@@ -126,7 +110,7 @@ const mockSpeakers: Speaker[] = [
     topics: ['Android', 'Flutter']
   },
   {
-    id: '122',
+    id: '112',
     name: 'Kavya Chandana',
     title: 'COO, CFO, The Ananta Studio',
     avatar: '/kavya.png',
@@ -134,15 +118,7 @@ const mockSpeakers: Speaker[] = [
     topics: ['Design', 'Web']
   },
   {
-    id: '123',
-    name: 'Chandan Khamitkar',
-    title: 'CIO, The Ananta Studio',
-    avatar: '/chandan.jpg',
-    pronouns: 'He/Him',
-    topics: ['Other', 'General']
-  },
-  {
-    id: '124',
+    id: '113',
     name: 'Varshita Palleti',
     title: 'Web Intern, The Ananta Studio',
     avatar: '/varshita.jpeg',
@@ -150,7 +126,7 @@ const mockSpeakers: Speaker[] = [
     topics: ['Web', 'Design']
   },
   {
-    id: '125',
+    id: '114',
     name: 'Jayadhar Ummadisingu',
     title: 'ML Intern, The Ananta Studio',
     avatar: '/jayadhar.jpg',
@@ -158,7 +134,7 @@ const mockSpeakers: Speaker[] = [
     topics: ['AI / Machine Learning', 'Other']
   },
   {
-    id: '126',
+    id: '115',
     name: 'Neharika Sathagopam',
     title: 'Software Engineer, Natwest Group',
     avatar: '/neharika.jpeg',
