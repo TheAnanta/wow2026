@@ -4887,3 +4887,8 @@ p.start-learning p a {
 .max-w-xl {
     max-width: 1640px
 }
+
+.hover\:bg-grey:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(32 33 36/var(--tw-bg-opacity))
+}

@@ -50,19 +50,19 @@ export default function Home() {
 
             {[{
               title: "GITAM University",
-              role: "Venue Partner",
+              role: "Partner",
               avatar: 'https://play-lh.googleusercontent.com/WqW965xIPuS_-NzTE109zlmF3KoeAprETIpoU2i1B4L_BrxOwlx0rpFG3gSneYZvh0Q'
             }, {
               title: "the ananta",
-              role: "Event Partner",
+              role: "Partner",
               avatar: 'https://theananta.in/logomark.svg'
             }, {
-              title: "GITAM Career Guidance Center",
-              role: "Career Partner",
+              title: "GITAM Career\nGuidance Center",
+              role: "Partner",
               avatar: 'default '
             }, {
               title: "Venture Development Center",
-              role: "Startup Partner",
+              role: "Partner",
               avatar: 'default'
             }].map((e) => {
               return (<a className="flex p-4 md:p-6 border md:border-2 border-grey-600 md:border-transparent rounded-[20px] w-full md:mb-2 md:w-[49%] overflow-hidden group hover:bg-grey-bg md:hover:bg-transparent hover:border-grey! group dark:hover:border-grey-bg!">
@@ -70,7 +70,7 @@ export default function Home() {
                   <img src={e.avatar.includes("gdsc") ? "https://io.google/2024/app/images/io24-location-gdsc-logo.svg" : (e.avatar.includes("default") || !e.avatar) ? "https://io.google/2024/app/images/io24-location-default-logo.svg" : e.avatar} height="90" width="90" aria-hidden="true" />
                 </div>
                 <div className="flex gap-y-1 flex-col w-full md:w-3/4 justify-around md:pl-6 ">
-                  <span className="font-medium sm:s-p1 md:l-h6 dark:text-white dark:group-hover:text-grey dark:md:group-hover:text-white">
+                  <span className="whitespace-pre-wrap font-medium sm:s-p1 md:l-h6 dark:text-white dark:group-hover:text-grey dark:md:group-hover:text-white">
                     {e.title}
                   </span>
                   <span className="mb-auto mt-1 font-medium sm:s-p1 dark:text-white dark:group-hover:text-grey dark:md:group-hover:text-white">
