@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
 
         <div className="flex flex-wrap gap-x-6 gap-y-4">
           <a href="#" className="hover:text-white transition-colors duration-200">WOW 2023</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">Privacy & terms</a>
+          <a href="/terms" className="hover:text-white transition-colors duration-200">Privacy & terms</a>
           <a href="#" className="hover:text-white transition-colors duration-200">Community guidelines</a>
           <a href="#" className="hover:text-white transition-colors duration-200">FAQ</a>
         </div>
