@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import Link from "next/link";
-import mainData from "@/data/config.json";
 import { Header } from "@/components/sections/Header";
 
 export default function AboutIO() {
@@ -50,10 +50,18 @@ export default function AboutIO() {
     }, []);
 
     return (
+        <>
+            <Head>
+                <title>About Google I/O 2024</title>
+                <meta
+                    name="description"
+                    content="Discover everything you need to know about World of Wonders 2026 and get answers to your questions."
+                />
+            </Head>
 
             <div className="dark:bg-grey-900 min-h-screen flex flex-col font-sans text-[#202124] dark:text-white bg-white">
                 <div id="page-title" className="absolute top-[-40px]">
-                    About {mainData.eventInfo.name}
+                    About Google I/O 2024
                 </div>
 
                 {/* Header */}
@@ -65,10 +73,11 @@ export default function AboutIO() {
                     <div className="w-full flex flex-col md:flex-row text-md:h-[407px] md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
                         <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
                             <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40 md:-mr-40">
-                                About {mainData.eventInfo.name}
+                                About I/O
                             </h1>
                             <div className="font-medium sm:s-h6 md:l-h6 mb-4">
-                                <p>{mainData.eventInfo.description.long}</p>
+                                <p>Discover Google&apos;s latest product launches and more. Discover everything you need to know about World of Wonders 2025 and get answers to your questions.</p>
+                                <p>It&apos;s open to everyone online!</p>
                             </div>
                         </div>
                         <div className="flex justify-end items-end w-full md:w-3/5 !justify-start xl:!justify-end xl:pr-5">
@@ -254,7 +263,7 @@ export default function AboutIO() {
                                 >
                                     Amenities & Details
                                 </button>
-                                
+
                                 <button
                                     onClick={() => scrollToFaq("section-seven")}
                                     className={`last-pill faq-pill ${activeFaq === "section-seven" ? "faq-pill__active" : ""}`}
@@ -344,7 +353,7 @@ export default function AboutIO() {
                                                 <p>The official GDGWOW 26 app will be your go-to resource to unlocking the best experience at the event. It will be your companion for the event, providing you with all the event-related information. You can access the schedule, speaker details, and more through the app. Be sure to download it once it's available very soon!</p>
                                             </dd>
                                         </div>
-                                        
+
                                         <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
@@ -482,7 +491,7 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                
+
                                         <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
@@ -497,7 +506,7 @@ export default function AboutIO() {
                                 </div>
                             </section>
 
-                            
+
                             {/* SECTION FIVE - Amenities & Details WoW Merged */}
                             <section id="section-five" className="pb-10">
                                 <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
@@ -594,7 +603,7 @@ export default function AboutIO() {
                                 </div>
                             </section>
 
-                            
+
 
                             {/* SECTION SEVEN - Terms and conditions IO */}
                             <section id="section-seven">
@@ -624,8 +633,8 @@ export default function AboutIO() {
                                                 <p className="mb-2">
                                                     All information entered into the registration form must be correct and accurate to the best of your knowledge. All information must be entered in English. Some of the information entered (such as name and company), will be displayed to other users.
                                                 </p>
-                                                
-                                    
+
+
                                                 <p className="mb-2">By registering and accepting any discounts, gifts, or items of value related to GDGWOW 2026 Visakhapatnam, you certify that you are able to do so in compliance with applicable laws and the internal rules of your organization.</p>
                                                 <p className="mb-2">Tickets may not be sold, bartered, or auctioned in any way, and doing so may result in GDGWOW AP rendering the ticket null and void without any responsibility to GDGWOW AP.</p>
                                                 <p className="mb-2">Attendees aren&apos;t permitted to bring guests to GDGWOW 2026 Visakhapatnam. If you have someone traveling with you, they&apos;ll need to register themselves and purchase an attendee ticket.</p>
@@ -644,7 +653,7 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        
+
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
@@ -723,5 +732,6 @@ export default function AboutIO() {
                     </div>
                 </footer>
             </div>
+        </>
     );
 }
