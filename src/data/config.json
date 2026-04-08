@@ -1,12 +1,130 @@
 {
-  "eventInfo": {
-    "name": "Women In Tech 2025",
-    "description": {
-      "short": "A grand celebration of women in technology by The Ananta."
-    }
+  "communityName": "GDG on Campus AP",
+  "communityLocation": {
+    "country": "India",
+    "city": "Andhra Pradesh"
   },
-  "communityName": "The Ananta",
+  "communityDescription": "GDG on Campus is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.",
+  "communityLinks": {
+    "page": "https://gdg.community.dev/gdg-on-campus-andhra-pradesh-university-vizianagaram-india/",
+    "website": "https://gdg.community.dev/gdg-on-campus-andhra-pradesh-university-vizianagaram-india/",
+    "instagram": "https://www.instagram.com/gdgwowap",
+    "linkedin": "https://www.linkedin.com/company/gdgwowap",
+    "youtube": "https://www.youtube.com/@gdgwowap"
+  },
+  "eventInfo": {
+    "name": "WOW 2026",
+    "date": "July 4-5, 2026",
+    "time": "08 AM - 07 PM",
+    "venue": {
+      "address": "GITAM University",
+      "map_link": "https://maps.app.goo.gl/PihjEo9KMghn2Lx86"
+    },
+    "registration": {
+      "link": "/register",
+      "end_date": "2026-06-25",
+      "start_date": "2026-04-01"
+    },
+    "callForSpeakers": {
+      "link": "/call-for-speakers",
+      "end_date": "2026-05-15",
+      "start_date": "2026-03-01"
+    },
+    "event_startDate": "2026-07-04",
+    "event_endDate": "2026-07-05",
+    "description": {
+      "short": "A grand celebration of technology and innovation by the Google Developer Groups community.",
+      "long": "WOW 2026 is an annual flagship event hosted by the Google Developers Group to bring the latest technology closer to the developer community. It is a multi-day developer conference featuring deep-dive technical sessions, hands-on workshops, and networking opportunities with experts from across the globe."
+    },
+    "stats": [
+      {
+        "name": "Speakers",
+        "value": "30+",
+        "color": "#C3ECF6",
+        "image": "img/common/blue.png"
+      },
+      {
+        "name": "Participants",
+        "value": "1000+",
+        "color": "#F8D8D8",
+        "image": "img/common/pink.png"
+      },
+      {
+        "name": "Sessions",
+        "value": "20+",
+        "color": "#CCF6C5",
+        "image": "img/common/green.png"
+      },
+      {
+        "name": "Workshops",
+        "value": "15+",
+        "color": "#FFE7A5",
+        "image": "img/common/yellow.png"
+      }
+    ],
+    "benefits": [
+      {
+        "title": "learn tech from the experts",
+        "image": "https://www.gitam.edu/sites/default/files/banners/know-gitam_0.jpg",
+        "bgcolor": "rgba(195, 236, 246, 0.3)",
+        "color": "#174EA6",
+        "benefits": [
+          "Curated talks and workshops from the best of India.",
+          "Our speakers come with rich expertise in building solutions.",
+          "We have extended workshops on various topics relating to AI, Web, Cloud, Android and Flutter that take you from zero to one."
+        ]
+      },
+      {
+        "title": "be a developer",
+        "image": "https://images.businessnewsdaily.com/app/uploads/2022/04/04072326/freelancer_Prostock-Studio_getty.jpg",
+        "bgcolor": "rgba(248, 216, 216, 0.3)",
+        "color": "#B31412",
+        "benefits": [
+          "Explore the talks and workshops to understand where and when to make your next step.",
+          "Build a network of like minded people that can help you reach the next level.",
+          "Ask and get the best practices from the amazing line-up of speakers."
+        ]
+      },
+      {
+        "title": "build a career in Tech",
+        "image": "https://heinzegers.com/wp-content/uploads/2017/08/Visiting-Google-1024x576.jpg",
+        "bgcolor": "rgba(255, 231, 165, 0.3)",
+        "color": "#B06000",
+        "benefits": [
+          "Network with like minded people and build connections that take your career to the next level.",
+          "Interact with the best people in the industry to understand how you can build a lasting career.",
+          "Attend curated career guidance sessions which provide you with insights that can help you land a job."
+        ]
+      },
+      {
+        "title": "build a startup",
+        "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/220304_GGstartups_interior_4350.width-1300.jpg",
+        "bgcolor": "rgba(204, 246, 197, 0.3)",
+        "color": "#0D652D",
+        "benefits": [
+          "Find like minded and highly motivated people for building your founding team.",
+          "Meet existing startups.",
+          "Build connections and exchange solutions among startups and businesses."
+        ]
+      }
+    ],
+    "whatToExpect": [
+      {
+        "title": "Technical content",
+        "description": "Events hosted by the Google Developer Groups community, featuring leading experts on Google technologies in areas."
+      },
+      {
+        "title": "Workshops & Codelabs",
+        "description": "Workshops and codelabs on the latest technologies to help you build your skills and knowledge."
+      },
+      {
+        "title": "Networking & Community",
+        "description": "Connect with fellow developers, experts, and community leaders to grow your professional network."
+      }
+    ]
+  },
   "seo": {
-    "hostUrl": "https://wow2025.com"
+    "keywords": "GDG, WOW, Google, Women In Tech, Developer, Community, Vizag, AP",
+    "hostUrl": "https://wow.gdgap.com"
   }
 }

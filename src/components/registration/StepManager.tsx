@@ -159,7 +159,7 @@ export const StepManager: React.FC<StepManagerProps> = ({
               <div className="mt-8">
                 <h3 className={`${labelCls} mb-4`}>Select your interests</h3>
                 <p className="text-xs text-[#5f6368] mb-6">This will help us provide you with the most relevant WOW content.</p>
-                <InterestTags selectedInterests={data.interests} toggleInterest={toggleInterest} />
+                <InterestTags selectedInterests={data.interests} toggleInterest={toggleInterest} showAll={true} />
                 <a href="#" className="block mt-4 text-sm font-bold underline">See all</a>
               </div>
 

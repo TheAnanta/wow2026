@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
 import Link from "next/link";
+import mainData from "@/data/config.json";
 import { Header } from "@/components/sections/Header";
 
 export default function AboutIO() {
@@ -50,18 +50,10 @@ export default function AboutIO() {
     }, []);
 
     return (
-        <>
-            <Head>
-                <title>About Google I/O 2024</title>
-                <meta
-                    name="description"
-                    content="Discover everything you need to know about World of Wonders 2026 and get answers to your questions."
-                />
-            </Head>
 
             <div className="dark:bg-grey-900 min-h-screen flex flex-col font-sans text-[#202124] dark:text-white bg-white">
                 <div id="page-title" className="absolute top-[-40px]">
-                    About Google I/O 2024
+                    About {mainData.eventInfo.name}
                 </div>
 
                 {/* Header */}
@@ -73,11 +65,10 @@ export default function AboutIO() {
                     <div className="w-full flex flex-col md:flex-row text-md:h-[407px] md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
                         <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
                             <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40 md:-mr-40">
-                                About I/O
+                                About {mainData.eventInfo.name}
                             </h1>
                             <div className="font-medium sm:s-h6 md:l-h6 mb-4">
-                                <p>Discover Google&apos;s latest product launches and more. Discover everything you need to know about World of Wonders 2025 and get answers to your questions.</p>
-                                <p>It&apos;s open to everyone online!</p>
+                                <p>{mainData.eventInfo.description.long}</p>
                             </div>
                         </div>
                         <div className="flex justify-end items-end w-full md:w-3/5 !justify-start xl:!justify-end xl:pr-5">
@@ -732,6 +723,5 @@ export default function AboutIO() {
                     </div>
                 </footer>
             </div>
-        </>
     );
 }

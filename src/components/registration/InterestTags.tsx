@@ -16,11 +16,14 @@ const ADDITIONAL_INTERESTS = [
 ];
 
 export const InterestTags: React.FC<InterestTagsProps> = ({ selectedInterests, toggleInterest, showAll }) => {
-  const interests = showAll ? [...PRIMARY_INTERESTS, ...ADDITIONAL_INTERESTS] : PRIMARY_INTERESTS;
+  const allInterests = [...PRIMARY_INTERESTS, ...ADDITIONAL_INTERESTS];
+  const displayedInterests = showAll 
+    ? allInterests 
+    : allInterests.filter(i => PRIMARY_INTERESTS.includes(i) || selectedInterests.includes(i));
 
   return (
     <div className="flex flex-wrap gap-3">
-      {interests.map(interest => {
+      {displayedInterests.map(interest => {
         const selected = selectedInterests.includes(interest);
         return (
           <button

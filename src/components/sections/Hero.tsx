@@ -1,5 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
+import mainData from '@/data/config.json';
 
 interface HeroProps {
   onRegisterClick?: () => void;
@@ -14,8 +15,8 @@ export function Hero({ onRegisterClick }: HeroProps) {
           <div className="flex flex-col items-center text-center p-6 max-w-[800px]">
             <h1 className="font-medium text-grey dark:text-white max-w-[360px] md:max-w-[500px] mb-4 sm:s-h3 md:l-h4">
               <span>
-                <p>Tune in for<br />GDG on Campus WOW</p>
-                <p>July 4, 2026</p>
+                <p>Tune in for<br />{mainData.eventInfo.name}</p>
+                <p>{mainData.eventInfo.date}</p>
               </span>
             </h1>
             <div className="hidden">

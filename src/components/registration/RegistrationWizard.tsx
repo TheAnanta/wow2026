@@ -19,6 +19,8 @@ const initialData: RegistrationData = {
   termsAgreed: false,
   agreeToTerms: false,
   marketingConsent: false,
+  organization: '',
+  phoneNumber: ''
 };
 
 export const RegistrationWizard: React.FC<RegistrationWizardProps> = ({ onClose }) => {

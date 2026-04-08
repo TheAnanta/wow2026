@@ -176,7 +176,7 @@ export const RegistrationForm: React.FC = () => {
                 {errors.displayName && <p className={errorTextCls}>{errors.displayName}</p>}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div className="relative">
                   <select className={`${inputBaseCls} appearance-none pr-10 ${!data.pronoun ? 'text-grey-600' : 'text-grey-900'}`} value={data.pronoun} onChange={(e) => updateData({ pronoun: e.target.value })}>
                     <option value="">Pronoun</option>
@@ -185,8 +185,19 @@ export const RegistrationForm: React.FC = () => {
                     <option value="they/them">They/Them</option>
                     <option value="prefer not to say">Prefer not to say</option>
                   </select>
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-grey-600">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2 4l4 4 4-4" strokeWidth="2" /></svg>
+                  <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
+                    <img
+                      className="block dark:hidden h-2.5"
+                      src="https://io.google/2024/app/images/chevron-up.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <img
+                      className="hidden dark:block h-2.5"
+                      src="https://io.google/2024/app/images/chevron-up-white.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
                 <div className="relative">
@@ -197,14 +208,14 @@ export const RegistrationForm: React.FC = () => {
                     onChange={(e) => updateData({ cityTown: e.target.value })}
                     placeholder="City/town*"
                   />
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-grey-600">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                  <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none text-grey-600">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
                   </div>
                   {errors.cityTown && <p className={errorTextCls}>{errors.cityTown}</p>}
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div className="relative">
                   <select className={`${inputBaseCls} appearance-none pr-10 ${!data.role ? 'text-grey-600' : 'text-grey-900'}`} value={data.role} onChange={(e) => updateData({ role: e.target.value })}>
                     <option value="">Role or job title</option>
@@ -229,8 +240,19 @@ export const RegistrationForm: React.FC = () => {
                       <option value="Technical writer">Technical writer</option>
                     </optgroup>
                   </select>
-                  <div className="absolute right-4 top-[22px] pointer-events-none text-grey-600">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2 4l4 4 4-4" strokeWidth="2" /></svg>
+                  <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
+                    <img
+                      className="block dark:hidden h-2.5"
+                      src="https://io.google/2024/app/images/chevron-up.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <img
+                      className="hidden dark:block h-2.5"
+                      src="https://io.google/2024/app/images/chevron-up-white.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
                 <div>
@@ -245,11 +267,11 @@ export const RegistrationForm: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div>
                   <div className="relative">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-grey-900 font-medium border-r border-grey-300 pr-3 mr-2">
-                      +91
+                    <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none text-grey-900 font-medium">
+                      <span className="border-r border-grey-300 pr-3 mr-3 h-5 flex items-center">+91</span>
                     </div>
                     <input
                       className={`${inputBaseCls} pl-16`}
