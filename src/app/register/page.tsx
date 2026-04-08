@@ -3,20 +3,18 @@
 import React from 'react';
 import { RegistrationForm } from '../../components/registration/RegistrationForm';
 import { Header } from '../../components/sections/Header';
-import { Footer } from '../../components/sections/Footer';
 
 export default function RegisterPage() {
   return (
     <div className="w-full min-h-screen bg-[#f8f9fa] dark:bg-grey-900 text-grey-900 dark:text-white flex flex-col transition-colors duration-300">
-      <Header onRegisterClick={() => {}} />
-      
+      <Header onRegisterClick={() => { }} />
+
       <main className="flex-1 flex flex-col items-center py-8 md:py-16 px-4 md:px-6">
         <div className="w-full max-w-[800px] bg-white dark:bg-grey-800 rounded-xl md:rounded-2xl border border-grey-200 dark:border-grey-700 shadow-sm overflow-hidden animate-slide-up">
           <RegistrationForm />
         </div>
       </main>
 
-      <Footer />
 
       <style jsx global>{`
         @keyframes slideUp {

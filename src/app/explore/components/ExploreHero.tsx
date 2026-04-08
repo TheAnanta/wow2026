@@ -30,28 +30,28 @@ export const ExploreHero: React.FC = () => {
       <div className="flex justify-end items-end w-full md:w-3/5 mb-8 md:mb-0">
         <img
           className="hidden md:inline-block h-full object-cover object-left dark:hidden "
-          src="https://io.google/2024/app/images/io24-explore-hero.webp"
+          src="/images/io24-explore-hero.webp"
           role="img"
           aria-hidden="true"
           fetchPriority="high"
         />
         <img
           className="hidden dark:md:inline-block h-full object-cover object-left "
-          src="https://io.google/2024/app/images/io24-explore-hero-dark.webp"
+          src="/images/io24-explore-hero-dark.webp"
           role="img"
           aria-hidden="true"
           fetchPriority="high"
         />
         <img
           className="block md:hidden dark:hidden w-full"
-          src="https://io.google/2024/app/images/io24-explore-hero-mobile.webp"
+          src="/images/io24-explore-hero-mobile.webp"
           role="img"
           aria-hidden="true"
           fetchPriority="high"
         />
         <img
           className="hidden dark:inline-block dark:md:hidden w-full"
-          src="https://io.google/2024/app/images/io24-explore-hero-mobile-dark.webp"
+          src="/images/io24-explore-hero-mobile-dark.webp"
           role="img"
           aria-hidden="true"
           fetchPriority="high"

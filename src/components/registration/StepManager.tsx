@@ -82,7 +82,7 @@ export const StepManager: React.FC<StepManagerProps> = ({
             onClick={handleGoogleSignIn}
             className="bg-white text-[#000000] border border-[#000000] rounded-full flex items-center gap-4 mx-auto w-fit py-3 px-8 font-bold cursor-pointer"
           >
-            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="20" />
+            <img src="/images/google.svg" alt="Google" width="20" />
             Sign in with Google
           </button>
         </div>

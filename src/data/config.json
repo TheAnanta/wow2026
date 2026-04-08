@@ -76,7 +76,7 @@
       },
       {
         "title": "be a developer",
-        "image": "https://images.businessnewsdaily.com/app/uploads/2022/04/04072326/freelancer_Prostock-Studio_getty.jpg",
+        "image": "/images/freelancer_Prostock-Studio_getty.jpg",
         "bgcolor": "rgba(248, 216, 216, 0.3)",
         "color": "#B31412",
         "benefits": [
@@ -87,7 +87,7 @@
       },
       {
         "title": "build a career in Tech",
-        "image": "https://heinzegers.com/wp-content/uploads/2017/08/Visiting-Google-1024x576.jpg",
+        "image": "/images/Visiting-Google-1024x576.jpg",
         "bgcolor": "rgba(255, 231, 165, 0.3)",
         "color": "#B06000",
         "benefits": [
@@ -98,7 +98,7 @@
       },
       {
         "title": "build a startup",
-        "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/220304_GGstartups_interior_4350.width-1300.jpg",
+        "image": "/images/220304_GGstartups_interior_4350.width-1300.jpg",
         "bgcolor": "rgba(204, 246, 197, 0.3)",
         "color": "#0D652D",
         "benefits": [

@@ -45,7 +45,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767189232/Varshita_fqkkzb.jpg'
+    avatar: '/images/Varshita_fqkkzb.jpg'
   },
   {
     id: '103',
@@ -109,7 +109,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991613/Yashwanth_Kamireddi_os8fu1.jpg'
+    avatar: '/images/Yashwanth_Kamireddi_os8fu1.jpg'
   },
   {
     id: '114',
@@ -119,7 +119,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991622/Aftab_Ali_j7xluo.jpg'
+    avatar: '/images/Aftab_Ali_j7xluo.jpg'
   },
   {
     id: '115',
@@ -129,7 +129,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991618/Chaitanya_Sameer_az2ci0.jpg'
+    avatar: '/images/Chaitanya_Sameer_az2ci0.jpg'
   },
   {
     id: '116',
@@ -139,7 +139,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991620/Deva_Harshini_tiogrf.jpg'
+    avatar: '/images/Deva_Harshini_tiogrf.jpg'
   },
   {
     id: '117',
@@ -149,7 +149,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991619/Gagana_sgp8gf.jpg'
+    avatar: '/images/Gagana_sgp8gf.jpg'
   },
   {
     id: '118',
@@ -159,7 +159,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991628/Jaswanth_Kumar_cz9e9w.jpg'
+    avatar: '/images/Jaswanth_Kumar_cz9e9w.jpg'
   },
   {
     id: '119',
@@ -169,7 +169,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991623/K_Sharvan_znnlot.jpg'
+    avatar: '/images/K_Sharvan_znnlot.jpg'
   },
   {
     id: '120',
@@ -179,7 +179,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991625/M.G.S.S_Srikar_xvimcj.jpg'
+    avatar: '/images/M.G.S.S_Srikar_xvimcj.jpg'
   },
   {
     id: '121',
@@ -189,7 +189,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991627/Pavan_Kumar_axeprk.jpg'
+    avatar: '/images/Pavan_Kumar_axeprk.jpg'
   },
   {
     id: '122',
@@ -199,7 +199,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991616/Sanvi_Seetha_osj2tt.jpg'
+    avatar: '/images/Sanvi_Seetha_osj2tt.jpg'
   },
   {
     id: '123',
@@ -209,7 +209,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991623/Tummala_Somanadh_nabuku.jpg'
+    avatar: '/images/Tummala_Somanadh_nabuku.jpg'
   },
   {
     id: '124',
@@ -219,7 +219,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991615/V_Sohana_hmydkm.jpg'
+    avatar: '/images/V_Sohana_hmydkm.jpg'
   },
   {
     id: '125',
@@ -229,7 +229,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991617/Vaibhav_af7o5n.jpg'
+    avatar: '/images/Vaibhav_af7o5n.jpg'
   },
   {
     id: '126',
@@ -239,7 +239,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1766991614/Satwika_Rejeti_rnn0fh.jpg'
+    avatar: '/images/Satwika_Rejeti_rnn0fh.jpg'
   },
   {
     id: '127',
@@ -249,7 +249,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Aashita_fq7qbd.jpg'
+    avatar: '/images/Aashita_fq7qbd.jpg'
   },
   {
     id: '128',
@@ -259,7 +259,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Srinivasam_Konchada_rfp5ku.jpg'
+    avatar: '/images/Srinivasam_Konchada_rfp5ku.jpg'
   },
   //Contributors
   {
@@ -270,7 +270,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://res.cloudinary.com/dlhw4q5rh/image/upload/c_fill,w_200,h_200,g_face,f_auto,q_auto/v1767021669/Srinivasam_Konchada_rfp5ku.jpg'
+    avatar: '/images/Srinivasam_Konchada_rfp5ku.jpg'
   },
 ];
 

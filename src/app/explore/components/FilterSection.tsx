@@ -52,12 +52,12 @@ export const FilterSection: React.FC<FilterSectionProps> = ({
             <div className={`filter-box__chevron ${!expandedCategories[category.classification] ? "transform -scale-y-100" : ""}`}>
               <img
                 className="hidden dark:block hcm-light-display"
-                src="https://io.google/2024/app/images/chevron-up.svg"
+                src="/images/chevron-up.svg"
                 aria-hidden="true"
               />
               <img
                 className="block dark:hidden hcm-dark-display"
-                src="https://io.google/2024/app/images/chevron-up-white.svg"
+                src="/images/chevron-up-white.svg"
                 aria-hidden="true"
               />
             </div>

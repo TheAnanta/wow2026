@@ -93,22 +93,22 @@ export default function TeamPage() {
             <div className="flex justify-end items-end w-full md:w-3/5">
               <img
                 className="hidden md:inline-block h-full object-cover object-left dark:hidden max-h-[407px] text-md:pl-[74px] lg:pl-0"
-                src="https://io.google/2024/app/images/io24-about-hero.webp"
+                src="/images/io24-about-hero.webp"
                 alt="Team hero"
               />
               <img
                 className="hidden dark:md:inline-block h-full object-cover object-left max-h-[407px] text-md:pl-[74px] lg:pl-0"
-                src="https://io.google/2024/app/images/io24-about-hero-dark.webp"
+                src="/images/io24-about-hero-dark.webp"
                 alt="Team hero dark"
               />
               <img
                 className="block md:hidden dark:hidden "
-                src="https://io.google/2024/app/images/io24-about-hero-mobile.webp"
+                src="/images/io24-about-hero-mobile.webp"
                 alt="Team hero mobile"
               />
               <img
                 className="hidden dark:inline-block dark:md:hidden "
-                src="https://io.google/2024/app/images/io24-about-hero-mobile-dark.webp"
+                src="/images/io24-about-hero-mobile-dark.webp"
                 alt="Team hero mobile dark"
               />
             </div>
@@ -251,8 +251,6 @@ export default function TeamPage() {
         </section>
       </main>
 
-      <Footer />
-
       {/* Mobile Filters UI */}
       {showMobileFilters && (
         <div className="fixed inset-0 z-2000 bg-white p-8 flex flex-col overflow-y-auto animate-slide-down">
@@ -276,7 +274,6 @@ export default function TeamPage() {
         Filter
       </button>
 
-      <Footer />
     </div>
   );
 }

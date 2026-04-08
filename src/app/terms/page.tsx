@@ -55,7 +55,7 @@ export default function TermsPage() {
 
   return (
     <div className="dark:bg-grey-900 min-h-screen flex flex-col font-sans text-[#202124] dark:text-white bg-white">
-      <Header onRegisterClick={() => {}} />
+      <Header onRegisterClick={() => { }} />
 
       <main id="content" className="dark:bg-grey-900 flex-1">
         {/* Hero Banner — matches About page exactly */}
@@ -82,7 +82,7 @@ export default function TermsPage() {
             />
             <img
               className="hidden dark:md:inline-block h-full object-cover object-left md:max-h-[200px] text-md:max-h-[350px] -mb-[2px]"
-              src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/io24-about-hero-dark.webp"
+              src="/images/io24-about-hero-dark.webp"
               role="img"
               aria-hidden="true"
               fetchPriority="high"
@@ -92,7 +92,7 @@ export default function TermsPage() {
             />
             <img
               className="block md:hidden dark:hidden max-w-[90%]"
-              src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/io24-about-hero-mobile.webp"
+              src="/images/io24-about-hero-mobile.webp"
               role="img"
               aria-hidden="true"
               fetchPriority="high"
@@ -402,8 +402,6 @@ export default function TermsPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

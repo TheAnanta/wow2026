@@ -1,6 +1,7 @@
 // src/components/sections/Footer.tsx
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
 
 export const Footer: React.FC = () => {
@@ -9,24 +10,24 @@ export const Footer: React.FC = () => {
       <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-10 text-[#9aa0a6] text-base font-medium flex-1">
         <div className="flex justify-between w-full lg:w-auto items-center mb-4 lg:mb-0">
           <a href="https://developers.google.com/" target="_blank" rel="noreferrer noopener" aria-label="Google Developers homepage">
-            {/* Google for Developers Logo */}
-            <svg width="220" height="24" viewBox="0 0 180 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.44 9.12V10.28H15.96V11.24C15.68 12.16 14.8 13.08 13.56 13.08C12.12 13.08 10.96 11.96 10.96 10.56C10.96 9.16 12.12 8.04 13.56 8.04C14.28 8.04 14.88 8.32 15.36 8.76L16.24 7.88C15.52 7.2 14.64 6.84 13.56 6.84C11.48 6.84 9.8 8.52 9.8 10.6C9.8 12.68 11.48 14.36 13.56 14.36C15.72 14.36 17.12 12.84 17.12 10.68C17.12 10.52 17.12 10.36 17.08 10.2H12.44V9.12Z" fill="#9AA0A6" />
-              <path d="M21.2 9.4c-1.32 0-2.4 1.08-2.4 2.4s1.08 2.4 2.4 2.4 2.4-1.08 2.4-2.4S22.52 9.4 21.2 9.4zm0 1.2c0.64 0 1.2 0.52 1.2 1.2s-0.56 1.2-1.2 1.2-1.2-0.52-1.2-1.2 0.56-1.2 1.2-1.2z" fill="#9AA0A6" />
-              <path d="M26.4 9.4c-1.32 0-2.4 1.08-2.4 2.4s1.08 2.4 2.4 2.4 2.4-1.08 2.4-2.4S27.72 9.4 26.4 9.4zm0 1.2c0.64 0 1.2 0.52 1.2 1.2s-0.56 1.2-1.2 1.2-1.2-0.52-1.2-1.2 0.56-1.2 1.2-1.2z" fill="#9AA0A6" />
-              <rect x="29" y="7" width="1.2" height="7.2" fill="#9AA0A6" />
-              <path d="M34.8 9.4c-1.28 0-2.32 1.04-2.32 2.32s1.04 2.32 2.32 2.32c0.88 0 1.48-0.44 1.84-0.88h0.24v0.72c0 1.52-0.8 2.32-2.12 2.32-1.08 0-1.72-0.76-2-1.28L32.4 16.4c0.6 1.44 2.04 2.36 3.76 2.36 2.04 0 3.76-1.2 3.76-3.8V9.6H38.5v0.88C38.08 10 37.48 9.4 36.6 9.4-36.6 9.4V9.4zM34.92 10.6c0.64 0 1.2 0.52 1.2 1.2s-0.56 1.2-1.2 1.2-1.2-0.52-1.2-1.2 0.56-1.2 1.2-1.2z" fill="#9AA0A6" />
-              <path d="M43.2 9.4c-1.28 0-2.36 1.04-2.36 2.36 0 1.56 1.16 2.48 2.48 2.48s1.88-0.6 2.2-1.24L44.12 12.2c-0.24 0.36-0.52 0.68-0.96 0.68-0.64 0-1.04-0.32-1.28-0.8L45.44 11.2 45.36 11c-0.24-0.68-1.04-1.6-2.16-1.6zm0 1.2c0.52 0 0.88 0.24 1.04 0.6L42 11.84c0-0.64 0.44-1.04 1.2-1.04z" fill="#9AA0A6" />
-              <text x="50" y="14" fill="#9AA0A6" fontFamily="Google Sans, Roboto, sans-serif" fontSize="12" fontWeight="500">for Developers</text>
-            </svg>
+            <img
+              className="block"
+              src="/images/Logo-GoogleForDevelopers.svg"
+              aria-hidden="true"
+              role="presentation"
+              width="180"
+              height="20"
+              loading="lazy"
+              alt="Google for Developers"
+            />
           </a>
         </div>
 
         <div className="flex flex-wrap gap-x-6 gap-y-4">
-          <a href="#" className="hover:text-white transition-colors duration-200">WOW 2023</a>
+          <a href="#" className="hover:text-white transition-colors duration-200">WOW 2026</a>
           <a href="/terms" className="hover:text-white transition-colors duration-200">Privacy & terms</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">Community guidelines</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">FAQ</a>
+          <a href="/code-of-conduct" className="hover:text-white transition-colors duration-200">Community guidelines</a>
+          <a href="/about" className="hover:text-white transition-colors duration-200">FAQ</a>
         </div>
       </div>
 
@@ -45,5 +46,6 @@ export const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
+
   );
 };

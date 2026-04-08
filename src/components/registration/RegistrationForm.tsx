@@ -141,7 +141,7 @@ export const RegistrationForm: React.FC = () => {
             onClick={handleGoogleSignIn}
             className="inline-flex items-center gap-3 px-8 py-3 bg-white border border-grey-300 rounded-full hover:bg-grey-50 transition-colors shadow-sm font-medium"
           >
-            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="18" />
+            <img src="/images/google.svg" alt="Google" width="18" />
             <span>Sign in with Google</span>
           </button>
         </div>
@@ -188,13 +188,13 @@ export const RegistrationForm: React.FC = () => {
                   <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
                     <img
                       className="block dark:hidden h-2.5"
-                      src="https://io.google/2024/app/images/chevron-up.svg"
+                      src="/images/chevron-up.svg"
                       alt=""
                       aria-hidden="true"
                     />
                     <img
                       className="hidden dark:block h-2.5"
-                      src="https://io.google/2024/app/images/chevron-up-white.svg"
+                      src="/images/chevron-up-white.svg"
                       alt=""
                       aria-hidden="true"
                     />
@@ -243,13 +243,13 @@ export const RegistrationForm: React.FC = () => {
                   <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
                     <img
                       className="block dark:hidden h-2.5"
-                      src="https://io.google/2024/app/images/chevron-up.svg"
+                      src="/images/chevron-up.svg"
                       alt=""
                       aria-hidden="true"
                     />
                     <img
                       className="hidden dark:block h-2.5"
-                      src="https://io.google/2024/app/images/chevron-up-white.svg"
+                      src="/images/chevron-up-white.svg"
                       alt=""
                       aria-hidden="true"
                     />

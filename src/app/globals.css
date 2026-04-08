@@ -17,6 +17,9 @@
   /* Typography */
   --font-sans: "Google Sans", "Google Sans Text", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Google Sans Display", "Google Sans", sans-serif;
+
+  /* Custom Breakpoints */
+  --breakpoint-3xl: 1440px;
 }
 
 @layer base {

@@ -63,13 +63,13 @@ function SelectField({
         <div className={`absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none transition-transform duration-200 ${open ? "" : "rotate-180"}`}>
           <img
             className="hidden dark:block h-2"
-            src="https://io.google/2024/app/images/chevron-up-white.svg"
+            src="/images/chevron-up-white.svg"
             alt=""
             aria-hidden="true"
           />
           <img
             className="block dark:hidden h-2"
-            src="https://io.google/2024/app/images/chevron-up.svg"
+            src="/images/chevron-up.svg"
             alt=""
             aria-hidden="true"
           />

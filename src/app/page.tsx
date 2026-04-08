@@ -37,7 +37,7 @@ export default function Home() {
           <EventMetricsSection />
           <CTACards />
         </div>
-        <KeynotesSection />
+        {/* <KeynotesSection /> */}
         <StackCardsSection />
         <div className='page-wrapper flex flex-col'>
           <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
@@ -50,25 +50,29 @@ export default function Home() {
             {[{
               title: "GITAM University",
               role: "Partner",
+              link: 'https://gitam.edu',
               avatar: 'https://play-lh.googleusercontent.com/WqW965xIPuS_-NzTE109zlmF3KoeAprETIpoU2i1B4L_BrxOwlx0rpFG3gSneYZvh0Q'
             }, {
               title: "the ananta",
               role: "Partner",
-              avatar: 'https://theananta.in/logomark.svg'
+              link: 'https://theananta.in',
+              avatar: '/images/logomark.svg'
             }, {
               title: "GITAM Career\nGuidance Center",
               role: "Partner",
-              avatar: 'default '
+              link: 'https://www.gitam.edu/career-guidance-centre',
+              avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrjXuhD15KOoYM7aU-_pY5E_QvxIFzwMm04Q&s'
             }, {
               title: "Venture Development Center",
               role: "Partner",
+              link: 'https://vdc.gitam.edu',
               avatar: 'default'
             }].map((e) => {
-              return (<a className="flex p-4 md:p-6 border md:border-2 border-grey-600 md:border-transparent rounded-[20px] w-full md:mb-2 md:w-[49%] overflow-hidden group hover:bg-grey-bg md:hover:bg-transparent hover:border-grey! group dark:hover:border-grey-bg!">
-                <div className={`hidden md:flex w-[90px] h-[90px] rounded-[8px] justify-center items-center overflow-hidden ${e.avatar.includes("https") ? "border-2 border-grey-900 bg-black" : ""}`}>
-                  <img src={e.avatar.includes("gdsc") ? "https://io.google/2024/app/images/io24-location-gdsc-logo.svg" : (e.avatar.includes("default") || !e.avatar) ? "https://io.google/2024/app/images/io24-location-default-logo.svg" : e.avatar} height="90" width="90" aria-hidden="true" />
+              return (<a href={e.link} className="flex p-4 md:p-6 border md:border-2 border-grey-600 md:border-transparent rounded-[20px] w-full md:mb-2 md:w-[49%] overflow-hidden group hover:bg-grey-bg md:hover:bg-transparent hover:border-grey! group dark:hover:border-grey-bg!">
+                <div className={`flex w-[90px] h-[90px] rounded-[8px] justify-center items-center overflow-hidden ${e.avatar.includes("https") ? "border-2 border-grey-900 bg-black" : ""}`}>
+                  <img src={e.avatar.includes("gdsc") ? "/images/io24-location-gdsc-logo.svg" : (e.avatar.includes("default") || !e.avatar) ? "/images/io24-location-default-logo.svg" : e.avatar} height="90" width="90" aria-hidden="true" />
                 </div>
-                <div className="flex gap-y-1 flex-col w-full md:w-3/4 justify-around md:pl-6 ">
+                <div className="flex gap-y-1 flex-col w-full md:w-3/4 justify-around pl-6 ">
                   <span className="whitespace-pre-wrap font-medium sm:s-p1 md:l-h6 dark:text-white dark:group-hover:text-grey dark:md:group-hover:text-white">
                     {e.title}
                   </span>
@@ -85,7 +89,6 @@ export default function Home() {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 }

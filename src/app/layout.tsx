@@ -48,6 +48,7 @@ export const metadata: Metadata = {
 
 import { AuthProvider } from "../context/AuthContext";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
+import { Footer } from "@/components/sections/Footer";
 
 export default function RootLayout({
   children,
@@ -66,6 +67,8 @@ export default function RootLayout({
           <AnnouncementBanner props={{ announcement: "GDG WOW 2026 is happening this year, bigger, better and bolder • Tickets open • Register Now • Follow us on Instagram • @gdgwowap" }} />
 
           {children}
+
+          <Footer />
         </AuthProvider>
       </body>
     </html>

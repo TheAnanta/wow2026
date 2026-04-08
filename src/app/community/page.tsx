@@ -544,10 +544,6 @@ export default function CommunityPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
-
-      <Footer />
     </div>
   );
 }

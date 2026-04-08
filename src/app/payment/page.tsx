@@ -105,7 +105,7 @@ function PaymentPage() {
             {
                 type == 'arcade' && !isTermsAgreed && <div className="z-50 bg-black/40 absolute top-0 h-full w-full flex flex-col items-center justify-center"><div className="flex flex-col items-center text-center h-max bg-white rounded-[12px] overflow-hidden">
                     <div className="h-[240px] bg-grey-bg w-full border-b-2 border-grey-900 justify-center flex items-center flex-col">
-                        <img src={"https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/IO24_BlogHeaders_2x1-12.2e16d0ba.fill-800x400.png"} className="w-full h-full object-cover" />
+                        <img src={"/images/IO24_BlogHeaders_2x1-12.2e16d0ba.fill-800x400.png"} className="w-full h-full object-cover" />
                         <h2 className="text-2xl font-bold mb-4 whitespace-pre-line absolute m-auto mt-8 py-3 rounded-3xl px-12 bg-grey-bg">Terms & Conditions</h2>
                     </div>
                     <div className="max-w-[484px] p-8">

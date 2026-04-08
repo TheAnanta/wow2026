@@ -196,9 +196,9 @@ function ExploreContent() {
                   <div style={{ background: stack.color }} className="absolute w-full h-full top-[11px] rounded-[20px] border-[1.2px] border-grey dark:border-grey-bg md:border-0 md:hidden" />
                   <div className="absolute md:relative w-full h-full flex flex-row md:flex-col p-4 md:p-3 bg-white dark:bg-grey rounded-[20px] border-[1.2px] border-grey dark:border-grey-bg md:border-0">
                     <img className="hidden md:inline-block w-full group-hover:hidden dark:hidden" src={`https://io.google/2024/app/images/${stack.img}`} alt={stack.label} />
-                    <img className="hidden dark:md:inline-block w-full group-hover:md:block dark:hidden" src={`https://io.google/2024/app/images/${stack.img.replace('.svg', '-dark.webp')}`} alt={stack.label} />
+                    <img className="hidden dark:md:inline-block w-full group-hover:md:block dark:hidden" src={`https://io.google/2024/app/images/${stack.img.replace('.svg', '-dark.webp').replace('.png', '-dark.webp')}`} alt={stack.label} />
                     <div className="flex-1 flex flex-col md:mt-6">
-                      <span className="sm:s-h5 md:l-h6">{stack.label === 'ML/AI' ? 'Mobile' : stack.label}</span>
+                      <span className="sm:s-h5 md:l-h6">{stack.label}</span>
                       <p className="sm:s-p2 md:l-p1 mt-1 md:mt-2">{stack.desc}</p>
                     </div>
                   </div>
@@ -251,14 +251,14 @@ function ExploreContent() {
                       <img
                         className="dark:hidden"
                         aria-hidden="true"
-                        src="https://io.google/2024/app/images/filter-icon.svg"
+                        src="/images/filter-icon.svg"
                         width="24"
                         height="24"
                       />
                       <img
                         className="hidden dark:block"
                         aria-hidden="true"
-                        src="https://io.google/2024/app/images/filter-icon-dark.svg"
+                        src="/images/filter-icon-dark.svg"
                         width="24"
                         height="24"
                       />
@@ -297,14 +297,14 @@ function ExploreContent() {
                             <img
                               aria-hidden="true"
                               className="dark:block hidden"
-                              src="https://io.google/2024/app/images/program-close-icon.svg"
+                              src="/images/program-close-icon.svg"
                               width="16"
                               height="16"
                             />
                             <img
                               aria-hidden="true"
                               className="block dark:hidden"
-                              src="https://io.google/2024/app/images/program-close-icon-white.svg"
+                              src="/images/program-close-icon-white.svg"
                               width="16"
                               height="16"
                             />

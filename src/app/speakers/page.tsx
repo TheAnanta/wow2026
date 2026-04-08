@@ -70,22 +70,22 @@ export default function SpeakersPage() {
             <div className="flex justify-end items-end w-full md:w-3/5">
               <img
                 className="hidden md:inline-block h-full object-cover object-left dark:hidden max-h-[407px] text-md:pl-[74px] lg:pl-0"
-                src="https://io.google/2024/app/images/io24-speakers-hero.webp"
+                src="/images/io24-speakers-hero.webp"
                 alt="Speakers hero"
               />
               <img
                 className="hidden dark:md:inline-block h-full object-cover object-left max-h-[407px] text-md:pl-[74px] lg:pl-0"
-                src="https://io.google/2024/app/images/io24-speakers-hero-dark.webp"
+                src="/images/io24-speakers-hero-dark.webp"
                 alt="Speakers hero dark"
               />
               <img
                 className="block md:hidden dark:hidden "
-                src="https://io.google/2024/app/images/io24-speakers-hero-mobile.webp"
+                src="/images/io24-speakers-hero-mobile.webp"
                 alt="Speakers hero mobile"
               />
               <img
                 className="hidden dark:inline-block dark:md:hidden "
-                src="https://io.google/2024/app/images/io24-speakers-hero-mobile-dark.webp"
+                src="/images/io24-speakers-hero-mobile-dark.webp"
                 alt="Speakers hero mobile dark"
               />
             </div>
@@ -171,8 +171,6 @@ export default function SpeakersPage() {
         </section>
       </main>
 
-      <Footer />
-
       {showMobileFilters && (
         <div className="fixed inset-0 z-2000 bg-white p-8 flex flex-col overflow-y-auto animate-slide-down">
           <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#000000]">
@@ -206,8 +204,6 @@ export default function SpeakersPage() {
         </svg>
         Filter
       </button>
-
-      <Footer />
     </div>
   );
 }

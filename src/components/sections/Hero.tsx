@@ -19,7 +19,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
               </span>
             </h1>
             <div className="hidden">
-              <img width="660" height="63" src="https://io.google/2024/app/images/homepage-main-cta-loading.svg" aria-hidden="true" />
+              <img width="660" height="63" src="/images/homepage-main-cta-loading.svg" aria-hidden="true" />
             </div>
             <div className="flex flex-col items-center" />
             <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
@@ -42,18 +42,18 @@ export function Hero({ onRegisterClick }: HeroProps) {
 
       {/* Top hero images */}
       <div className="top-image-container flex flex-col items-center w-full -mb-6 md:-mb-10">
-        <img fetchPriority="high" className="object-contain h-auto w-auto inline-block md:hidden dark:hidden max-w-[317px]" src="https://io.google/2024/app/images/io24-homepage-hero-bg-mobile.webp" role="img" aria-hidden="true" width="304" height="166" alt="" />
-        <img fetchPriority="high" className="object-contain h-auto w-auto hidden dark:inline-block dark:md:hidden max-w-[317px]" src="https://io.google/2024/app/images/io24-homepage-hero-bg-mobile-dark.webp" role="img" aria-hidden="true" width="303" height="166" alt="" />
-        <img fetchPriority="high" className="hidden md:inline-block object-contain h-auto w-auto dark:hidden max-w-[690px]" src="https://io.google/2024/app/images/io24-homepage-hero-bg.webp" role="img" aria-hidden="true" width="666" height="356" alt="" />
-        <img fetchPriority="high" className="hidden dark:md:inline-block object-contain h-auto w-auto max-w-[690px]" src="https://io.google/2024/app/images/io24-homepage-hero-bg-dark.webp" role="img" aria-hidden="true" width="666" height="356" alt="" />
+        <img fetchPriority="high" className="object-contain h-auto w-auto inline-block md:hidden dark:hidden max-w-[317px]" src="/images/io24-homepage-hero-bg-mobile.webp" role="img" aria-hidden="true" width="304" height="166" alt="" />
+        <img fetchPriority="high" className="object-contain h-auto w-auto hidden dark:inline-block dark:md:hidden max-w-[317px]" src="/images/io24-homepage-hero-bg-mobile-dark.webp" role="img" aria-hidden="true" width="303" height="166" alt="" />
+        <img fetchPriority="high" className="hidden md:inline-block object-contain h-auto w-auto dark:hidden max-w-[690px]" src="/images/io24-homepage-hero-bg.webp" role="img" aria-hidden="true" width="666" height="356" alt="" />
+        <img fetchPriority="high" className="hidden dark:md:inline-block object-contain h-auto w-auto max-w-[690px]" src="/images/io24-homepage-hero-bg-dark.webp" role="img" aria-hidden="true" width="666" height="356" alt="" />
       </div>
 
       {/* Bottom hero images */}
       <div className="bottom-image-container w-full border-b-2 md:border-b-0 border-solid border-grey dark:border-grey-bg">
-        <img fetchPriority="high" className="object-cover object-top h-auto max-h-[210px] w-full inline-block md:hidden dark:hidden" src="https://io.google/2024/app/images/io24-homepage-hero-bg-bottom-mobile.webp" role="img" aria-hidden="true" width="360" height="168" alt="" />
-        <img fetchPriority="high" className="object-cover object-top h-auto max-h-[210px] w-full hidden dark:inline-block dark:md:hidden" src="https://io.google/2024/app/images/io24-homepage-hero-bg-bottom-mobile-dark.webp" role="img" aria-hidden="true" width="360" height="168" alt="" />
-        <img fetchPriority="high" className="hidden md:inline-block object-cover h-auto w-full dark:hidden" src="https://io.google/2024/app/images/io24-homepage-hero-bg-bottom.svg" role="img" aria-hidden="true" width="1440" height="207" alt="" />
-        <img fetchPriority="high" className="hidden dark:md:inline-block object-cover h-auto w-full" src="https://io.google/2024/app/images/io24-homepage-hero-bg-bottom-dark.svg" role="img" aria-hidden="true" width="1430" height="207" alt="" />
+        <img fetchPriority="high" className="object-cover object-top h-auto max-h-[210px] w-full inline-block md:hidden dark:hidden" src="/images/io24-homepage-hero-bg-bottom-mobile.webp" role="img" aria-hidden="true" width="360" height="168" alt="" />
+        <img fetchPriority="high" className="object-cover object-top h-auto max-h-[210px] w-full hidden dark:inline-block dark:md:hidden" src="/images/io24-homepage-hero-bg-bottom-mobile-dark.webp" role="img" aria-hidden="true" width="360" height="168" alt="" />
+        <img fetchPriority="high" className="hidden md:inline-block object-cover h-auto w-full dark:hidden" src="/images/io24-homepage-hero-bg-bottom.svg" role="img" aria-hidden="true" width="1440" height="207" alt="" />
+        <img fetchPriority="high" className="hidden dark:md:inline-block object-cover h-auto w-full" src="/images/io24-homepage-hero-bg-bottom-dark.svg" role="img" aria-hidden="true" width="1430" height="207" alt="" />
       </div>
     </div>
   );

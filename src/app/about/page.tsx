@@ -93,7 +93,7 @@ export default function AboutIO() {
                             />
                             <img
                                 className="hidden dark:md:inline-block h-full object-cover object-left md:max-h-[200px] text-md:max-h-[350px] -mb-[2px]"
-                                src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/io24-about-hero-dark.webp"
+                                src="/images/io24-about-hero-dark.webp"
                                 role="img"
                                 aria-hidden="true"
                                 fetchPriority="high"
@@ -103,7 +103,7 @@ export default function AboutIO() {
                             />
                             <img
                                 className="block md:hidden dark:hidden max-w-[90%] md:max-w-[auto]"
-                                src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/io24-about-hero-mobile.webp"
+                                src="/images/io24-about-hero-mobile.webp"
                                 role="img"
                                 aria-hidden="true"
                                 fetchPriority="high"
@@ -684,53 +684,6 @@ export default function AboutIO() {
                     </div>
                 </main>
 
-                {/* Footer */}
-                <footer id="footer" className="pt-10 pb-16 lg:py-10 px-7 lg:px-16 bg-grey-900 flex flex-col lg:flex-row lg:justify-between lg:items-center w-full">
-                    <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-6 lg:space-y-0 lg:space-x-6 text-grey-500 text-[16px] font-medium flex-1">
-                        <div className="text-2xl font-semibold lg:mr-6 text-grey-500 flex justify-between w-full mb-4 lg:mb-0 lg:w-auto items-center">
-                            <a href="https://developers.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Developers home page">
-                                <img
-                                    className="block"
-                                    src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/Logo-GoogleForDevelopers.svg"
-                                    aria-hidden="true"
-                                    role="presentation"
-                                    width="180"
-                                    height="20"
-                                    loading="lazy"
-                                    alt="Google for Developers"
-                                />
-                            </a>
-                        </div>
-                        <a href="https://io.google/2023/" target="_blank" rel="noreferrer noopener">
-                            I/O 2023
-                        </a>
-                        <Link href="/puzzle" rel="noreferrer noopener">
-                            I/O Puzzle
-                        </Link>
-                        <a href="https://policies.google.com/" target="_blank" rel="noreferrer noopener">
-                            Privacy &amp; terms
-                        </a>
-                        <a href="https://developers.google.com/community-guidelines" target="_blank" rel="noreferrer noopener">
-                            Community guidelines
-                        </a>
-                        <button aria-hidden="true" className="glue-cookie-notification-bar-control hover:underline">Manage cookies</button>
-                    </div>
-
-                    <div className="flex lg:justify-self-end lg:justify-end mt-12 lg:mt-0">
-                        <a href="https://www.youtube.com/user/GoogleDevelopers" className="p-3" target="_blank" rel="noreferrer noopener" aria-label="Google Developers on YouTube">
-                            <img src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/ic_youtube.svg" role="img" aria-hidden="true" height="24" width="24" loading="lazy" alt="YouTube" />
-                        </a>
-                        <a href="https://www.instagram.com/googlefordevs/" className="p-3" target="_blank" rel="noreferrer noopener" aria-label="Google Developers on Instagram">
-                            <img src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/ic_instagram.svg" role="img" aria-hidden="true" height="24" width="24" loading="lazy" alt="Instagram" />
-                        </a>
-                        <a href="https://www.linkedin.com/showcase/googledevelopers/" className="p-3" target="_blank" rel="noreferrer noopener" aria-label="Google Developers on LinkedIn">
-                            <img src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/ic_linkedin.svg" role="img" aria-hidden="true" height="24" width="24" loading="lazy" alt="LinkedIn" />
-                        </a>
-                        <a href="https://twitter.com/googledevs" className="p-3" target="_blank" rel="noreferrer noopener" aria-label="Google Developers on Twitter">
-                            <img src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/ic_twitter.svg" role="img" aria-hidden="true" height="24" width="24" loading="lazy" alt="Twitter" />
-                        </a>
-                    </div>
-                </footer>
             </div>
         </>
     );

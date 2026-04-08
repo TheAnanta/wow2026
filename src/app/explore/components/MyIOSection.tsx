@@ -72,7 +72,7 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
             <div className="header md:h-[85px] flex flex-row items-center gap-4 relative">
               <div className="min-w-[50px] md:min-w-[56px]">
                 <img
-                  src="https://io.google/2024/app/images/io24-saved-sessions-icon.svg"
+                  src="/images/io24-saved-sessions-icon.svg"
                   role="img"
                   aria-hidden="true"
                   loading="lazy"
@@ -131,7 +131,7 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
             <div className="header md:h-[85px] flex flex-row items-center gap-4 relative md:pr-32">
               <div className="min-w-[50px] md:min-w-[70px]">
                 <img
-                  src="https://io.google/2024/app/images/io24-recommended-sessions-icon.svg"
+                  src="/images/io24-recommended-sessions-icon.svg"
                   role="img"
                   aria-hidden="true"
                   loading="lazy"
