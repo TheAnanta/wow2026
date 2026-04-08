@@ -175,7 +175,7 @@ function ExploreContent() {
                 href="/speakers"
                 aria-label="View all speakers"
               >
-                Meet the I/O speakers
+                Meet the WOW speakers
               </a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-stack-cards-2 ml:grid-cols-stack-cards-4 md:justify-around ml:justify-between gap-y-8 md:gap-3 mt-4 md:mt-10">

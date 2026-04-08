@@ -23,7 +23,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
             </div>
             <div className="flex flex-col items-center" />
             <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
-              <span>Watch live keynotes and on-demand sessions to hear our latest announcements.</span>
+              <span>Participate in hands-on workshops, tech talks, and hackathon. Take home some cool swags and cash prizes.</span>
             </h2>
             <button type="button" className="cta-primary block" onClick={() => router.push('/register')}>
               <span>Register</span>

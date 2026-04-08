@@ -14,7 +14,7 @@ export function CTACards() {
               Visit My WOW for saved content and recommendations based on your personal interests.
             </p>
             <a
-              href="https://io.google/2024/explore/#my-io-2024"
+              href="/explore"
               className="cta-secondary"
               aria-label="Get started with planning your WOW, opens explore page"
               rel="noopener"
@@ -50,7 +50,7 @@ export function CTACards() {
               Meet developers, discover local groups, and build your global network.
             </p>
             <a
-              href="https://io.google/2024/community/"
+              href="/community"
               data-analytics-event="cta_community"
               data-analytics-event-data='{"cta_position": "body"}'
               className="cta-secondary"

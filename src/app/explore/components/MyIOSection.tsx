@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 
 interface MyIOSectionProps {
   isMyIoVisible: boolean;
@@ -27,7 +28,7 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
     >
       <div id="my-io-2024" className="my-io-container">
         <span className="sm:l-h5 md:l-h4 inline-block mb-2 md:mb-4">
-          My I/O
+          My WOW
         </span>
         <p className="sm:s-h6 md:l-h6 underline-link mb-2 md:mb-4">
           Your saved content is automatically stored in your{" "}
@@ -116,12 +117,12 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
               aria-live="polite"
             >
               <div className="flex flex-col justify-between pt-2 md:pt-3 w-full overflow-auto myio-scrollbar">
-                <button
-                  type="button"
+                <Link
+                  href="/register"
                   className="cta-secondary no-dark-mode ml-2 mb-2 block"
                 >
                   <span>Register to save</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -182,9 +183,9 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
                     aria-label="Opens Google Developer Profile in new tab - open in new tab"
                     target="_blank"
                     rel="noreferrer"
-                    href="https://web.archive.org/web/20240427125258mp_/https://developers.google.com/profile/u/me"
+                    href="/register"
                   >
-                    Google Developer Profile
+                    WOW Developer Profile
                   </a>{" "}
                   to see programming recommended for you
                 </p>

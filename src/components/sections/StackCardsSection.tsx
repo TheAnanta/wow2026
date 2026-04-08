@@ -15,7 +15,7 @@ interface StackCard {
 
 const STACK_CARDS: StackCard[] = [
   {
-    href: 'https://io.google/2024/explore/?q=mobile',
+    href: '/explore?q=mobile',
     label: 'Mobile',
     ariaLabel: 'Explore Mobile content, opens Explore page with Mobile content filter',
     gradient: 'linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)',
@@ -27,7 +27,7 @@ const STACK_CARDS: StackCard[] = [
     analyticsEvent: 'mobile',
   },
   {
-    href: 'https://io.google/2024/explore/?q=web',
+    href: '/explore/?q=web',
     label: 'Web',
     ariaLabel: 'Explore Web content, opens Explore page with Web content filter',
     gradient: 'linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)',
@@ -39,7 +39,7 @@ const STACK_CARDS: StackCard[] = [
     analyticsEvent: 'web',
   },
   {
-    href: 'https://io.google/2024/explore/?q=ai',
+    href: '/explore/?q=ai',
     label: 'ML/AI',
     ariaLabel: 'Explore ML/AI content, opens Explore page with AI content filter',
     gradient: 'linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)',
@@ -51,7 +51,7 @@ const STACK_CARDS: StackCard[] = [
     analyticsEvent: 'ai',
   },
   {
-    href: 'https://io.google/2024/explore/?q=cloud',
+    href: '/explore/?q=cloud',
     label: 'Cloud',
     ariaLabel: 'Explore Cloud content, opens Explore page with Cloud content filter',
     gradient: 'linear-gradient(270.11deg, #5382EB 1.91%, #5382EB 25.69%, #9F6CD4 51.37%, #EA4335 79.9%, #EA4335 97.02%)',

@@ -239,13 +239,13 @@ export default function TeamPage() {
               title="Join a community group"
               description="Meet developers, discover local groups, and build your global network."
               buttonText="Get started"
-              onButtonClick={() => { }}
+              onButtonClick={() => { router.push('/community') }}
             />
             <BentoCard
               title="Plan your WOW"
               description="Visit My WOW for saved content and recommendations based on your personal interests."
               buttonText="Get started"
-              onButtonClick={() => { }}
+              onButtonClick={() => { router.push('/explore') }}
             />
           </div>
         </section>

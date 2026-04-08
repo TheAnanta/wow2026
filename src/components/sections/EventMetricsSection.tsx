@@ -27,7 +27,7 @@ export default function EventMetricsSection() {
                         Play games, win prizes, and show off your skills to get discounted tickets.
                     </p>
                     <a
-                        href="https://io.google/2024/community/"
+                        href="/arcade"
                         data-analytics-event="cta_community"
                         data-analytics-event-data='{"cta_position": "body"}'
                         className="cta-secondary"
