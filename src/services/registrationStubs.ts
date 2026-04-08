@@ -5,6 +5,7 @@ export interface RegistrationProfile {
   pronoun: string;
   cityTown: string;
   role: string;
+  organization: string;
   phoneNumber: string;
 }
 
@@ -55,11 +56,11 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
       first_name: firstName,
       last_name: lastName,
       email: user.email || 'manasmalla.dev@gmail.com',
-      phone: data.phoneNumber || '',
+      phone: data.phoneNumber ? (data.phoneNumber.startsWith('+91') ? data.phoneNumber : `+91${data.phoneNumber}`) : '',
       gender: 'MALE',
       bio: 'Developer at I/O 2026', // Improved default
       designation: data.role || 'Developer',
-      organization: 'Google',
+      organization: data.organization || 'Google',
       city: data.cityTown || 'Global',
       interests: data.interests || [],
       profile_url: user.photoURL || ''

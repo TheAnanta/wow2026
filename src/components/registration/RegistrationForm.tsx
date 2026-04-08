@@ -6,15 +6,40 @@ import { RegistrationData, validateProfile, submitRegistration } from '../../ser
 import { auth, signInWithGoogle } from '../../services/firebase';
 import { useRouter } from 'next/navigation';
 
+const RegistrationBanner = () => (
+  <div className="relative w-full h-40 md:h-56 bg-[#F1F3F4] overflow-hidden border-b border-grey-200 flex items-center px-8 md:px-14">
+    <div className="flex-1 z-10">
+      <h2 className="text-[1.875rem] md:text-[2.25rem] font-medium text-grey-900 tracking-tight leading-tight">Register for WOW</h2>
+    </div>
+    <div className="absolute bottom-0 right-0 h-full w-[80%] md:w-[65%] pointer-events-none select-none">
+      <img
+        src="/images/Google I_O 2024.png"
+        alt=""
+        className="w-full h-full object-contain object-bottom-right translate-y-[5%] md:translate-y-[10%]"
+      />
+    </div>
+    <button
+      onClick={() => window.history.back()}
+      className="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-full bg-white/40 hover:bg-white text-grey-700 transition-all border border-grey-300 z-20 group shadow-sm"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="group-hover:scale-95 transition-transform">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+);
+
 export const RegistrationForm: React.FC = () => {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
+  const [showAllInterests, setShowAllInterests] = useState(false);
   const [data, setData] = useState<RegistrationData>({
     displayName: '',
     pronoun: '',
     phoneNumber: '',
     cityTown: '',
     role: '',
+    organization: '',
     interests: [],
     termsAgreed: false,
     agreeToTerms: false,
@@ -29,6 +54,9 @@ export const RegistrationForm: React.FC = () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setIsAuthenticated(!!user);
       setIsFirebaseLoading(false);
+      if (user && !data.displayName) {
+        setData(prev => ({ ...prev, displayName: user.displayName || '' }));
+      }
     });
     return () => unsubscribe();
   }, []);
@@ -89,246 +117,270 @@ export const RegistrationForm: React.FC = () => {
     updateData({ interests: updated });
   };
 
-  // Realigning with the "WOW" design system classes
-  const inputContainerCls = 'flex flex-col mb-4';
-  const labelCls = 'font-medium mb-2 sm:s-p1 md:l-h6 dark:text-grey-bg transition-colors';
-  const inputCls = 'w-full py-4 px-5 border-2 border-grey-900 dark:border-grey-bg rounded-[16px] font-sans text-base bg-white dark:bg-grey-900 text-grey-900 dark:text-white focus:outline-none focus:border-google-blue dark:focus:border-google-blue transition-all selection:bg-google-blue/30';
-  const errorTextCls = 'text-xs text-google-red font-bold mt-2 animate-fade-in';
+  const inputBaseCls = 'w-full px-4 py-3.5 border border-grey-400 rounded-lg text-[1rem] focus:outline-none focus:border-google-blue focus:ring-1 focus:ring-google-blue transition-all bg-white placeholder:text-grey-600';
+  const errorTextCls = 'text-[0.75rem] text-google-red mt-1.5 font-medium px-1';
 
   if (isFirebaseLoading) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-center animate-fade-in">
-        <div className="w-12 h-12 border-[3px] border-google-blue border-t-transparent rounded-full animate-spin mb-6" />
-        <p className="font-medium sm:s-h6 md:l-h6 dark:text-white">Authenticating...</p>
+      <div className="flex flex-col items-center justify-center min-h-[400px]">
+        <div className="w-10 h-10 border-4 border-google-blue border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
-  if (!isAuthenticated && currentStep === 1) {
+  if (!isAuthenticated) {
     return (
-      <div className="flex flex-col items-center text-center animate-fade-in py-6">
-        <div className="w-20 h-20 bg-google-blue text-white rounded-2xl flex items-center justify-center mb-8 shadow-[4px_4px_0px_rgba(32,33,36,1)] dark:shadow-[4px_4px_0px_rgba(241,243,244,1)] border-2 border-grey-900 dark:border-grey-bg">
-           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-           </svg>
+      <div className="flex flex-col">
+        <RegistrationBanner />
+        <div className="p-8 md:p-12 text-center">
+          <h2 className="text-[1.75rem] font-medium text-grey-900 mb-4">Register for WOW</h2>
+          <p className="text-[1rem] text-grey-700 mb-8 max-w-md mx-auto">
+            Please sign in to your Google Account to register for the event and create your developer profile.
+          </p>
+          <button
+            onClick={handleGoogleSignIn}
+            className="inline-flex items-center gap-3 px-8 py-3 bg-white border border-grey-300 rounded-full hover:bg-grey-50 transition-colors shadow-sm font-medium"
+          >
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="18" />
+            <span>Sign in with Google</span>
+          </button>
         </div>
-        <h2 className="font-medium mb-4 sm:s-h3 md:l-h3 dark:text-white">Sign in required</h2>
-        <p className="font-medium sm:s-p1 md:l-h6 text-grey-text dark:text-grey-bg/80 mb-10 leading-relaxed max-w-[340px]">
-          Please sign in with your Google account to confirm your registration for GDG WOW.
-        </p>
-        <button
-          onClick={handleGoogleSignIn}
-          className="bg-white dark:bg-grey-900 text-grey-900 dark:text-white border-2 border-grey-900 dark:border-grey-bg rounded-full flex items-center justify-center gap-4 py-4 px-12 font-bold hover:bg-grey-bg dark:hover:bg-grey transition-all shadow-[4px_4px_0px_rgba(32,33,36,1)] dark:shadow-[4px_4px_0px_rgba(255,255,255,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
-        >
-          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="22" />
-          <span>Sign in with Google</span>
-        </button>
       </div>
     );
   }
 
-  const renderStep = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <div className="flex flex-col animate-fade-in">
-            {/* Step Indicators - Google Pills Style */}
-            <div className="flex gap-2 mb-10">
-               <div className="h-2 flex-1 rounded-full bg-google-blue border-1.2 border-grey-900 dark:border-grey-bg" />
-               <div className="h-2 flex-1 rounded-full bg-grey-bg dark:bg-grey border-1.2 border-grey-900 dark:border-grey-bg" />
-            </div>
+  return (
+    <div className="flex flex-col animate-fade-in">
+      <RegistrationBanner />
 
-            <div className="mb-8">
-              <h2 className="font-medium mb-2 sm:s-h4 md:l-h3 dark:text-white">Developer Profile</h2>
-              <p className="font-medium sm:s-p1 md:l-h6 text-grey-text dark:text-grey-bg/80">Tell us a bit about yourself.</p>
-            </div>
+      <div className="p-8 md:p-12">
+        {currentStep === 1 && (
+          <div className="animate-fade-in">
+            <h3 className="text-[1.25rem] font-medium mb-3">Create a developer profile</h3>
+            <p className="text-[0.9375rem] text-grey-700 mb-10 leading-relaxed max-w-[640px]">
+              Create a developer profile to get recommendations for the best I/O sessions and content for you. You can also use your profile to save content to watch on demand.
+            </p>
 
-            <div className="flex flex-col gap-2">
-              <div className={inputContainerCls}>
-                <label className={labelCls}>Display name <span className="text-google-red">*</span></label>
+            <p className="text-[0.8125rem] text-google-red mb-8 mt-4">*Required field</p>
+
+            <div className="space-y-8">
+              <div>
                 <input
-                  className={inputCls}
+                  className={inputBaseCls}
                   type="text"
                   value={data.displayName}
                   onChange={(e) => updateData({ displayName: e.target.value })}
-                  placeholder="e.g. GDG Developer"
+                  placeholder="Display name*"
                 />
+                <p className="text-[0.75rem] text-grey-500 mt-2 ml-1">Your name may appear where you contribute and can be changed at any time.</p>
                 {errors.displayName && <p className={errorTextCls}>{errors.displayName}</p>}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className={inputContainerCls}>
-                  <label className={labelCls}>Phone number <span className="text-google-red">*</span></label>
-                  <div className="relative group/phone">
-                    <div className="absolute left-0 top-0 bottom-0 px-4 flex items-center bg-grey-bg dark:bg-grey border-r-2 border-grey-900 dark:border-grey-bg rounded-l-[16px] font-bold text-grey-900 dark:text-white">
-                       <span className="mr-2">🇮🇳</span> +91
-                    </div>
-                    <input
-                      className={`${inputCls} pl-[94px]`}
-                      type="tel"
-                      value={data.phoneNumber}
-                      onChange={(e) => {
-                        const val = e.target.value.replace(/\D/g, '').slice(0, 10);
-                        updateData({ phoneNumber: val });
-                      }}
-                      placeholder="9876543210"
-                    />
-                  </div>
-                  {errors.phoneNumber && <p className={errorTextCls}>{errors.phoneNumber}</p>}
-                </div>
-                
-                <div className={inputContainerCls}>
-                  <label className={labelCls}>City/town <span className="text-google-red">*</span></label>
-                  <input
-                    className={inputCls}
-                    type="text"
-                    value={data.cityTown}
-                    onChange={(e) => updateData({ cityTown: e.target.value })}
-                    placeholder="e.g. Bangalore"
-                  />
-                  {errors.cityTown && <p className={errorTextCls}>{errors.cityTown}</p>}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className={inputContainerCls}>
-                  <label className={labelCls}>Pronoun</label>
-                  <select className={inputCls} value={data.pronoun} onChange={(e) => updateData({ pronoun: e.target.value })}>
-                    <option value="">Select</option>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="relative">
+                  <select className={`${inputBaseCls} appearance-none pr-10 ${!data.pronoun ? 'text-grey-600' : 'text-grey-900'}`} value={data.pronoun} onChange={(e) => updateData({ pronoun: e.target.value })}>
+                    <option value="">Pronoun</option>
                     <option value="he/him">He/Him</option>
                     <option value="she/her">She/Her</option>
                     <option value="they/them">They/Them</option>
                     <option value="prefer not to say">Prefer not to say</option>
                   </select>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-grey-600">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2 4l4 4 4-4" strokeWidth="2" /></svg>
+                  </div>
                 </div>
-                <div className={inputContainerCls}>
-                  <label className={labelCls}>Role or job title</label>
-                  <select className={inputCls} value={data.role} onChange={(e) => updateData({ role: e.target.value })}>
-                    <option value="">Select</option>
-                    <option value="Engineer">Engineer</option>
-                    <option value="Designer">Designer</option>
-                    <option value="Manager">Manager</option>
-                    <option value="Student">Student</option>
-                    <option value="Other">Other</option>
+                <div className="relative">
+                  <input
+                    className={`${inputBaseCls} pl-11`}
+                    type="text"
+                    value={data.cityTown}
+                    onChange={(e) => updateData({ cityTown: e.target.value })}
+                    placeholder="City/town*"
+                  />
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-grey-600">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                  </div>
+                  {errors.cityTown && <p className={errorTextCls}>{errors.cityTown}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="relative">
+                  <select className={`${inputBaseCls} appearance-none pr-10 ${!data.role ? 'text-grey-600' : 'text-grey-900'}`} value={data.role} onChange={(e) => updateData({ role: e.target.value })}>
+                    <option value="">Role or job title</option>
+                    <optgroup label="Select your role">
+                      <option value="Architect">Architect</option>
+                      <option value="Data analyst">Data analyst</option>
+                      <option value="Data engineer">Data engineer</option>
+                      <option value="Data scientist">Data scientist</option>
+                      <option value="Database admin">Database admin</option>
+                      <option value="Designer">Designer</option>
+                      <option value="Developer">Developer</option>
+                      <option value="Developer advocate">Developer advocate</option>
+                      <option value="Devops engineer">Devops engineer</option>
+                      <option value="Educator">Educator</option>
+                      <option value="Machine learning engineer">Machine learning engineer</option>
+                      <option value="Network engineer">Network engineer</option>
+                      <option value="Product manager">Product manager</option>
+                      <option value="Security professional">Security professional</option>
+                      <option value="Something else">Something else</option>
+                      <option value="Student">Student</option>
+                      <option value="Sysadmin">Sysadmin</option>
+                      <option value="Technical writer">Technical writer</option>
+                    </optgroup>
                   </select>
+                  <div className="absolute right-4 top-[22px] pointer-events-none text-grey-600">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M2 4l4 4 4-4" strokeWidth="2" /></svg>
+                  </div>
+                </div>
+                <div>
+                  <input
+                    className={inputBaseCls}
+                    type="text"
+                    value={data.organization}
+                    onChange={(e) => updateData({ organization: e.target.value })}
+                    placeholder="Google"
+                  />
+                  <p className="text-[0.75rem] text-grey-500 mt-2 ml-1">Name of your Company, Employer, or School</p>
                 </div>
               </div>
 
-              <div className="mt-4">
-                <h3 className="font-bold sm:s-h6 md:l-h6 dark:text-white uppercase tracking-wider mb-4">Your Interests</h3>
-                <InterestTags selectedInterests={data.interests} toggleInterest={toggleInterest} />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <div className="relative">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-grey-900 font-medium border-r border-grey-300 pr-3 mr-2">
+                      +91
+                    </div>
+                    <input
+                      className={`${inputBaseCls} pl-16`}
+                      type="tel"
+                      value={data.phoneNumber}
+                      onChange={(e) => updateData({ phoneNumber: e.target.value })}
+                      placeholder="Phone number*"
+                    />
+                  </div>
+                  <p className="text-[0.75rem] text-grey-500 mt-2 ml-1">10-digit mobile number for communication</p>
+                  {errors.phoneNumber && <p className={errorTextCls}>{errors.phoneNumber}</p>}
+                </div>
               </div>
 
-              <div className="flex justify-end mt-10">
-                <button
-                  type="button"
-                  onClick={handleNextStep}
-                  className="cta-primary w-full md:w-auto px-12 py-4"
-                >
-                  Continue
+              <div className="">
+                <h3 className="text-[1.25rem] font-medium mb-3">Select your interests</h3>
+                <p className="text-[0.9375rem] text-grey-700 mb-8 leading-relaxed">
+                  This will help us provide you with the most relevant I/O content.
+                </p>
+
+                <InterestTags
+                  selectedInterests={data.interests}
+                  toggleInterest={toggleInterest}
+                  showAll={showAllInterests}
+                />
+
+                <div className="mt-6 mb-10">
+                  <button
+                    className="text-[0.875rem] font-medium text-grey-900 underline hover:no-underline decoration-2 underline-offset-4"
+                    type="button"
+                    onClick={() => setShowAllInterests(!showAllInterests)}
+                  >
+                    {showAllInterests ? 'See less' : 'See all'}
+                  </button>
+                </div>
+
+                <p className="text-[0.8125rem] text-grey-600 leading-relaxed mb-10">
+                  By creating a Google developer profile, you agree to the <span className="underline cursor-pointer">Content Policy</span>, <span className="underline cursor-pointer">Google's Terms of Service</span> and <span className="underline cursor-pointer">Privacy Policy</span> apply to your use of this service. Your display name may appear where you contribute and can be changed at any time.
+                </p>
+
+                <button onClick={handleNextStep} className="px-10 py-3 bg-grey-900 text-white rounded-full font-medium hover:bg-black transition-all text-[1rem]">
+                  Next
                 </button>
               </div>
             </div>
           </div>
-        );
+        )}
 
-      case 2:
-        return (
-          <div className="flex flex-col animate-fade-in">
-             {/* Step Indicators */}
-            <div className="flex gap-2 mb-10">
-               <div className="h-2 flex-1 rounded-full bg-google-blue border-1.2 border-grey-900 dark:border-grey-bg" />
-               <div className="h-2 flex-1 rounded-full bg-google-green border-1.2 border-grey-900 dark:border-grey-bg" />
-            </div>
+        {currentStep === 2 && (
+          <div className="animate-fade-in">
+            <h3 className="text-[1.5rem] font-bold mb-10">Terms</h3>
 
-             <div className="mb-8">
-              <h2 className="font-medium mb-2 sm:s-h4 md:l-h3 dark:text-white">Terms & Agreements</h2>
-              <p className="font-medium sm:s-p1 md:l-h6 text-grey-text dark:text-grey-bg/80">Finalize your event consent.</p>
-            </div>
-            
-            <div className="flex flex-col gap-4">
+            <div className="space-y-6 mb-10">
               {[
-                { key: 'termsAgreed' as keyof RegistrationData, label: 'I am 18 years of age or older.', required: true },
-                { key: 'agreeToTerms' as keyof RegistrationData, label: 'I agree to the WOW 2026 Terms & Conditions, including Google Community Guidelines.', required: true },
-                { key: 'marketingConsent' as keyof RegistrationData, label: 'I would like to receive marketing emails and event updates.', required: false },
+                {
+                  key: 'termsAgreed' as keyof RegistrationData,
+                  label: 'I am 18 years of age or older.',
+                  required: true
+                },
+                {
+                  key: 'agreeToTerms' as keyof RegistrationData,
+                  label: <span className="inline">I agree to the <span className="underline">IO24 Terms and Conditions</span>, including <span className="underline">Google Terms and Community Guidelines</span>, and acknowledge that my info will be used in accordance with <span className="underline">Google's Privacy Policy</span></span>,
+                  required: true
+                },
+                {
+                  key: 'marketingConsent' as keyof RegistrationData,
+                  label: 'I would like to receive marketing and events emails and updates about Google I/O.',
+                  required: false
+                },
+                {
+                  key: 'newsletterConsent' as any,
+                  label: 'I would like to receive newsletters with the latest developer news and features for me. I understand that I can unsubscribe at any time by visiting my Developer Profile settings.',
+                  required: false
+                },
               ].map(({ key, label, required }) => (
                 <div
-                  key={key}
-                  className="flex gap-5 items-start cursor-pointer group p-5 rounded-[16px] border-2 border-transparent hover:border-grey-bg dark:hover:border-grey-900 hover:bg-grey-bg/30 dark:hover:bg-white/5 transition-all"
-                  onClick={() => updateData({ [key]: !data[key as keyof RegistrationData] })}
+                  key={key as string}
+                  className="flex gap-4 items-start group"
                 >
-                  <div className={`checkbox-native flex-shrink-0 mt-1 ${data[key] ? 'checked' : ''}`}>
-                    <input type="checkbox" checked={data[key] as boolean} readOnly className="hidden" />
-                    {(data[key] as boolean) && (
-                        <svg className="w-full h-full text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    )}
-                  </div>
-                  <span className="font-medium sm:s-p1 md:l-h6 dark:text-white leading-normal">
-                    {label}{required && <span className="text-google-red font-black"> *</span>}
+                  <label className="relative flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-grey-400 transition-all checked:border-google-blue checked:bg-google-blue"
+                      checked={!!data[key as keyof RegistrationData]}
+                      onChange={() => updateData({ [key]: !data[key as keyof RegistrationData] })}
+                    />
+                    <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 peer-checked:opacity-100">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                  </label>
+                  <span className="text-[0.875rem] text-grey-800 leading-normal">
+                    {label}{required && <span className="text-google-red font-bold"> *</span>}
                   </span>
                 </div>
               ))}
             </div>
 
-            {errors.submit && <p className="text-sm font-bold text-google-red p-5 bg-google-red/10 rounded-xl border-2 border-google-red mt-8">{errors.submit}</p>}
+            {errors.submit && <p className="text-sm font-medium text-google-red mb-6">{errors.submit}</p>}
 
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-12 pt-8 border-t-2 border-dashed border-grey-bg dark:border-grey-900">
+            <div className="flex gap-4">
               <button
-                type="button"
-                onClick={handlePreviousStep}
-                className="font-bold sm:s-p1 md:l-p1 text-grey-text dark:text-grey-bg hover:text-grey-900 dark:hover:text-white transition-colors tracking-widest px-4 uppercase"
-              >
-                Back
-              </button>
-              <button
-                type="button"
                 disabled={!data.termsAgreed || !data.agreeToTerms || isSubmitting}
                 onClick={handleNextStep}
-                className={`cta-primary w-full md:min-w-[240px] flex items-center justify-center gap-3`}
+                className="px-10 py-2.5 bg-grey-900 text-white rounded-full font-medium hover:bg-grey-text disabled:bg-grey-300 disabled:cursor-not-allowed transition-all flex items-center gap-2"
               >
                 {isSubmitting ? (
-                  <div className="w-6 h-6 border-[3px] border-white border-t-transparent rounded-full animate-spin" />
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Registering...</span>
+                  </>
                 ) : (
-                  <span>Complete Registration</span>
+                  <span>Register</span>
                 )}
               </button>
+              <button onClick={handlePreviousStep} className="px-8 py-2.5 bg-white border border-grey-400 text-grey-900 rounded-full font-medium hover:bg-grey-50 transition-all">
+                Back
+              </button>
             </div>
-
-            <style jsx>{`
-              .checkbox-native {
-                width: 24px;
-                height: 24px;
-                border: 2.5px solid #202124;
-                border-radius: 6px;
-                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-                background: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 1.5px;
-              }
-              :global(.dark) .checkbox-native {
-                border-color: #F1F3F4;
-                background: transparent;
-              }
-              .checkbox-native.checked {
-                background: #202124;
-                border-color: #202124;
-              }
-              :global(.dark) .checkbox-native.checked {
-                background: #4285F4;
-                border-color: #4285F4;
-              }
-            `}</style>
           </div>
-        );
+        )}
+      </div>
 
-      default:
-        return null;
-    }
-  };
-
-  return <div className="w-full">{renderStep()}</div>;
+      <style jsx global>{`
+        .animate-fade-in {
+          animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
+    </div>
+  );
 };
