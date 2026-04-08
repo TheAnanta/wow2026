@@ -1,0 +1,787 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="/2026/assets/images/icons/favicon.ico">
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="/2026/assets/images/icons/favicon-grey-16x16.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/2026/assets/images/icons/favicon-grey-32x32.svg">
+    <link rel="icon" type="image/svg+xml" sizes="96x96" href="/2026/assets/images/icons/favicon-grey-96x96.svg">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/2026/assets/images/icons/favicon-apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/2026/assets/images/icons/favicon-android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/2026/assets/images/icons/favicon-android-chrome-512x512.png">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes shrink-to-fit=no">
+    <title>Google I/O 2026</title>
+    <meta name="description" content="Don't miss Google I/O, featuring product launches, innovations, and insights. Tune in for the live keynotes and sessions.">
+    <meta property="og:image" content="https://io.google/2026/assets/images/io26-og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://io.google/2026" />
+    <meta property="twitter:title" content="Google I/O 2026" />
+    <meta name="twitter:image" content="https://io.google/2026/assets/images/io26-og-image.jpg">
+    <meta name="google-site-verification" content="pl2Pa1UarAxg1aeq1CwIY_CBQQgfEkYPPhnVxQUs_xw" />
+    <script type="module" src="/2026/js/ssr-utils/lit-hydrate-support.js"></script>
+    <script type="module" src="/2026/js/ssr-utils/is-land.js"></script>
+    <script src="/2026/assets/js/developer_profiles_api_v0.2.7.js" defer></script>
+    <script type="module" src="/2026/js/pages/global.js"></script>
+    <script type="module">"use strict";(()=>{var d;function s(){var o;return d===void 0&&(d=!!(!((o=new DOMParser().parseFromString('<div><template shadowrootmode="open"></template></div>',"text/html",{includeShadowRoots:!0}).querySelector("div"))===null||o===void 0)&&o.shadowRoot)),d}var m=o=>o.parentElement===null,h=o=>o.tagName==="TEMPLATE",p=o=>o.nodeType===Node.ELEMENT_NODE;var i=o=>{var l;if(s())return;let r=[],e=o.firstElementChild;for(;e!==o&&e!==null;)if(h(e))r.push(e),e=e.content;else if(e.firstElementChild!==null)e=e.firstElementChild;else if(p(e)&&e.nextElementSibling!==null)e=e.nextElementSibling;else{let t;for(;e!==o&&e!==null;)if(m(e)){t=r.pop();let a=t.parentElement,n=t.getAttribute("shadowrootmode");if(e=t,n==="open"||n==="closed"){let f=t.hasAttribute("shadowrootdelegatesfocus");try{a.attachShadow({mode:n,delegatesFocus:f}).append(t.content)}catch{}}else t=void 0}else{let a=e.nextElementSibling;if(a!=null){e=a,t!==void 0&&t.parentElement.removeChild(t);break}let n=(l=e.parentElement)===null||l===void 0?void 0:l.nextElementSibling;if(n!=null){e=n,t!==void 0&&t.parentElement.removeChild(t);break}e=e.parentElement,t!==void 0&&(t.parentElement.removeChild(t),t=void 0)}}};HTMLTemplateElement.prototype.hasOwnProperty("shadowRoot")||i(document.body);document.body.removeAttribute("dsd-pending");})();</script>
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function glueCookieNotificationBarLoaded() {
+        (function (w, d, s, l, i) {
+          w['dataLayer'] = w['dataLayer'] || [];
+          w['dataLayer'].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+          const f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          if (f.parentNode) {
+            f.parentNode.insertBefore(j, f);
+          }
+        })(window, document, 'script', 'dataLayer', 'GTM-MNH554N');
+      }
+    </script>
+    
+    <noscript><style>body[dsd-pending] {display: block !important;}</style></noscript>
+    <link rel="preload" as="style" href="/2026/assets/css/global.css">
+    <link rel="stylesheet" href="/2026/assets/css/global.css">
+    <style>
+      .glue-cookie-notification-bar__accept,.glue-cookie-notification-bar__reject{font-size:1rem;line-height:1.5;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start;border:1px solid transparent;border-radius:48px;display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-flow:row nowrap;-moz-box-orient:horizontal;-moz-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap;font-family:Google Sans,Arial,Helvetica,sans-serif;font-weight:500;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;letter-spacing:.5px;margin:8px 0;max-width:380px;min-height:48px;min-width:96px;overflow:hidden;padding:12px 24px 12px 24px;text-align:center;text-decoration:none;-webkit-transition:background-color .2s,box-shadow .2s,color .2s;transition:background-color .2s,box-shadow .2s,color .2s;vertical-align:middle}[lang=ar] .glue-cookie-notification-bar__accept,[lang=ar] .glue-cookie-notification-bar__reject{font-family:Google Sans,Google Sans Arabic,Arial,Helvetica,sans-serif}[lang=ja] .glue-cookie-notification-bar__accept,[lang=ja] .glue-cookie-notification-bar__reject{font-family:Google Sans,Google Sans Japanese,Noto Sans JP,Arial,Helvetica,sans-serif}[lang=ko] .glue-cookie-notification-bar__accept,[lang=ko] .glue-cookie-notification-bar__reject{font-family:Google Sans,Google Sans Korean,Noto Sans KR,Arial,Helvetica,sans-serif}[lang=zh-CN] .glue-cookie-notification-bar__accept,[lang=zh-CN] .glue-cookie-notification-bar__reject{font-family:Google Sans,Google Sans Simplified Chinese,Noto Sans SC,Arial,Helvetica,sans-serif}[lang=zh-TW] .glue-cookie-notification-bar__accept,[lang=zh-TW] .glue-cookie-notification-bar__reject{font-family:Google Sans,Google Sans Traditional Chinese,Noto Sans TC,Arial,Helvetica,sans-serif}@media (-ms-high-contrast:active),(forced-colors:active){.glue-cookie-notification-bar__accept,.glue-cookie-notification-bar__reject{-webkit-transition:none;transition:none}}.glue-cookie-notification-bar__accept:focus,.glue-cookie-notification-bar__reject:focus{outline:2px solid transparent;-webkit-transition:none;transition:none}.glue-cookie-notification-bar__accept,.glue-cookie-notification-bar__reject{background-color:#1a73e8;color:#fff}@media (-ms-high-contrast:active),(forced-colors:active){.glue-cookie-notification-bar__accept,.glue-cookie-notification-bar__reject{forced-color-adjust:none;background:buttonText;border-color:buttonFace;color:buttonFace}.glue-cookie-notification-bar__accept svg,.glue-cookie-notification-bar__reject svg{fill:buttonFace}}.glue-cookie-notification-bar__accept:visited,.glue-cookie-notification-bar__reject:visited{background-color:#1a73e8;color:#fff}@media (-ms-high-contrast:active),(forced-colors:active){.glue-cookie-notification-bar__accept:visited,.glue-cookie-notification-bar__reject:visited{forced-color-adjust:none;background:buttonText;border-color:buttonFace;color:buttonFace}.glue-cookie-notification-bar__accept:visited svg,.glue-cookie-notification-bar__reject:visited svg{fill:buttonFace}}.glue-cookie-notification-bar__accept:hover,.glue-cookie-notification-bar__reject:hover{box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);background-color:#185abc}@media (-ms-high-contrast:active),(forced-colors:active){.glue-cookie-notification-bar__accept:hover,.glue-cookie-notification-bar__reject:hover{forced-color-adjust:none;background:buttonFace;border-color:buttonText;color:buttonText}.glue-cookie-notification-bar__accept:hover svg,.glue-cookie-notification-bar__reject:hover svg{fill:buttonText}}.glue-cookie-notification-bar__accept:focus,.glue-cookie-notification-bar__reject:focus{background-color:#185abc;border-color:#fff;box-shadow:0 0 0 2px #185abc}@media (-ms-high-contrast:active),(forced-colors:active){.glue-cookie-notification-bar__accept:focus,.glue-cookie-notification-bar__reject:focus{forced-color-adjust:none;background:buttonFace;border-color:buttonText;color:buttonText;outline:2px solid highlight}.glue-cookie-notification-bar__accept:focus svg,.glue-cookie-notification-bar__reject:focus svg{fill:buttonText}}.glue-cookie-notification-bar__accept:active,.glue-cookie-notification-bar__reject:active{box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 2px 6px 2px rgba(60,64,67,.15);background-color:#185abc;border:1px solid transparent}@media (-ms-high-contrast:active),(forced-colors:active){.glue-cookie-notification-bar__accept:active,.glue-cookie-notification-bar__reject:active{forced-color-adjust:none;background:buttonFace;border-color:buttonText;color:buttonText}.glue-cookie-notification-bar__accept:active svg,.glue-cookie-notification-bar__reject:active svg{fill:buttonText}}.glue-cookie-notification-bar__more{background:transparent;border-radius:4px;color:#1a73e8;display:inline;overflow:hidden;text-decoration:underline;-webkit-transition:background-color .2s,color .2s;transition:background-color .2s,color .2s}.glue-cookie-notification-bar__more:active,.glue-cookie-notification-bar__more:focus,.glue-cookie-notification-bar__more:hover{color:#174ea6}.glue-cookie-notification-bar__more:visited{color:#681da8}.glue-cookie-notification-bar__more:active,.glue-cookie-notification-bar__more:focus,.glue-cookie-notification-bar__more:hover{cursor:pointer;outline:none}.glue-cookie-notification-bar__more:hover{background-color:rgba(26,115,232,.04)}.glue-cookie-notification-bar__more:focus{outline:2px solid transparent;background-color:rgba(26,115,232,.12);box-shadow:0 0 0 2px #1a73e8;z-index:1}.glue-cookie-notification-bar__more:active{background-color:rgba(26,115,232,.1);box-shadow:none;outline:2px auto Highlight;outline:5px auto -webkit-focus-ring-color}.glue-cookie-notification-bar__more img{border:0}.glue-cookie-notification-bar{box-shadow:0 2px 3px 0 rgba(60,64,67,.3),0 6px 10px 4px rgba(60,64,67,.15);background:#fff;bottom:0;-moz-box-sizing:border-box;box-sizing:border-box;display:grid;font-size:1rem;grid-gap:8px;grid-template-columns:auto auto;left:0;padding:8px;position:fixed;width:100%;z-index:1000}.glue-cookie-notification-bar[aria-hidden=true]{display:none}@media (min-width:600px){.glue-cookie-notification-bar{grid-template-columns:1fr auto;justify-items:flex-end}}@media (min-width:1024px){.glue-cookie-notification-bar{grid-template-columns:1fr auto auto}}@media (-ms-high-contrast:active),(forced-colors:active){.glue-cookie-notification-bar{border-top:1px solid transparent}}@media print{.glue-cookie-notification-bar{display:none}}.glue-cookie-notification-bar__text{font-family:Google Sans Text,Roboto,Arial,Helvetica,sans-serif;font-size:1.125em;line-height:1.5555555556;font-weight:400;letter-spacing:normal;align-self:center;color:#5f6368;grid-column:span 2;justify-self:flex-start;margin:0;padding:4px 12px}[lang=ar] .glue-cookie-notification-bar__text{font-family:Google Sans Text,Google Sans Arabic,Roboto,Arial,Helvetica,sans-serif}[lang=ja] .glue-cookie-notification-bar__text{font-family:Google Sans Text,Google Sans Japanese,Noto Sans JP,Roboto,Arial,Helvetica,sans-serif}[lang=ko] .glue-cookie-notification-bar__text{font-family:Google Sans Text,Google Sans Korean,Noto Sans KR,Roboto,Arial,Helvetica,sans-serif}[lang=zh-CN] .glue-cookie-notification-bar__text{font-family:Google Sans Text,Google Sans Simplified Chinese,Noto Sans SC,Roboto,Arial,Helvetica,sans-serif}[lang=zh-TW] .glue-cookie-notification-bar__text{font-family:Google Sans Text,Google Sans Traditional Chinese,Noto Sans TC,Roboto,Arial,Helvetica,sans-serif}@media (min-width:1024px){.glue-cookie-notification-bar__text{grid-column:span 1}}.glue-cookie-notification-bar__text,.glue-cookie-notification-bar__text *{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;text-rendering:auto}.glue-cookie-notification-bar__more{border-bottom:0;font-weight:inherit;letter-spacing:inherit}.glue-cookie-notification-bar__accept,.glue-cookie-notification-bar__reject{font-size:1em;cursor:pointer;margin:auto 0 0;max-width:unset}.glue-cookie-notification-bar__accept:last-child{grid-column:span 2}.glue-cookie-notification-bar-control[aria-hidden=true]{display:none}button.glue-cookie-notification-bar-control.glue-footer__link{-moz-appearance:none;-webkit-appearance:none;appearance:none;border:0;border-radius:4px;padding:0}@media (-ms-high-contrast:active),(forced-colors:active){button.glue-cookie-notification-bar-control.glue-footer__link{color:linkText}button.glue-cookie-notification-bar-control.glue-footer__link:focus{outline:2px solid transparent}}.glue-footer__global-links-list-item[aria-hidden=true],.h-c-footer__global-links-list-item[aria-hidden=true]{display:none}
+    </style>
+    <script>
+      window.iodata = {};
+      window.iodata.vars = {"WEB_PHASE":"phase1","OAUTH2_CLIENT_ID":"724256043927-qqf2lu66l75hjqeg5po2mopuprg9ee0e.apps.googleusercontent.com","OAUTH2_API_KEY":"AIzaSyC9IlQdWjbDHPruCQ8p2erAH1SwsAldZnQ","API_KEY":"AIzaSyC9IlQdWjbDHPruCQ8p2erAH1SwsAldZnQ","YOUTUBE_API_KEY":"AIzaSyC9IlQdWjbDHPruCQ8p2erAH1SwsAldZnQ","GOOGLE_ANALYTICS_KEY":"GTM-MNH554N","DEVPROFILES_ENDPOINT":"https://developers.googleapis.com","WEB_PATH_PREFIX":"2026","GOOGLE_KEYNOTE_ID":73,"DEVELOPER_KEYNOTE_ID":74,"PA_KEYNOTE_IDS":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]};
+      window.iodata.flags = {"svd_redirect":false,"sessions_available":false,"authentication":true,"registration":true,"routes":{"home":true,"about":true,"community":true,"register":true,"speakers":false,"explore":false,"auth":true,"sandbox":true,"global":true},"analytics":true,"speakers_available":false,"topics_available":false,"post_drop":false,"wagtail_images_available":false,"home_content_block":"phase1.html","about_content_block":"phase1.html","community_content_block":"phase1.html","session_content_block":"","speakers_content_block":"","speaker_details_content_block":"","explore_content_block":"","alert_id":"phase_0_alert","active_keynote":null,"speaker_sensitive_override":false,"registration_redirect":false,"restrict_speakers":true,"home_use_backup":false,"home_use_backup_asl":false,"google_main_backup":false,"google_asl_backup":false,"developer_main_backup":false,"developer_asl_backup":false,"pa_keynote_backup":false,"external_js_path":false,"svd_gemini_feature":true};
+    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://storage.googleapis.com"/>
+    <link rel="preconnect" href="https://apis.google.com"/>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/icon?family=Google+Sans:400,500%7CGoogle+Sans+Display:400,500%7CGoogle+Sans+Text:400|Roboto:400,500|Roboto+Mono:400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Google+Sans:400,500%7CGoogle+Sans+Display:400,500%7CGoogle+Sans+Text:400|Roboto:400,500|Roboto+Mono:400&display=swap"
+    />
+  </head>
+  <body dsd-pending>
+    
+    <!-- Glue Cookie Notification Bar -->
+    <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2A" data-glue-cookie-notification-bar-site-id="io.google.com/2026"> </script>
+    <!-- End Glue Cookie Notification Bar -->
+    
+    <div class="relative">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="#main-content"
+   class="sr-only focus:not-sr-only focus:absolute focus:left-1/2 focus:-translate-x-1/2 focus:top-12 focus:md:top-4 focus:cta-btn focus:cta-primary focus:shadow-cta-white focus:text-[16px] focus:py-[14px] focus:tracking-[0.2px] focus:px-6 focus:text-center z-10">
+  Skip to main content  
+</a>
+
+<header class="relative z-[11]">
+  <nav class="mx-auto px-3 md:px-10" aria-label="Main">
+    <div class="flex items-center w-full py-5 md:py-[16px]">
+      <div class="flex items-center flex-1 md:hidden">
+        <button
+          class="inline-flex justify-center items-center w-8 h-8 mr-3"
+          aria-label="Open website menu"
+          id="hamburger-button"
+        >
+          <img
+            src="/2026/assets/images/hamburger.svg"
+            class="w-6 h-6 hidden"
+            alt=""
+            aria-hidden="true"
+            width="24"
+            height="24"
+          />
+          <img
+            src="/2026/assets/images/hamburger-dark.svg"
+            class="w-6 h-6 block"
+            alt=""
+            aria-hidden="true"
+            width="24"
+            height="24"
+          />
+        </button>
+
+        <hamburger-menu></hamburger-menu>
+
+        <a href="/2026/" 
+        class="flex items-center ml-0 md:ml-2" 
+        aria-label="I/O 2026 home" 
+        data-analytic-event="main_nav_select"
+        data-analytic-event-params='{"menu_item": "Logo"}'>
+          <img src="/2026/assets/images/Logo.svg"
+               class="h-8 w-auto hidden hcm-hide pointer-events-none"
+               alt=""
+               aria-hidden="true"
+               width="147"
+               height="32">
+          <img src="/2026/assets/images/Logo-white.svg"
+               class="h-8 w-auto block hcm-hide pointer-events-none"
+               alt=""
+               aria-hidden="true"
+               width="147"
+               height="32">
+          <img src="/2026/assets/images/Logo.svg"
+               class="h-8 w-auto hcm-show light-image pointer-events-none"
+               alt=""
+               aria-hidden="true"
+               width="147"
+               height="32"
+               loading="lazy">
+          <img src="/2026/assets/images/Logo-white.svg"
+               class="h-8 w-auto hcm-show dark-image pointer-events-none"
+               alt=""
+               aria-hidden="true"
+               width="147"
+               height="32">
+        </a>
+      </div>
+
+      <div class="hidden md:flex flex-1 items-center">
+        <a href="/2026/" 
+           class="flex items-center pr-10" 
+           aria-label="Home Page" 
+           data-analytic-event="main_nav_select" 
+           data-analytic-event-params='{"menu_item": "Logo"}'>
+          <img src="/2026/assets/images/Logo.svg"
+               class="h-8 w-auto pointer-events-none hidden hcm-hide"
+               alt=""
+               aria-hidden="true"
+               width="147"
+               height="32">
+          <img src="/2026/assets/images/Logo-white.svg"
+               class="h-8 w-auto pointer-events-none block hcm-hide"
+               alt=""
+               aria-hidden="true"
+               width="147"
+               height="32">
+          <img src="/2026/assets/images/Logo.svg"
+               class="h-8 w-auto pointer-events-none hcm-show light-image"
+               alt=""
+               aria-hidden="true"
+               width="147"
+               height="32"
+               loading="lazy">
+          <img src="/2026/assets/images/Logo-white.svg"
+               class="h-8 w-auto pointer-events-none hcm-show dark-image"
+               alt=""
+               aria-hidden="true"
+               width="147"
+               height="32">
+        </a>
+        
+        
+          <a href="/2026/community"
+             aria-label="Community"
+             aria-current=""
+             class="
+                      text-white decoration-white
+                    
+                    nav-link text-shadow-hover px-3 py-2 "
+             data-analytic-event="main_nav_select"
+             data-analytic-event-params='{"menu_item": "Community"}'>
+            Community
+          </a>
+        
+        
+          <a href="/2026/about"
+             aria-label="About"
+             aria-current=""
+             class="
+                      text-white decoration-white
+                    
+                    nav-link text-shadow-hover px-3 py-2 "
+             data-analytic-event="main_nav_select"
+             data-analytic-event-params='{"menu_item": "About"}'>
+            About
+          </a>
+        
+      </div>
+
+      <div class="flex flex-1 items-center justify-end gap-2 md:gap-4 pr-0 md:pr-1">
+        
+          <google-signin
+            class="flex items-center justify-end md:inline-flex"
+            colorClass="underline-offset-4 decoration-[1.5px] decoration-gray-700
+                        
+                          text-white decoration-white
+                        
+                        nav-link text-shadow-hover"
+          ></google-signin>
+
+          <profile-pic class="pl-2"></profile-pic>
+        
+
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Add ID to main content -->
+<main id="main-content">
+  
+
+
+
+
+
+<script type="module" src="/2026/js/pages/home-page.js"></script>
+
+
+
+
+
+<div class="relative bg-black">
+  <div class="home-hero-container py-0 overflow-visible text-md:min-h-[693px]">
+
+    <div class="w-full" aria-hidden="true">
+      
+
+<div
+  class="relative w-full mx-auto pt-[110px] pb-0 sm:px-4 sm:max-w-[500px] [@media(max-height:825px)]:pt-[95px] md:pt-[169px] md:max-w-[700px] text-md:max-w-[850px] ml:max-w-[1000px]"
+  role="img"
+  aria-label="Hero animation featuring the event logo and product icons."
+>
+  <video
+    autoplay
+    muted
+    playsinline
+    preload="auto"
+    class="w-full h-auto block motion-reduce:hidden decorative-video"
+    data-fallback-src="/2026/assets/images/io26-banner.webp"
+    data-fallback-classes="w-[82%] m-auto"
+  >
+    <source
+      src="/2026/assets/animations/hero-animation.webm"
+      type="video/webm"
+    />
+  </video>
+  <img
+    src="/2026/assets/images/io26-banner.webp"
+    alt="Google I/O 2026"
+    class="w-full h-auto hidden motion-reduce:block"
+  />
+</div>
+
+    </div>
+
+    <lit-island import="/2026/js/hydration-entrypoints/index.js">
+      <home-hero><template shadowroot="open" shadowrootmode="open"><!--lit-part 3co7ZJhVrAc=-->
+      <!--lit-node 0--><link rel="stylesheet" href="/2026/assets/css/global.css" />
+      <div
+        class="flex flex-col items-center justify-start w-full fade-in-down px-4 md:px-0 relative z-[1] pt-[60px] [@media(max-height:825px)]:pt-[80px] md:pt-[125.58px]"
+      >
+        <p
+          class="text-white text-center w-full max-w-[686px] mb-8 md:mb-10 text-[20px] md:text-[32px] leading-[120%] font-normal font-['Google_Sans']"
+        >
+          <!--lit-part S5YHo3+Tpi4=-->
+      <!--lit-node 0--><span
+        class=" flex flex-col items-center space-y-2 animate-pulse"
+      >
+        <span class="h-4 bg-gray-200 rounded-full w-3/4"></span>
+        <span class="h-4 bg-gray-200 rounded-full w-1/2"></span>
+      </span>
+      <!--lit-node 3--><span class="hidden">
+        Join us on May 19 – 20, for livestreamed keynotes, sessions, and more.
+      </span>
+
+      <!--lit-node 4--><span
+        class="hidden hidden title-small md:label-medium"
+      >
+        Join us online May 19 – 20. Update your
+        <span translate="no" class="notranslate"> Google </span> Developer
+        profile to get content recommendations just for you.
+      </span>
+    <!--/lit-part-->
+        </p>
+        <div class="flex justify-center items-center min-h-[60px]">
+          <!--lit-part 6AsPVwuNwxM=-->
+      <!--lit-node 0--><span class="block animate-pulse">
+        <span class="h-[60px] w-[200px] bg-gray-200 rounded-lg block"></span>
+      </span>
+      <!--lit-node 2--><a
+        aria-label="Update your Google Developer Profile"
+        class="cta-btn-large cta-primary !min-w-[219px]"
+        style="display: none"
+        href="https://developers.google.com/profile/u/me/settings#interests"
+        target="__blank"
+        rel="noopener noreferrer"
+        
+      >
+        Update profile
+      </a>
+      <register-button
+        text="Register now"
+        ariaLabel="Register now for Google I/O 26"
+        ctaPosition="hero"
+        customClass="cta-btn-large !min-w-[219px]"
+      >
+      </register-button>
+    <!--/lit-part-->
+        </div>
+      </div>
+    <!--/lit-part--></template></home-hero>
+    </lit-island>
+
+  </div>
+  <div class="w-full flex justify-center relative z-1 h-[131px] md:h-[214px] mt-[90px] md:mt-[140px]">
+    <lit-island import="/2026/js/hydration-entrypoints/index.js">
+      <reveal-on-scroll>
+        <video
+          class="gemini-logo-animation decorative-video reveal-target fade-in-down-on-reveal"
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+          tabindex="-1"
+          data-play-on-scroll="true"
+          data-loop-count="3"
+          data-fallback-src="/2026/assets/images/io26-gradient-gemini.webp"
+          data-fallback-classes="gemini-logo-animation decorative-video reveal-target fade-in-down-on-reveal"
+        >
+          <source
+            src="/2026/assets/animations/io26-gemini-animation.webm"
+            type="video/webm"
+          >
+        </video>
+      </reveal-on-scroll>
+    </lit-island>
+  </div>
+  <lit-island import="/2026/js/hydration-entrypoints/index.js">
+    <countdown-timer><template shadowroot="open" shadowrootmode="open"><style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+  </style><!--lit-part kNp/JKSznys=-->
+      <!--lit-node 0--><link rel="stylesheet" href="/2026/assets/css/global.css" />
+      <section
+        class="flex items-center justify-center flex-col z-[2] relative w-full bg-black text-white pt-[90px] md:pt-[140px] pb-[0] antialiased"
+        aria-labelledby="countdown-timer-header"
+      >
+        <div class="flex flex-col items-center gap-y-6 md:gap-y-[58px]">
+          <div
+            class="flex flex-col items-center justify-center whitespace-nowrap"
+          >
+            <h1
+              class="text-center m-0 w-[320px] md:w-auto label-large-mobile sm-md:display-small"
+              id="countdown-timer-header"
+            >
+              Starting in
+            </h1>
+          </div>
+          <!--lit-node 5--><div
+            class="flex flex-row flex-nowrap items-center justify-center gap-x-2 sm-md:gap-x-2 text-md:gap-x-1 w-[320px] min-h-[33px] sm-md:w-[864px]"
+            
+            
+            aria-hidden="true"
+          >
+            <div
+              class="flex flex-col items-center rounded-xl md:rounded-2xl justify-center countdown-box shrink-0"
+              aria-hidden="true"
+            >
+              <p
+                class="text-center display-x-small sm-md:display-small notranslate"
+                translate="no"
+              >
+                <!--lit-part-->00<!--/lit-part-->d
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center rounded-xl md:rounded-2xl justify-center countdown-box shrink-0"
+              aria-hidden="true"
+            >
+              <p
+                class="text-center display-x-small sm-md:display-small notranslate"
+                translate="no"
+              >
+                <!--lit-part-->00<!--/lit-part-->h
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center rounded-xl md:rounded-2xl justify-center countdown-box shrink-0"
+              aria-hidden="true"
+            >
+              <p
+                class="text-center display-x-small sm-md:display-small notranslate"
+                translate="no"
+              >
+                <!--lit-part-->00<!--/lit-part-->m
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center rounded-xl md:rounded-2xl justify-center countdown-box shrink-0"
+              aria-hidden="true"
+            >
+              <p
+                class="text-center display-x-small sm-md:display-small notranslate"
+                translate="no"
+              >
+                <!--lit-part-->00<!--/lit-part-->s
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!--/lit-part--></template></countdown-timer>
+  </lit-island>
+
+  <div class="w-full flex flex-col gap-8 md:gap-20 lg:gap-[120px] px-4 lg:px-6">
+    <div class="flex flex-col gap-0 items-center md:px-[26px]">
+      
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<section
+  class="w-full flex flex-col-reverse items-center flex-col justify-center rounded-[20px] pt-12 md:pt-[90px] pb-0 p-0 relative overflow-hidden max-w-[1204px] md:gap-24 items-center justify-center text-center
+        text-white"
+  data-aos="fade-in"
+  data-aos-duration="1000"
+  aria-labelledby=""
+>
+  <div class="flex flex-col gap-4 md:w-full items-center text-center">
+    <!-- <div class="flex flex-col max-w-[480px]"> -->
+      
+        <h2
+          class="display-x-small sm-md:display-large font-display md:font-sans"
+          id=""
+          aria-label="Try theI/O puzzle"
+        >
+          <span aria-hidden="true">
+            <span class="block bottom-padding">Try the</span><span class="block" style="white-space: nowrap;"><span translate="no" class="notranslate">I/O </span>puzzle</span>
+          </span>
+        </h2>
+      
+      
+        <p class="text-[20px] leading-[120%] mb-6 mt-3  body-large-regular sm-md:label-medium">Solve puzzles, games, and more, then remix builds to make <span class="hidden ml:block"></span>them your own!</p>
+      
+    <!-- </div> -->
+
+    
+      <a
+        role="link"
+        class="cta-btn cta-primary cta-btn-small md:cta-btn-medium leading-[100%]  "
+        aria-label="Get started with the I/O Puzzle"
+        
+          href="/2026/puzzle/"
+        
+        
+          data-analytic-event="cta_svd"
+          data-analytic-event-params='{"cta_position": "body"}'
+        
+      >
+        Get started
+      </a>
+    
+  </div>
+  <div
+    class="flex justify-center md:mt-0 self-center text-md:w-1/2 relative w-full flex justify-center items-center"
+    id="home-svd"
+  >
+    
+    
+      <video
+        class="md:block w-[160px] h-[160px] md:w-[200px] md:h-[200px] object-contain arrow-animation decorative-video"
+        muted="true"
+        aria-hidden="true"
+        playsinline
+        loop
+        
+          data-play-on-scroll="true"
+        
+        
+          data-loop-count="3"
+        
+        
+          data-fallback-src="/2026/assets/images/io26-home-svd.webp"
+        
+        
+          data-fallback-classes="arrow-animation"
+        
+      >
+        <source src="/2026/assets/animations/io26-arrow-animation.webm" type="video/webm">
+      </video>
+    
+  </div>
+  
+</section>
+
+      
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<section
+  class="w-full flex flex-col-reverse items-center flex-col justify-center rounded-[20px] pt-[90px] md:pt-[140px] pb-0 p-0 relative overflow-hidden max-w-[1204px] gap-[90px] md:gap-[140px] items-center justify-center text-center text-white"
+  data-aos="fade-in"
+  data-aos-duration="1000"
+  aria-labelledby=""
+>
+  <div class="flex flex-col gap-4 md:w-full items-center text-center">
+    <!-- <div class="flex flex-col max-w-[480px]"> -->
+      
+        <h2
+          class="display-x-small sm-md:display-large bottom-padding-md font-display md:font-sans"
+          id=""
+          aria-label="Join acommunitygroup"
+        >
+          <span aria-hidden="true">
+            <span class="block">Join a</span><span class="block">community</span><span class="block">group</span>
+          </span>
+        </h2>
+      
+      
+        <p class="text-[20px] leading-[120%] mb-6 mt-3  body-large-regular sm-md:label-medium">Connect with developers <span class="block md:inline"> and groups near you.</span></p>
+      
+    <!-- </div> -->
+
+    
+      <a
+        role="link"
+        class="cta-btn cta-primary cta-btn-small md:cta-btn-medium leading-[100%]  "
+        aria-label="Browse the groups to join a community"
+        
+          href="/2026/community"
+        
+        
+          data-analytic-event="cta_community"
+          data-analytic-event-params='{"cta_position": "body"}'
+        
+      >
+        Browse the groups
+      </a>
+    
+  </div>
+  <div
+    class="flex justify-center md:mt-0 self-center text-md:w-1/2 relative w-full flex justify-center items-center"
+    id="home-chat"
+  >
+    
+    
+      <video
+        class="md:block w-full h-full object-contain globe-animation decorative-video"
+        muted="true"
+        aria-hidden="true"
+        playsinline
+        loop
+        
+          data-play-on-scroll="true"
+        
+        
+          data-loop-count="3"
+        
+        
+          data-fallback-src="/2026/assets/images/io26-home-community.webp"
+        
+        
+          data-fallback-classes="globe-animation"
+        
+      >
+        <source src="/2026/assets/animations/io26-globe-animation.webm" type="video/webm">
+      </video>
+    
+  </div>
+  
+</section>
+
+    </div>
+  </div>
+  <div class="pt-[64px] md:pt-[120px] pb-10 md:pb-20">
+    
+
+<div class="flex justify-center w-fit mx-auto">
+    <div class="w-[297px] h-[64px] md:w-[719px] md:h-[160px]">
+        <img aria-hidden="true" class="w-full h-full object-contain" src="/2026/assets/images/io26-banner.webp"
+            fetchpriority="high" alt="Google I/O 2026" width="719" height="160" />
+    </div>
+</div>
+  </div>
+</div>
+
+
+<registered-toast></registered-toast>
+</main>
+
+<footer class=" z-[2] py-4 md:py-7">
+  <div class="mx-auto px-5 md:px-10">
+    <div class="flex flex-col text-md:flex-row center-large-tab text-md:justify-between space-y-6 text-md:space-y-0">
+      <nav class="flex flex-col text-md:flex-row center-large-tab gap-3 text-md:gap-16
+      text-base font-medium text-white"
+      aria-label="Footer links"
+      >
+        <a href="/2026/" aria-label="I/O 2026 home">
+          <!-- normal -->
+          <img
+            src="/2026/assets/images/Logo-white.svg"
+            alt=""
+            class="io-logo-footer mb-3 md:mb-0 hcm-hide"
+            loading="lazy"
+            aria-hidden="true"
+          />
+
+          <!-- forced-colors -->
+          <img
+            src="/2026/assets/images/Logo.svg"
+            alt=""
+            class="io-logo-footer mb-3 md:mb-0 hcm-show"
+            loading="lazy"
+            aria-hidden="true"
+          />
+        </a>
+        <a href="/2026/puzzle/" class="underline-offset-4 decoration-[1.5px] decoration-gray-700 footer-link text-shadow-hover" aria-label="I/O puzzle"><span class="notranslate">I/O </span> puzzle</a>
+        <a href="https://policies.google.com/" class="underline-offset-4 decoration-[1.5px] decoration-gray-700 footer-link notranslate text-shadow-hover" aria-label="Privacy & Terms (opens in new tab)" target="_blank" rel="noopener noreferrer">Privacy & terms</a>
+        
+          <a href="/2026/about" class="underline-offset-4 decoration-[1.5px] decoration-gray-700 footer-link  text-shadow-hover" aria-label="FAQ">FAQ</a>
+        
+      </nav>
+
+      <nav class="flex gap-[40px]" aria-label="Social media links">
+        <a href="https://twitter.com/googledevs" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center" aria-label="Google for Developers X (Twitter) page (opens in new tab)">
+          <img src="/2026/assets/images/x-white.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-hide image-shadow-hover" loading="lazy">
+          <img src="/2026/assets/images/x-white.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-show hide-dark image-shadow-hover" loading="lazy">
+          <img src="/2026/assets/images/x.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-show hide-light image-shadow-hover" loading="lazy">
+        </a>
+        <a href="https://www.linkedin.com/showcase/googledevelopers/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center" aria-label="Google for Developers LinkedIn page (opens in new tab)">
+          <img src="/2026/assets/images/linkedIn-white.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-hide image-shadow-hover" loading="lazy">
+          <img src="/2026/assets/images/linkedIn-white.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-show hide-dark image-shadow-hover" loading="lazy">
+          <img src="/2026/assets/images/linkedIn.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-show hide-light image-shadow-hover" loading="lazy">
+        </a>
+        <a href="https://www.instagram.com/googlefordevs/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center" aria-label="Google for Developers Instagram page (opens in new tab)">
+          <img src="/2026/assets/images/instagram-white.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-hide image-shadow-hover" loading="lazy">
+          <img src="/2026/assets/images/instagram-white.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-show hide-dark image-shadow-hover" loading="lazy">
+          <img src="/2026/assets/images/instagram.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-show hide-light image-shadow-hover" loading="lazy">
+        </a>
+        <a href="https://www.tiktok.com/@googlefordevs" target="_blank" rel="noopener noreferrer" class="w-6 h-12 flex items-center" aria-label="Google for Developers TikTok page (opens in new tab)">
+          <img src="/2026/assets/images/tiktok-white.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-hide image-shadow-hover" loading="lazy">
+          <img src="/2026/assets/images/tiktok-white.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-show hide-dark image-shadow-hover" loading="lazy">
+          <img src="/2026/assets/images/tiktok.svg" alt="" aria-hidden="true" class="h-6 w-6 hcm-show hide-light image-shadow-hover" loading="lazy">
+        </a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<insufficient-scope-modal></insufficient-scope-modal>
+<not-eligible-modal></not-eligible-modal>
+<registration-success-modal></registration-success-modal>
+<refresh-alert-toast></refresh-alert-toast>
+    </div>
+  </body>
+</html>

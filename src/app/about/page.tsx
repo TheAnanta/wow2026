@@ -83,7 +83,7 @@ export default function AboutIO() {
                         <div className="flex justify-end items-end w-full md:w-3/5 !justify-start xl:!justify-end xl:pr-5">
                             <img
                                 className="hidden md:inline-block h-full object-cover object-left dark:hidden md:max-h-[200px] text-md:max-h-[350px] -mb-[2px]"
-                                src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/io24-about-hero.webp"
+                                src="/images/io__-about-hero.webp"
                                 role="img"
                                 aria-hidden="true"
                                 fetchPriority="high"
@@ -113,7 +113,7 @@ export default function AboutIO() {
                             />
                             <img
                                 className="hidden dark:inline-block dark:md:hidden max-w-[90%] md:max-w-[auto]"
-                                src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/io24-about-hero-mobile-dark.webp"
+                                src="/images/io__-about-hero-mobile-dark.webp"
                                 role="img"
                                 aria-hidden="true"
                                 fetchPriority="high"
@@ -135,14 +135,14 @@ export default function AboutIO() {
                                 <div className="mb-9 basis-full">
                                     <div className="flex justify-center items-center overflow-hidden">
                                         <img
-                                            src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/cs_products.webp"
+                                            src="/images/cs_products.webp"
                                             className="dark:hidden object-contain h-full w-full"
                                             width="471"
                                             height="258"
                                             alt=""
                                         />
                                         <img
-                                            src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/cs_products-dark.webp"
+                                            src="/images/cs_products-dark.webp"
                                             className="hidden dark:block object-contain h-full w-full"
                                             width="471"
                                             height="258"
@@ -170,14 +170,14 @@ export default function AboutIO() {
                                 <div className="mb-9 basis-full">
                                     <div className="flex justify-center items-center overflow-hidden">
                                         <img
-                                            src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/cs_learning.webp"
+                                            src="/images/cs_learning.webp"
                                             className="dark:hidden object-contain h-full w-full"
                                             width="471"
                                             height="258"
                                             alt=""
                                         />
                                         <img
-                                            src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/cs_learning-dark.webp"
+                                            src="/images/cs_learning-dark.webp"
                                             className="hidden dark:block object-contain h-full w-full"
                                             width="471"
                                             height="258"
@@ -196,14 +196,14 @@ export default function AboutIO() {
                                 <div className="basis-full">
                                     <div className="flex justify-center items-center overflow-hidden">
                                         <img
-                                            src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/cs_program.webp"
+                                            src="/images/cs_program.webp"
                                             className="dark:hidden object-cover h-full w-full"
                                             width="471"
                                             height="258"
                                             alt=""
                                         />
                                         <img
-                                            src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/cs_program-dark.webp"
+                                            src="/images/cs_program-dark.webp"
                                             className="hidden dark:block object-cover h-full w-full"
                                             width="471"
                                             height="258"

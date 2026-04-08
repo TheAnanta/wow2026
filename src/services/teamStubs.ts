@@ -33,7 +33,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Design',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: 'https://github.com/Kavya-chandana.png'
+    avatar: '/images/Kavya-chandana.png'
   },
 
   // Core Team

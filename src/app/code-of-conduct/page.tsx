@@ -73,7 +73,7 @@ export default function CodeOfConductPage() {
           <div className="flex items-end w-full md:w-3/5 justify-start! xl:justify-end! xl:pr-5">
             <img
               className="hidden md:inline-block h-full object-cover object-left dark:hidden md:max-h-[200px] text-md:max-h-[350px] -mb-[2px]"
-              src="https://web.archive.org/web/20240426014218im_/https://io.google/2024/app/images/io24-about-hero.webp"
+              src="/images/io__-about-hero.webp"
               role="img"
               aria-hidden="true"
               fetchPriority="high"

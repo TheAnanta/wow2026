@@ -30,298 +30,298 @@ export default function CommunityPage() {
       name: 'Gandhi Institute of Technology and Management (GITAM)',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/accelerators',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile-dark.svg'
+      img: '/images/io__-students-clubs.webp',
+      imgDark: '/images/io__-students-clubs-dark.webp',
+      imgMobile: '/images/io__-students-clubs-mobile.svg',
+      imgMobileDark: '/images/io__-students-clubs-mobile-dark.svg'
     },
     {
       name: 'Aditya Institute of Technology & Management',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdsc',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile-dark.svg'
+      img: '/images/io__-accelerator.webp',
+      imgDark: '/images/io24-accelerator-dark.webp',
+      imgMobile: '/images/io24-accelerator-mobile.svg',
+      imgMobileDark: '/images/io24-accelerator-mobile-dark.svg'
     },
     {
       name: 'Aditya University',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/experts',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile-dark.svg'
+      img: '/images/io24-experts.webp',
+      imgDark: '/images/io24-experts-dark.webp',
+      imgMobile: '/images/io24-experts-mobile.svg',
+      imgMobileDark: '/images/io24-experts-mobile-dark.svg'
     },
     {
       name: 'Andhra University College of Engineering',
       linkText: 'Join the club',
       href: 'https://www.womentechmakers.com/members',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile-dark.svg'
+      img: '/images/io24-techmakers.webp',
+      imgDark: '/images/io24-techmakers-dark.webp',
+      imgMobile: '/images/io24-techmakers-mobile.svg',
+      imgMobileDark: '/images/io24-techmakers-mobile-dark.svg'
     },
     {
       name: 'Annamacharya Institute of Technology and Sciences',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdg',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile-dark.svg'
+      img: '/images/io24-groups.webp',
+      imgDark: '/images/io24-groups-dark.webp',
+      imgMobile: '/images/io24-groups-mobile.svg',
+      imgMobileDark: '/images/io24-groups-mobile-dark.svg'
     },
     {
       name: 'Gayatri Vidya Parishad College of Engineering',
       linkText: 'Join the club',
       href: 'https://www.techequitycollective.com/',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile-dark.svg'
+      img: '/images/io24-equity.webp',
+      imgDark: '/images/io24-equity-dark.webp',
+      imgMobile: '/images/io24-equity-mobile.svg',
+      imgMobileDark: '/images/io24-equity-mobile-dark.svg'
     },
     {
       name: 'Gayatri Vidya Parishad College of Engineering for Women',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdsc',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile-dark.svg'
+      img: '/images/io__-accelerator.webp',
+      imgDark: '/images/io24-accelerator-dark.webp',
+      imgMobile: '/images/io24-accelerator-mobile.svg',
+      imgMobileDark: '/images/io24-accelerator-mobile-dark.svg'
     },
     {
       name: 'Geethanjali Institute of Science & Technology',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/experts',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile-dark.svg'
+      img: '/images/io24-experts.webp',
+      imgDark: '/images/io24-experts-dark.webp',
+      imgMobile: '/images/io24-experts-mobile.svg',
+      imgMobileDark: '/images/io24-experts-mobile-dark.svg'
     },
     {
       name: 'GMR Institute of Technology',
       linkText: 'Join the club',
       href: 'https://www.womentechmakers.com/members',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile-dark.svg'
+      img: '/images/io24-techmakers.webp',
+      imgDark: '/images/io24-techmakers-dark.webp',
+      imgMobile: '/images/io24-techmakers-mobile.svg',
+      imgMobileDark: '/images/io24-techmakers-mobile-dark.svg'
     },
     {
       name: 'Indian Institute of Information Technology Design & Manufacturing',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdg',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile-dark.svg'
+      img: '/images/io24-groups.webp',
+      imgDark: '/images/io24-groups-dark.webp',
+      imgMobile: '/images/io24-groups-mobile.svg',
+      imgMobileDark: '/images/io24-groups-mobile-dark.svg'
     },
     {
       name: 'Indian Institute of Information Technology',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/accelerators',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile-dark.svg'
+      img: '/images/io__-accelerator.webp',
+      imgDark: '/images/io24-accelerator-dark.webp',
+      imgMobile: '/images/io24-accelerator-mobile.svg',
+      imgMobileDark: '/images/io24-accelerator-mobile-dark.svg'
     },
     {
       name: 'Indian Institute of Technology',
       linkText: 'Join the club',
       href: 'https://www.techequitycollective.com/',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile-dark.svg'
+      img: '/images/io24-equity.webp',
+      imgDark: '/images/io24-equity-dark.webp',
+      imgMobile: '/images/io24-equity-mobile.svg',
+      imgMobileDark: '/images/io24-equity-mobile-dark.svg'
     },
     {
       name: 'K L Deemed to be University',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdsc',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile-dark.svg'
+      img: '/images/io__-students-clubs.webp',
+      imgDark: '/images/io__-students-clubs-dark.webp',
+      imgMobile: '/images/io__-students-clubs-mobile.svg',
+      imgMobileDark: '/images/io__-students-clubs-mobile-dark.svg'
     },
     {
       name: 'KKR & KSR Institute of Technology & Sciences',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/experts',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile-dark.svg'
+      img: '/images/io24-experts.webp',
+      imgDark: '/images/io24-experts-dark.webp',
+      imgMobile: '/images/io24-experts-mobile.svg',
+      imgMobileDark: '/images/io24-experts-mobile-dark.svg'
     },
     {
       name: 'Maharaj Vijayaram Gajapathi Raj College of Engineering',
       linkText: 'Join the club',
       href: 'https://www.womentechmakers.com/members',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile-dark.svg'
+      img: '/images/io24-techmakers.webp',
+      imgDark: '/images/io24-techmakers-dark.webp',
+      imgMobile: '/images/io24-techmakers-mobile.svg',
+      imgMobileDark: '/images/io24-techmakers-mobile-dark.svg'
     },
     {
       name: 'Mohan Babu University',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdg',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile-dark.svg'
+      img: '/images/io24-groups.webp',
+      imgDark: '/images/io24-groups-dark.webp',
+      imgMobile: '/images/io24-groups-mobile.svg',
+      imgMobileDark: '/images/io24-groups-mobile-dark.svg'
     },
     {
       name: 'Narayana Engineering College',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/accelerators',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile-dark.svg'
+      img: '/images/io__-accelerator.webp',
+      imgDark: '/images/io24-accelerator-dark.webp',
+      imgMobile: '/images/io24-accelerator-mobile.svg',
+      imgMobileDark: '/images/io24-accelerator-mobile-dark.svg'
     },
     {
       name: 'Pragati Engineering College',
       linkText: 'Join the club',
       href: 'https://www.techequitycollective.com/',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile-dark.svg'
+      img: '/images/io24-equity.webp',
+      imgDark: '/images/io24-equity-dark.webp',
+      imgMobile: '/images/io24-equity-mobile.svg',
+      imgMobileDark: '/images/io24-equity-mobile-dark.svg'
     },
     {
       name: 'Prasad V. Potluri Siddhartha Institute Of Technology',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdsc',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile-dark.svg'
+      img: '/images/io__-students-clubs.webp',
+      imgDark: '/images/io__-students-clubs-dark.webp',
+      imgMobile: '/images/io__-students-clubs-mobile.svg',
+      imgMobileDark: '/images/io__-students-clubs-mobile-dark.svg'
     },
     {
       name: 'R.V.R. & J.C. College of Engineering',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/experts',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile-dark.svg'
+      img: '/images/io24-experts.webp',
+      imgDark: '/images/io24-experts-dark.webp',
+      imgMobile: '/images/io24-experts-mobile.svg',
+      imgMobileDark: '/images/io24-experts-mobile-dark.svg'
     },
     {
       name: 'Raghu Engineering College',
       linkText: 'Join the club',
       href: 'https://www.womentechmakers.com/members',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile-dark.svg'
+      img: '/images/io24-techmakers.webp',
+      imgDark: '/images/io24-techmakers-dark.webp',
+      imgMobile: '/images/io24-techmakers-mobile.svg',
+      imgMobileDark: '/images/io24-techmakers-mobile-dark.svg'
     },
     {
       name: 'Seshadri Rao Gudlavalleru Engineering College',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdg',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile-dark.svg'
+      img: '/images/io24-groups.webp',
+      imgDark: '/images/io24-groups-dark.webp',
+      imgMobile: '/images/io24-groups-mobile.svg',
+      imgMobileDark: '/images/io24-groups-mobile-dark.svg'
     },
     {
       name: 'SRM University AP',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/accelerators',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile-dark.svg'
+      img: '/images/io__-accelerator.webp',
+      imgDark: '/images/io24-accelerator-dark.webp',
+      imgMobile: '/images/io24-accelerator-mobile.svg',
+      imgMobileDark: '/images/io24-accelerator-mobile-dark.svg'
     },
     {
       name: 'Sri Venkateswara College of Engineering',
       linkText: 'Join the club',
       href: 'https://www.techequitycollective.com/',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile-dark.svg'
+      img: '/images/io24-equity.webp',
+      imgDark: '/images/io24-equity-dark.webp',
+      imgMobile: '/images/io24-equity-mobile.svg',
+      imgMobileDark: '/images/io24-equity-mobile-dark.svg'
     },
     {
       name: 'Sri Sai Institute of Technology & Science',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdsc',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile-dark.svg'
+      img: '/images/io__-students-clubs.webp',
+      imgDark: '/images/io__-students-clubs-dark.webp',
+      imgMobile: '/images/io__-students-clubs-mobile.svg',
+      imgMobileDark: '/images/io__-students-clubs-mobile-dark.svg'
     },
     {
       name: 'Sri Vasavi Engineering College',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/experts',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile-dark.svg'
+      img: '/images/io24-experts.webp',
+      imgDark: '/images/io24-experts-dark.webp',
+      imgMobile: '/images/io24-experts-mobile.svg',
+      imgMobileDark: '/images/io24-experts-mobile-dark.svg'
     },
     {
       name: 'SVR Engineering College',
       linkText: 'Join the club',
       href: 'https://www.womentechmakers.com/members',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile-dark.svg'
+      img: '/images/io24-techmakers.webp',
+      imgDark: '/images/io24-techmakers-dark.webp',
+      imgMobile: '/images/io24-techmakers-mobile.svg',
+      imgMobileDark: '/images/io24-techmakers-mobile-dark.svg'
     },
     {
       name: 'Velagapudi Ramakrishna Siddhartha Engineering College',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdg',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-groups-mobile-dark.svg'
+      img: '/images/io24-groups.webp',
+      imgDark: '/images/io24-groups-dark.webp',
+      imgMobile: '/images/io24-groups-mobile.svg',
+      imgMobileDark: '/images/io24-groups-mobile-dark.svg'
     },
     {
       name: 'Vellore Institute of Technology (VIT-AP)',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/accelerators',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-accelerator-mobile-dark.svg'
+      img: '/images/io__-accelerator.webp',
+      imgDark: '/images/io24-accelerator-dark.webp',
+      imgMobile: '/images/io24-accelerator-mobile.svg',
+      imgMobileDark: '/images/io24-accelerator-mobile-dark.svg'
     },
     {
       name: "Vignan's Institute of Engineering for Women",
       linkText: 'Join the club',
       href: 'https://www.techequitycollective.com/',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-equity-mobile-dark.svg'
+      img: '/images/io24-equity.webp',
+      imgDark: '/images/io24-equity-dark.webp',
+      imgMobile: '/images/io24-equity-mobile.svg',
+      imgMobileDark: '/images/io24-equity-mobile-dark.svg'
     },
     {
       name: "Vignan's Institute of Information Technology",
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/gdsc',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-students-clubs-mobile-dark.svg'
+      img: '/images/io__-students-clubs.webp',
+      imgDark: '/images/io__-students-clubs-dark.webp',
+      imgMobile: '/images/io__-students-clubs-mobile.svg',
+      imgMobileDark: '/images/io__-students-clubs-mobile-dark.svg'
     },
     {
       name: 'Vishnu Institute of Technology',
       linkText: 'Join the club',
       href: 'https://developers.google.com/community/experts',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-experts-mobile-dark.svg'
+      img: '/images/io24-experts.webp',
+      imgDark: '/images/io24-experts-dark.webp',
+      imgMobile: '/images/io24-experts-mobile.svg',
+      imgMobileDark: '/images/io24-experts-mobile-dark.svg'
     },
     {
       name: 'RGMCET',
       linkText: 'Join the club',
       href: 'https://www.womentechmakers.com/members',
-      img: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers.webp',
-      imgDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-dark.webp',
-      imgMobile: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile.svg',
-      imgMobileDark: 'https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-techmakers-mobile-dark.svg'
+      img: '/images/io24-techmakers.webp',
+      imgDark: '/images/io24-techmakers-dark.webp',
+      imgMobile: '/images/io24-techmakers-mobile.svg',
+      imgMobileDark: '/images/io24-techmakers-mobile-dark.svg'
     }
   ];
 
@@ -354,27 +354,27 @@ export default function CommunityPage() {
           <div className="flex justify-end items-end w-full md:w-3/5 ">
             <img
               className="hidden md:inline-block h-full object-cover object-left dark:hidden "
-              src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-community-hero.svg"
+              src="/images/io24-community-hero.svg"
               role="img"
               aria-hidden="true"
               height={407}
             />
             <img
               className="hidden dark:md:inline-block h-full object-cover object-left "
-              src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-community-hero-dark.svg"
+              src="/images/io24-community-hero-dark.svg"
               role="img"
               aria-hidden="true"
               height={407}
             />
             <img
               className="block md:hidden dark:hidden "
-              src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-community-hero-mobile.svg"
+              src="/images/io24-community-hero-mobile.svg"
               role="img"
               aria-hidden="true"
             />
             <img
               className="hidden dark:inline-block dark:md:hidden "
-              src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-community-hero-mobile-dark.svg"
+              src="/images/io24-community-hero-mobile-dark.svg"
               role="img"
               aria-hidden="true"
             />
@@ -401,10 +401,10 @@ export default function CommunityPage() {
                   </div>
                 </div>
                 <div className="promo-card__img flex justify-end w-full ml:w-1/2 items-end pt-0 ml:pt-[44.18px] mr-[-2px] mb-[-2px]">
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-connect-mobile.svg" width={145} height={187} className="ml:hidden dark:hidden max-h-[298px]" role="img" aria-hidden="true" />
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-connect-dark-mobile.svg" width={145} height={187} className="hidden dark:inline-block dark:ml:hidden max-h-[298px]" role="img" aria-hidden="true" />
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-connect.svg" width={246} height={299} className="hidden ml:block dark:hidden" role="img" aria-hidden="true" />
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-connect-dark.svg" width={246} height={299} className="hidden dark:ml:block max-h-[298px]" role="img" aria-hidden="true" />
+                  <img src="/images/io__-connect-mobile.svg" width={145} height={187} className="ml:hidden dark:hidden max-h-[298px]" role="img" aria-hidden="true" />
+                  <img src="/images/io__-connect-dark-mobile.svg" width={145} height={187} className="hidden dark:inline-block dark:ml:hidden max-h-[298px]" role="img" aria-hidden="true" />
+                  <img src="/images/io__-connect.svg" width={246} height={299} className="hidden ml:block dark:hidden" role="img" aria-hidden="true" />
+                  <img src="/images/io__-connect-dark.svg" width={246} height={299} className="hidden dark:ml:block max-h-[298px]" role="img" aria-hidden="true" />
                 </div>
               </div>
             </div>
@@ -425,8 +425,8 @@ export default function CommunityPage() {
                   </div>
                 </div>
                 <div className="promo-card__img flex justify-end pr-[1rem] ml:pr-[2rem] w-full ml:w-1/2 items-end">
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-extended.svg" width={204} height={298} className="hidden ml:block max-h-[298px] mb-[-2px]" role="img" aria-hidden="true" />
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-extended-mobile.svg" width={145} height={223} className="block ml:hidden md:max-h-[167px]" role="img" aria-hidden="true" />
+                  <img src="/images/io__-extended.svg" width={204} height={298} className="hidden ml:block max-h-[298px] mb-[-2px]" role="img" aria-hidden="true" />
+                  <img src="/images/io__-extended-mobile.svg" width={145} height={223} className="block ml:hidden md:max-h-[167px]" role="img" aria-hidden="true" />
                 </div>
               </div>
             </div>
@@ -534,10 +534,10 @@ export default function CommunityPage() {
                   </a>
                 </div>
                 <div className="flex justify-end pr-[1rem] pb-[1rem] ml:pr-0 ml:pb-0 w-full ml:w-1/2 items-end">
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-planyourio-mobile.svg" width={231} height={176} className="ml:hidden dark:hidden" role="img" aria-hidden="true" />
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-planyourio-dark-mobile.svg" width={231} height={176} className="hidden dark:inline-block dark:ml:hidden" role="img" aria-hidden="true" />
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-planyourio.svg" width={412} height={318} className="hidden ml:inline-block dark:hidden" role="img" aria-hidden="true" />
-                  <img src="https://web.archive.org/web/20240426014217im_/https://io.google/2024/app/images/io24-planyourio-dark.svg" width={412} height={318} className="hidden dark:ml:inline-block" role="img" aria-hidden="true" />
+                  <img src="/images/io__-planyourio-mobile.svg" width={231} height={176} className="ml:hidden dark:hidden" role="img" aria-hidden="true" />
+                  <img src="/images/io__-planyourio-dark-mobile.svg" width={231} height={176} className="hidden dark:inline-block dark:ml:hidden" role="img" aria-hidden="true" />
+                  <img src="/images/io__-planyourio.svg" width={412} height={318} className="hidden ml:inline-block dark:hidden" role="img" aria-hidden="true" />
+                  <img src="/images/io__-planyourio-dark.svg" width={412} height={318} className="hidden dark:ml:inline-block" role="img" aria-hidden="true" />
                 </div>
               </div>
             </div>

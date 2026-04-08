@@ -974,7 +974,7 @@
 
 @media (forced-colors: active) and (-ms-high-contrast: black-on-white) {
     .checkbox input[type=checkbox]:checked:before, .filter-box__item input[type=checkbox]:checked:before, .hcm-checkbox-override input[type=checkbox]:checked:before {
-        content:url(https://io.google/2023/app/images/checkbox.svg) !important
+        content:url(/images/checkbox.svg) !important
     }
 
     .filter-box__item input[type=checkbox]:checked {
@@ -984,7 +984,7 @@
 
 @media (forced-colors: active) and (-ms-high-contrast: white-on-black) {
     .checkbox input[type=checkbox]:checked:before, .filter-box__item input[type=checkbox]:checked:before, .hcm-checkbox-override input[type=checkbox]:checked:before {
-        content:url(https://io.google/2023/app/images/checkbox-white.svg) !important
+        content:url(/images/checkbox-white.svg) !important
     }
 
     .filter-box__item input[type=checkbox]:checked {
@@ -1007,7 +1007,7 @@
 
 @media (prefers-color-scheme: light) and (forced-colors: active) {
     .checkbox input[type=checkbox]:checked:before, .hcm-checkbox-override input[type=checkbox]:checked:before {
-        content:url(https://io.google/2023/app/images/checkbox.svg) !important
+        content:url(/images/checkbox.svg) !important
     }
 
     .filter-box__item input[type=checkbox]:checked {
@@ -1045,7 +1045,7 @@
 
 @media (prefers-color-scheme: dark) and (forced-colors: active) {
     .checkbox input[type=checkbox]:checked:before, .hcm-checkbox-override input[type=checkbox]:checked:before {
-        content:url(https://io.google/2023/app/images/checkbox-white.svg) !important
+        content:url(/images/checkbox-white.svg) !important
     }
 
     .filter-box__item input[type=checkbox]:checked {
