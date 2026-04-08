@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GDGoC World of Wonders 2026 🚀
 
-## Getting Started
+[![Banner](./public/README.png)](https://io.google/2024/)
 
-First, run the development server:
+**GDGoC WOW AP 2026** is a flagship developer event website designed with the
+modern aesthetic and functional parity of **Google I/O 2024**. This project
+serves as the central hub for the event, featuring landing pages, registration
+flows, and interactive session exploration.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 📱 **Fully Responsive Design**: Pixel-perfect layout from mobile to 1440px+
+  flagship viewports.
+- 🎨 **Premium Aesthetics**: Implementing the official Google I/O 2024 design
+  system, including glassmorphism, fluid animations (Framer Motion), and a
+  custom theme.
+- 🌗 **Dark Mode Support**: Seamless transition between light and dark themes
+  with system-level detection.
+- 🧭 **Advanced Navigation**: Custom sticky headers, scroll-spy integration, and
+  an intuitive mobile navigation drawer.
+- 🎫 **Registration Flow**: A multi-step registration process with real-time
+  validation and localized state management.
+- 🔍 **Interactive Explore Page**: Clean and powerful session filtering with
+  dynamic URL synchronization.
+- 🏃 **High Performance**: Optimized using Next.js 15+, Tailwind CSS v4, and
+  modern image formats (WebP/SVG).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Core**: [Next.js](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Components**: Radix UI (Headless primitives) & Lucide React
+- **Icons**: Official Google I/O 2024 SVG Assets
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+### Prerequisites
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Node.js 18.x or later
+- npm or pnpm
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/manasmalla/wow2026.git
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the
+result.
+
+---
+
+## 📂 Project Structure
+
+- `src/app`: Next.js App Router pages and layouts.
+- `src/components`: Reusable UI components and section blocks.
+- `src/services`: Data fetchers and mock services.
+- `src/data`: JSON configuration and static content.
+- `public`: Static assets including images, icons, and localized resources.
+
+---
+
+## 👥 Contributors
+
+A huge thanks to the team making this happen:
+
+- **Manas Malla** ([@manasmalla](https://github.com/manasmalla)) - Lead
+  Developer
+- **Chaitanya Sameer Chalasani** ([@Chai-S](https://github.com/Chai-S))
+- **Sharvan Babu Kakarla** ([@sharvanbabu](https://github.com/sharvanbabu))
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+## 📄 License
+
+This project is for educational and community purposes. Design assets are
+property of Google.
+
+---
+
+<p align="center">Made with ❤️ by the GDGoC GITAM Team</p>
