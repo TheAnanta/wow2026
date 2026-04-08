@@ -34,9 +34,8 @@ flows, and interactive session exploration.
 - **Core**: [Next.js](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Components**: Radix UI (Headless primitives) & Lucide React
-- **Icons**: Official Google I/O 2024 SVG Assets
+- **Animations**: [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- **Icons**: [Material Icons](https://fonts.google.com/icons)
 
 ---
 
@@ -83,9 +82,9 @@ result.
 
 A huge thanks to the team making this happen:
 
-- **Manas Malla** ([@manasmalla](https://github.com/manasmalla)) - Lead
-  Developer
-- **Chaitanya Sameer Chalasani** ([@Chai-S](https://github.com/Chai-S))
+- **Manas Malla** ([@manasmalla](https://github.com/manasmalla))
+- **Chaitanya Sameer Chalasani**
+  ([@Chaitanya-Sameer](https://github.com/Chaitanya-Sameer))
 - **Sharvan Babu Kakarla** ([@sharvanbabu](https://github.com/sharvanbabu))
 
 ---
