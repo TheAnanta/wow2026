@@ -59,8 +59,42 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center">
-            <span className="mr-4 text-[14px] font-medium hidden xl:block">English</span>
+          <div className="hidden text-md:flex items-center">
+            <div className="h-choose-language group relative" data-in-footer="">
+              <select
+                name="language-select"
+                aria-label="Drop down to select language"
+                className="font-medium language-select focus-trapped text-grey-900 dark:text-white w-full border-none pl-0 ml:w-32 ml:pl-4 sm:s-cta2 md:s-cta1 cursor-pointer appearance-none bg-transparent"
+                defaultValue="en"
+              >
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="bn">বাংলা</option>
+                <option value="te">తెలుగు</option>
+                <option value="mr">मराठी</option>
+                <option value="ta">தமிழ்</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="kn">ಕನ್ನಡ</option>
+                <option value="ml">മലയാളം</option>
+                <option value="pa">ਪੰਜਾਬੀ</option>
+              </select>
+              <div style={{ zIndex: 10, top: '48px', right: '0' }} className="absolute invisible group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
+                <div className="bg-white dark:bg-grey-900 dark:text-grey-200 border-2 border-grey-900 dark:border-grey-200 text-grey-900 sm:l-cta2 font-medium p-3 pr-6 w-max relative shadow-xl space-x-4!">
+                  <span>In-person content is available in English only </span>
+                  <button type="button" className="absolute top-0 bottom-0 right-0 px-2" aria-label="Close">
+                    <svg className="fill-current dark:fill-white text-grey-900 w-6 h-6 forced-white-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+                      <path d="m14.53 4.53-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <svg width="32" height="20" viewBox="-2 -2 37 28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'scale(-1, 1)', right: '10px', top: '-18px' }} aria-hidden="true" className="absolute block dark:hidden hcm-hidden">
+                  <path d="M0.138981 4.44226C0.0834319 1.0678 3.97439 -0.854559 6.62079 1.23988L35.9246 24.4317C37.4112 25.6083 36.5792 28 34.6834 28L2.49412 28C1.40238 28 0.512363 27.1245 0.494394 26.0329L0.138981 4.44226Z" fill="#fff" stroke="#202124" strokeWidth="2.5"></path>
+                </svg>
+                <svg width="32" height="20" viewBox="-2 -2 37 28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'scale(-1, 1)', right: '10px', top: '-18px' }} aria-hidden="true" className="absolute hidden dark:block hcm-block">
+                  <path d="M0.138981 4.44226C0.0834319 1.0678 3.97439 -0.854559 6.62079 1.23988L35.9246 24.4317C37.4112 25.6083 36.5792 28 34.6834 28L2.49412 28C1.40238 28 0.512363 27.1245 0.494394 26.0329L0.138981 4.44226Z" fill="#202124" stroke="#E8EAED" strokeWidth="2.5"></path>
+                </svg>
+              </div>
+            </div>
           </div>
 
           <div className="flex items-center gap-4">

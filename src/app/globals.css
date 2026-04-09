@@ -956,8 +956,6 @@
     }
 
     .language-select {
-        background: url('data:image/svg+xml;charset=utf-8,<svg height="10" width="10" viewBox="0 0 16 16" fill="CanvasText" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 01.753 1.659l-4.796 5.48a1 1 0 01-1.506 0z"/></svg>') no-repeat !important;
-        background-position: calc(100% - .75rem) 50% !important;
         -moz-appearance: none !important;
         -webkit-appearance: none !important;
         appearance: none !important;
@@ -1828,18 +1826,26 @@
 }
 
 .language-select {
-    background-image: linear-gradient(45deg, transparent 50%, #80868b 0), linear-gradient(135deg, #80868b 50%, transparent 0);
-    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) .5em;
-    background-size: 5px 5px, 5px 5px, 1px 1.5em;
-    padding-right:25px
+    background-image: linear-gradient(45deg, transparent 50%, #5f6368 0), linear-gradient(135deg, #5f6368 50%, transparent 0), linear-gradient(#dadce0, #dadce0);
+    background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%, calc(100% - 2.5em) 50%;
+    background-size: 5px 5px, 5px 5px, 1px 1.25em;
+    background-repeat: no-repeat;
+    padding-right: 2.5rem;
+    height: 2.5rem;
+}
+
+.dark .language-select {
+    background-image: linear-gradient(45deg, transparent 50%, #fff 0), linear-gradient(135deg, #fff 50%, transparent 0), linear-gradient(#5f6368, #5f6368);
 }
 
 .language-select-nav {
-    background-image:linear-gradient(45deg, transparent 50%, #000 0), linear-gradient(135deg, #000 50%, transparent 0)
+    background-image: linear-gradient(45deg, transparent 50%, #000 0), linear-gradient(135deg, #000 50%, transparent 0);
+    background-repeat: no-repeat;
 }
 
 .dark .language-select-nav {
-    background-image:linear-gradient(45deg, transparent 50%, #fff 0), linear-gradient(135deg, #fff 50%, transparent 0) !important
+    background-image: linear-gradient(45deg, transparent 50%, #fff 0), linear-gradient(135deg, #fff 50%, transparent 0) !important;
+    background-repeat: no-repeat !important;
 }
 
 a.active:is(:link, :active, :visited) {
