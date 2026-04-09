@@ -189,7 +189,7 @@ export default function TeamPage() {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {organizers.map(member => (
-                          <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} />
+                          <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} href={`/team/${member.id}`} />
                         ))}
                       </div>
                     </section>
@@ -202,7 +202,7 @@ export default function TeamPage() {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {leads.sort((a, b) => { return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1 }).map(member => (
-                          <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} />
+                          <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} href={`/team/${member.id}`} />
                         ))}
                       </div>
                     </section>
@@ -215,7 +215,7 @@ export default function TeamPage() {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {coreTeam.sort((a, b) => { return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1 }).map(member => (
-                          <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} />
+                          <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} href={`/team/${member.id}`} />
                         ))}
                       </div>
                     </section>

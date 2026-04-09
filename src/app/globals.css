@@ -19,7 +19,11 @@
   --font-display: "Google Sans Display", "Google Sans", sans-serif;
 
   /* Custom Breakpoints */
+  --breakpoint-ml: 960px;
   --breakpoint-3xl: 1440px;
+
+  /* Additional Colors for legacy compatibility */
+  --color-grey: #202124;
 }
 
 @layer base {
@@ -685,6 +689,10 @@
 
 .animate-slide-down {
   animation: slideDown 0.4s ease-out forwards;
+}
+
+.h-butter-tooltip {
+  height: 66px;
 }
 
 .bg-grey-bg {

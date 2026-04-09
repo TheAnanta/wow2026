@@ -141,6 +141,7 @@ export default function SpeakersPage() {
                     title={speaker.title}
                     pronouns={speaker.pronouns || 'They/Them'}
                     image={speaker.avatar ? `/images/speakers/${speaker.avatar}` : ''}
+                    href={`/speakers/${speaker.id}`}
                   />
                 ))
               ) : (

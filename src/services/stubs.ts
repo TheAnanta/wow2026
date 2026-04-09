@@ -13,6 +13,7 @@ export interface Session {
   sessionCode: string;
   time?: string;
   bookmarked?: boolean;
+  speakerIds?: string[];
 }
 
 export const fetchSessions = async (filters: { q?: string }): Promise<Session[]> => {
@@ -221,7 +222,8 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
       type: ['98b75245-0ae8-4524-9272-760afbbd1458'],
       stack: ['14574666-1892-4a0e-b305-44d6e3f66c56'],
       sessionCode: 'AUD-7',
-      time: '11:40 AM'
+      time: '11:40 AM',
+      speakerIds: ['100', '111']
     },
     {
       id: 'aud-8',
@@ -234,7 +236,8 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
       type: ['98b75245-0ae8-4524-9272-760afbbd1458'],
       stack: ['14574666-1892-4a0e-b305-44d6e3f66c56'],
       sessionCode: 'AUD-8',
-      time: '12:15 PM'
+      time: '12:15 PM',
+      speakerIds: ['101', '102']
     },
     {
       id: 'aud-9',

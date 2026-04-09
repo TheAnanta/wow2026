@@ -6,11 +6,12 @@ interface SpeakerCardProps {
   title: string;
   pronouns?: string;
   image?: string;
+  href: string;
 }
 
-export const SpeakerCard: React.FC<SpeakerCardProps> = ({ name, title, pronouns = 'He/Him', image }) => {
+export const SpeakerCard: React.FC<SpeakerCardProps> = ({ name, title, pronouns = 'He/Him', image, href }) => {
   return (
-    <div className="speaker-item flex md:flex-col items-start md:items-center w-full md:w-52 p-4 md:p-2 rounded-2xl border-2 border-grey-600 dark:border-grey-200 md:border-transparent m-auto h-full md:min-h-[270px] xs:p-4 sm:p-5 hover:border-grey-900 focus:border-grey-900 dark:hover:border-grey-200 md:dark:border-transparent dark:focus:border-grey-200 cursor-pointer">
+    <a href={href} className="speaker-item flex md:flex-col items-start md:items-center w-full md:w-52 p-4 md:p-2 rounded-2xl border-2 border-grey-600 dark:border-grey-200 md:border-transparent m-auto h-full md:min-h-[270px] xs:p-4 sm:p-5 hover:border-grey-900 focus:border-grey-900 dark:hover:border-grey-200 md:dark:border-transparent dark:focus:border-grey-200 cursor-pointer">
       <div className="relative">
         {image ? (
           <img
@@ -35,6 +36,6 @@ export const SpeakerCard: React.FC<SpeakerCardProps> = ({ name, title, pronouns 
         <p className="sm:l-tags font-normal text-left md:text-center mt-2 md:mt-1">{title}</p>
         <p className="sm:l-eyeline font-bold text-left md:text-center uppercase">{pronouns}</p>
       </div>
-    </div>
+    </a>
   );
 };
