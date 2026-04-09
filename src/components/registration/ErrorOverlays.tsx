@@ -2,7 +2,7 @@
 import React from 'react';
 
 interface ErrorOverlayProps {
-  type: 'signin' | 'account';
+  type: 'signin' | 'account' | 'general';
   onTryAgain: () => void;
   errorMessage?: string;
 }
@@ -22,6 +22,13 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain, er
       text: 'The user account type is not allowed.',
       description: 'To learn more or get help, visit the FAQ.',
       button: 'Back to home',
+    },
+    general: {
+      title: 'Uh oh.',
+      subtitle: 'Something went wrong.',
+      text: 'An error occurred while processing your request.',
+      description: 'Please try again in a few moments or visit the FAQ for more help.',
+      button: 'Try again',
     }
   };
 
@@ -73,7 +80,7 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain, er
         </h3>
         <p className="text-[0.875rem] md:text-[1rem] text-grey-600 dark:text-grey-400 leading-relaxed mb-10 max-w-[420px]">
           {activeContent.description}
-          {type === 'account' && (
+          {(type === 'account' || type === 'general') && (
             <a href="/about" className="block mt-4 decoration-2 underline underline-offset-4 cursor-pointer hover:no-underline font-medium text-grey-900 dark:text-white">visit the FAQ.</a>
           )}
         </p>

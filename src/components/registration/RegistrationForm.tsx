@@ -53,7 +53,7 @@ export const RegistrationForm: React.FC = () => {
   const [isFirebaseLoading, setIsFirebaseLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorType, setErrorType] = useState<'signin' | 'account' | null>(null);
+  const [errorType, setErrorType] = useState<'signin' | 'account' | 'general' | null>(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -110,7 +110,7 @@ export const RegistrationForm: React.FC = () => {
         }
       } catch (err: any) {
         setErrors({ submit: err.message || 'An error occurred. Please try again.' });
-        setErrorType('account');
+        setErrorType('general');
       } finally {
         setIsSubmitting(false);
       }
@@ -146,7 +146,7 @@ export const RegistrationForm: React.FC = () => {
         <ErrorOverlay
           type={errorType}
           onTryAgain={() => setErrorType(null)}
-          errorMessage={errorType === 'account' ? errors.submit : undefined}
+          errorMessage={(errorType === 'account' || errorType === 'general') ? errors.submit : undefined}
         />
       </div>
     );
