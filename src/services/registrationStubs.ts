@@ -23,6 +23,7 @@ const API_BASE_URL = 'https://jqs21msv-54321.inc1.devtunnels.ms/functions/v1/now
 export const validateProfile = (data: Partial<RegistrationProfile>): { [key: string]: string } => {
   const errors: { [key: string]: string } = {};
   if (!data.displayName?.trim()) errors.displayName = 'Display name is required.';
+  if (!data.pronoun?.trim()) errors.pronoun = 'Pronoun is required.';
   if (!data.cityTown?.trim()) errors.cityTown = 'City or town is required.';
   
   // 10-digit Indian mobile number validation

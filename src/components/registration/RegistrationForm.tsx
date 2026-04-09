@@ -105,10 +105,12 @@ export const RegistrationForm: React.FC = () => {
           window.dispatchEvent(new CustomEvent('registrationSuccess'));
           router.push('/payment');
         } else {
-          setErrors({ submit: result.error || 'Registration failed' });
+          setErrors({ submit: result.error || 'The user account type is not allowed.' });
+          setErrorType('account');
         }
-      } catch (err) {
-        setErrors({ submit: 'An error occurred. Please try again.' });
+      } catch (err: any) {
+        setErrors({ submit: err.message || 'An error occurred. Please try again.' });
+        setErrorType('account');
       } finally {
         setIsSubmitting(false);
       }
@@ -128,7 +130,7 @@ export const RegistrationForm: React.FC = () => {
   };
 
   const inputBaseCls = 'w-full px-4 py-3.5 border border-grey-400 rounded-lg text-[1rem] focus:outline-none focus:border-google-blue focus:ring-1 focus:ring-google-blue transition-all bg-white placeholder:text-grey-600';
-  const errorTextCls = 'text-[0.75rem] text-google-red mt-1.5 font-medium px-1';
+  const errorTextCls = 'text-[0.75rem] text-google-red mt-2 font-medium px-4';
 
   if (isFirebaseLoading) {
     return (
@@ -140,8 +142,12 @@ export const RegistrationForm: React.FC = () => {
 
   if (errorType) {
     return (
-      <div className="min-h-[500px] flex flex-col justify-center">
-        <ErrorOverlay type={errorType} onTryAgain={() => setErrorType(null)} />
+      <div className="flex-1 flex flex-col justify-center">
+        <ErrorOverlay
+          type={errorType}
+          onTryAgain={() => setErrorType(null)}
+          errorMessage={errorType === 'account' ? errors.submit : undefined}
+        />
       </div>
     );
   }
@@ -179,7 +185,7 @@ export const RegistrationForm: React.FC = () => {
               Create a developer profile to get recommendations for the best I/O sessions and content for you. You can also use your profile to save content to watch on demand.
             </p>
 
-            <p className="text-[0.8125rem] text-google-red mb-8 mt-4">*Required field</p>
+            <p className="text-[0.8125rem] text-google-red mb-4 mt-4">*Required field</p>
 
             <div className="space-y-8">
               <div>
@@ -190,87 +196,94 @@ export const RegistrationForm: React.FC = () => {
                   onChange={(e) => updateData({ displayName: e.target.value })}
                   placeholder="Display name*"
                 />
-                <p className="text-[0.75rem] text-grey-500 mt-2 ml-1">Your name may appear where you contribute and can be changed at any time.</p>
+                <p className="text-[0.75rem] text-grey-500 mt-2 px-4">Your name may appear where you contribute and can be changed at any time.</p>
                 {errors.displayName && <p className={errorTextCls}>{errors.displayName}</p>}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <div className="relative">
-                  <select className={`${inputBaseCls} appearance-none pr-10 ${!data.pronoun ? 'text-grey-600' : 'text-grey-900'}`} value={data.pronoun} onChange={(e) => updateData({ pronoun: e.target.value })}>
-                    <option value="">Pronoun</option>
-                    <option value="he/him">He/Him</option>
-                    <option value="she/her">She/Her</option>
-                    <option value="they/them">They/Them</option>
-                    <option value="prefer not to say">Prefer not to say</option>
-                  </select>
-                  <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
-                    <img
-                      className="block dark:hidden h-2.5"
-                      src="/images/chevron-up.svg"
-                      alt=""
-                      aria-hidden="true"
-                    />
-                    <img
-                      className="hidden dark:block h-2.5"
-                      src="/images/chevron-up-white.svg"
-                      alt=""
-                      aria-hidden="true"
-                    />
+                <div>
+                  <div className="relative">
+                    <select className={`${inputBaseCls} appearance-none pr-10 ${!data.pronoun ? 'text-grey-600' : 'text-grey-900'}`} value={data.pronoun} onChange={(e) => updateData({ pronoun: e.target.value })}>
+                      <option value="">Pronoun*</option>
+                      <option value="he/him">He/Him</option>
+                      <option value="she/her">She/Her</option>
+                      <option value="they/them">They/Them</option>
+                      <option value="prefer not to say">Prefer not to say</option>
+                    </select>
+                    <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
+                      <img
+                        className="block dark:hidden h-2.5"
+                        src="/images/chevron-up.svg"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                      <img
+                        className="hidden dark:block h-2.5"
+                        src="/images/chevron-up-white.svg"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
                   </div>
+                  {errors.pronoun && <p className={errorTextCls}>{errors.pronoun}</p>}
                 </div>
-                <div className="relative">
-                  <input
-                    className={`${inputBaseCls} pl-11`}
-                    type="text"
-                    value={data.cityTown}
-                    onChange={(e) => updateData({ cityTown: e.target.value })}
-                    placeholder="City/town*"
-                  />
-                  <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none text-grey-600">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                <div>
+                  <div className="relative">
+                    <input
+                      className={`${inputBaseCls} pl-11`}
+                      type="text"
+                      value={data.cityTown}
+                      onChange={(e) => updateData({ cityTown: e.target.value })}
+                      placeholder="City/town*"
+                    />
+                    <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none text-grey-600">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                    </div>
                   </div>
                   {errors.cityTown && <p className={errorTextCls}>{errors.cityTown}</p>}
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <div className="relative">
-                  <select className={`${inputBaseCls} appearance-none pr-10 ${!data.role ? 'text-grey-600' : 'text-grey-900'}`} value={data.role} onChange={(e) => updateData({ role: e.target.value })}>
-                    <option value="">Role or job title</option>
-                    <optgroup label="Select your role">
-                      <option value="Architect">Architect</option>
-                      <option value="Data analyst">Data analyst</option>
-                      <option value="Data engineer">Data engineer</option>
-                      <option value="Data scientist">Data scientist</option>
-                      <option value="Database admin">Database admin</option>
-                      <option value="Designer">Designer</option>
-                      <option value="Developer">Developer</option>
-                      <option value="Developer advocate">Developer advocate</option>
-                      <option value="Devops engineer">Devops engineer</option>
-                      <option value="Educator">Educator</option>
-                      <option value="Machine learning engineer">Machine learning engineer</option>
-                      <option value="Network engineer">Network engineer</option>
-                      <option value="Product manager">Product manager</option>
-                      <option value="Security professional">Security professional</option>
-                      <option value="Something else">Something else</option>
-                      <option value="Student">Student</option>
-                      <option value="Sysadmin">Sysadmin</option>
-                      <option value="Technical writer">Technical writer</option>
-                    </optgroup>
-                  </select>
-                  <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
-                    <img
-                      className="block dark:hidden h-2.5"
-                      src="/images/chevron-up.svg"
-                      alt=""
-                      aria-hidden="true"
-                    />
-                    <img
-                      className="hidden dark:block h-2.5"
-                      src="/images/chevron-up-white.svg"
-                      alt=""
-                      aria-hidden="true"
-                    />
+                <div>
+                  <div className="relative">
+                    <select className={`${inputBaseCls} appearance-none pr-10 ${!data.role ? 'text-grey-600' : 'text-grey-900'}`} value={data.role} onChange={(e) => updateData({ role: e.target.value })}>
+                      <option value="">Role or job title</option>
+                      <optgroup label="Select your role">
+                        <option value="Architect">Architect</option>
+                        <option value="Data analyst">Data analyst</option>
+                        <option value="Data engineer">Data engineer</option>
+                        <option value="Data scientist">Data scientist</option>
+                        <option value="Database admin">Database admin</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Developer advocate">Developer advocate</option>
+                        <option value="Devops engineer">Devops engineer</option>
+                        <option value="Educator">Educator</option>
+                        <option value="Machine learning engineer">Machine learning engineer</option>
+                        <option value="Network engineer">Network engineer</option>
+                        <option value="Product manager">Product manager</option>
+                        <option value="Security professional">Security professional</option>
+                        <option value="Something else">Something else</option>
+                        <option value="Student">Student</option>
+                        <option value="Sysadmin">Sysadmin</option>
+                        <option value="Technical writer">Technical writer</option>
+                      </optgroup>
+                    </select>
+                    <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
+                      <img
+                        className="block dark:hidden h-2.5"
+                        src="/images/chevron-up.svg"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                      <img
+                        className="hidden dark:block h-2.5"
+                        src="/images/chevron-up-white.svg"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -281,7 +294,7 @@ export const RegistrationForm: React.FC = () => {
                     onChange={(e) => updateData({ organization: e.target.value })}
                     placeholder="Google"
                   />
-                  <p className="text-[0.75rem] text-grey-500 mt-2 ml-1">Name of your Company, Employer, or School</p>
+                  <p className="text-[0.75rem] text-grey-500 mt-2 px-4">Name of your Company, Employer, or School</p>
                 </div>
               </div>
 
@@ -299,7 +312,7 @@ export const RegistrationForm: React.FC = () => {
                       placeholder="Phone number*"
                     />
                   </div>
-                  <p className="text-[0.75rem] text-grey-500 mt-2 ml-1">10-digit mobile number for communication</p>
+                  <p className="text-[0.75rem] text-grey-500 mt-2 px-4">10-digit mobile number for communication</p>
                   {errors.phoneNumber && <p className={errorTextCls}>{errors.phoneNumber}</p>}
                 </div>
               </div>

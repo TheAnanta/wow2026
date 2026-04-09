@@ -4,9 +4,10 @@ import React from 'react';
 interface ErrorOverlayProps {
   type: 'signin' | 'account';
   onTryAgain: () => void;
+  errorMessage?: string;
 }
 
-export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain }) => {
+export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain, errorMessage }) => {
   const content = {
     signin: {
       title: 'Whoops!',
@@ -27,9 +28,9 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain }) 
   const activeContent = content[type];
 
   return (
-    <div className="flex flex-col bg-white dark:bg-grey-900 rounded-xl overflow-hidden animate-fade-in max-w-[500px] mx-auto">
+    <div className="flex flex-col bg-white dark:bg-grey-900 overflow-hidden animate-fade-in w-full h-full md:h-auto md:flex-none">
       {/* Dynamic Header with assets */}
-      <div className="relative h-48 md:h-56 bg-[#F1F3F4] dark:bg-grey-800 flex flex-col items-center justify-center overflow-hidden px-8">
+      <div className="relative h-48 md:h-56 bg-[#F1F3F4] dark:bg-grey-800 flex flex-col items-center justify-center overflow-hidden px-8 border-b border-grey-200 dark:border-grey-700">
         {/* Decorative Assets - Desktop */}
         <picture className="absolute left-0 top-0 h-full select-none pointer-events-none hidden md:block">
           <source srcSet="/images/io24-loc-modal-header-left.webp" type="image/webp" />
@@ -41,11 +42,11 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain }) 
         </picture>
 
         {/* Decorative Assets - Mobile */}
-        <img src="/images/io24-loc-modal-header-left-mobile.svg" alt="" className="absolute left-0 top-0 h-full select-none pointer-events-none md:hidden" />
-        <img src="/images/io24-loc-modal-header-right-mobile.svg" alt="" className="absolute right-0 top-0 h-full select-none pointer-events-none md:hidden" />
+        <img src="/images/io24-loc-modal-header-left-mobile.svg" alt="" className="absolute left-0 top-0 h-full select-none pointer-events-none md:hidden object-contain object-left" />
+        <img src="/images/io24-loc-modal-header-right-mobile.svg" alt="" className="absolute right-0 top-0 h-full select-none pointer-events-none md:hidden object-contain object-right" />
 
         {/* Close button (optional, but in screenshot) */}
-        <button 
+        <button
           onClick={onTryAgain}
           className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors z-20"
         >
@@ -68,12 +69,12 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain }) 
       {/* Main Content Area */}
       <div className="p-8 md:p-12 flex flex-col items-center text-center">
         <h3 className="text-[1.125rem] md:text-[1.25rem] font-medium text-grey-900 dark:text-white mb-4 max-w-[340px]">
-          {activeContent.text}
+          {errorMessage || activeContent.text}
         </h3>
         <p className="text-[0.875rem] md:text-[1rem] text-grey-600 dark:text-grey-400 leading-relaxed mb-10 max-w-[420px]">
           {activeContent.description}
           {type === 'account' && (
-             <span className="block mt-4 decoration-2 underline underline-offset-4 cursor-pointer hover:no-underline font-medium text-grey-900 dark:text-white">visit the FAQ.</span>
+            <a href="/about" className="block mt-4 decoration-2 underline underline-offset-4 cursor-pointer hover:no-underline font-medium text-grey-900 dark:text-white">visit the FAQ.</a>
           )}
         </p>
 
