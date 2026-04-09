@@ -149,16 +149,65 @@ export default function TermsPage() {
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Introduction</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Registration Terms</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                        <p className="mb-2">
+                          By registering you acknowledge that your information will be used in accordance with GDGWOW&apos;s{" "}
+                          <a href="" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and{" "}
+                          <a href="" target="_blank" rel="noopener noreferrer">Terms of Service</a>.
+                        </p>
+                        <p className="mb-2">
+                          You may not register on behalf of anyone else. GDGWOW registration must be used by the original registrant and is non-transferable.
+                        </p>
+                        <p className="mb-2">
+                          All information entered into the registration form must be correct and accurate to the best of your knowledge. All information must be entered in English. Some of the information entered (such as name and company), will be displayed to other users.
+                        </p>
+
+
+                        <p className="mb-2">By registering and accepting any discounts, gifts, or items of value related to GDGWOW 2026 Visakhapatnam, you certify that you are able to do so in compliance with applicable laws and the internal rules of your organization.</p>
+                        <p className="mb-2">Tickets may not be sold, bartered, or auctioned in any way, and doing so may result in GDGWOW AP rendering the ticket null and void without any responsibility to GDGWOW AP.</p>
+                        <p className="mb-2">Attendees aren&apos;t permitted to bring guests to GDGWOW 2026 Visakhapatnam. If you have someone traveling with you, they&apos;ll need to register themselves and purchase an attendee ticket.</p>
+
+                      </dd>
+                    </div>
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Event conduct</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                        <p>
+                          By registering you agree to follow the <a href="https://developers.google.com/community-guidelines" target="_blank" rel="noopener noreferrer">Community Guidelines and Anti-Harassment Policy.</a>
+                        </p>
+                      </dd>
+                    </div>
+
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Photography and Media</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                        <p className="mb-2">Photographs and/or video taken at GDGWOW 2026 Visakhapatnam by GDGWOW AP, or others on behalf of GDGWOW AP, may include your image or likeness.</p>
+                        <p>You agree that GDGWOW AP may use such photographs and/or video for any purpose without compensation to you.</p>
+                      </dd>
+                    </div>
                     <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
-                          <span className="font-medium sm:s-h5 md:l-h5">What is GDGWOW 2026?</span>
+                          <span className="font-medium sm:s-h5 md:l-h5">Liability and Safety</span>
                         </div>
                       </dt>
                       <dd className="mt-4 md:mt-5 faq-entry">
-                        <p>
-                          By purchasing any pass or participating in the Arcade, you agree to these terms and conditions in full.
-                        </p>
+                        <p className="mb-2">You agree to be solely responsible for your own safety, belongings, and well-being while participating in GDGWOW 2026 Visakhapatnam.</p>
+                        <p>GDGWOW AP won&apos;t be liable for your participation in GDGWOW 2026 Visakhapatnam.</p>
                       </dd>
                     </div>
                   </dl>

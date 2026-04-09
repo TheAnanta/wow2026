@@ -28,6 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
 
   const navLinks = [
     { label: 'Explore', href: '/explore' },
+    { label: 'Arcade', href: '/arcade' },
     { label: 'Speakers', href: '/speakers' },
     { label: 'Team', href: '/team' },
     { label: 'Community', href: '/community' },
@@ -81,6 +82,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
                 <img
                   src={profile?.profile_url || user?.photoURL || ''}
                   alt="Profile"
+                  referrerPolicy='no-referrer'
                   className="w-[40px] h-[40px] rounded-full border-[1.2px] border-grey-900 object-cover bg-white"
                 />
               </div>
