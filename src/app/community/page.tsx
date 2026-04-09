@@ -29,7 +29,7 @@ export default function CommunityPage() {
     {
       name: 'Gandhi Institute of Technology and Management (GITAM)',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/accelerators',
+      href: 'https://gdg.community.dev/gdg-on-campus-gandhi-institute-of-technology-and-management-visakhapatnam-india/',
       img: '/images/io__-students-clubs.webp',
       imgDark: '/images/io__-students-clubs-dark.webp',
       imgMobile: '/images/io__-students-clubs-mobile.svg',
@@ -38,7 +38,7 @@ export default function CommunityPage() {
     {
       name: 'Aditya Institute of Technology & Management',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdsc',
+      href: 'https://gdg.community.dev/gdg-on-campus-aditya-institute-of-technology-management-tekkali-india/',
       img: '/images/io__-accelerator.webp',
       imgDark: '/images/io24-accelerator-dark.webp',
       imgMobile: '/images/io24-accelerator-mobile.svg',
@@ -47,7 +47,7 @@ export default function CommunityPage() {
     {
       name: 'Aditya University',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/experts',
+      href: 'https://gdg.community.dev/gdg-on-campus-aditya-university-kakinada-india/',
       img: '/images/io24-experts.webp',
       imgDark: '/images/io24-experts-dark.webp',
       imgMobile: '/images/io24-experts-mobile.svg',
@@ -56,7 +56,7 @@ export default function CommunityPage() {
     {
       name: 'Andhra University College of Engineering',
       linkText: 'Join the club',
-      href: 'https://www.womentechmakers.com/members',
+      href: 'https://gdg.community.dev/gdg-on-campus-andhra-university-college-of-engineering-visakhapatnam-india/',
       img: '/images/io24-techmakers.webp',
       imgDark: '/images/io24-techmakers-dark.webp',
       imgMobile: '/images/io24-techmakers-mobile.svg',
@@ -74,7 +74,7 @@ export default function CommunityPage() {
     {
       name: 'Gayatri Vidya Parishad College of Engineering',
       linkText: 'Join the club',
-      href: 'https://www.techequitycollective.com/',
+      href: 'https://gdg.community.dev/gdg-on-campus-gayatri-vidya-parishad-college-of-engineering-visakhapatnam-india/',
       img: '/images/io24-equity.webp',
       imgDark: '/images/io24-equity-dark.webp',
       imgMobile: '/images/io24-equity-mobile.svg',
@@ -83,7 +83,7 @@ export default function CommunityPage() {
     {
       name: 'Gayatri Vidya Parishad College of Engineering for Women',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdsc',
+      href: 'https://gdg.community.dev/gdg-on-campus-gayatri-vidya-parishad-college-of-engineering-for-women-visakhapatnam-india/',
       img: '/images/io__-accelerator.webp',
       imgDark: '/images/io24-accelerator-dark.webp',
       imgMobile: '/images/io24-accelerator-mobile.svg',
@@ -92,7 +92,7 @@ export default function CommunityPage() {
     {
       name: 'Geethanjali Institute of Science & Technology',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/experts',
+      href: 'https://gdg.community.dev/gdg-on-campus-geethanjali-institute-of-science-technology-nellore-india/',
       img: '/images/io24-experts.webp',
       imgDark: '/images/io24-experts-dark.webp',
       imgMobile: '/images/io24-experts-mobile.svg',
@@ -101,7 +101,7 @@ export default function CommunityPage() {
     {
       name: 'GMR Institute of Technology',
       linkText: 'Join the club',
-      href: 'https://www.womentechmakers.com/members',
+      href: 'https://gdg.community.dev/gdg-on-campus-gmr-institute-of-technology-razam-india/',
       img: '/images/io24-techmakers.webp',
       imgDark: '/images/io24-techmakers-dark.webp',
       imgMobile: '/images/io24-techmakers-mobile.svg',
@@ -110,7 +110,7 @@ export default function CommunityPage() {
     {
       name: 'Indian Institute of Information Technology Design & Manufacturing',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdg',
+      href: 'https://gdg.community.dev/gdg-on-campus-indian-institute-of-information-technology-design-manufacturing-kurnool-india/',
       img: '/images/io24-groups.webp',
       imgDark: '/images/io24-groups-dark.webp',
       imgMobile: '/images/io24-groups-mobile.svg',
@@ -119,7 +119,7 @@ export default function CommunityPage() {
     {
       name: 'Indian Institute of Information Technology',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/accelerators',
+      href: 'https://gdg.community.dev/gdg-on-campus-indian-institute-of-information-technology-kalyani-india/',
       img: '/images/io__-accelerator.webp',
       imgDark: '/images/io24-accelerator-dark.webp',
       imgMobile: '/images/io24-accelerator-mobile.svg',
@@ -137,7 +137,7 @@ export default function CommunityPage() {
     {
       name: 'K L Deemed to be University',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdsc',
+      href: 'https://gdg.community.dev/gdg-on-campus-k-l-deemed-to-be-university-vijayawada-india/',
       img: '/images/io__-students-clubs.webp',
       imgDark: '/images/io__-students-clubs-dark.webp',
       imgMobile: '/images/io__-students-clubs-mobile.svg',
@@ -146,7 +146,7 @@ export default function CommunityPage() {
     {
       name: 'KKR & KSR Institute of Technology & Sciences',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/experts',
+      href: 'https://gdg.community.dev/gdg-on-campus-kkr-ksr-institute-of-technology-sciences-guntur-india/',
       img: '/images/io24-experts.webp',
       imgDark: '/images/io24-experts-dark.webp',
       imgMobile: '/images/io24-experts-mobile.svg',
@@ -155,7 +155,7 @@ export default function CommunityPage() {
     {
       name: 'Maharaj Vijayaram Gajapathi Raj College of Engineering',
       linkText: 'Join the club',
-      href: 'https://www.womentechmakers.com/members',
+      href: 'https://gdg.community.dev/gdg-on-campus-maharaj-vijayaram-gajapathi-raj-college-of-engineering-vizianagaram-india/',
       img: '/images/io24-techmakers.webp',
       imgDark: '/images/io24-techmakers-dark.webp',
       imgMobile: '/images/io24-techmakers-mobile.svg',
@@ -164,7 +164,7 @@ export default function CommunityPage() {
     {
       name: 'Mohan Babu University',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdg',
+      href: 'https://gdg.community.dev/gdg-on-campus-mohan-babu-university-tirupati-india/',
       img: '/images/io24-groups.webp',
       imgDark: '/images/io24-groups-dark.webp',
       imgMobile: '/images/io24-groups-mobile.svg',
@@ -173,7 +173,7 @@ export default function CommunityPage() {
     {
       name: 'Narayana Engineering College',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/accelerators',
+      href: 'https://gdg.community.dev/gdg-on-campus-narayana-engineering-college-nellore-india/',
       img: '/images/io__-accelerator.webp',
       imgDark: '/images/io24-accelerator-dark.webp',
       imgMobile: '/images/io24-accelerator-mobile.svg',
@@ -191,7 +191,7 @@ export default function CommunityPage() {
     {
       name: 'Prasad V. Potluri Siddhartha Institute Of Technology',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdsc',
+      href: 'https://gdg.community.dev/gdg-on-campus-pragati-engineering-college-kakinada-india/',
       img: '/images/io__-students-clubs.webp',
       imgDark: '/images/io__-students-clubs-dark.webp',
       imgMobile: '/images/io__-students-clubs-mobile.svg',
