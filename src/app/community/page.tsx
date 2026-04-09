@@ -200,7 +200,7 @@ export default function CommunityPage() {
     {
       name: 'R.V.R. & J.C. College of Engineering',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/experts',
+      href: 'https://gdg.community.dev/gdg-on-campus-rvr-jccollege-of-engineering-guntur-india/',
       img: '/images/io24-experts.webp',
       imgDark: '/images/io24-experts-dark.webp',
       imgMobile: '/images/io24-experts-mobile.svg',
@@ -209,7 +209,7 @@ export default function CommunityPage() {
     {
       name: 'Raghu Engineering College',
       linkText: 'Join the club',
-      href: 'https://www.womentechmakers.com/members',
+      href: 'https://gdg.community.dev/gdg-on-campus-raghu-engineering-college-visakhapatnam-india/',
       img: '/images/io24-techmakers.webp',
       imgDark: '/images/io24-techmakers-dark.webp',
       imgMobile: '/images/io24-techmakers-mobile.svg',
@@ -218,7 +218,7 @@ export default function CommunityPage() {
     {
       name: 'Seshadri Rao Gudlavalleru Engineering College',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdg',
+      href: 'https://gdg.community.dev/gdg-on-campus-seshadri-rao-gudlavalleru-engineering-college-vijayawada-india/',
       img: '/images/io24-groups.webp',
       imgDark: '/images/io24-groups-dark.webp',
       imgMobile: '/images/io24-groups-mobile.svg',
@@ -227,7 +227,7 @@ export default function CommunityPage() {
     {
       name: 'SRM University AP',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/accelerators',
+      href: 'https://gdg.community.dev/gdg-on-campus-srm-university-ap-amaravati-india/',
       img: '/images/io__-accelerator.webp',
       imgDark: '/images/io24-accelerator-dark.webp',
       imgMobile: '/images/io24-accelerator-mobile.svg',
@@ -236,7 +236,7 @@ export default function CommunityPage() {
     {
       name: 'Sri Venkateswara College of Engineering',
       linkText: 'Join the club',
-      href: 'https://www.techequitycollective.com/',
+      href: 'https://gdg.community.dev/gdg-on-campus-sri-venkateswara-college-of-engineering-tirupati-india/',
       img: '/images/io24-equity.webp',
       imgDark: '/images/io24-equity-dark.webp',
       imgMobile: '/images/io24-equity-mobile.svg',
@@ -245,7 +245,7 @@ export default function CommunityPage() {
     {
       name: 'Sri Sai Institute of Technology & Science',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdsc',
+      href: 'https://gdg.community.dev/gdg-on-campus-sri-sai-institute-of-technology-science-rayachoty-india/',
       img: '/images/io__-students-clubs.webp',
       imgDark: '/images/io__-students-clubs-dark.webp',
       imgMobile: '/images/io__-students-clubs-mobile.svg',
@@ -254,7 +254,7 @@ export default function CommunityPage() {
     {
       name: 'Sri Vasavi Engineering College',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/experts',
+      href: 'https://gdg.community.dev/gdg-on-campus-sri-vasavi-engineering-college-tadepalligudem-india/',
       img: '/images/io24-experts.webp',
       imgDark: '/images/io24-experts-dark.webp',
       imgMobile: '/images/io24-experts-mobile.svg',
@@ -263,7 +263,7 @@ export default function CommunityPage() {
     {
       name: 'SVR Engineering College',
       linkText: 'Join the club',
-      href: 'https://www.womentechmakers.com/members',
+      href: 'https://gdg.community.dev/gdg-on-campus-svr-engineering-college-nandyala-india/',
       img: '/images/io24-techmakers.webp',
       imgDark: '/images/io24-techmakers-dark.webp',
       imgMobile: '/images/io24-techmakers-mobile.svg',
@@ -272,7 +272,7 @@ export default function CommunityPage() {
     {
       name: 'Velagapudi Ramakrishna Siddhartha Engineering College',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdg',
+      href: 'https://gdg.community.dev/gdg-on-campus-velagapudi-ramakrishna-siddhartha-engineering-college-vijayawada-india/',
       img: '/images/io24-groups.webp',
       imgDark: '/images/io24-groups-dark.webp',
       imgMobile: '/images/io24-groups-mobile.svg',
@@ -281,7 +281,7 @@ export default function CommunityPage() {
     {
       name: 'Vellore Institute of Technology (VIT-AP)',
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/accelerators',
+      href: 'https://gdg.community.dev/gdg-on-campus-vellore-institute-of-technology-vellore-india/',
       img: '/images/io__-accelerator.webp',
       imgDark: '/images/io24-accelerator-dark.webp',
       imgMobile: '/images/io24-accelerator-mobile.svg',
@@ -290,7 +290,7 @@ export default function CommunityPage() {
     {
       name: "Vignan's Institute of Engineering for Women",
       linkText: 'Join the club',
-      href: 'https://www.techequitycollective.com/',
+      href: 'https://gdg.community.dev/gdg-on-campus-vignans-institute-of-engineering-for-women-visakhapatnam-india/',
       img: '/images/io24-equity.webp',
       imgDark: '/images/io24-equity-dark.webp',
       imgMobile: '/images/io24-equity-mobile.svg',
@@ -299,7 +299,7 @@ export default function CommunityPage() {
     {
       name: "Vignan's Institute of Information Technology",
       linkText: 'Join the club',
-      href: 'https://developers.google.com/community/gdsc',
+      href: 'https://gdg.community.dev/gdg-on-campus-vignans-institute-of-information-technology-visakhapatnam-india/',
       img: '/images/io__-students-clubs.webp',
       imgDark: '/images/io__-students-clubs-dark.webp',
       imgMobile: '/images/io__-students-clubs-mobile.svg',
