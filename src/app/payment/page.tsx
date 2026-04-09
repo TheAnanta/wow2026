@@ -1,7 +1,9 @@
 'use client';
 import { Header } from "@/components/sections/Header";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
+import { BadgeSuccess } from "@/components/registration/BadgeSuccess";
+import { useRouter } from "next/navigation";
 
 function PaymentPage() {
     const searchParams = useSearchParams();
@@ -9,6 +11,47 @@ function PaymentPage() {
     const isTermsAgreed = searchParams.get('terms') == 'true' && searchParams.get('ack') == 'true';
     const [terms, setTerms] = useState(false);
     const [arcadeAck, setArcadeAck] = useState(false);
+    const [isProcessing, setIsProcessing] = useState(false);
+    const [earnedBadge, setEarnedBadge] = useState<string | null>(null);
+    const router = useRouter();
+
+    const handlePurchase = (badgeType: string) => {
+        setIsProcessing(true);
+        // Simulate payment processing delay
+        setTimeout(() => {
+            setIsProcessing(false);
+            setEarnedBadge(badgeType);
+        }, 1500);
+    };
+
+    if (earnedBadge) {
+        return (
+            <div className="w-full min-h-screen bg-[#f8f9fa] dark:bg-grey-900 text-grey-900 dark:text-white flex flex-col transition-colors duration-300">
+                <Header onRegisterClick={() => { }} />
+                <main className="flex-1 flex flex-col items-center py-0 md:py-16 px-0 md:px-6">
+                    <div className="w-full md:max-w-[800px] bg-white dark:bg-grey-800 md:rounded-2xl border-b md:border border-grey-200 dark:border-grey-700 md:shadow-sm overflow-hidden animate-slide-up">
+                        <BadgeSuccess
+                            badgeName={earnedBadge}
+                            onClose={() => {
+                                setEarnedBadge(null);
+                                router.push('/explore');
+                            }}
+                        />
+                    </div>
+                </main>
+                <style jsx global>{`
+                    @keyframes slideUp {
+                        from { opacity: 0; transform: translateY(20px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    .animate-slide-up {
+                        animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                    }
+                `}</style>
+            </div>
+        );
+    }
+
     return (
         <div className="w-full min-h-screen bg-white text-grey-900">
             <Header onRegisterClick={() => { }} />
@@ -21,7 +64,7 @@ function PaymentPage() {
                     <div className="flex flex-wrap gap-2 gap-y-3">
                         {
                             ["Upto 100% discount on WOW ticket*", "Swags", "Access to Now in Google app", "Pre-WOW technical workshops", "Access to the recorded content of WOW", "Networking", "Exclusive tech channels", "Fresh games every other day"].map((benefit) => {
-                                return <p className={`py-2 px-5 border-2 rounded-full tracking-[-0.015em] font-medium ${benefit == 'Fresh games every other day' || benefit == 'Upto 100% discount on WOW ticket*' ? 'text-white! border-grey-900' : ''}`} style={benefit == 'Fresh games every other day' || benefit == 'Upto 100% discount on WOW ticket*' ? {
+                                return <p key={benefit} className={`py-2 px-5 border-2 rounded-full tracking-[-0.015em] font-medium ${benefit == 'Fresh games every other day' || benefit == 'Upto 100% discount on WOW ticket*' ? 'text-white! border-grey-900' : ''}`} style={benefit == 'Fresh games every other day' || benefit == 'Upto 100% discount on WOW ticket*' ? {
                                     background: 'linear-gradient(90deg, rgb(66,133,244) -36.98%, rgb(66,133,244) 22.31%, rgb(52,168,83) 78.95%, rgb(52,168,83) 132.93%)'
                                 } : {}}>{benefit}</p>
                             })
@@ -33,7 +76,13 @@ function PaymentPage() {
                             <p className="text-3xl font-bold tracking-tighter">₹350 <span className="text-xl font-medium opacity-60">(excl. of taxes)</span></p>
                         </div>
                         <a href="/arcade" className="ml-auto mt-auto mr-4 cta-secondary h-12 md:h-14 rounded-full font-medium text-[14px]! md:text-[20px]!">Know more</a>
-                        <a href="/payment?type=arcade" className="mt-auto nav-cta-btn bg-grey-900! mt-16! px-[20px] py-[12px]! h-12  md:h-14 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]!">Buy now</a>
+                        <button 
+                            onClick={() => handlePurchase('Arcade Insider - Explorer')}
+                            disabled={isProcessing}
+                            className={`mt-auto nav-cta-btn bg-grey-900! mt-16! px-[20px] py-[12px]! h-12  md:h-14 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]! flex items-center justify-center min-w-[140px] ${isProcessing ? 'opacity-70 cursor-wait' : ''}`}
+                        >
+                            {isProcessing && type === 'arcade' ? 'Processing...' : 'Buy now'}
+                        </button>
                     </div>
                 </div>
                 <div className="shrink-0 flex-2 flex flex-col gap-4 pl-12 border-l-2 border-grey-bg">
@@ -50,7 +99,13 @@ function PaymentPage() {
                                     <div className="flex flex-col items-end text-end ml-auto">
                                         <p className="text-xl line-through tracking-tight opacity-30">₹1500</p>
                                         <p className="text-3xl font-bold tracking-tight">₹1200</p>
-                                        <a href="/payment?type=early" className="mt-auto nav-cta-btn bg-grey-900! mt-16! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]">Buy now</a>
+                                        <button 
+                                            onClick={() => handlePurchase('WOW 2026 - Attendee')}
+                                            disabled={isProcessing}
+                                            className={`mt-auto nav-cta-btn bg-grey-900! mt-16! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px] flex items-center justify-center min-w-[120px] ${isProcessing ? 'opacity-70' : ''}`}
+                                        >
+                                            {isProcessing && type === 'early' ? '...' : 'Buy now'}
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +129,12 @@ function PaymentPage() {
                         <div className="flex flex-col items-end text-end ml-auto">
                             <p className="text-xl line-through opacity-30">₹2500</p>
                             <p className="text-3xl font-bold">₹2000</p>
-                            <a href="/payment?type=regular" className="mt-auto nav-cta-btn bg-grey-900! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]">Buy now</a>
+                            <button 
+                                onClick={() => handlePurchase('WOW 2026 - Attendee')}
+                                className="mt-auto nav-cta-btn bg-grey-900! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]"
+                            >
+                                Buy now
+                            </button>
                         </div>
                     </div>
                     <div className="border-2 border-grey-bg p-6 flex rounded-[12px] aspect-[2]" aria-disabled={true}>
@@ -145,12 +205,12 @@ function PaymentPage() {
                             type="button"
                             onClick={() => {
                                 if (terms && arcadeAck) {
-                                    window.location.href = '/payment?type=arcade&terms=true&ack=true';
+                                    handlePurchase('Arcade Insider - Explorer');
                                 }
                             }}
                             className={`py-3 px-10 bg-[#000000] text-white border-none rounded-full font-bold cursor-pointer transition-opacity duration-200 w-fit ${terms && arcadeAck ? ' hover:opacity-80' : 'opacity-50 cursor-not-allowed!'}`}
                         >
-                            Buy Now
+                            {isProcessing ? 'Processing...' : 'Buy Now'}
                         </button>
                     </div>
                 </div></div>
@@ -165,4 +225,4 @@ export default function SuspensefulPaymentPage() {
             <PaymentPage />
         </Suspense>
     )
-} 
+}

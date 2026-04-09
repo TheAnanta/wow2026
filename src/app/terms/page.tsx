@@ -11,6 +11,10 @@ const SECTION_IDS = [
   "terms-accommodation",
   "terms-refund",
   "terms-conduct",
+  "terms-usage",
+  "terms-intellectual-property",
+  "terms-legal",
+  "terms-contact",
 ];
 
 export default function TermsPage() {
@@ -51,6 +55,10 @@ export default function TermsPage() {
     { id: "terms-accommodation", label: "Accommodation" },
     { id: "terms-refund", label: "Refund & Transfer" },
     { id: "terms-conduct", label: "Conduct & Media" },
+    { id: "terms-usage", label: "Usage Policy" },
+    { id: "terms-intellectual-property", label: "Intellectual Property" },
+    { id: "terms-legal", label: "Legal Terms" },
+    { id: "terms-contact", label: "Contact & Ownership" },
   ];
 
   return (
@@ -149,6 +157,22 @@ export default function TermsPage() {
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Introduction</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Binding Agreement</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                        <p className="mb-4">
+                          These Terms and Conditions, along with the Privacy Policy and any additional terms (“Terms”), constitute a binding agreement between GDGoC WoW 2025 Andhra Pradesh (“we,” “our,” “us”) and you (“you,” “your”), and govern your use of our website and mobile application <strong>wow.vizag.dev</strong>, <strong>dev.theananta.wow2025</strong> and participation in any event, service, or interaction associated with GDGoC WoW 2025 (collectively, the “Services”).
+                        </p>
+                        <p className="mb-2">
+                          By accessing the website, app and using our Services, you acknowledge that you have read, understood, and agreed to these Terms, including the Privacy Policy. We may modify these Terms at any time without prior notice. It is your responsibility to review the Terms periodically for updates.
+                        </p>
+                      </dd>
+                    </div>
+
                     <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
@@ -396,7 +420,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 6 — Conduct & Media */}
-              <section id="terms-conduct">
+              <section id="terms-conduct" className="pb-10">
                 <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
                   <div
                     className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
@@ -435,6 +459,139 @@ export default function TermsPage() {
                       <dd className="mt-4 md:mt-5 faq-entry">
                         <p className="mb-2">Attendees are responsible for their personal belongings (laptops, bags, etc.).</p>
                         <p>GDGWOW AP and GITAM University are <strong>not liable</strong> for loss, theft, or injury during the event.</p>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </section>
+
+              {/* Section 7 — Usage Policy */}
+              <section id="terms-usage" className="pb-10">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                  <div
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
+                  >
+                    <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Usage Policy</h2>
+                  </div>
+                  <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">User Responsibilities</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 md:mt-5 faq-entry">
+                        <ul className="list-disc pl-5 mt-2 space-y-2">
+                          <li>You agree to provide accurate, current, and complete information during registration or participation.</li>
+                          <li>We make no guarantees about the accuracy, reliability, or completeness of any content or service offered.</li>
+                          <li>Your use of the Services is at your own risk and discretion.</li>
+                          <li>Any misuse of the Services or website for unlawful or unauthorized purposes may result in legal action.</li>
+                        </ul>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </section>
+
+              {/* Section 8 — Intellectual Property */}
+              <section id="terms-intellectual-property" className="pb-10">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                  <div
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
+                  >
+                    <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Intellectual Property</h2>
+                  </div>
+                  <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Ownership</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 md:mt-5 faq-entry">
+                        <p>All content, branding, logos, and materials are the intellectual property of GDGoC WoW 2025 Andhra Pradesh or its partners. You may not reuse them without written permission.</p>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </section>
+
+              {/* Section 9 — Legal Terms */}
+              <section id="terms-legal" className="pb-10">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                  <div
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
+                  >
+                    <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Legal Terms</h2>
+                  </div>
+                  <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Force Majeure</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                        <p>We are not liable for delays or failures caused by events beyond our control including natural disasters, pandemics, or internet outages.</p>
+                      </dd>
+                    </div>
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Governing Law & Jurisdiction</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                        <p>These Terms are governed by Indian law. Any disputes will be subject to the jurisdiction of courts in <strong>Visakhapatnam, Andhra Pradesh</strong>.</p>
+                      </dd>
+                    </div>
+                    <div className="pt-[14px] pr-12 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Third-Party Links</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 md:mt-5 faq-entry">
+                        <p>Our website/app may contain links to third-party platforms. We are not responsible for their content or practices.</p>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </section>
+
+              {/* Section 10 — Contact & Ownership */}
+              <section id="terms-contact" className="pb-10">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                  <div
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    style={{ background: "linear-gradient(270.11deg, #5382EB 1.91%, #5382EB 25.69%, #9F6CD4 51.37%, #EA4335 79.9%, #EA4335 97.02%)" }}
+                  >
+                    <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Contact &amp; Ownership</h2>
+                  </div>
+                  <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Contact Us</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                        <p className="mb-2"><strong>Email:</strong> gdscwowvizag@gmail.com</p>
+                        <p className="mb-2"><strong>Phone:</strong> +91 90591 45216</p>
+                        <p className="mb-2"><strong>Website:</strong> <a href="https://wow.vizag.dev" className="text-blue-link underline">https://wow.vizag.dev</a></p>
+                      </dd>
+                    </div>
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                      <dt>
+                        <div className="flex justify-between items-start w-full text-left">
+                          <span className="font-medium sm:s-h5 md:l-h5">Maintenance &amp; Ownership</span>
+                        </div>
+                      </dt>
+                      <dd className="mt-4 md:mt-5 faq-entry">
+                        <p>The website, app and related digital infrastructure are developed and maintained by <strong>the Ananta</strong> for the GDGoC WoW 2025 Andhra Pradesh initiative.</p>
                       </dd>
                     </div>
                   </dl>

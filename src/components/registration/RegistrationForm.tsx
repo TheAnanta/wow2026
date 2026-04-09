@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { InterestTags } from './InterestTags';
 import { RegistrationData, validateProfile, submitRegistration } from '../../services/registrationStubs';
 import { auth, signInWithGoogle } from '../../services/firebase';
+import { ErrorOverlay } from './ErrorOverlays';
 import { useRouter } from 'next/navigation';
 
 const RegistrationBanner = () => (
@@ -11,12 +12,15 @@ const RegistrationBanner = () => (
     <div className="flex-1 z-10">
       <h2 className="text-[1.875rem] md:text-[2.25rem] font-medium text-grey-900 tracking-tight leading-tight">Register for WOW</h2>
     </div>
-    <div className="absolute bottom-0 right-0 h-full w-[80%] md:w-[65%] pointer-events-none select-none">
-      <img
-        src="/images/Google I_O 2024.png"
-        alt=""
-        className="w-full h-full object-contain object-bottom-right translate-y-[5%] md:translate-y-[10%]"
-      />
+    <div className="absolute bottom-0 -right-16 sm:right-0 w-[80%] md:w-[65%] pointer-events-none select-none">
+      <picture className="w-full">
+        <source srcSet="/images/io24-pencil-road-centered-dark.svg" media="(prefers-color-scheme: dark)" />
+        <img
+          src="/images/io24-pencil-road-centered.svg"
+          alt=""
+          className="w-full max-h-[200px] md:max-h-[300px] object-contain object-bottom-right"
+        />
+      </picture>
     </div>
     <button
       onClick={() => window.history.back()}
@@ -49,6 +53,7 @@ export const RegistrationForm: React.FC = () => {
   const [isFirebaseLoading, setIsFirebaseLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorType, setErrorType] = useState<'signin' | 'account' | null>(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -73,9 +78,14 @@ export const RegistrationForm: React.FC = () => {
 
   const handleGoogleSignIn = async () => {
     try {
+      setErrorType(null);
       await signInWithGoogle();
-    } catch (err) {
+    } catch (err: any) {
       console.error('Google Sign In Error:', err);
+      // Show the 'Whoops' error screen unless it was just a manual close by user
+      if (err.code !== 'auth/popup-closed-by-user' && err.code !== 'auth/cancelled-popup-request') {
+        setErrorType('signin');
+      }
     }
   };
 
@@ -124,6 +134,14 @@ export const RegistrationForm: React.FC = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px]">
         <div className="w-10 h-10 border-4 border-google-blue border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (errorType) {
+    return (
+      <div className="min-h-[500px] flex flex-col justify-center">
+        <ErrorOverlay type={errorType} onTryAgain={() => setErrorType(null)} />
       </div>
     );
   }
