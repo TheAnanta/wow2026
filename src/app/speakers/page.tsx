@@ -153,21 +153,104 @@ export default function SpeakersPage() {
           </div>
         </div>
 
-        {/* Bottom Promo Grid */}
+        {/* Bottom CTA Section */}
         <section className="page-wrapper pb-16">
-          <div className="grid grid-cols-2 gap-6 mt-16 max-md:grid-cols-1">
-            <BentoCard
-              title="Join a community group"
-              description="Meet developers, discover local groups, and build your global network."
-              buttonText="Get started"
-              onButtonClick={() => { router.push('/community') }}
-            />
-            <BentoCard
-              title="Plan your WOW"
-              description="Visit My WOW for saved content and recommendations based on your personal interests."
-              buttonText="Get started"
-              onButtonClick={() => { router.push('/explore') }}
-            />
+          <div className="flex flex-col">
+            <div className="flex flex-col align-center items-stretch justify-center mt-4 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row ml:min-h-[400px]">
+              {/* Join Community Card */}
+              <div className="flex w-full md:w-2/3">
+                <div className="h-full flex flex-col lg:flex-row bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-end flex-1">
+                  <div className="flex flex-col items-start p-6 pb-0 ml:p-10 -mb-4 lg:mb-0 lg:w-1/2">
+                    <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4 lg:-mr-40">
+                      Join a community group
+                    </span>
+                    <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:s-cta1 md:l-cta1 lg:-mr-40">
+                      Meet developers, discover local groups, and build your global network.
+                    </p>
+                    <button
+                      onClick={() => router.push('/community')}
+                      className="cta-secondary"
+                      aria-label="Get started with joining a community group"
+                    >
+                      Get started
+                    </button>
+                  </div>
+                  <div className="flex justify-end lg:items-end rounded-br-[16px] lg:w-1/2">
+                    <img
+                      src="https://io.google/2024/app/images/io24-join-community-cta-mobile.svg"
+                      className="block md:hidden dark:hidden mr-[-2px]"
+                      alt=""
+                      loading="lazy"
+                      width="283"
+                      height="172"
+                    />
+                    <img
+                      src="https://io.google/2024/app/images/io24-join-community-cta-mobile-dark.svg"
+                      className="hidden dark:block dark:md:hidden mr-[-2px]"
+                      alt=""
+                      loading="lazy"
+                      width="283"
+                      height="172"
+                    />
+                    <img
+                      src="https://io.google/2024/app/images/io24-join-community-cta.svg"
+                      className="hidden md:block object-cover lg:object-contain object-left lg:object-right dark:hidden mr-[-2px]"
+                      alt=""
+                      loading="lazy"
+                      width="437"
+                      height="270"
+                    />
+                    <img
+                      src="https://io.google/2024/app/images/io24-join-community-cta-dark.svg"
+                      className="hidden dark:md:block object-cover lg:object-contain object-left lg:object-right mr-[-2px]"
+                      alt=""
+                      loading="lazy"
+                      width="437"
+                      height="270"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Plan your WOW Card */}
+              <div className="flex w-full md:w-[38%] md:max-w-[484px]">
+                <div className="h-full flex flex-col bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-between lg:justify-center lg:items-end flex-1">
+                  <div className="flex flex-col items-start p-6 pb-0 ml:p-10 ml:pb-0">
+                    <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4">
+                      Plan your WOW
+                    </span>
+                    <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:s-h6 md:l-h6">
+                      Visit My WOW for saved content and recommendations based on your personal interests.
+                    </p>
+                    <button
+                      onClick={() => router.push('/explore')}
+                      className="cta-secondary"
+                      aria-label="Get started with planning your WOW"
+                    >
+                      Get started
+                    </button>
+                  </div>
+                  <div className="flex justify-end lg:mt-[-63px]">
+                    <img
+                      src="https://io.google/2024/app/images/io24-planio-cta-mobile.webp"
+                      className="inline-block dark:hidden mb-4 mr-4"
+                      alt=""
+                      loading="lazy"
+                      width="219"
+                      height="168"
+                    />
+                    <img
+                      src="https://io.google/2024/app/images/io24-planio-cta-mobile-dark.webp"
+                      className="hidden dark:inline-block mr-4 w-[228px] mb-[20px] mt-[-9px]"
+                      alt=""
+                      loading="lazy"
+                      width="219"
+                      height="168"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

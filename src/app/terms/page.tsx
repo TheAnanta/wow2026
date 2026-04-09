@@ -156,12 +156,6 @@ export default function TermsPage() {
                         </div>
                       </dt>
                       <dd className="mt-4 md:mt-5 faq-entry">
-                        <p className="mb-2">
-                          GDGWOW (Wonder of Wonders) is a premier developer conference and 14-hour hackathon hosted by 33 GDG on Campus chapters across Andhra Pradesh.
-                        </p>
-                        <p className="mb-2">
-                          The event will take place from <strong>4th July to 5th July 2026</strong> at <strong>GITAM University, Visakhapatnam</strong>.
-                        </p>
                         <p>
                           By purchasing any pass or participating in the Arcade, you agree to these terms and conditions in full.
                         </p>
