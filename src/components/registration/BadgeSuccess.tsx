@@ -1,5 +1,6 @@
 // src/components/registration/BadgeSuccess.tsx
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { analyticsService } from '../../services/analytics';
 
 interface BadgeSuccessProps {
   badgeName: string;
@@ -30,7 +31,25 @@ const BadgeBanner = ({ isArcade }: { isArcade: boolean }) => (
 
 export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }) => {
   const isArcade = badgeName === 'Arcade Insider - Explorer';
+  const startTimeRef = useRef(Date.now());
 
+  useEffect(() => {
+    // Track that they actually reached the success screen
+    analyticsService.trackCheckoutActivity('success_screen', badgeName, 'viewed');
+    
+    // Flag this session for post-purchase journey tracking (next 5 mins)
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('wow_recent_purchase', Date.now().toString());
+    }
+  }, [badgeName]);
+
+  const handleFinish = (action: string, target?: string) => {
+    const duration = (Date.now() - startTimeRef.current) / 1000;
+    analyticsService.trackTiming('post_payment', action, duration, badgeName);
+    if (action === 'done' && onClose) {
+      onClose();
+    }
+  };
   return (
     <div className="flex flex-col w-full animate-fade-in transition-colors bg-white dark:bg-grey-800">
       <BadgeBanner isArcade={isArcade} />
@@ -77,6 +96,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
                 <div
                   key={i}
                   className="w-8 h-8 flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
+                  onClick={() => analyticsService.trackCTA(`share_badge_${item.alt}`, 'BadgeSuccess')}
                 >
                   {item.icon === 'link' ? (
                     <div className="w-full h-full bg-[#303234] rounded-md flex items-center justify-center">
@@ -93,11 +113,14 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
           </div>
 
           <p className="text-[0.9375rem] text-grey-900 dark:text-white">
-            or go to your <a href="/profile" className="underline decoration-2 underline-offset-4 cursor-pointer font-bold hover:no-underline px-1">developer profile</a>
+            or go to your <a href="/profile" className="underline decoration-2 underline-offset-4 cursor-pointer font-bold hover:no-underline px-1" onClick={() => analyticsService.trackNavigation('Developer Profile', 'BadgeSuccess', '/profile')}>developer profile</a>
           </p>
 
           <button
-            onClick={onClose}
+            onClick={() => {
+              analyticsService.trackCTA('Done', 'BadgeSuccess');
+              handleFinish('done');
+            }}
             className="px-10 mt-4 py-3.5 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-bold text-[1rem] hover:bg-black dark:hover:bg-grey-100 transition-colors shadow-sm"
           >
             Done

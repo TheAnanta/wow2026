@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { InterestTags } from './InterestTags';
 import { RegistrationData, validateProfile, submitRegistration } from '../../services/registrationStubs';
 import { requestFirebaseToken } from '../../services/fcm';
+import { analyticsService } from '../../services/analytics';
 import { useAuth } from '../../context/AuthContext';
 import { signInWithGoogle } from '../../services/firebase';
 import { ErrorOverlay } from './ErrorOverlays';
@@ -37,6 +38,7 @@ const RegistrationBanner = () => (
 
 export const RegistrationForm: React.FC = () => {
   const router = useRouter();
+  const formStartTimeRef = useRef(Date.now());
   const [currentStep, setCurrentStep] = useState(1);
   const [showAllInterests, setShowAllInterests] = useState(false);
   const [data, setData] = useState<RegistrationData>({
@@ -100,25 +102,35 @@ export const RegistrationForm: React.FC = () => {
     if (currentStep === 1) {
       const newErrors = validateProfile(data);
       if (Object.keys(newErrors).length === 0) {
+        const step1Duration = (Date.now() - formStartTimeRef.current) / 1000;
+        analyticsService.trackTiming('registration_form', 'step1_duration', step1Duration);
+        analyticsService.trackForm('registration', 'step1', 'complete');
         setCurrentStep(2);
       } else {
+        analyticsService.trackForm('registration', 'step1', 'error', { errors: Object.keys(newErrors) });
         setErrors(newErrors);
       }
     } else if (currentStep === 2) {
+      analyticsService.trackCTA('Register', 'RegistrationForm', 'submit_start');
       setIsSubmitting(true);
       try {
         // Attempt to get FCM token before submission
         const fcm_token = await requestFirebaseToken();
         const result = await submitRegistration({ ...data, fcm_token: fcm_token || undefined });
         if (result.success) {
+          const totalDuration = (Date.now() - formStartTimeRef.current) / 1000;
+          analyticsService.trackTiming('registration_form', 'total_duration', totalDuration);
+          analyticsService.trackForm('registration', 'all', 'complete');
           window.dispatchEvent(new CustomEvent('registrationSuccess'));
           await refreshProfile(); // Ensure state is updated before redirecting
           router.push('/payment');
         } else {
+          analyticsService.trackForm('registration', 'all', 'error', { message: result.error });
           setErrors({ submit: result.error || 'The user account type is not allowed.' });
           setErrorType('account');
         }
       } catch (err: any) {
+        analyticsService.trackForm('registration', 'all', 'error', { message: err.message });
         setErrors({ submit: err.message || 'An error occurred. Please try again.' });
         setErrorType('general');
       } finally {
@@ -128,6 +140,7 @@ export const RegistrationForm: React.FC = () => {
   };
 
   const handlePreviousStep = () => {
+    analyticsService.trackCTA('Back', 'RegistrationForm', 'click');
     setCurrentStep((prev) => Math.max(1, prev - 1));
   };
 
@@ -136,6 +149,7 @@ export const RegistrationForm: React.FC = () => {
     const updated = current.includes(interest)
       ? current.filter(i => i !== interest)
       : [...current, interest];
+    analyticsService.trackUI('interest_tag', updated.includes(interest), 'RegistrationForm');
     updateData({ interests: updated });
   };
 
@@ -392,7 +406,11 @@ export const RegistrationForm: React.FC = () => {
                       type="checkbox"
                       className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-grey-400 transition-all checked:border-google-blue checked:bg-google-blue"
                       checked={!!data[key as keyof RegistrationData]}
-                      onChange={() => updateData({ [key]: !data[key as keyof RegistrationData] })}
+                      onChange={() => {
+                        const newState = !data[key as keyof RegistrationData];
+                        analyticsService.trackUI(key as string, newState, 'RegistrationForm');
+                        updateData({ [key]: newState });
+                      }}
                     />
                     <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 peer-checked:opacity-100">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>

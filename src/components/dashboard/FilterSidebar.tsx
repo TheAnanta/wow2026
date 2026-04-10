@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { analyticsService } from '../../services/analytics';
 
 interface FilterItem {
   id: string;
@@ -36,12 +37,14 @@ export const FilterSidebar: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>(['6']);
 
   const toggleSection = (title: string) => {
+    analyticsService.trackUI('dashboard_filter_section', title, 'Dashboard');
     setExpandedSections(prev =>
       prev.includes(title) ? prev.filter(t => t !== title) : [...prev, title]
     );
   };
 
-  const toggleItem = (id: string) => {
+  const toggleItem = (id: string, name: string) => {
+    analyticsService.trackUI('dashboard_filter_item', name, 'Dashboard');
     setSelectedItems(prev =>
       prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
     );
@@ -73,7 +76,7 @@ export const FilterSidebar: React.FC = () => {
                       <div
                         key={item.id}
                         className="flex items-center gap-3 cursor-pointer text-sm font-medium"
-                        onClick={() => toggleItem(item.id)}
+                        onClick={() => toggleItem(item.id, item.name)}
                       >
                         <div className={`w-5 h-5 border border-[#000000] rounded-[4px] flex justify-center items-center ${isChecked ? 'bg-[#202124] checkbox-checked' : 'bg-white'}`} />
                         <span>{item.name}</span>

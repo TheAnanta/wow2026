@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { signInWithGoogle, logout } from '../../services/firebase';
+import { analyticsService } from '../../services/analytics';
 import { useRouter } from 'next/navigation';
 
 interface HeaderProps {
@@ -18,10 +19,13 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
 
   const handleAction = () => {
     if (!isLoggedIn) {
+      analyticsService.trackCTA('Sign in', 'Header');
       signInWithGoogle().catch(console.error);
     } else if (isUnregistered || !profile) {
+      analyticsService.trackCTA('Complete registration', 'Header');
       router.push('/register');
     } else {
+      analyticsService.trackCTA('Sign out', 'Header');
       logout().catch(console.error);
     }
   };
@@ -50,6 +54,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
               <a
                 key={link.label}
                 href={link.href}
+                onClick={() => analyticsService.trackNavigation(link.label, 'Header', link.href)}
                 className="nav-links text-[16px] font-medium mr-[24px]"
               >
                 {link.label}

@@ -49,6 +49,7 @@ export const metadata: Metadata = {
 };
 
 import { AuthProvider } from "../context/AuthContext";
+import { AnalyticsProvider } from "../components/AnalyticsProvider";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import { Footer } from "@/components/sections/Footer";
 
@@ -68,13 +69,15 @@ export default function RootLayout({
       </head>
       <body>
         <AuthProvider>
-          <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
-          {/* Banner */}
-          <AnnouncementBanner props={{ announcement: "GDG WOW 2026 is happening this year, bigger, better and bolder • Tickets open • Register Now • Follow us on Instagram • @gdgwowap" }} />
+          <AnalyticsProvider>
+            <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
+            {/* Banner */}
+            <AnnouncementBanner props={{ announcement: "GDG WOW 2026 is happening this year, bigger, better and bolder • Tickets open • Register Now • Follow us on Instagram • @gdgwowap" }} />
 
-          {children}
+            {children}
 
-          <Footer />
+            <Footer />
+          </AnalyticsProvider>
         </AuthProvider>
       </body>
     </html>

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from "react";
+import { analyticsService } from "../services/analytics";
 
 export default function AnnouncementBanner({ props }: { props: { announcement: string } }) {
 
@@ -9,7 +10,10 @@ export default function AnnouncementBanner({ props }: { props: { announcement: s
             <span>{props.announcement}</span>
             <button
                 className="absolute right-4 bg-transparent border-none text-white text-xl cursor-pointer"
-                onClick={() => setShowBanner(false)}
+                onClick={() => {
+                    analyticsService.trackUI('announcement_banner', 'close', 'Global');
+                    setShowBanner(false);
+                }}
             >
                 &times;
             </button>

@@ -2,6 +2,7 @@
 
 import React, { use, useEffect, useState } from 'react';
 import { fetchSessions, Session } from "@/services/stubs";
+import { analyticsService } from "@/services/analytics";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
@@ -15,6 +16,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
     const [loading, setLoading] = useState(true);
 
     const handleSaveToMyIO = (id: string) => {
+        analyticsService.trackCTA('Save to My I/O', 'SessionDetail', 'bookmark');
         console.log('Saving session to My I/O:', id);
     };
 
@@ -156,6 +158,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
                                         <a
                                             href={`/speakers/${speaker.id}`}
                                             key={idx}
+                                            onClick={() => analyticsService.trackNavigation(speaker.name, 'SessionDetail_Speakers')}
                                             className="speaker-item flex md:flex-col items-start md:items-center w-full md:w-52 p-4 md:p-2 rounded-2xl border-2 border-grey-600 dark:border-grey-200 md:border-transparent m-auto h-full md:min-h-[270px] xs:p-4 sm:p-5 hover:border-grey-900 focus:border-grey-900 dark:hover:border-grey-200 dark:focus:border-grey-200 mx-0 md:max-w-[168px]"
                                         >
                                             <img
@@ -197,6 +200,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
                                             href="/community"
                                             className="cta-secondary"
                                             aria-label="Get started with joining an I/O community group, opens Community page"
+                                            onClick={() => analyticsService.trackCTA('Get started', 'SessionDetail_PromoCommunity')}
                                         >
                                             Get started
                                         </a>
@@ -252,6 +256,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
                                             href="/explore#my-io"
                                             className="cta-secondary"
                                             aria-label="Get started with planning your I/O, opens explore page"
+                                            onClick={() => analyticsService.trackCTA('Get started', 'SessionDetail_PromoPlan')}
                                         >
                                             Get started
                                         </a>

@@ -15,6 +15,7 @@ import WhatToExpectSection from '@/components/sections/WhatToExpectSection';
 import EventMetricsSection from '@/components/sections/EventMetricsSection';
 import { useSearchParams } from 'next/navigation';
 import { Toast } from '@/components/ui/Toast';
+import { analyticsService } from '@/services/analytics';
 
 function Home() {
   const { isUnregistered, isLoggedIn } = useAuth();
@@ -73,7 +74,11 @@ function Home() {
               link: 'https://vdc.gitam.edu',
               avatar: 'default'
             }].map((e) => {
-              return (<a href={e.link} className="flex p-4 md:p-6 border md:border-2 border-grey-600 md:border-transparent rounded-[20px] w-full md:mb-2 md:w-[49%] overflow-hidden group hover:bg-grey-bg md:hover:bg-transparent hover:border-grey! group dark:hover:border-grey-bg!">
+              return (<a 
+                href={e.link} 
+                className="flex p-4 md:p-6 border md:border-2 border-grey-600 md:border-transparent rounded-[20px] w-full md:mb-2 md:w-[49%] overflow-hidden group hover:bg-grey-bg md:hover:bg-transparent hover:border-grey! group dark:hover:border-grey-bg!"
+                onClick={() => analyticsService.trackNavigation(e.title, 'Home_Partners', e.link)}
+              >
                 <div className={`flex w-[90px] h-[90px] rounded-[8px] justify-center items-center overflow-hidden ${e.avatar.includes("https") ? "border-2 border-grey-900 bg-black" : ""}`}>
                   <img src={e.avatar.includes("gdsc") ? "/images/io24-location-gdsc-logo.svg" : (e.avatar.includes("default") || !e.avatar) ? "/images/io24-location-default-logo.svg" : e.avatar} height="90" width="90" aria-hidden="true" />
                 </div>

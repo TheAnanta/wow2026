@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
+import { analyticsService } from '../../services/analytics';
 
 interface HeroProps {
   onRegisterClick?: () => void;
@@ -14,6 +15,12 @@ export function Hero({ onRegisterClick }: HeroProps) {
 
   const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
   const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register');
+
+  const handleCTAClick = () => {
+    analyticsService.trackCTA(buttonText, 'Hero', 'click');
+    router.push(buttonLink);
+  };
+
   return (
     <div className="flex flex-col items-center bg-grey-bg dark:bg-grey">
       <div className="mb-6 mt-6 md:mb-10 md:mt-12">
@@ -32,7 +39,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
             <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
               <span>Participate in hands-on workshops, tech talks, and hackathon. Take home some cool swags and cash prizes.</span>
             </h2>
-            <button type="button" className="cta-primary block" onClick={() => router.push(buttonLink)}>
+            <button type="button" className="cta-primary block" onClick={handleCTAClick}>
               <span>{buttonText}</span>
             </button>
           </div>

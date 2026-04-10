@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { analyticsService } from '@/services/analytics';
 import { Header } from '@/components/sections/Header';
 import { Footer } from '@/components/sections/Footer';
 
@@ -11,6 +12,7 @@ export default function NowInGooglePage() {
     const [activeFaq, setActiveFaq] = useState("section-overview");
 
     const scrollToFaq = (id: string) => {
+        analyticsService.trackUI('faq_scroll', id, 'NowInGoogle');
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
 
@@ -30,6 +32,7 @@ export default function NowInGooglePage() {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     setActiveFaq(entry.target.id);
+                    analyticsService.trackUI('visible_section', entry.target.id, 'NowInGoogle');
                 }
             });
         };

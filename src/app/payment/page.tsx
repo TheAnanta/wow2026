@@ -1,13 +1,15 @@
 'use client';
 import { Header } from "@/components/sections/Header";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useState, useEffect } from "react";
+import { Suspense, useState, useEffect, useRef } from "react";
 import { BadgeSuccess } from "@/components/registration/BadgeSuccess";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { fetchTicketTiers, initiateCheckout, verifyPayment } from "@/services/registrationStubs";
+import { analyticsService } from "@/services/analytics";
 
 function PaymentPage() {
+    const startTimeRef = useRef(Date.now());
     const searchParams = useSearchParams();
     const type = searchParams.get('type');
     const isTermsAgreed = searchParams.get('terms') == 'true' && searchParams.get('ack') == 'true';
@@ -58,6 +60,9 @@ function PaymentPage() {
             const tier = tiers.find(t => t.name.toLowerCase().includes(tierSearch.toLowerCase()));
             if (!tier) throw new Error('Ticket tier not found');
 
+            const duration = (Date.now() - startTimeRef.current) / 1000;
+            analyticsService.trackCheckoutActivity('select_tier', tierSearch, 'initiated', duration);
+            analyticsService.trackCTA(`initiate_checkout_${tierSearch}`, 'PaymentPage');
             const checkoutData = await initiateCheckout(tier.id);
 
             const options = {
@@ -75,11 +80,17 @@ function PaymentPage() {
                             razorpay_payment_id: response.razorpay_payment_id,
                             razorpay_signature: response.razorpay_signature,
                         });
+                        const verifyDuration = (Date.now() - startTimeRef.current) / 1000;
+                        analyticsService.trackCheckoutActivity('payment_verify', tierSearch, 'completed', verifyDuration);
+                        analyticsService.trackForm('payment_verify', tierSearch, 'complete', { tier: tierSearch });
                         setEarnedBadge(badgeName || tier.name);
                         // Trigger context refresh
                         window.dispatchEvent(new CustomEvent('registrationSuccess'));
                     } catch (err: any) {
                         console.error('Verification failed:', err);
+                        const verifyDuration = (Date.now() - startTimeRef.current) / 1000;
+                        analyticsService.trackCheckoutActivity('payment_verify', tierSearch, 'failed', verifyDuration, { error: err.message });
+                        analyticsService.trackForm('payment_verify', 'error_msg', 'error', { error: err.message });
                         alert(err.message || 'Payment verification failed. Please contact support.');
                     } finally {
                         setIsProcessing(false);
@@ -96,6 +107,8 @@ function PaymentPage() {
                 modal: {
                     ondismiss: function () {
                         setIsProcessing(false);
+                        const abandonDuration = (Date.now() - startTimeRef.current) / 1000;
+                        analyticsService.trackCheckoutActivity('razorpay_modal', tierSearch, 'abandoned', abandonDuration);
                     }
                 }
             };
@@ -303,6 +316,7 @@ function PaymentPage() {
                             disabled={!terms || !arcadeAck || isProcessing}
                             onClick={() => {
                                 if (terms && arcadeAck) {
+                                    analyticsService.trackForm('arcade_terms', 'terms_and_conditions', 'complete');
                                     handlePurchase('Arcade', 'Arcade Insider - Explorer');
                                 }
                             }}

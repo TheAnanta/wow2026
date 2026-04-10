@@ -8,6 +8,7 @@ import { SearchBar } from '../../components/speakers/SearchBar';
 import { FilterSidebar } from '../../components/speakers/FilterSidebar';
 import { BentoCard } from '../../components/sections/BentoCard';
 import { TeamMember, getTeam } from '../../services/teamStubs';
+import { analyticsService } from '../../services/analytics';
 import { useRouter } from 'next/navigation';
 
 export default function TeamPage() {
@@ -58,10 +59,12 @@ export default function TeamPage() {
   const coreTeam = filteredTeam.filter(m => m.category === 'Core Team');
 
   const toggleResponsibility = (val: string) => {
+    analyticsService.trackUI('filter_responsibility', val, 'TeamPage');
     setSelectedResponsibilities(prev => prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]);
   };
 
   const toggleUniversity = (val: string) => {
+    analyticsService.trackUI('filter_university', val, 'TeamPage');
     setSelectedUniversities(prev => prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]);
   };
 
@@ -138,7 +141,10 @@ export default function TeamPage() {
 
             {/* Main Content Area */}
             <div className="flex-1">
-              <SearchBar value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+              <SearchBar value={searchQuery} onChange={(e) => {
+                setSearchQuery(e.target.value);
+                analyticsService.trackUI('search_team', e.target.value, 'TeamPage');
+              }} />
 
               {/* Active Filter Chips */}
               <div className="flex flex-wrap items-center gap-3 mt-4 mb-8">
@@ -169,7 +175,7 @@ export default function TeamPage() {
                 {(selectedResponsibilities.length > 0 || selectedUniversities.length > 0) && (
                   <span
                     className="text-sm font-medium underline text-[#202124] dark:text-white ml-2 cursor-pointer"
-                    onClick={() => { setSelectedResponsibilities([]); setSelectedUniversities([]); }}
+                    onClick={() => { setSelectedResponsibilities([]); setSelectedUniversities([]); analyticsService.trackUI('clear_filters', 'all', 'TeamPage'); }}
                   >
                     Clear all
                   </span>
@@ -247,7 +253,10 @@ export default function TeamPage() {
                       Meet developers, discover local groups, and build your global network.
                     </p>
                     <button
-                      onClick={() => router.push('/community')}
+                      onClick={() => {
+                        analyticsService.trackCTA('Get started', 'TeamPage_JoinCommunity');
+                        router.push('/community');
+                      }}
                       className="cta-secondary"
                       aria-label="Get started with joining a community group"
                     >
@@ -302,7 +311,10 @@ export default function TeamPage() {
                       Visit My WOW for saved content and recommendations based on your personal interests.
                     </p>
                     <button
-                      onClick={() => router.push('/explore')}
+                      onClick={() => {
+                        analyticsService.trackCTA('Get started', 'TeamPage_PlanWOW');
+                        router.push('/explore');
+                      }}
                       className="cta-secondary"
                       aria-label="Get started with planning your WOW"
                     >

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Header } from "@/components/sections/Header";
+import { analyticsService } from "@/services/analytics";
 
 const TIERS = [
     {
@@ -63,6 +64,7 @@ export default function ArcadePage() {
     const [activeFaq, setActiveFaq] = useState("section-overview");
 
     const scrollToFaq = (id: string) => {
+        analyticsService.trackUI('faq_scroll', id, 'ArcadePage');
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
 
@@ -82,6 +84,7 @@ export default function ArcadePage() {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     setActiveFaq(entry.target.id);
+                    analyticsService.trackUI('visible_section', entry.target.id, 'ArcadePage');
                 }
             });
         };
@@ -243,7 +246,7 @@ export default function ArcadePage() {
                                         <h3 className="font-medium mb-3 sm:s-h5 md:l-h5">Discover our App</h3>
                                         <p className="font-normal sm:s-p2 md:l-p1">The official app will be your companion for playing these games and unlocking the best WOW Arcade experience.</p>
                                         <div>
-                                            <Link href="/now-in-google" className="text-black underline font-medium inline-block mt-3 dark:text-white">
+                                            <Link href="/now-in-google" className="text-black underline font-medium inline-block mt-3 dark:text-white" onClick={() => analyticsService.trackCTA('App Detail', 'ArcadePage_Intro')}>
                                                 More about the app
                                             </Link>
                                         </div>
@@ -320,7 +323,7 @@ export default function ArcadePage() {
                                                         <span className="text-sm font-bold text-grey-500 uppercase">Rank Needed:</span>
                                                         <span className="text-xl font-black text-grey-900 dark:text-white">0 - 10</span>
                                                     </div>
-                                                    <Link href="/payment?type=arcade" className="nav-cta-btn bg-grey-900! px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform">
+                                                    <Link href="/payment?type=arcade" className="nav-cta-btn bg-grey-900! px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform" onClick={() => analyticsService.trackCTA('Claim Platinum', 'ArcadePage')}>
                                                         Claim Now
                                                     </Link>
                                                 </div>
@@ -421,7 +424,7 @@ export default function ArcadePage() {
                                                     <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#fff"></path>
                                                 </svg>
                                             </div>
-                                            <Link href="/payment" className="text-xs font-bold border-b-2 py-1 hover:opacity-70 transition-opacity">
+                                            <Link href="/payment" className="text-xs font-bold border-b-2 py-1 hover:opacity-70 transition-opacity" onClick={() => analyticsService.trackCTA('Purchase Ticket', 'ArcadePage_PricingRef')}>
                                                 Purchase Ticket
                                             </Link>
                                         </div>

@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { toggleBookmark } from '../../services/stubs';
+import { analyticsService } from '../../services/analytics';
 
 interface SessionCardProps {
   id: string;
@@ -18,6 +19,7 @@ export const SessionCard: React.FC<SessionCardProps> = ({ id, title, time, tags,
   const handleBookmark = async (e: React.MouseEvent) => {
     e.stopPropagation();
     await toggleBookmark(id);
+    analyticsService.trackUI('bookmark_session', { status: !isBookmarked, session_id: id }, 'Dashboard');
     setIsBookmarked(!isBookmarked);
   };
 

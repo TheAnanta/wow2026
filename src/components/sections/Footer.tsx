@@ -3,13 +3,20 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { analyticsService } from '../../services/analytics';
 
 export const Footer: React.FC = () => {
   return (
     <footer id="footer" className="pt-10 pb-16 lg:py-12 px-6 lg:px-12 bg-text flex flex-col lg:flex-row lg:justify-between lg:items-center w-full mt-10">
       <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-10 text-[#9aa0a6] text-base font-medium flex-1">
         <div className="flex justify-between w-full lg:w-auto items-center mb-4 lg:mb-0">
-          <a href="https://developers.google.com/" target="_blank" rel="noreferrer noopener" aria-label="Google Developers homepage">
+          <a
+            href="https://developers.google.com/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Google Developers homepage"
+            onClick={() => analyticsService.trackNavigation('Google Developers', 'Footer', 'https://developers.google.com/')}
+          >
             <img
               className="block"
               src="/images/Logo-GoogleForDevelopers.svg"
@@ -24,10 +31,10 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="flex flex-wrap gap-x-6 gap-y-4">
-          <a href="#" className="hover:text-white transition-colors duration-200">WOW 2026</a>
-          <a href="/terms" className="hover:text-white transition-colors duration-200">Privacy & terms</a>
-          <a href="/code-of-conduct" className="hover:text-white transition-colors duration-200">Community guidelines</a>
-          <a href="/about" className="hover:text-white transition-colors duration-200">FAQ</a>
+          <a href="#" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('WOW 2026', 'Footer')}>WOW 2026</a>
+          <a href="/terms" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('Privacy & terms', 'Footer', '/terms')}>Privacy & terms</a>
+          <a href="/code-of-conduct" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('Community guidelines', 'Footer', '/code-of-conduct')}>Community guidelines</a>
+          <a href="/about" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('FAQ', 'Footer', '/about')}>FAQ</a>
         </div>
       </div>
 

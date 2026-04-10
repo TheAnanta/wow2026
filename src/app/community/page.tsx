@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Header } from '../../components/sections/Header';
 import { Footer } from '../../components/sections/Footer';
 import { handleSearchCommunities } from '../../services/stubs';
+import { analyticsService } from '../../services/analytics';
 import { useRouter } from 'next/navigation';
 
 export default function CommunityPage() {
@@ -15,6 +16,7 @@ export default function CommunityPage() {
   const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
+    analyticsService.trackUI('search_community', query, 'CommunityPage');
     if (query.trim().length > 0) {
       setIsSearching(true);
       const results = await handleSearchCommunities(query);
@@ -482,7 +484,7 @@ export default function CommunityPage() {
                   <div className="w-12 h-12 border border-[#000000] dark:border-white rounded-[4px] mr-5 flex-shrink-0" style={{ background: 'linear-gradient(135deg, #34A853, #4285F4)' }} />
                   <div className="flex flex-col">
                     <div className="font-medium mb-1 text-lg dark:text-white uppercase leading-none">{result.name}</div>
-                    <div className="text-sm underline cursor-pointer dark:text-white font-medium" onClick={() => console.log('Joined chapter', result.id)}>Join chapter</div>
+                    <div className="text-sm underline cursor-pointer dark:text-white font-medium" onClick={() => { console.log('Joined chapter', result.id); analyticsService.trackCTA(`join_chapter_${result.id}`, 'CommunityPage'); }}>Join chapter</div>
                   </div>
                 </div>
               ))}
@@ -499,6 +501,7 @@ export default function CommunityPage() {
                 href={group.href}
                 rel="noopener"
                 target="_blank"
+                onClick={() => analyticsService.trackCTA(`chapter_card_${group.name}`, 'CommunityPage')}
                 className="flex flex-row md:flex-col bg-grey dark:bg-grey-bg overflow-hidden p-4 md:p-0 rounded-[20px] md:rounded-[42px] w-full md:max-w-[432px] min-h-[126px] md:min-h-[350px] text-md:min-h-[409px] border-[1.5px] border-grey dark:border-grey-bg md:focus:border-[3px] md:hover:border-[3px] dark:md:hover:border-grey-bg dark:md:focus:border-grey-bg"
               >
                 <img className="hidden md:inline-block dark:hidden" src={group.img} role="img" aria-hidden="true" width="432" height="242" />

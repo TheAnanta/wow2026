@@ -4,6 +4,7 @@ import React, { useState, useEffect, useMemo, Suspense } from "react";
 import { Header } from "../../components/sections/Header";
 import { fetchSessions, Session } from "../../services/stubs";
 import { useSearchParams, useRouter } from "next/navigation";
+import { analyticsService } from "../../services/analytics";
 import { ExploreHero } from "./components/ExploreHero";
 import { MyIOSection } from "./components/MyIOSection";
 import { FilterSection } from "./components/FilterSection";
@@ -54,9 +55,9 @@ function ExploreContent() {
   }, []);
 
   const dataLayer = (globalThis as any).dataLayer || { push: () => { } };
-  const trackEvent = (globalThis as any).trackEvent || (() => { });
+  const trackEvent = (action: string, metadata?: any) => { analyticsService.trackUI(action, metadata, 'ExplorePage'); };
   const trackFilter = (globalThis as any).trackFilter || (() => { });
-  const trackFilterCategory = (globalThis as any).trackFilterCategory || (() => { });
+  const trackFilterCategory = (title: string, event: any) => { analyticsService.trackUI('filter_category', title, 'ExplorePage'); };
 
   useEffect(() => {
     const loadSessions = async () => {
@@ -115,6 +116,7 @@ function ExploreContent() {
   }, [sessions, activeFilters]);
 
   const handleFilterChange = (id: string, checked: boolean, classification: string) => {
+    analyticsService.trackUI('explore_filter', `${classification}:${id}`, checked ? 'selected' : 'unselected');
     setActiveFilters(prev => {
       const current = prev[classification] || [];
       const updated = checked
@@ -148,6 +150,7 @@ function ExploreContent() {
 
   const handleStackClick = (e: React.MouseEvent<HTMLAnchorElement>, query: string, filterId: string) => {
     e.preventDefault();
+    analyticsService.trackCTA(`stack_${query}`, 'ExplorePage');
     router.push(`/explore/?q=${query}`, { scroll: false });
 
     setTimeout(() => {
@@ -239,7 +242,7 @@ function ExploreContent() {
                   <div className="z-10 block fixed bottom-4 right-0 md:hidden">
                     <button
                       id="filter-burger"
-                      onClick={() => setIsFilterDrawerOpen(true)}
+                      onClick={() => { analyticsService.trackUI('mobile_filter_drawer', 'open', 'ExplorePage'); setIsFilterDrawerOpen(true); }}
                       className={`m-filter__chip w-[102px] ring-offset-2 focus:outline-none focus:ring focus:ring-blue dark:focus:ring-blue-dark bg-grey-900 dark:bg-white rounded-full px-3 py-2 ${isScrolled
                         ? ""
                         : "hidden"
@@ -287,6 +290,7 @@ function ExploreContent() {
                             className="m-filter__chip flex flex-row items-center ring-offset-2 focus:outline-none focus:ring focus:ring-blue dark:focus:ring-blue-dark dark:bg-white bg-grey-900 rounded-lg py-3 px-5 gap-2"
                             aria-label={`remove filter for ${term}`}
                             onClick={() => {
+                              analyticsService.trackUI('explore_filter_remove', term, 'ExplorePage');
                               const newQuery = searchQuery.split(',').filter(q => q !== term).join(',');
                               router.push(`/explore/${newQuery ? `?q=${newQuery}` : ''}`, { scroll: false });
                             }}
@@ -313,7 +317,7 @@ function ExploreContent() {
                       })}
                       <button
                         className="font-medium underline-link ml-2 dark:text-white"
-                        onClick={() => router.push('/explore/', { scroll: false })}
+                        onClick={() => { analyticsService.trackUI('clear_all_filters', 'all', 'ExplorePage'); router.push('/explore/', { scroll: false }); }}
                         aria-label="Clear all"
                       >
                         Clear all

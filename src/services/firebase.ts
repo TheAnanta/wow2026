@@ -4,6 +4,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/
 import { getFirestore } from 'firebase/firestore';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 import { getMessaging } from 'firebase/messaging';
+import { getPerformance } from 'firebase/performance';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -25,11 +26,18 @@ const messaging = typeof window !== 'undefined' ? getMessaging(app) : null;
 
 const googleProvider = new GoogleAuthProvider();
 
+// Initialize Performance (Client-side only)
+let performance: any = null;
+if (typeof window !== 'undefined') {
+  performance = getPerformance(app);
+}
+
 // Initialize Analytics (Client-side only)
+let analytics: any = null;
 if (typeof window !== 'undefined') {
   isSupported().then((supported) => {
     if (supported) {
-      getAnalytics(app);
+      analytics = getAnalytics(app);
     }
   });
 }
@@ -75,4 +83,4 @@ export const logout = async () => {
   }
 };
 
-export { auth, db, messaging };
+export { auth, db, messaging, analytics, app, performance };

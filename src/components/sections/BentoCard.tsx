@@ -1,5 +1,6 @@
 // src/components/sections/BentoCard.tsx
 import React from 'react';
+import { analyticsService } from '../../services/analytics';
 
 interface BentoCardProps {
   id?: string;
@@ -38,7 +39,10 @@ export const BentoCard: React.FC<BentoCardProps> = ({
         )}
         {buttonText && (
           <button
-            onClick={onButtonClick}
+            onClick={() => {
+              analyticsService.trackCTA(buttonText, `BentoCard_${title.replace(/\s+/g, '_')}`);
+              if (onButtonClick) onButtonClick();
+            }}
             className="cta-secondary no-dark-mode"
           >
             {buttonText}
