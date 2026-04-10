@@ -18,7 +18,7 @@ export interface RegistrationData extends RegistrationProfile {
 
 import { getBearerToken, auth } from './firebase';
 
-const API_BASE_URL = 'http://localhost:8080/nowingoogle-backend/api';
+const API_BASE_URL = 'https://now-in-google-backend-1010379975924.us-central1.run.app/nowingoogle-backend/api';
 
 export const validateProfile = (data: Partial<RegistrationProfile>): { [key: string]: string } => {
   const errors: { [key: string]: string } = {};
@@ -166,10 +166,10 @@ export const initiateCheckout = async (tierId: string) => {
   return result.data;
 };
 
-export const verifyPayment = async (paymentData: { 
-  razorpay_order_id: string; 
-  razorpay_payment_id: string; 
-  razorpay_signature: string; 
+export const verifyPayment = async (paymentData: {
+  razorpay_order_id: string;
+  razorpay_payment_id: string;
+  razorpay_signature: string;
 }) => {
   const token = await getBearerToken();
   if (!token) throw new Error('Unauthenticated');
