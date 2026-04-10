@@ -47,7 +47,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
         </div>
 
         <p className="text-[0.9375rem] text-grey-600 dark:text-grey-400 mb-10 max-w-[320px] leading-relaxed">
-          This badge was saved to your Google Developer Profile.
+          This badge was saved to your WOW Developer Profile.
         </p>
 
         {/* The Badge Container Card - Switched to static official badge image */}
@@ -66,22 +66,26 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
         {/* Share Section */}
         <div className="flex flex-col items-center gap-8 w-full max-w-[400px]">
           <div className="flex flex-col items-center">
-            <span className="text-[0.875rem] font-medium text-grey-600 dark:text-grey-400 mb-4 uppercase tracking-widest">Share your badge</span>
+            <span className="font-medium text-grey-600 dark:text-grey-400 mb-4">Share your badge</span>
             <div className="flex gap-4">
               {[
-                { icon: '/images/facebook.svg', alt: 'f' },
-                { icon: '/images/twitter.svg', alt: 'x' },
-                { icon: '/images/linkedin.svg', alt: 'in' },
-                { icon: 'link', alt: '🔗' }
+                { icon: 'https://www.gstatic.com/devrel-devsite/prod/v4d48f48533ab79e337c1ef540cdee78fc2ebfef5357fb91b7a6b4a7aa8d0c6c8/images/share_facebook.svg', alt: 'facebook' },
+                { icon: 'https://www.gstatic.com/devrel-devsite/prod/v4d48f48533ab79e337c1ef540cdee78fc2ebfef5357fb91b7a6b4a7aa8d0c6c8/images/share_twitter.svg', alt: 'twitter' },
+                { icon: 'https://www.gstatic.com/devrel-devsite/prod/v4d48f48533ab79e337c1ef540cdee78fc2ebfef5357fb91b7a6b4a7aa8d0c6c8/images/share_linkedin.svg', alt: 'linkedin' },
+                { icon: 'link', alt: 'copy link' }
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="w-12 h-12 bg-grey-900 dark:bg-white rounded-lg flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
+                  className="w-8 h-8 flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
                 >
-                  {item.icon.includes('/') ? (
-                    <img src={item.icon} alt={item.alt} className="w-5 h-5 invert dark:invert-0" />
+                  {item.icon === 'link' ? (
+                    <div className="w-full h-full bg-[#303234] rounded-md flex items-center justify-center">
+                      <svg viewBox="0 -960 960 960" width="28" height="28" fill="currentColor" className="text-white">
+                        <path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z" />
+                      </svg>
+                    </div>
                   ) : (
-                    <span className="text-white dark:text-grey-900 text-xl font-bold">{item.alt}</span>
+                    <img src={item.icon} alt={item.alt} className="w-full h-full object-contain brightness-50" />
                   )}
                 </div>
               ))}
@@ -89,7 +93,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
           </div>
 
           <p className="text-[0.9375rem] text-grey-900 dark:text-white">
-            or go to your <span onClick={onClose} className="underline decoration-2 underline-offset-4 cursor-pointer font-bold hover:no-underline px-1">developer profile</span>
+            or go to your <a href="/profile" className="underline decoration-2 underline-offset-4 cursor-pointer font-bold hover:no-underline px-1">developer profile</a>
           </p>
 
           <button
