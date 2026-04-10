@@ -17,12 +17,30 @@ function PaymentPage() {
     const [earnedBadge, setEarnedBadge] = useState<string | null>(null);
     const router = useRouter();
 
-    const { user, profile, tickets } = useAuth();
+    const { user, profile, tickets, isUnregistered, isLoading } = useAuth();
     const [tiers, setTiers] = useState<any[]>([]);
+    const [wasBadgeShown, setWasBadgeShown] = useState(false);
 
     useEffect(() => {
-        // Redirect if user already has a ticket
-        if (!earnedBadge && profile && tickets && tickets.length > 0) {
+        if (earnedBadge) setWasBadgeShown(true);
+    }, [earnedBadge]);
+
+    useEffect(() => {
+        if (isLoading) return;
+
+        // Redirect if unregistered
+        if (user && isUnregistered) {
+            router.push('/register');
+            return;
+        }
+
+        if (!user) {
+            router.push('/register');
+            return;
+        }
+
+        // Redirect if user already has a ticket, BUT NOT if they just earned one here
+        if (!earnedBadge && !wasBadgeShown && profile && tickets && tickets.length > 0) {
             router.push('/?message=already_has_ticket');
         }
 
@@ -31,7 +49,7 @@ function PaymentPage() {
             setTiers(data);
         };
         loadTiers();
-    }, [profile, tickets, router, earnedBadge]);
+    }, [profile, tickets, router, earnedBadge, isUnregistered, user, isLoading, wasBadgeShown]);
 
     const handlePurchase = async (tierSearch: string, badgeName?: string) => {
         setIsProcessing(true);
@@ -106,15 +124,6 @@ function PaymentPage() {
                         />
                     </div>
                 </main>
-                <style jsx global>{`
-                    @keyframes slideUp {
-                        from { opacity: 0; transform: translateY(20px); }
-                        to { opacity: 1; transform: translateY(0); }
-                    }
-                    .animate-slide-up {
-                        animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-                    }
-                `}</style>
             </div>
         );
     }
@@ -122,8 +131,25 @@ function PaymentPage() {
     return (
         <div className="w-full min-h-screen bg-white text-grey-900">
             <Header onRegisterClick={() => { }} />
-            <div className="flex page-wrapper">
-                <div className="flex-3 p-3 mr-4 h-max rounded-[8px]  sticky top-0 self-start">
+            <div className="flex flex-col md:flex-row page-wrapper">
+                <div className="flex-3 p-3 mr-4 h-max rounded-[8px] md:sticky top-0 self-start group">
+                    {/* Official Material 3 Shape Badge */}
+                    {tiers.find(t => t.name.toLowerCase().includes('arcade')) && (
+                        <div className="absolute top-0 right-2 w-32 h-32 rotate-12 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 animate-rotate-in">
+                            <svg className="w-full h-full drop-shadow-xl" viewBox="0 0 90 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M42.3094 2.09276C42.8648 1.79247 43.1425 1.64232 43.3934 1.51871C49.305 -1.39355 56.4392 -0.0297511 60.8598 4.85766C61.0474 5.0651 61.2501 5.30709 61.6556 5.79105C61.8365 6.00709 61.927 6.1151 62.0172 6.21869C64.0832 8.59361 66.8571 10.2459 69.9318 10.9331C70.0659 10.9631 70.2041 10.9913 70.4805 11.0477C71.0996 11.174 71.4092 11.2372 71.6811 11.3035C78.0888 12.866 82.6793 18.4862 82.9199 25.063C82.9301 25.3422 82.9296 25.6574 82.9286 26.288C82.9282 26.5694 82.928 26.7102 82.9304 26.8473C82.9844 29.9905 84.0464 33.0346 85.9608 35.5329C86.0443 35.6418 86.1321 35.7521 86.3076 35.9725C86.7009 36.4664 86.8975 36.7133 87.0632 36.9385C90.9687 42.2447 90.8676 49.4914 86.8155 54.6804C86.6435 54.9006 86.4401 55.1416 86.0332 55.6237C85.8516 55.8389 85.7607 55.9465 85.6742 56.053C83.6909 58.4938 82.5443 61.5053 82.4025 64.6456C82.3963 64.7826 82.3926 64.9233 82.3852 65.2047C82.3685 65.835 82.3602 66.1501 82.3422 66.4288C81.9181 72.9959 77.1726 78.4784 70.7239 79.8514C70.4502 79.9097 70.139 79.9637 69.5166 80.0717C69.2387 80.12 69.0998 80.1441 68.9649 80.1701C65.8723 80.7664 63.0534 82.3362 60.9219 84.6493C60.829 84.7502 60.7355 84.8555 60.5486 85.0661C60.1298 85.5379 59.9204 85.7738 59.7271 85.9756C55.1718 90.7307 48.0024 91.8837 42.1746 88.7984C41.9272 88.6674 41.6538 88.5091 41.1071 88.1926C40.8631 88.0513 40.741 87.9806 40.6209 87.914C37.866 86.3868 34.6939 85.7804 31.57 86.1838C31.4337 86.2014 31.2943 86.2221 31.0153 86.2634C30.3904 86.356 30.0779 86.4022 29.7997 86.4327C23.2447 87.1509 17.0061 83.4348 14.526 77.3348C14.4207 77.0759 14.3131 76.7794 14.0979 76.1864C14.0018 75.9217 13.9538 75.7893 13.9046 75.6613C12.7765 72.7251 10.7355 70.2262 8.08085 68.5313C7.96506 68.4573 7.84483 68.3837 7.60436 68.2364C7.06568 67.9064 6.79634 67.7414 6.56343 67.5863C1.07589 63.9315 -1.31281 57.0852 0.71526 50.8247C0.801338 50.559 0.909837 50.263 1.12684 49.671C1.22371 49.4067 1.27214 49.2746 1.31692 49.145C2.34348 46.1738 2.38847 42.9517 1.4453 39.9514C1.40416 39.8206 1.35943 39.6871 1.26998 39.42C1.0696 38.8219 0.96941 38.5228 0.890786 38.2547C-0.961631 31.937 1.61725 25.164 7.20457 21.6724C7.44172 21.5242 7.71556 21.3672 8.26324 21.0532C8.50772 20.9131 8.62996 20.843 8.74777 20.7725C11.4486 19.1565 13.5586 16.7188 14.7682 13.8171C14.821 13.6905 14.8727 13.5597 14.9761 13.2979C15.2078 12.7115 15.3236 12.4183 15.4361 12.1626C18.0855 6.13816 24.4253 2.60752 30.9575 3.51861C31.2348 3.55728 31.5458 3.61275 32.1679 3.72369C32.4456 3.77322 32.5845 3.79798 32.7202 3.81959C35.8315 4.31492 39.0193 3.80228 41.8156 2.35689C41.9376 2.29384 42.0615 2.22682 42.3094 2.09276Z" fill="#202124" />
+                            </svg>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                                <span className="text-white text-[2.2rem] font-bold leading-none tracking-tighter">
+                                    {tiers.find(t => t.name.toLowerCase().includes('arcade'))?.tickets_left || 0}
+                                </span>
+                                <span className="text-white/80 text-[0.8rem] font-bold uppercase tracking-widest mt-0.5">
+                                    Left
+                                </span>
+                            </div>
+                        </div>
+                    )}
+
                     <h1 className="text-6xl font-medium tracking-tight">Arcade</h1>
                     <h3 className="text-4xl tracking-tighter mb-4">The Community's Pass</h3>
                     <p className="max-w-[54ch] mt-2">Get access to the official community arcade where you will network, learn, connect and grow together by playing games, joining virtual sessions, attending meetups, and so much more.<br /><br />This will help you compete on different technical challenges, make new friends, upskill yourself in different technical stacks and prepare you up for the Google for Developers WOW 2026.</p>
@@ -152,14 +178,17 @@ function PaymentPage() {
                         </button>
                     </div>
                 </div>
-                <div className="shrink-0 flex-2 flex flex-col gap-4 pl-12 border-l-2 border-grey-bg">
-                    <div className="relative h-[90px] md:h-[240px] mb-9">
+                <div className="shrink-0 flex-2 flex flex-col gap-4 md:pl-12 md:border-l-2 md:border-grey-bg">
+                    <div className="relative h-[240px] mb-9">
                         {/* Front card */}
                         <div className="absolute bg-white dark:bg-grey w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
                             <div className="flex flex-col items-center justify-center gap-y-1 h-full">
                                 <div className="flex flex-row justify-center gap-2 w-full px-6">
                                     <div>
-                                        <p className="uppercase font-black tracking-tight text-xs mb-2 border-2 w-max p-1 px-3 -translate-x-2 mb-4 rounded-full border-grey-bg">Limited only - Running out</p>
+                                        <p className="uppercase font-black tracking-tight text-xs mb-2 border-2 w-max p-1 px-3 -translate-x-2 mb-4 rounded-full border-grey-bg">
+                                            Limited only
+                                            {tiers.find(t => t.name.toLowerCase().includes('early'))?.tickets_left < 60 && " - Running out"}
+                                        </p>
                                         <h3 className="font-bold text-3xl tracking-tight">Early bird pass</h3>
                                         <p className="text-sm max-w-[28ch] mt-2">Get access to all the talks, workshops, and activities at the event. Get access to all the talks, workshops, and activities at the event.</p>
                                     </div>
@@ -239,7 +268,7 @@ function PaymentPage() {
                     <div className="max-w-[484px] p-8">
                         {
                             [
-                                { label: 'I agree to <a target="_blank" rel="noopener noreferrer" href="https://policies.google.com/terms">WOW Arcade Terms and Conditions</a> including <a target="_blank" rel="noopener noreferrer" href="https://policies.google.com/community-guidelines">Google Community Guidelines</a> and acknowledge that my info will be used in accordance with <a target="_blank" rel="noopener noreferrer" href="https://policies.google.com/privacy">Google\'s Privacy Policy</a>', id: 'io2024', value: terms, onChange: (e: any) => setTerms(e.target.checked) },
+                                { label: 'I agree to <a target="_blank" rel="noopener noreferrer" href="/terms">WOW Arcade Terms and Conditions</a> including <a target="_blank" rel="noopener noreferrer" href="/code-of-conduct">Google Community Guidelines</a> and acknowledge that my info will be used in accordance with <a target="_blank" rel="noopener noreferrer" href="/privacy">Privacy Policy</a>', id: 'io2024', value: terms, onChange: (e: any) => setTerms(e.target.checked) },
                                 { label: 'I acknowledge that puchasing an arcade ticket does not guarantee entry to the event.', id: 'io2025', value: arcadeAck, onChange: (e: any) => setArcadeAck(e.target.checked) }
                             ].map((item) => (
                                 <div key={item.id} role="listitem">

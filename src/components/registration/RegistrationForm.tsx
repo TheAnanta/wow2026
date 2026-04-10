@@ -51,7 +51,7 @@ export const RegistrationForm: React.FC = () => {
     marketingConsent: false,
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const { user, profile, isLoggedIn, isLoading: isAuthLoading } = useAuth();
+  const { user, profile, isLoggedIn, isLoading: isAuthLoading, refreshProfile } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorType, setErrorType] = useState<'signin' | 'account' | 'general' | null>(null);
 
@@ -109,6 +109,7 @@ export const RegistrationForm: React.FC = () => {
         const result = await submitRegistration(data);
         if (result.success) {
           window.dispatchEvent(new CustomEvent('registrationSuccess'));
+          await refreshProfile(); // Ensure state is updated before redirecting
           router.push('/payment');
         } else {
           setErrors({ submit: result.error || 'The user account type is not allowed.' });
@@ -346,7 +347,7 @@ export const RegistrationForm: React.FC = () => {
                 </div>
 
                 <p className="text-[0.8125rem] text-grey-600 leading-relaxed mb-10">
-                  By creating a Google developer profile, you agree to the <span className="underline cursor-pointer">Content Policy</span>, <span className="underline cursor-pointer">Google's Terms of Service</span> and <span className="underline cursor-pointer">Privacy Policy</span> apply to your use of this service. Your display name may appear where you contribute and can be changed at any time.
+                  By creating a WOW developer profile, you agree to the <a href="/content-policy" target="_blank" rel="noopener noreferrer" className="underline">Content Policy</a>, <a href="/terms" target="_blank" rel="noopener noreferrer" className="underline">WOW's Terms of Service</a> and <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline">Privacy Policy</a> apply to your use of this service. Your display name may appear where you contribute and can be changed at any time.
                 </p>
 
                 <button onClick={handleNextStep} className="px-10 py-3 bg-grey-900 text-white rounded-full font-medium hover:bg-black transition-all text-[1rem]">
@@ -364,23 +365,18 @@ export const RegistrationForm: React.FC = () => {
             <div className="space-y-6 mb-10">
               {[
                 {
-                  key: 'termsAgreed' as keyof RegistrationData,
-                  label: 'I am 18 years of age or older.',
-                  required: true
-                },
-                {
                   key: 'agreeToTerms' as keyof RegistrationData,
-                  label: <span className="inline">I agree to the <span className="underline">IO24 Terms and Conditions</span>, including <span className="underline">Google Terms and Community Guidelines</span>, and acknowledge that my info will be used in accordance with <span className="underline">Google's Privacy Policy</span></span>,
+                  label: <span className="inline">I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer" className="underline">WOW Terms and Conditions</a>, including <a href="/code-of-conduct" target="_blank" rel="noopener noreferrer" className="underline">Google Terms and Community Guidelines</a>, and acknowledge that my info will be used in accordance with <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline">Google's Privacy Policy</a></span>,
                   required: true
                 },
                 {
                   key: 'marketingConsent' as keyof RegistrationData,
-                  label: 'I would like to receive marketing and events emails and updates about Google I/O.',
+                  label: 'I would like to receive marketing and events emails and updates about GDG WOW 2026.',
                   required: false
                 },
                 {
                   key: 'newsletterConsent' as any,
-                  label: 'I would like to receive newsletters with the latest developer news and features for me. I understand that I can unsubscribe at any time by visiting my Developer Profile settings.',
+                  label: 'I would like to receive newsletters with the latest developer news and features for me. I understand that I can unsubscribe at any time by visiting my WOW Developer Profile settings.',
                   required: false
                 },
               ].map(({ key, label, required }) => (

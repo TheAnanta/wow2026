@@ -196,7 +196,7 @@ export default function EventMetricsSection() {
             <div className="border-[1.5px] md:border-2 rounded-[16px] w-full h-[200px] md:h-full 3xl:h-[220px]! overflow-hidden flex flex-col">
                 <Carousel images={GALLERY_IMAGES} />
             </div>
-            <a href="https://io.google/2024/explore/?q=codelab,learning-pathway" data-analytics-event="content_card_select" data-analytics-event-data="{&quot;cardName&quot;: &quot;codelab&quot;}"
+            <a href="/now-in-google" data-analytics-event="content_card_select" data-analytics-event-data="{&quot;cardName&quot;: &quot;codelab&quot;}"
                 className="relative shrink-0 group mb-0 flex flex-col p-6 bg-grey-bg dark:bg-grey dark:hover:bg-grey-bg hover:bg-grey w-full h-full 3xl:h-auto! 3xl:flex-1! border-[1px] md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white hover:border-white dark:hover:border-grey hover:ring-[1px] hover:md:ring-2 hover:ring-offset-4 hover:ring-grey dark:hover:ring-0 dark:hover:ring-offset-0 dark:hover:outline dark:hover:outline-white dark:hover:outline-2 dark:hover:outline-offset-8">
                 <div className="mb-4 pb-8">
                     <span className="mb-3 sm:s-h5 md:l-h5 text-black dark:text-white group-hover:text-white dark:group-hover:text-black font-semibold!">

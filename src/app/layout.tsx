@@ -16,6 +16,7 @@ const googleSansCode = Google_Sans_Code({
 import mainData from "@/data/config.json";
 
 export const metadata: Metadata = {
+
   metadataBase: new URL(mainData.seo.hostUrl),
   title: `${mainData.eventInfo.name} | ${mainData.communityName}`,
   description: mainData.eventInfo.description.short,
@@ -62,6 +63,9 @@ export default function RootLayout({
       lang="en"
       className={`${googleSans.variable} ${googleSansCode.variable}`}
     >
+      <head>
+        <meta name="google-site-verification" content="HraCim0B4dPQGhFNZP9GzjjZC6ZtrJ-jj7zFf-70pUc" />
+      </head>
       <body>
         <AuthProvider>
           <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
