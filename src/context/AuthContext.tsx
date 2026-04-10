@@ -3,7 +3,8 @@
 
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { auth } from '../services/firebase';
-import { fetchCurrentUser, fetchMyTickets } from '../services/registrationStubs';
+import { fetchCurrentUser, fetchMyTickets, patchFCMToken } from '../services/registrationStubs';
+import { requestFirebaseToken } from '../services/fcm';
 import { User } from 'firebase/auth';
 
 interface AuthContextType {
@@ -79,6 +80,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       window.removeEventListener('registrationSuccess', handleRegisterSuccess);
     };
   }, [fetchProfile]);
+
+  // Sync FCM Token
+  useEffect(() => {
+    const syncFCMToken = async () => {
+      if (user && profile && !isUnregistered && !isLoading) {
+        // Only try to get token if user is registered and profile is loaded
+        const token = await requestFirebaseToken();
+        if (token) {
+          console.log('Syncing FCM Token...');
+          await patchFCMToken(token, 'ADD');
+        }
+      }
+    };
+    syncFCMToken();
+  }, [user, profile, isUnregistered, isLoading]);
 
   return (
     <AuthContext.Provider 

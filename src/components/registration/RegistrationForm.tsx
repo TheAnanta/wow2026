@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { InterestTags } from './InterestTags';
 import { RegistrationData, validateProfile, submitRegistration } from '../../services/registrationStubs';
+import { requestFirebaseToken } from '../../services/fcm';
 import { useAuth } from '../../context/AuthContext';
 import { signInWithGoogle } from '../../services/firebase';
 import { ErrorOverlay } from './ErrorOverlays';
@@ -106,7 +107,9 @@ export const RegistrationForm: React.FC = () => {
     } else if (currentStep === 2) {
       setIsSubmitting(true);
       try {
-        const result = await submitRegistration(data);
+        // Attempt to get FCM token before submission
+        const fcm_token = await requestFirebaseToken();
+        const result = await submitRegistration({ ...data, fcm_token: fcm_token || undefined });
         if (result.success) {
           window.dispatchEvent(new CustomEvent('registrationSuccess'));
           await refreshProfile(); // Ensure state is updated before redirecting

@@ -17,10 +17,10 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
   const router = useRouter();
 
   const handleAction = () => {
-    if (isLoggedIn && (isUnregistered || !profile)) {
-      router.push('/register');
-    } else if (!isLoggedIn) {
+    if (!isLoggedIn) {
       signInWithGoogle().catch(console.error);
+    } else if (isUnregistered || !profile) {
+      router.push('/register');
     } else {
       logout().catch(console.error);
     }

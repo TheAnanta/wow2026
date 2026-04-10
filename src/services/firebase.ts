@@ -3,6 +3,7 @@ import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getAnalytics, isSupported } from 'firebase/analytics';
+import { getMessaging } from 'firebase/messaging';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,6 +20,9 @@ const firebaseConfig = {
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+// messaging is only available in the browser
+const messaging = typeof window !== 'undefined' ? getMessaging(app) : null;
+
 const googleProvider = new GoogleAuthProvider();
 
 // Initialize Analytics (Client-side only)
@@ -71,4 +75,4 @@ export const logout = async () => {
   }
 };
 
-export { auth, db };
+export { auth, db, messaging };

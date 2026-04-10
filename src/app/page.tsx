@@ -22,11 +22,6 @@ function Home() {
   const searchParams = useSearchParams();
   const [showToast, setShowToast] = useState(false);
 
-  useEffect(() => {
-    if (isLoggedIn && isUnregistered) {
-      router.push('/register');
-    }
-  }, [isLoggedIn, isUnregistered, router]);
 
   useEffect(() => {
     if (searchParams.get('message') === 'already_has_ticket') {

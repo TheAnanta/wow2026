@@ -14,6 +14,7 @@ export interface RegistrationData extends RegistrationProfile {
   termsAgreed: boolean;
   agreeToTerms: boolean;
   marketingConsent: boolean;
+  fcm_token?: string;
 }
 
 import { getBearerToken, auth } from './firebase';
@@ -64,7 +65,8 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
       organization: data.organization || 'Google',
       city: data.cityTown || 'Global',
       interests: data.interests || [],
-      profile_url: user.photoURL || ''
+      profile_url: user.photoURL || '',
+      fcm_token: data.fcm_token
     };
 
     console.log('Sending Registration to API:', apiPayload);
@@ -206,5 +208,30 @@ export const fetchMyTickets = async () => {
   } catch (err) {
     console.error('Fetch My Tickets Error:', err);
     return [];
+  }
+};
+
+/**
+ * FCM Token APIs
+ */
+export const patchFCMToken = async (token: string, action: 'ADD' | 'REMOVE' = 'ADD') => {
+  try {
+    const bearerToken = await getBearerToken();
+    if (!bearerToken) return { success: false, error: 'User is not authenticated' };
+
+    const response = await fetch(`${API_BASE_URL}/fcm-token`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${bearerToken}`
+      },
+      body: JSON.stringify({ token, action })
+    });
+
+    const result = await response.json();
+    return { success: response.ok, data: result };
+  } catch (error: any) {
+    console.error('FCM Token Patch Error:', error);
+    return { success: false, error: error.message };
   }
 };
