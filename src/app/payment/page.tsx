@@ -4,6 +4,8 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useState, useEffect } from "react";
 import { BadgeSuccess } from "@/components/registration/BadgeSuccess";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
+import { fetchTicketTiers, initiateCheckout, verifyPayment } from "@/services/registrationStubs";
 
 function PaymentPage() {
     const searchParams = useSearchParams();
@@ -15,13 +17,73 @@ function PaymentPage() {
     const [earnedBadge, setEarnedBadge] = useState<string | null>(null);
     const router = useRouter();
 
-    const handlePurchase = (badgeType: string) => {
+    const { user, profile } = useAuth();
+    const [tiers, setTiers] = useState<any[]>([]);
+
+    useEffect(() => {
+        const loadTiers = async () => {
+            const data = await fetchTicketTiers();
+            setTiers(data);
+        };
+        loadTiers();
+    }, []);
+
+    const handlePurchase = async (tierSearch: string, badgeName?: string) => {
         setIsProcessing(true);
-        // Simulate payment processing delay
-        setTimeout(() => {
+        try {
+            // Find the tier by name (case-insensitive)
+            const tier = tiers.find(t => t.name.toLowerCase().includes(tierSearch.toLowerCase()));
+            if (!tier) throw new Error('Ticket tier not found');
+
+            const checkoutData = await initiateCheckout(tier.id);
+            
+            const options = {
+                key: checkoutData.key_id,
+                amount: checkoutData.amount,
+                currency: checkoutData.currency,
+                name: "GDG WOW 2026",
+                description: `Purchase for ${tier.name}`,
+                order_id: checkoutData.gateway_order_id,
+                handler: async (response: any) => {
+                    setIsProcessing(true);
+                    try {
+                        const verificationResult = await verifyPayment({
+                            razorpay_order_id: response.razorpay_order_id,
+                            razorpay_payment_id: response.razorpay_payment_id,
+                            razorpay_signature: response.razorpay_signature,
+                        });
+                        setEarnedBadge(badgeName || tier.name);
+                        // Trigger context refresh
+                        window.dispatchEvent(new CustomEvent('registrationSuccess'));
+                    } catch (err: any) {
+                        console.error('Verification failed:', err);
+                        alert(err.message || 'Payment verification failed. Please contact support.');
+                    } finally {
+                        setIsProcessing(false);
+                    }
+                },
+                prefill: {
+                    name: profile?.displayName || user?.displayName || "",
+                    email: user?.email || "",
+                    contact: profile?.phone || "",
+                },
+                theme: {
+                    color: "#4285F4",
+                },
+                modal: {
+                    ondismiss: function() {
+                        setIsProcessing(false);
+                    }
+                }
+            };
+
+            const rzp = new (window as any).Razorpay(options);
+            rzp.open();
+        } catch (err: any) {
+            console.error('Checkout initialization failed:', err);
+            alert(err.message || 'Failed to initialize checkout. Please try again.');
             setIsProcessing(false);
-            setEarnedBadge(badgeType);
-        }, 1500);
+        }
     };
 
     if (earnedBadge) {
@@ -77,11 +139,11 @@ function PaymentPage() {
                         </div>
                         <a href="/arcade" className="ml-auto mt-auto mr-4 cta-secondary h-12 md:h-14 rounded-full font-medium text-[14px]! md:text-[20px]!">Know more</a>
                         <button 
-                            onClick={() => handlePurchase('Arcade Insider - Explorer')}
+                            onClick={() => handlePurchase('Arcade', 'Arcade Insider - Explorer')}
                             disabled={isProcessing}
                             className={`mt-auto nav-cta-btn bg-grey-900! mt-16! px-[20px] py-[12px]! h-12  md:h-14 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]! flex items-center justify-center min-w-[140px] ${isProcessing ? 'opacity-70 cursor-wait' : ''}`}
                         >
-                            {isProcessing && type === 'arcade' ? 'Processing...' : 'Buy now'}
+                            {isProcessing ? 'Processing...' : 'Buy now'}
                         </button>
                     </div>
                 </div>
@@ -100,11 +162,11 @@ function PaymentPage() {
                                         <p className="text-xl line-through tracking-tight opacity-30">₹1500</p>
                                         <p className="text-3xl font-bold tracking-tight">₹1200</p>
                                         <button 
-                                            onClick={() => handlePurchase('WOW 2026 - Attendee')}
+                                            onClick={() => handlePurchase('Early Bird', 'WOW 2026 - Attendee')}
                                             disabled={isProcessing}
                                             className={`mt-auto nav-cta-btn bg-grey-900! mt-16! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px] flex items-center justify-center min-w-[120px] ${isProcessing ? 'opacity-70' : ''}`}
                                         >
-                                            {isProcessing && type === 'early' ? '...' : 'Buy now'}
+                                            {isProcessing ? '...' : 'Buy now'}
                                         </button>
                                     </div>
                                 </div>
@@ -130,10 +192,11 @@ function PaymentPage() {
                             <p className="text-xl line-through opacity-30">₹2500</p>
                             <p className="text-3xl font-bold">₹2000</p>
                             <button 
-                                onClick={() => handlePurchase('WOW 2026 - Attendee')}
-                                className="mt-auto nav-cta-btn bg-grey-900! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]"
+                                onClick={() => handlePurchase('Regular', 'WOW 2026 - Attendee')}
+                                disabled={isProcessing}
+                                className={`mt-auto nav-cta-btn bg-grey-900! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px] flex items-center justify-center min-w-[120px] ${isProcessing ? 'opacity-70' : ''}`}
                             >
-                                Buy now
+                                {isProcessing ? '...' : 'Buy now'}
                             </button>
                         </div>
                     </div>
@@ -203,12 +266,13 @@ function PaymentPage() {
 
                         <button
                             type="button"
+                            disabled={!terms || !arcadeAck || isProcessing}
                             onClick={() => {
                                 if (terms && arcadeAck) {
-                                    handlePurchase('Arcade Insider - Explorer');
+                                    handlePurchase('Arcade', 'Arcade Insider - Explorer');
                                 }
                             }}
-                            className={`py-3 px-10 bg-[#000000] text-white border-none rounded-full font-bold cursor-pointer transition-opacity duration-200 w-fit ${terms && arcadeAck ? ' hover:opacity-80' : 'opacity-50 cursor-not-allowed!'}`}
+                            className={`py-3 px-10 bg-[#000000] text-white border-none rounded-full font-bold cursor-pointer transition-opacity duration-200 w-fit ${terms && arcadeAck && !isProcessing ? ' hover:opacity-80' : 'opacity-50 cursor-not-allowed!'}`}
                         >
                             {isProcessing ? 'Processing...' : 'Buy Now'}
                         </button>

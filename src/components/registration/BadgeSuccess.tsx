@@ -2,96 +2,104 @@
 import React from 'react';
 
 interface BadgeSuccessProps {
-  onClose?: () => void;
   badgeName: string;
+  onClose?: () => void;
 }
 
-export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ onClose, badgeName }) => {
-  // Determine badge subtitle/visuals based on name
-  const isArcade = badgeName === 'Arcade Insider';
+const BadgeBanner = ({ isArcade }: { isArcade: boolean }) => (
+  <div className="relative w-full h-40 md:h-56 bg-[#F1F3F4] dark:bg-grey-900 overflow-hidden border-b border-grey-200 dark:border-grey-700 flex items-center px-8 md:px-14 transition-colors">
+    <div className="flex-1 z-10">
+      <h2 className="text-[1.875rem] md:text-[2.25rem] font-medium text-grey-900 dark:text-white tracking-tight leading-tight">
+        {isArcade ? 'Welcome to the Community' : 'Register for WOW'}
+      </h2>
+    </div>
+
+    {/* Decorative Background - Using pencil road SVGs */}
+    <div className="absolute bottom-0 -right-16 h-full w-[90%] md:w-[78%] pointer-events-none select-none">
+      <picture className="w-full h-full">
+        <source srcSet="/images/io24-pencil-road-centered-dark.svg" media="(prefers-color-scheme: dark)" />
+        <img
+          src="/images/io24-pencil-road-centered.svg"
+          alt=""
+          className="w-full h-full object-contain object-bottom-right"
+        />
+      </picture>
+    </div>
+  </div>
+);
+
+export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }) => {
+  const isArcade = badgeName === 'Arcade Insider - Explorer';
 
   return (
-    <div className="flex flex-col items-center text-center py-6 px-4 max-w-[500px] mx-auto animate-fade-in">
-      <h2 className="text-[1.5rem] md:text-[2rem] font-bold mb-2 text-grey-900 dark:text-white">You earned a badge!</h2>
-      <p className="text-[1rem] md:text-[1.125rem] text-grey-600 dark:text-grey-400 mb-8 font-medium">{badgeName}</p>
+    <div className="flex flex-col w-full animate-fade-in transition-colors bg-white dark:bg-grey-800">
+      <BadgeBanner isArcade={isArcade} />
 
-      <p className="text-[0.875rem] md:text-[1rem] text-grey-500 dark:text-grey-500 mb-8 leading-relaxed">
-        This badge was saved to your Google Developer Profile.
-      </p>
+      {/* Content Body */}
+      <div className="flex flex-col items-center text-center p-8 md:p-12">
+        <div className="mb-4">
+          <h2 className="text-[1.75rem] md:text-[2rem] font-medium text-grey-900 dark:text-white tracking-tight leading-[1.1] mb-1">
+            You earned a badge!
+          </h2>
+          <p className="text-[1.75rem] md:text-[2rem] font-medium text-grey-900 dark:text-white tracking-tight leading-[1.1]">
+            {badgeName}
+          </p>
+        </div>
 
-      {/* 3D Isometric Badge */}
-      <div className="[perspective:1000px] my-4 md:my-8 w-[240px] h-[240px] flex justify-center items-center">
-        <div
-          className="w-[200px] h-[200px] relative [transform-style:preserve-3d] [transform:rotateX(45deg)_rotateZ(-25deg)] transition-transform duration-500 hover:[transform:rotateX(40deg)_rotateZ(-20deg)_scale(1.05)]"
-        >
-          {/* Side/thickness */}
-          <div className="absolute w-full h-full bg-[#1A73E8] rounded-full border-4 border-[#1A73E8] [transform:translateZ(0px)]" />
+        <p className="text-[0.9375rem] text-grey-600 dark:text-grey-400 mb-10 max-w-[320px] leading-relaxed">
+          This badge was saved to your Google Developer Profile.
+        </p>
 
-          {/* Main face */}
-          <div
-            className="absolute w-full h-full rounded-full border-4 border-white dark:border-grey-900 flex flex-col justify-center items-center [transform:translateZ(20px)] shadow-[0_10px_30px_rgba(0,0,0,0.2)] overflow-hidden"
-            style={{
-              background: isArcade
-                ? 'linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%)' // Gold/Orange for Arcade
-                : 'linear-gradient(135deg, #4285F4 0%, #34A853 40%, #FBBC05 70%, #EA4335 100%)' // Google colors for Attendee
-            }}
-          >
-            {/* Wireframe overlay */}
-            <div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: 'radial-gradient(circle at center, transparent 65%, white 66%, transparent 67%), linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)',
-                backgroundSize: '100% 100%, 20px 20px, 20px 20px',
-              }}
-            />
-            <p className="text-white text-[3.5rem] font-extrabold leading-none m-0 z-[2] [text-shadow:0_4px_15px_rgba(0,0,0,0.4)]">
-              {isArcade ? 'ARC' : 'WOW'}
-            </p>
-            <p className="text-white text-lg font-bold mt-1 z-[2] [text-shadow:0_2px_8px_rgba(0,0,0,0.3)]">
-              {isArcade ? 'INSIDER' : '2026'}
-            </p>
+        {/* The Badge Container Card - Switched to static official badge image */}
+        <div className="w-full max-w-[440px] bg-white dark:bg-grey-800 border-2 border-grey-bg dark:border-grey-700 rounded-3xl p-8 pt-6 flex flex-col items-center justify-center mb-10 overflow-hidden">
+          <img
+            src="/images/io24-badge-registration.svg"
+            alt={badgeName}
+            className="w-[200px] md:w-[240px] h-max transition-transform duration-700 hover:scale-[1.05]"
+          />
+
+          <p className="mt-4 mb-10 text-[1.25rem] md:text-[1.5rem] font-medium text-grey-900 dark:text-white tracking-tight leading-none">
+            {badgeName}
+          </p>
+        </div>
+
+        {/* Share Section */}
+        <div className="flex flex-col items-center gap-8 w-full max-w-[400px]">
+          <div className="flex flex-col items-center">
+            <span className="text-[0.875rem] font-medium text-grey-600 dark:text-grey-400 mb-4 uppercase tracking-widest">Share your badge</span>
+            <div className="flex gap-4">
+              {[
+                { icon: '/images/facebook.svg', alt: 'f' },
+                { icon: '/images/twitter.svg', alt: 'x' },
+                { icon: '/images/linkedin.svg', alt: 'in' },
+                { icon: 'link', alt: '🔗' }
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="w-12 h-12 bg-grey-900 dark:bg-white rounded-lg flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
+                >
+                  {item.icon.includes('/') ? (
+                    <img src={item.icon} alt={item.alt} className="w-5 h-5 invert dark:invert-0" />
+                  ) : (
+                    <span className="text-white dark:text-grey-900 text-xl font-bold">{item.alt}</span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
+
+          <p className="text-[0.9375rem] text-grey-900 dark:text-white">
+            or go to your <span onClick={onClose} className="underline decoration-2 underline-offset-4 cursor-pointer font-bold hover:no-underline px-1">developer profile</span>
+          </p>
+
+          <button
+            onClick={onClose}
+            className="px-10 mt-4 py-3.5 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-bold text-[1rem] hover:bg-black dark:hover:bg-grey-100 transition-colors shadow-sm"
+          >
+            Done
+          </button>
         </div>
       </div>
-
-      <p className="text-[1.125rem] md:text-[1.25rem] font-bold my-6 text-grey-900 dark:text-white uppercase tracking-tight">
-        {badgeName}
-      </p>
-
-      <div className="text-[0.75rem] font-bold uppercase text-grey-500 tracking-[0.1em] mt-8 mb-4">Share your badge</div>
-      <div className="flex gap-4">
-        {['f', 't', 'in', '🔗'].map((icon, i) => (
-          <div
-            key={i}
-            className="w-10 h-10 border border-grey-300 dark:border-grey-700 rounded-full flex justify-center items-center cursor-pointer font-semibold bg-white dark:bg-grey-800 text-grey-900 dark:text-white transition-all duration-200 hover:bg-grey-100 dark:hover:bg-grey-700 hover:-translate-y-1 shadow-sm"
-          >
-            {icon}
-          </div>
-        ))}
-      </div>
-
-      {/* Done Button */}
-      <div className="mt-10 w-full flex flex-col items-center gap-4">
-        <button
-          className="px-12 py-3 bg-[#1a73e8] text-white rounded-full text-[1rem] font-semibold hover:bg-[#1557b0] transition-all transform active:scale-95 shadow-md"
-          onClick={onClose}
-        >
-          Check out my profile
-        </button>
-        <span onClick={onClose} className="text-[0.875rem] text-grey-600 dark:text-grey-400 cursor-pointer hover:underline">
-          Return to dashboard
-        </span>
-      </div>
-
-      <style jsx global>{`
-        .animate-fade-in {
-          animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 };

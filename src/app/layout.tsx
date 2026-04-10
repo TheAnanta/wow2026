@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Google_Sans, Google_Sans_Code } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const googleSans = Google_Sans({
@@ -63,6 +64,7 @@ export default function RootLayout({
     >
       <body>
         <AuthProvider>
+          <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
           {/* Banner */}
           <AnnouncementBanner props={{ announcement: "GDG WOW 2026 is happening this year, bigger, better and bolder • Tickets open • Register Now • Follow us on Instagram • @gdgwowap" }} />
 

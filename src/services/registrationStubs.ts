@@ -18,21 +18,21 @@ export interface RegistrationData extends RegistrationProfile {
 
 import { getBearerToken, auth } from './firebase';
 
-const API_BASE_URL = 'https://jqs21msv-54321.inc1.devtunnels.ms/functions/v1/nowingoogle-backend/api';
+const API_BASE_URL = 'http://localhost:8080/nowingoogle-backend/api';
 
 export const validateProfile = (data: Partial<RegistrationProfile>): { [key: string]: string } => {
   const errors: { [key: string]: string } = {};
   if (!data.displayName?.trim()) errors.displayName = 'Display name is required.';
   if (!data.pronoun?.trim()) errors.pronoun = 'Pronoun is required.';
   if (!data.cityTown?.trim()) errors.cityTown = 'City or town is required.';
-  
+
   // 10-digit Indian mobile number validation
   if (!data.phoneNumber?.trim()) {
     errors.phoneNumber = 'Phone number is required.';
   } else if (!/^\d{10}$/.test(data.phoneNumber)) {
     errors.phoneNumber = 'Please enter a valid 10-digit mobile number.';
   }
-  
+
   return errors;
 };
 
@@ -58,7 +58,7 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
       last_name: lastName,
       email: user.email || 'manasmalla.dev@gmail.com',
       phone: data.phoneNumber ? (data.phoneNumber.startsWith('+91') ? data.phoneNumber : `+91${data.phoneNumber}`) : '',
-      gender: 'MALE',
+      gender: data.pronoun.toUpperCase().replace(/\s+/g, '_').replace(/\//g, '_'),
       bio: 'Developer at I/O 2026', // Improved default
       designation: data.role || 'Developer',
       organization: data.organization || 'Google',
@@ -129,5 +129,82 @@ export const fetchCurrentUser = async () => {
   } catch (err) {
     console.error('Fetch Current User Cache Error:', err);
     return { isError: true };
+  }
+};
+
+/**
+ * Commerce APIs
+ */
+
+export const fetchTicketTiers = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/commerce/tiers`);
+    if (!response.ok) return [];
+    const result = await response.json();
+    return result.data || [];
+  } catch (err) {
+    console.error('Fetch Tiers Error:', err);
+    return [];
+  }
+};
+
+export const initiateCheckout = async (tierId: string) => {
+  const token = await getBearerToken();
+  if (!token) throw new Error('Unauthenticated');
+
+  const response = await fetch(`${API_BASE_URL}/commerce/checkout`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({ tier_id: tierId })
+  });
+
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.message || 'Checkout failed');
+  return result.data;
+};
+
+export const verifyPayment = async (paymentData: { 
+  razorpay_order_id: string; 
+  razorpay_payment_id: string; 
+  razorpay_signature: string; 
+}) => {
+  const token = await getBearerToken();
+  if (!token) throw new Error('Unauthenticated');
+
+  const response = await fetch(`${API_BASE_URL}/commerce/verify`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(paymentData)
+  });
+
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.message || 'Verification failed');
+  return result.data;
+};
+
+export const fetchMyTickets = async () => {
+  try {
+    const token = await getBearerToken();
+    if (!token) return [];
+
+    const response = await fetch(`${API_BASE_URL}/commerce/my-tickets`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    if (!response.ok) return [];
+    const result = await response.json();
+    return result.data || [];
+  } catch (err) {
+    console.error('Fetch My Tickets Error:', err);
+    return [];
   }
 };

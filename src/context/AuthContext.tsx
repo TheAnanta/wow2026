@@ -3,17 +3,19 @@
 
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { auth } from '../services/firebase';
-import { fetchCurrentUser } from '../services/registrationStubs';
+import { fetchCurrentUser, fetchMyTickets } from '../services/registrationStubs';
 import { User } from 'firebase/auth';
 
 interface AuthContextType {
   user: User | null;
   profile: any | null;
+  tickets: any[];
   isLoggedIn: boolean;
   isUnregistered: boolean;
   isLoading: boolean;
   error: any | null;
   refreshProfile: () => Promise<void>;
+  refreshTickets: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -21,9 +23,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<any | null>(null);
+  const [tickets, setTickets] = useState<any[]>([]);
   const [isUnregistered, setIsUnregistered] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<any | null>(null);
+
+  const fetchTickets = useCallback(async () => {
+    const userTickets = await fetchMyTickets();
+    setTickets(userTickets);
+  }, []);
 
   const fetchProfile = useCallback(async () => {
     try {
@@ -34,6 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } else if (result && !result.isError) {
         setIsUnregistered(false);
         setProfile(result);
+        await fetchTickets();
       } else {
         // Server error, keep it optimistic but not unregistered
         setIsUnregistered(false);
@@ -45,7 +54,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [fetchTickets]);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
@@ -76,12 +85,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       value={{ 
         user, 
         profile, 
+        tickets,
         isLoggedIn: !!user, 
         isUnregistered, 
         isLoading, 
         error, 
-        refreshProfile: fetchProfile 
-      }}
+        refreshProfile: fetchProfile,
+        refreshTickets: fetchTickets      }}
     >
       {children}
     </AuthContext.Provider>

@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { InterestTags } from './InterestTags';
 import { RegistrationData, validateProfile, submitRegistration } from '../../services/registrationStubs';
-import { auth, signInWithGoogle } from '../../services/firebase';
+import { useAuth } from '../../context/AuthContext';
+import { signInWithGoogle } from '../../services/firebase';
 import { ErrorOverlay } from './ErrorOverlays';
 import { useRouter } from 'next/navigation';
 
@@ -50,21 +51,26 @@ export const RegistrationForm: React.FC = () => {
     marketingConsent: false,
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [isFirebaseLoading, setIsFirebaseLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { user, profile, isLoggedIn, isLoading: isAuthLoading } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorType, setErrorType] = useState<'signin' | 'account' | 'general' | null>(null);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setIsAuthenticated(!!user);
-      setIsFirebaseLoading(false);
-      if (user && !data.displayName) {
-        setData(prev => ({ ...prev, displayName: user.displayName || '' }));
-      }
-    });
-    return () => unsubscribe();
-  }, []);
+    if (profile) {
+      setData(prev => ({
+        ...prev,
+        displayName: profile.first_name + (profile.last_name !== '.' ? ' ' + profile.last_name : ''),
+        pronoun: profile.gender?.toLowerCase().replace(/_/g, ' ').replace(/(he)\s(him)/, '$1/$2').replace(/(she)\s(her)/, '$1/$2').replace(/(they)\s(them)/, '$1/$2') || '',
+        phoneNumber: profile.phone?.replace('+91', '') || '',
+        cityTown: profile.city || '',
+        role: profile.designation || '',
+        organization: profile.organization || '',
+        interests: profile.interests || [],
+      }));
+    } else if (user && !data.displayName) {
+      setData(prev => ({ ...prev, displayName: user.displayName || '' }));
+    }
+  }, [profile, user]);
 
   const updateData = (updates: Partial<RegistrationData>) => {
     setData((prev) => ({ ...prev, ...updates }));
@@ -132,7 +138,7 @@ export const RegistrationForm: React.FC = () => {
   const inputBaseCls = 'w-full px-4 py-3.5 border border-grey-400 rounded-lg text-[1rem] focus:outline-none focus:border-google-blue focus:ring-1 focus:ring-google-blue transition-all bg-white placeholder:text-grey-600';
   const errorTextCls = 'text-[0.75rem] text-google-red mt-2 font-medium px-4';
 
-  if (isFirebaseLoading) {
+  if (isAuthLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px]">
         <div className="w-10 h-10 border-4 border-google-blue border-t-transparent rounded-full animate-spin"></div>
@@ -152,7 +158,7 @@ export const RegistrationForm: React.FC = () => {
     );
   }
 
-  if (!isAuthenticated) {
+  if (!isLoggedIn) {
     return (
       <div className="flex flex-col">
         <RegistrationBanner />
@@ -411,10 +417,10 @@ export const RegistrationForm: React.FC = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>Registering...</span>
+                    <span>{profile ? 'Updating...' : 'Registering...'}</span>
                   </>
                 ) : (
-                  <span>Register</span>
+                  <span>{profile ? 'Update profile' : 'Register'}</span>
                 )}
               </button>
               <button onClick={handlePreviousStep} className="px-8 py-2.5 bg-white border border-grey-400 text-grey-900 rounded-full font-medium hover:bg-grey-50 transition-all">

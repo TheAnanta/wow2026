@@ -1,5 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '../../context/AuthContext';
 
 interface HeroProps {
   onRegisterClick?: () => void;
@@ -7,6 +8,12 @@ interface HeroProps {
 
 export function Hero({ onRegisterClick }: HeroProps) {
   const router = useRouter();
+  const { profile, isLoggedIn, isUnregistered, tickets } = useAuth();
+  const isRegistered = isLoggedIn && !isUnregistered && !!profile;
+  const hasTicket = tickets && tickets.length > 0;
+
+  const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
+  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register');
   return (
     <div className="flex flex-col items-center bg-grey-bg dark:bg-grey">
       <div className="mb-6 mt-6 md:mb-10 md:mt-12">
@@ -25,8 +32,8 @@ export function Hero({ onRegisterClick }: HeroProps) {
             <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
               <span>Participate in hands-on workshops, tech talks, and hackathon. Take home some cool swags and cash prizes.</span>
             </h2>
-            <button type="button" className="cta-primary block" onClick={() => router.push('/register')}>
-              <span>Register</span>
+            <button type="button" className="cta-primary block" onClick={() => router.push(buttonLink)}>
+              <span>{buttonText}</span>
             </button>
           </div>
           <div className="hidden flex-col items-center">
