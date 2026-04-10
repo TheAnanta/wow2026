@@ -13,16 +13,26 @@ import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/navigation';
 import WhatToExpectSection from '@/components/sections/WhatToExpectSection';
 import EventMetricsSection from '@/components/sections/EventMetricsSection';
+import { useSearchParams } from 'next/navigation';
+import { Toast } from '@/components/ui/Toast';
 
-export default function Home() {
+function Home() {
   const { isUnregistered, isLoggedIn } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     if (isLoggedIn && isUnregistered) {
       router.push('/register');
     }
   }, [isLoggedIn, isUnregistered, router]);
+
+  useEffect(() => {
+    if (searchParams.get('message') === 'already_has_ticket') {
+      setShowToast(true);
+    }
+  }, [searchParams]);
 
   return (
     <div className="w-full min-h-screen bg-white text-grey-900 overflow-x-hidden">
@@ -89,6 +99,19 @@ export default function Home() {
         </div>
       </main>
 
+      <Toast
+        message="You're already registered!"
+        isVisible={showToast}
+        onClose={() => setShowToast(false)}
+      />
     </div>
+  );
+}
+
+export default function HomeWrapper() {
+  return (
+    <React.Suspense fallback={null}>
+      <Home />
+    </React.Suspense>
   );
 }

@@ -17,16 +17,21 @@ function PaymentPage() {
     const [earnedBadge, setEarnedBadge] = useState<string | null>(null);
     const router = useRouter();
 
-    const { user, profile } = useAuth();
+    const { user, profile, tickets } = useAuth();
     const [tiers, setTiers] = useState<any[]>([]);
 
     useEffect(() => {
+        // Redirect if user already has a ticket
+        if (!earnedBadge && profile && tickets && tickets.length > 0) {
+            router.push('/?message=already_has_ticket');
+        }
+
         const loadTiers = async () => {
             const data = await fetchTicketTiers();
             setTiers(data);
         };
         loadTiers();
-    }, []);
+    }, [profile, tickets, router, earnedBadge]);
 
     const handlePurchase = async (tierSearch: string, badgeName?: string) => {
         setIsProcessing(true);
@@ -36,7 +41,7 @@ function PaymentPage() {
             if (!tier) throw new Error('Ticket tier not found');
 
             const checkoutData = await initiateCheckout(tier.id);
-            
+
             const options = {
                 key: checkoutData.key_id,
                 amount: checkoutData.amount,
@@ -71,7 +76,7 @@ function PaymentPage() {
                     color: "#4285F4",
                 },
                 modal: {
-                    ondismiss: function() {
+                    ondismiss: function () {
                         setIsProcessing(false);
                     }
                 }
@@ -138,8 +143,8 @@ function PaymentPage() {
                             <p className="text-3xl font-bold tracking-tighter">₹350 <span className="text-xl font-medium opacity-60">(excl. of taxes)</span></p>
                         </div>
                         <a href="/arcade" className="ml-auto mt-auto mr-4 cta-secondary h-12 md:h-14 rounded-full font-medium text-[14px]! md:text-[20px]!">Know more</a>
-                        <button 
-                            onClick={() => handlePurchase('Arcade', 'Arcade Insider - Explorer')}
+                        <button
+                            onClick={() => router.push('/payment?type=arcade')}
                             disabled={isProcessing}
                             className={`mt-auto nav-cta-btn bg-grey-900! mt-16! px-[20px] py-[12px]! h-12  md:h-14 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px]! flex items-center justify-center min-w-[140px] ${isProcessing ? 'opacity-70 cursor-wait' : ''}`}
                         >
@@ -161,7 +166,7 @@ function PaymentPage() {
                                     <div className="flex flex-col items-end text-end ml-auto">
                                         <p className="text-xl line-through tracking-tight opacity-30">₹1500</p>
                                         <p className="text-3xl font-bold tracking-tight">₹1200</p>
-                                        <button 
+                                        <button
                                             onClick={() => handlePurchase('Early Bird', 'WOW 2026 - Attendee')}
                                             disabled={isProcessing}
                                             className={`mt-auto nav-cta-btn bg-grey-900! mt-16! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px] flex items-center justify-center min-w-[120px] ${isProcessing ? 'opacity-70' : ''}`}
@@ -191,7 +196,7 @@ function PaymentPage() {
                         <div className="flex flex-col items-end text-end ml-auto">
                             <p className="text-xl line-through opacity-30">₹2500</p>
                             <p className="text-3xl font-bold">₹2000</p>
-                            <button 
+                            <button
                                 onClick={() => handlePurchase('Regular', 'WOW 2026 - Attendee')}
                                 disabled={isProcessing}
                                 className={`mt-auto nav-cta-btn bg-grey-900! px-[20px] py-[12px]! h-12 rounded-full bg-google-blue text-white font-medium text-[14px] md:text-[20px] flex items-center justify-center min-w-[120px] ${isProcessing ? 'opacity-70' : ''}`}
