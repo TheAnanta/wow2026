@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-white text-grey-900">
+    <div className="w-full min-h-screen text-grey-900">
       <Header onRegisterClick={() => { }} />
       <main className="page-wrapper max-w-4xl mx-auto px-6 py-16 md:py-24">
         <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-8">Privacy Policy</h1>
@@ -120,7 +120,7 @@ export default function PrivacyPolicyPage() {
                 information.
               </li>
             </ul>
-            <p className="mt-6 p-4 bg-grey-bg rounded-xl border-l-4 border-google-blue">
+            <p className="mt-6 p-4 bg-grey-bg dark:bg-grey-bg/8! rounded-xl border-l-4 border-google-blue">
               To exercise these rights, please contact us at{" "}
               <a
                 href={`mailto:gdgwowap@gmail.com`}

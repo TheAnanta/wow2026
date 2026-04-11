@@ -11,7 +11,7 @@ interface SpeakerCardProps {
 
 export const SpeakerCard: React.FC<SpeakerCardProps> = ({ name, title, pronouns = 'He/Him', image, href }) => {
   return (
-    <a href={href} className="speaker-item flex md:flex-col items-start md:items-center w-full md:w-52 p-4 md:p-2 rounded-2xl border-2 border-grey-600 dark:border-grey-200 md:border-transparent m-auto h-full md:min-h-[270px] xs:p-4 sm:p-5 hover:border-grey-900 focus:border-grey-900 dark:hover:border-grey-200 md:dark:border-transparent dark:focus:border-grey-200 cursor-pointer">
+    <a href={href} className="speaker-item flex md:flex-col items-start md:items-center w-full md:w-52 p-4 md:p-2 rounded-2xl border-2 border-grey-600 dark:border-grey-bg! md:border-transparent m-auto h-full md:min-h-[270px] xs:p-4 sm:p-5 hover:border-grey-900 focus:border-grey-900 dark:hover:border-grey-bg! md:dark:border-transparent dark:focus:border-grey-bg! cursor-pointer">
       <div className="relative">
         {image ? (
           <img
@@ -31,7 +31,7 @@ export const SpeakerCard: React.FC<SpeakerCardProps> = ({ name, title, pronouns 
         )}
       </div>
 
-      <div className="md:mt-1 ml-[12px] md:ml-[unset] text-grey-900 dark:text-grey-200">
+      <div className="md:mt-1 ml-[12px] md:ml-[unset] text-grey-900 dark:text-grey-bg!">
         <p className="sm:l-cta2 font-medium text-left md:text-center">{name}</p>
         <p className="sm:l-tags font-normal text-left md:text-center mt-2 md:mt-1">{title}</p>
         <p className="sm:l-eyeline font-bold text-left md:text-center uppercase">{pronouns}</p>

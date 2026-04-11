@@ -435,7 +435,7 @@ export default function CommunityPage() {
           </div>
 
           {/* Section 3: Community Search */}
-          <div className="flex flex-col text-black text-center md:text-left dark:text-grey-200">
+          <div className="flex flex-col text-black text-center md:text-left dark:text-grey-bg">
             <span className="font-medium mb-4 text-md:mb-6 sm:s-h4 md:l-h2">
               Join a community group
             </span>

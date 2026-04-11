@@ -127,7 +127,7 @@ export default function AboutIO() {
                     <div className="w-full max-w-[1640px] mx-auto px-5 md:px-10 pt-4 md:pt-10 text-grey-900 dark:text-white flex flex-col">
                         {/* Get Engaged Section */}
                         <div className="flex flex-col mt-[8px] md:mt-[4px]">
-                            <h2 className="font-medium text-left text-grey-900 mb-6 sm:s-h4 md:l-h2 md:mb-12 dark:text-grey-200">
+                            <h2 className="font-medium text-left text-grey-900 mb-6 sm:s-h4 md:l-h2 md:mb-12 dark:text-grey-bg!">
                                 Get engaged
                             </h2>
                             <div className="grid md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:justify-items-center">
@@ -270,15 +270,15 @@ export default function AboutIO() {
                         <div className="flex-1 flex flex-col w-full max-w-xl mx-auto faq-sections">
                             {/* SECTION ONE - General Merged */}
                             <section id="section-one" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                                     <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                                         style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">General</h2>
                                     </div>
                                     <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">What is WOW 2026?</span>
@@ -290,7 +290,7 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">When is GDGWOW 2026?</span>
@@ -302,7 +302,7 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">How will GDGWOW 2026 work for attendees unable to attend in person?</span>
@@ -314,7 +314,7 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">How can I stay informed on the latest from GDGWOW 2026?</span>
@@ -327,7 +327,7 @@ export default function AboutIO() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Where can we know more about the schedule?</span>
@@ -337,7 +337,7 @@ export default function AboutIO() {
                                                 <p>The schedule can be found <a href="/agenda">here</a>.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Community Guidelines</span>
@@ -347,7 +347,7 @@ export default function AboutIO() {
                                                 <p>Our community guidelines can be found <a href="/coc" target="_blank">here</a>. Be nice to each other, and be respectful and constructive.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">The official GDGWOW 26 app</span>
@@ -358,7 +358,7 @@ export default function AboutIO() {
                                             </dd>
                                         </div>
 
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Medium of communication</span>
@@ -374,15 +374,15 @@ export default function AboutIO() {
 
                             {/* SECTION TWO - Hackathon WoW */}
                             <section id="section-two" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                                     <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                                         style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Hackathon</h2>
                                     </div>
                                     <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Overview</span>
@@ -393,7 +393,7 @@ export default function AboutIO() {
                                                 <p>The hackathon will take place on the 4th-5th July 2026, starting at 04:00 PM on the 4th and ending at 06:00 AM on the 5th.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Eligibility</span>
@@ -403,7 +403,7 @@ export default function AboutIO() {
                                                 <p>The hackathon is open to all registered attendees of GDGWOW 2026 Visakhapatnam. Participants can register as teams ranging from 3 to 5 members. Teams can be formed on the spot during the event. The team registration panel can be found <a href="#">here</a>. You can explore the community page of the GDGWOW 26 app to find teamates.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Domains</span>
@@ -422,7 +422,7 @@ export default function AboutIO() {
                                                 <p className="italic text-grey-600 dark:text-grey-400">Participants are encouraged to think outside the box and come up with innovative solutions that can make a difference in the world and impact the community around us in meaningful ways.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Prizes</span>
@@ -432,7 +432,7 @@ export default function AboutIO() {
                                                 <p>The top three teams will be awarded exciting cash prizes and exclusive swags. All participants will receive a certificate of participation.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Judging</span>
@@ -448,7 +448,7 @@ export default function AboutIO() {
                                                 </ul>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">AI Usage</span>
@@ -458,7 +458,7 @@ export default function AboutIO() {
                                                 <p>Participants are encouraged to use AI tools and technologies in their projects. However, the use of AI should be ethical and transparent, with proper attribution to any AI models or datasets used.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Late night stay</span>
@@ -475,15 +475,15 @@ export default function AboutIO() {
 
                             {/* SECTION THREE - Registration Merged */}
                             <section id="section-three" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                                     <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                                         style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Registration</h2>
                                     </div>
                                     <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">What does registration include?</span>
@@ -496,7 +496,7 @@ export default function AboutIO() {
                                             </dd>
                                         </div>
 
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Registration terms & conditions</span>
@@ -513,15 +513,15 @@ export default function AboutIO() {
 
                             {/* SECTION FIVE - Amenities & Details WoW Merged */}
                             <section id="section-five" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                                     <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                                         style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Amenities & Details</h2>
                                     </div>
                                     <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Internet Access</span>
@@ -531,7 +531,7 @@ export default function AboutIO() {
                                                 <p>High-speed Wi-Fi will be provided by GITAM University throughout the event.<br /><br />WIFI: <span className="font-bold">GITAM_5GHz</span><br />Password: <b>Gitam$$123</b></p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Onsite food & beverages</span>
@@ -541,7 +541,7 @@ export default function AboutIO() {
                                                 <p>Breakfast, lunch, and dinner are complimentary for attendees.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Accommodation</span>
@@ -554,7 +554,7 @@ export default function AboutIO() {
                                                 <p>If you wish to extend your stay, you can manage your stay through the <b>official GDGDWOW 2026 Visakhapatnam app</b>, which will be available for download soon.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Washroom</span>
@@ -564,7 +564,7 @@ export default function AboutIO() {
                                                 <p>Washrooms can be found on either side (<b>East and West</b>) of the <b>ICT building</b>, located <b>behind the elevator lobbies</b>.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Drinking Fountain</span>
@@ -574,7 +574,7 @@ export default function AboutIO() {
                                                 <p>Drinking fountain/bottle filling stations can be found <b>next to all washroom entrances</b>.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Event Attire</span>
@@ -584,7 +584,7 @@ export default function AboutIO() {
                                                 <p>GDGWOW Visakhapatnam is a developer event, so please be <b>comfortable and casual</b>. There is no enforced dress code.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Smoking</span>
@@ -594,7 +594,7 @@ export default function AboutIO() {
                                                 <p>Smoking is <b>strictly prohibited</b> at the venue.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">No Soliciting</span>

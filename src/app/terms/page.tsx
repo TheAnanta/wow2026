@@ -149,15 +149,15 @@ export default function TermsPage() {
 
               {/* Section 1 — Introduction */}
               <section id="terms-intro" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Introduction</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Binding Agreement</span>
@@ -173,7 +173,7 @@ export default function TermsPage() {
                       </dd>
                     </div>
 
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Registration Terms</span>
@@ -199,7 +199,7 @@ export default function TermsPage() {
 
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Event conduct</span>
@@ -212,7 +212,7 @@ export default function TermsPage() {
                       </dd>
                     </div>
 
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Photography and Media</span>
@@ -223,7 +223,7 @@ export default function TermsPage() {
                         <p>You agree that GDGWOW AP may use such photographs and/or video for any purpose without compensation to you.</p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Liability and Safety</span>
@@ -240,15 +240,15 @@ export default function TermsPage() {
 
               {/* Section 2 — Pass Types */}
               <section id="terms-passes" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Pass Types &amp; Access Rights</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Arcade Pass — ₹350 (The Community's Pass)</span>
@@ -269,7 +269,7 @@ export default function TermsPage() {
                         </p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Event Passes (Early Bird, Regular, Late Bird)</span>
@@ -290,15 +290,15 @@ export default function TermsPage() {
 
               {/* Section 3 — Hackathon */}
               <section id="terms-hackathon" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">The 14-Hour Hackathon</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Timeline &amp; Eligibility</span>
@@ -313,7 +313,7 @@ export default function TermsPage() {
                         </p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Requirements</span>
@@ -323,7 +323,7 @@ export default function TermsPage() {
                         <p>All participants must bring their own laptops, chargers, and any necessary hardware. These will not be provided at the venue.</p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Overnight Stay</span>
@@ -340,15 +340,15 @@ export default function TermsPage() {
 
               {/* Section 4 — Accommodation */}
               <section id="terms-accommodation" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(270.11deg, #5382EB 1.91%, #5382EB 25.69%, #9F6CD4 51.37%, #EA4335 79.9%, #EA4335 97.02%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Accommodation &amp; Amenities</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Food &amp; Internet</span>
@@ -359,7 +359,7 @@ export default function TermsPage() {
                         <p><strong>High-speed Wi-Fi</strong> will be provided by GITAM University throughout the event.</p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Hostel Stay</span>
@@ -377,15 +377,15 @@ export default function TermsPage() {
 
               {/* Section 5 — Refund Policy */}
               <section id="terms-refund" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Refund &amp; Transfer Policy</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Non-Transferable</span>
@@ -395,7 +395,7 @@ export default function TermsPage() {
                         <p>Tickets are tied to the individual's identity and <strong>cannot be sold, bartered, or transferred</strong> to another person under any circumstance.</p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Non-Refundable</span>
@@ -405,7 +405,7 @@ export default function TermsPage() {
                         <p>All pass purchases (Arcade and Event) are <strong>final</strong>. No refunds will be issued for no-shows or changes in plans.</p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Information Accuracy</span>
@@ -421,15 +421,15 @@ export default function TermsPage() {
 
               {/* Section 6 — Conduct & Media */}
               <section id="terms-conduct" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Conduct &amp; Media</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Zero Tolerance</span>
@@ -439,7 +439,7 @@ export default function TermsPage() {
                         <p>Attendees must follow the <a href="https://developers.google.com/community-guidelines" target="_blank" rel="noopener noreferrer">Community Guidelines and Anti-Harassment Policy</a>. Smoking and soliciting are <strong>strictly prohibited</strong> at the venue.</p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Photography &amp; Media Consent</span>
@@ -450,7 +450,7 @@ export default function TermsPage() {
                         <p>By attending, you waive rights to compensation for your likeness being used in such materials.</p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Liability</span>
@@ -467,15 +467,15 @@ export default function TermsPage() {
 
               {/* Section 7 — Usage Policy */}
               <section id="terms-usage" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Usage Policy</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">User Responsibilities</span>
@@ -496,15 +496,15 @@ export default function TermsPage() {
 
               {/* Section 8 — Intellectual Property */}
               <section id="terms-intellectual-property" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Intellectual Property</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Ownership</span>
@@ -520,15 +520,15 @@ export default function TermsPage() {
 
               {/* Section 9 — Legal Terms */}
               <section id="terms-legal" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Legal Terms</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Force Majeure</span>
@@ -538,7 +538,7 @@ export default function TermsPage() {
                         <p>We are not liable for delays or failures caused by events beyond our control including natural disasters, pandemics, or internet outages.</p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Governing Law & Jurisdiction</span>
@@ -564,15 +564,15 @@ export default function TermsPage() {
 
               {/* Section 10 — Contact & Ownership */}
               <section id="terms-contact" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(270.11deg, #5382EB 1.91%, #5382EB 25.69%, #9F6CD4 51.37%, #EA4335 79.9%, #EA4335 97.02%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Contact &amp; Ownership</h2>
                   </div>
                   <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Contact Us</span>
@@ -584,7 +584,7 @@ export default function TermsPage() {
                         <p className="mb-2"><strong>Website:</strong> <a href="https://wow.vizag.dev" className="text-blue-link underline">https://wow.vizag.dev</a></p>
                       </dd>
                     </div>
-                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                    <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
                           <span className="font-medium sm:s-h5 md:l-h5">Maintenance &amp; Ownership</span>

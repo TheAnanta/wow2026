@@ -57,8 +57,8 @@ export default function SpeakersPage() {
       <main id="content" className="dark:bg-grey-900! flex-1">
         {/* Speakers Hero */}
         <section id="speakers-hero">
-          <div className="w-full flex flex-col md:flex-row md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b md:border-b-2 border-grey dark:border-grey-bg">
-            <div className="flex flex-col md:text-left md:justify-center px-4 py-8 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
+          <div className="w-full flex flex-col md:flex-row md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b md:border-b-2 border-grey dark:border-grey-bg!">
+            <div className="flex flex-col md:text-left md:justify-center px-4 py-8 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white! z-10">
               <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40">
                 Meet the speakers
               </h1>

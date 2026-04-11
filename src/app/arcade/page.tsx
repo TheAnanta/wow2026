@@ -118,7 +118,7 @@ export default function ArcadePage() {
 
                 <main id="content" className="dark:bg-grey-900! flex-1">
                     {/* Hero Banner */}
-                    <div className="w-full flex flex-col md:flex-row text-md:h-[407px] md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
+                    <div className="w-full flex flex-col md:flex-row text-md:h-[407px] md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg!">
                         <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
                             <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40 md:-mr-40 tracking-tight!">
                                 WOW Arcade
@@ -171,11 +171,11 @@ export default function ArcadePage() {
                         </div>
                     </div>
 
-                    <div className="w-full max-w-[1640px] mx-auto px-5 md:px-10 pt-4 md:pt-10 text-grey-900 dark:text-white flex flex-col">
+                    <div className="w-full max-w-[1640px] mx-auto px-5 md:px-10 pt-4 md:pt-10 text-grey-900 dark:text-white! flex flex-col">
 
                         {/* Intro Section */}
                         <div className="flex flex-col mt-[8px] md:mt-[4px]">
-                            <h2 className="tracking-tight! font-medium text-left text-grey-900 mb-6 sm:s-h4 md:l-h2 md:mb-12 dark:text-grey-200">
+                            <h2 className="tracking-tight! font-medium text-left text-grey-900 mb-6 sm:s-h4 md:l-h2 md:mb-12 dark:text-gray-200!">
                                 Level up completely
                             </h2>
                             <div className="grid md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:justify-items-center">
@@ -258,7 +258,7 @@ export default function ArcadePage() {
                         {/* Tier Comparison Section - Google One Style */}
                         <div className="flex flex-col mb-16 overflow-x-auto pb-4">
                             <div className="flex flex-col mb-8 mt-12">
-                                <h2 className="font-medium text-left text-grey-900 sm:s-h4 md:l-h2 dark:text-grey-200 tracking-tight! mb-4">
+                                <h2 className="font-medium text-left text-grey-900 dark:text-grey-bg! sm:s-h4 md:l-h2 dark:text-grey-200 tracking-tight! mb-4">
                                     The more you play,<br />the more you save.
                                 </h2>
                                 <p className="text-grey-600 dark:text-grey-400 max-w-2xl">Compare your target arcade rank with standard ticket prices.<br />Getting an arcade pass (₹350) is your first step to a better WOW experience.</p>
@@ -323,7 +323,7 @@ export default function ArcadePage() {
                                                         <span className="text-sm font-bold text-grey-500 uppercase">Rank Needed:</span>
                                                         <span className="text-xl font-black text-grey-900 dark:text-white">0 - 10</span>
                                                     </div>
-                                                    <Link href="/payment?type=arcade" className="nav-cta-btn bg-grey-900! px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform" onClick={() => analyticsService.trackCTA('Claim Platinum', 'ArcadePage')}>
+                                                    <Link href="/payment?type=arcade" className="nav-cta-btn bg-grey-900! dark:bg-grey-bg! dark:text-grey-900! px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform" onClick={() => analyticsService.trackCTA('Claim Platinum', 'ArcadePage')}>
                                                         Claim Now
                                                     </Link>
                                                 </div>
@@ -394,7 +394,7 @@ export default function ArcadePage() {
 
                             {/* Standard Pricing Reference - Condensed */}
                             <div className="mt-16 max-w-4xl mx-auto w-full">
-                                <div className="bg-grey-bg dark:bg-white/5 border-2 border-dashed border-grey/30 dark:border-white/20 rounded-2xl p-8 md:p-10">
+                                <div className="bg-grey-bg dark:bg-white/5! border-2 border-dashed border-grey/30 dark:border-white/20 rounded-2xl p-8 md:p-10">
                                     <div className="flex flex-col md:flex-row items-center gap-10">
                                         <div className="flex-1 text-center md:text-left">
                                             <h4 className="text-grey-500 uppercase font-black tracking-widest text-[10px] mb-2">Baseline Comparison</h4>
@@ -481,15 +481,15 @@ export default function ArcadePage() {
                         <div className="flex-1 flex flex-col w-full max-w-xl mx-auto faq-sections">
 
                             <section id="section-overview" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg! overflow-hidden">
                                     <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg!"
                                         style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Overview</h2>
                                     </div>
                                     <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">What is the WOW Arcade?</span>
@@ -501,7 +501,7 @@ export default function ArcadePage() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">How does the Arcade work?</span>
@@ -513,7 +513,7 @@ export default function ArcadePage() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Advantages of purchasing an Arcade Pass</span>
@@ -531,15 +531,15 @@ export default function ArcadePage() {
 
                             {/* SECTION TWO - Tiers & Progression */}
                             <section id="section-tiers" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg! overflow-hidden">
                                     <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg!"
                                         style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Tiers & Progression</h2>
                                     </div>
                                     <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">What are the different Tiers in the Arcade?</span>
@@ -556,7 +556,7 @@ export default function ArcadePage() {
                                                 </ul>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">How does the leaderboard change? (Promotion/Demotion)</span>
@@ -574,15 +574,15 @@ export default function ArcadePage() {
 
                             {/* SECTION THREE - Games & Schedule */}
                             <section id="section-games" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg! overflow-hidden">
                                     <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg!"
                                         style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Games & Schedule</h2>
                                     </div>
                                     <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Arcade Games Routine</span>
@@ -594,7 +594,7 @@ export default function ArcadePage() {
                                                 </p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Workshops Schedule</span>
@@ -612,15 +612,15 @@ export default function ArcadePage() {
 
                             {/* SECTION FOUR - Swags & Discounts */}
                             <section id="section-swag" className="pb-10">
-                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg! overflow-hidden">
                                     <div
-                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                                        className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg!"
                                         style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                                     >
                                         <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Swags & Discounts</h2>
                                     </div>
                                     <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">Swags & Benefits</span>
@@ -633,7 +633,7 @@ export default function ArcadePage() {
                                                 <p>Even if you don't reach the Bronze tier, all active arcade participants will receive <b>exclusive WOW swags</b> as a token of appreciation for being part of the journey.</p>
                                             </dd>
                                         </div>
-                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-200 text-grey-900 dark:text-white">
+                                        <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
                                                     <span className="font-medium sm:s-h5 md:l-h5">WOW 2026 Ticket Discounts</span>
