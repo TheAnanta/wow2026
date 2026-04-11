@@ -42,9 +42,9 @@ function PaymentPage() {
         }
 
         // // Redirect if user already has a ticket, BUT NOT if they just earned one here
-        // if (!earnedBadge && !wasBadgeShown && profile && tickets && tickets.length > 0) {
-        //     router.push('/?message=already_has_ticket');
-        // }
+        if (!earnedBadge && !wasBadgeShown && profile && tickets && tickets.length > 0) {
+            router.push('/?message=already_has_ticket');
+        }
 
         const loadTiers = async () => {
             const data = await fetchTicketTiers();

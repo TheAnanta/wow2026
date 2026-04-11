@@ -4,7 +4,7 @@ export default function WhatToExpectSection() {
             What to expect at WOW
         </span>
         <div className="cta-link-btn !text-[16px] text-md:!text-[20px] mt-3 md:mt-0 pl-0 inline-block">
-            <p><a href="https://io.google/2024/learn/">View all learning material</a></p>
+            <p><a href="/explore">View all learning material</a></p>
         </div>
     </div>
         <div className="grid md:grid-cols-3 gap-4 md:justify-between md:gap-[32px] md:h-[240px]">

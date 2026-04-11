@@ -69,7 +69,7 @@ export function StackCardsSection() {
     <div className="page-wrapper flex flex-col pt-0! pb-0!">
       <div className="flex flex-col mt-8 md:mt-10 mb-4 md:mb-0">
         <span className="sm:s-h4 md:l-h3">What are you building for?</span>
-        <div className="grid grid-cols-1 md:grid-cols-stack-cards-2 ml:grid-cols-stack-cards-4 md:justify-around ml:justify-between gap-y-8 md:gap-3 mt-4 md:mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 ml:grid-cols-4 md:justify-around ml:justify-between gap-y-8 md:gap-3 mt-4 md:mt-10">
           {STACK_CARDS.map((card) => (
             <a
               key={card.label}
