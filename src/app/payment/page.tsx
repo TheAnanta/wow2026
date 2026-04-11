@@ -327,6 +327,18 @@ function PaymentPage() {
                     </div>
                 </div></div>
             }
+
+            {isProcessing && (
+                <div className="fixed inset-0 z-100 bg-white/80 dark:bg-grey-900/80 backdrop-blur-sm flex flex-col items-center justify-center animate-fade-in">
+                    <div className="flex flex-col items-center text-center p-8">
+                        <div className="w-16 h-16 border-4 border-google-blue border-t-transparent rounded-full animate-spin mb-6"></div>
+                        <h2 className="text-3xl font-bold tracking-tight mb-2">Verifying Payment</h2>
+                        <p className="text-grey-600 dark:text-grey-400 max-w-[320px]">
+                            Hang tight! We're confirming your transaction with the bank. Please don't refresh the page.
+                        </p>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
