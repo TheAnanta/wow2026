@@ -152,10 +152,10 @@ function PaymentPage() {
 
     if (earnedBadge) {
         return (
-            <div className="w-full min-h-screen bg-[#f8f9fa] dark:bg-grey-900 text-grey-900 dark:text-white flex flex-col transition-colors duration-300">
+            <div className="w-full min-h-screen bg-[#f8f9fa] dark:bg-grey-900! text-grey-900 dark:text-white flex flex-col transition-colors duration-300">
                 <Header onRegisterClick={() => { }} />
                 <main className="flex-1 flex flex-col items-center py-0 md:py-16 px-0 md:px-6">
-                    <div className="w-full md:max-w-[800px] bg-white dark:bg-grey-800 md:rounded-2xl border-b md:border border-grey-200 dark:border-grey-700 md:shadow-sm overflow-hidden animate-slide-up">
+                    <div className="w-full md:max-w-[800px] bg-white dark:bg-grey-800! md:rounded-2xl border-b md:border border-grey-200 dark:border-grey-700 md:shadow-sm overflow-hidden animate-slide-up">
                         <BadgeSuccess
                             badgeName={earnedBadge}
                             onClose={() => {
@@ -233,7 +233,7 @@ function PaymentPage() {
                 <div className="pt-4 md:pt-[unset] shrink-0 flex-2 flex flex-col gap-4 md:pl-12 md:border-l-2 md:border-grey-bg">
                     <div className="relative h-[260px] md:h-[240px] mb-9">
                         {/* Front card */}
-                        <div className="absolute bg-white dark:bg-grey w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
+                        <div className="absolute bg-white dark:bg-grey! w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
                             <div className="flex flex-col items-center justify-center gap-y-1 h-full">
                                 <div className="flex flex-row justify-center gap-2 w-full px-6">
                                     <div>
@@ -368,7 +368,7 @@ function PaymentPage() {
             }
 
             {isProcessing && (
-                <div className="fixed inset-0 z-100 bg-white/80 dark:bg-grey-900/80 backdrop-blur-sm flex flex-col items-center justify-center animate-fade-in">
+                <div className="fixed inset-0 z-100 bg-white/80 dark:bg-grey-900/80! backdrop-blur-sm flex flex-col items-center justify-center animate-fade-in">
                     <div className="flex flex-col items-center text-center p-8">
                         <div className="w-16 h-16 border-4 border-google-blue border-t-transparent rounded-full animate-spin mb-6"></div>
                         <h2 className="text-3xl font-bold tracking-tight mb-2">Verifying Payment</h2>

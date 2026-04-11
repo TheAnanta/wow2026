@@ -4,7 +4,7 @@ import React from 'react';
 export const ExploreHero: React.FC = () => {
   const dataLayer = (globalThis as any).dataLayer || { push: () => { } };
   return (
-    <div className="w-full flex flex-col md:flex-row text-md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
+    <div className="w-full flex flex-col md:flex-row text-md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
       <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10 md:w-[53%] lg:w-[40%]">
         <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40">
           Plan your WOW

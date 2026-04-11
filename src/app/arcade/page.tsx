@@ -109,16 +109,16 @@ export default function ArcadePage() {
                 />
             </Head>
 
-            <div className="dark:bg-grey-900 min-h-screen flex flex-col font-sans text-[#202124] dark:text-white bg-white">
+            <div className="dark:bg-grey-900! min-h-screen flex flex-col font-sans text-[#202124] dark:text-white bg-white">
                 <div id="page-title" className="absolute top-[-40px]">
                     Arcade - WOW 2026
                 </div>
 
                 <Header onRegisterClick={() => { }} />
 
-                <main id="content" className="dark:bg-grey-900 flex-1">
+                <main id="content" className="dark:bg-grey-900! flex-1">
                     {/* Hero Banner */}
-                    <div className="w-full flex flex-col md:flex-row text-md:h-[407px] md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
+                    <div className="w-full flex flex-col md:flex-row text-md:h-[407px] md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
                         <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
                             <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40 md:-mr-40 tracking-tight!">
                                 WOW Arcade
@@ -269,8 +269,8 @@ export default function ArcadePage() {
                                 {TIERS.filter(t => t.name === "Platinum").map((tier) => (
                                     <div key={tier.name} className="relative h-auto min-h-[320px] mb-4">
                                         {/* Front card */}
-                                        <div className="relative bg-white dark:bg-grey w-full h-full rounded-2xl border-2 border-grey dark:border-white z-10 overflow-hidden flex flex-col md:flex-row">
-                                            <div className="p-8 md:p-10 flex flex-col items-center justify-center text-center md:w-1/3 bg-grey-bg dark:bg-grey-900 border-b-2 md:border-b-0 md:border-r-2 border-grey dark:border-white">
+                                        <div className="relative bg-white dark:bg-grey! w-full h-full rounded-2xl border-2 border-grey dark:border-white z-10 overflow-hidden flex flex-col md:flex-row">
+                                            <div className="p-8 md:p-10 flex flex-col items-center justify-center text-center md:w-1/3 bg-grey-bg dark:bg-grey-900! border-b-2 md:border-b-0 md:border-r-2 border-grey dark:border-white">
                                                 <div className="w-44 h-44 mb-6 relative flex items-center justify-center">
                                                     <img src={tier.image} alt={tier.name} className="w-full h-full object-contain" />
                                                 </div>
@@ -342,7 +342,7 @@ export default function ArcadePage() {
                                 ))}
 
                                 {/* Other Tiers Seamless Strip */}
-                                <div className="border-2 border-grey-bg dark:border-white rounded-2xl overflow-hidden bg-white dark:bg-grey-900">
+                                <div className="border-2 border-grey-bg dark:border-white rounded-2xl overflow-hidden bg-white dark:bg-grey-900!">
                                     <div className="flex flex-col md:flex-row divide-y-2 md:divide-y-0 md:divide-x-2 divide-grey-bg dark:divide-white">
                                         {TIERS.filter(t => t.name !== "Platinum").reverse().map((tier) => (
                                             <div

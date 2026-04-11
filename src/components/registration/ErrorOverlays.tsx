@@ -35,9 +35,9 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain, er
   const activeContent = content[type];
 
   return (
-    <div className="flex flex-col bg-white dark:bg-grey-900 overflow-hidden animate-fade-in w-full h-full md:h-auto md:flex-none">
+    <div className="flex flex-col bg-white dark:bg-grey-900! overflow-hidden animate-fade-in w-full h-full md:h-auto md:flex-none">
       {/* Dynamic Header with assets */}
-      <div className="relative h-48 md:h-56 bg-[#F1F3F4] dark:bg-grey-800 flex flex-col items-center justify-center overflow-hidden px-8 border-b border-grey-200 dark:border-grey-700">
+      <div className="relative h-48 md:h-56 bg-[#F1F3F4] dark:bg-grey-800! flex flex-col items-center justify-center overflow-hidden px-8 border-b border-grey-200 dark:border-grey-700">
         {/* Decorative Assets - Desktop */}
         <picture className="absolute left-0 top-0 h-full select-none pointer-events-none hidden md:block">
           <source srcSet="/images/io24-loc-modal-header-left.webp" type="image/webp" />
@@ -87,7 +87,7 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({ type, onTryAgain, er
 
         <button
           onClick={onTryAgain}
-          className="px-8 py-3 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-medium hover:bg-black dark:hover:bg-grey-100 transition-all text-[0.9375rem] min-w-[124px]"
+          className="px-8 py-3 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-medium hover:bg-black dark:hover:bg-grey-100! transition-all text-[0.9375rem] min-w-[124px]"
         >
           {activeContent.button}
         </button>

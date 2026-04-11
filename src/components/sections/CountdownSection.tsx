@@ -38,7 +38,7 @@ function CountdownCard({ value, label, gradient }: CountdownCardProps) {
   return (
     <div className="relative h-[90px] md:h-[184px]">
       {/* Front card */}
-      <div className="absolute bg-grey-bg dark:bg-grey w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
+      <div className="absolute bg-grey-bg dark:bg-grey! w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
         <div className="flex flex-col items-center justify-center gap-y-1 h-full">
           <div className="flex flex-row justify-center gap-2 h-[50%] md:h-[90px]">
             {digits.map((digit, i) => (

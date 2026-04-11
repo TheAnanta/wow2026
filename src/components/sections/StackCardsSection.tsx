@@ -80,7 +80,7 @@ export function StackCardsSection() {
               data-analytics-event-data={`{"cardName": "${card.analyticsEvent}"}`}
             >
               <div style={{ background: card.gradient }} className="absolute w-full h-full top-[11px] rounded-[20px] border-[1.2px] border-grey dark:border-grey-bg md:border-0 md:hidden" />
-              <div className="absolute md:relative w-full h-full flex flex-row md:flex-col p-4 md:p-3 bg-white dark:bg-grey rounded-[20px] border-[1.2px] border-grey dark:border-grey-bg md:border-0">
+              <div className="absolute md:relative w-full h-full flex flex-row md:flex-col p-4 md:p-3 bg-white dark:bg-grey! rounded-[20px] border-[1.2px] border-grey dark:border-grey-bg md:border-0">
                 <img className="hidden md:inline-block w-full group-hover:hidden dark:hidden dark:group-hover:hidden dark:md:group-hover:block" src={card.lightImg} role="img" aria-hidden="true" width={card.imgWidth} height={card.imgHeight} />
                 <img className="hidden dark:md:inline-block w-full group-hover:md:block dark:hidden dark:group-hover:hidden" src={card.darkImg} role="img" aria-hidden="true" width={card.imgWidth} height={card.imgHeight} />
                 <div className="flex-1 flex flex-col md:mt-6">

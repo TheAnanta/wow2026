@@ -33,7 +33,7 @@ function BadgeGrid({ badges }: { badges: any[] }) {
 
   return (
     <div className="w-full">
-      <div className="p-6 bg-white dark:bg-grey rounded-2xl border-2 border-grey-bg dark:border-grey-bg/20">
+      <div className="p-6 bg-white dark:bg-grey! rounded-2xl border-2 border-grey-bg dark:border-grey-bg/20">
         <h2 className="text-2xl font-medium mb-8 tracking-tight">Badges earned</h2>
         {badges.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
@@ -69,7 +69,7 @@ function BadgeGrid({ badges }: { badges: any[] }) {
 
       {selectedBadge && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 animate-fade-in">
-          <div className="bg-white dark:bg-grey w-full max-w-2xl rounded-2xl border-2 border-grey-900 overflow-hidden shadow-2xl">
+          <div className="bg-white dark:bg-grey! w-full max-w-2xl rounded-2xl border-2 border-grey-900 overflow-hidden shadow-2xl">
             <div className="flex flex-col md:flex-row p-8 gap-8">
               <div className="w-full md:w-1/3 flex justify-center items-start">
                 <img
@@ -98,7 +98,7 @@ function BadgeGrid({ badges }: { badges: any[] }) {
                 </div>
               </div>
             </div>
-            <div className="bg-grey-bg dark:bg-grey-900/50 p-4 flex justify-end">
+            <div className="bg-grey-bg dark:bg-grey-900/50! p-4 flex justify-end">
               <button
                 onClick={() => setSelectedBadge(null)}
                 className="cta-secondary text-sm! py-2! px-6!"
@@ -137,9 +137,9 @@ function ProfileCard({
         </div>
       </div>
 
-      <div className="w-full bg-white dark:bg-grey border-2 border-grey-900 rounded-[32px] p-8 pt-24 shadow-sm relative">
+      <div className="w-full bg-white dark:bg-grey! border-2 border-grey-900 rounded-[32px] p-8 pt-24 shadow-sm relative">
         <div
-          className="absolute top-[-2px] left-1/2 -translate-x-1/2 w-48 h-24 bg-white dark:bg-grey border-x-2 border-b-2 border-grey-900 z-0 rounded-b-full"
+          className="absolute top-[-2px] left-1/2 -translate-x-1/2 w-48 h-24 bg-white dark:bg-grey! border-x-2 border-b-2 border-grey-900 z-0 rounded-b-full"
           style={{ clipPath: 'inset(0 -10px -10px -10px)' }}
         />
 
@@ -346,7 +346,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-grey-900 transition-colors">
+    <div className="min-h-screen bg-white dark:bg-grey-900! transition-colors">
       <Header onRegisterClick={() => { }} />
 
       <main className="max-w-7xl mx-auto px-6 py-12">
@@ -376,7 +376,7 @@ export default function ProfilePage() {
               {tickets.length > 0 ? (
                 <div className="grid gap-4">
                   {tickets.map((t: any, i: number) => (
-                    <div key={i} className="bg-white dark:bg-grey p-6 rounded-2xl border-2 border-grey-900 flex justify-between items-center group">
+                    <div key={i} className="bg-white dark:bg-grey! p-6 rounded-2xl border-2 border-grey-900 flex justify-between items-center group">
                       <div>
                         <h4 className="font-bold text-lg tracking-tight">{t.tier?.name || t.name || "Attendee Pass"}</h4>
                         <p className="text-xs text-grey-500 uppercase font-black tracking-widest mt-1">Order #{t.gateway_order_id?.slice(-8) || "N/A"}</p>

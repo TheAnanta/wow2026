@@ -41,7 +41,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
 
     if (loading) {
         return (
-            <div className="w-full min-h-screen bg-white dark:bg-grey-900 flex items-center justify-center">
+            <div className="w-full min-h-screen bg-white dark:bg-grey-900! flex items-center justify-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-grey-900 dark:border-white"></div>
             </div>
         );
@@ -52,14 +52,14 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
     }
 
     return (
-        <div className="w-full min-h-screen bg-white dark:bg-grey-900 overflow-x-hidden text-grey-900 dark:text-white">
+        <div className="w-full min-h-screen bg-white dark:bg-grey-900! overflow-x-hidden text-grey-900 dark:text-white">
             <Header onRegisterClick={() => { }} />
 
-            <main id="content" className="dark:bg-grey-900 flex-1">
+            <main id="content" className="dark:bg-grey-900! flex-1">
 
                 {/* Hero Section Container (Matched to Keynote Header Style) */}
                 <div className="xl:max-w-[1640px] xl:mx-auto xl:px-10 xl:pt-10">
-                    <div className="relative flex flex-col border-b-[1.2px] xl:border-2 xl:rounded-2xl overflow-hidden bg-grey-bg dark:bg-grey border-grey-900 dark:border-white xl:min-h-[407px] md:flex-row">
+                    <div className="relative flex flex-col border-b-[1.2px] xl:border-2 xl:rounded-2xl overflow-hidden bg-grey-bg dark:bg-grey! border-grey-900 dark:border-white xl:min-h-[407px] md:flex-row">
 
                         <div className="flex flex-col p-6 ml:p-10 md:w-1/2">
                             <h1 className="font-medium text-grey dark:text-white sm:s-h3 md:l-h3">
@@ -101,7 +101,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
                         <div className="absolute bottom-4 left-6 ml:left-10 ml:bottom-10">
                             <div className="flex flex-wrap gap-x-6 gap-y-2 text-md:hidden mr-[24px]">
                                 {session.tags.map((tag, idx) => (
-                                    <span key={idx} className="bg-white dark:bg-grey-900 dark:text-white rounded-[4px] border-grey-900 dark:border-grey-bg border-[1.5px] py-1 px-4 font-medium">
+                                    <span key={idx} className="bg-white dark:bg-grey-900! dark:text-white rounded-[4px] border-grey-900 dark:border-grey-bg border-[1.5px] py-1 px-4 font-medium">
                                         <div>
                                             <span>{tag}</span>
                                         </div>
@@ -110,7 +110,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
                             </div>
                             <div className="hidden space-x-6 text-md:flex">
                                 {session.tags.map((tag, idx) => (
-                                    <span key={idx} className="bg-white dark:bg-grey-900 dark:text-white rounded-[4px] border-grey-900 dark:border-grey-bg border-[1.5px] py-1 px-4 font-medium">
+                                    <span key={idx} className="bg-white dark:bg-grey-900! dark:text-white rounded-[4px] border-grey-900 dark:border-grey-bg border-[1.5px] py-1 px-4 font-medium">
                                         <div>
                                             <span>{tag}</span>
                                         </div>
@@ -188,7 +188,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
                         <div className="flex flex-col align-center items-stretch justify-center mt-4 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row ml:min-h-[400px]">
                             {/* Join Community Card */}
                             <div className="flex w-full md:w-2/3">
-                                <div className="h-full flex flex-col lg:flex-row bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-end flex-1">
+                                <div className="h-full flex flex-col lg:flex-row bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-end flex-1">
                                     <div className="flex flex-col items-start p-6 pb-0 ml:p-10 -mb-4 lg:mb-0 lg:w-1/2">
                                         <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4 lg:-mr-40">
                                             Join a community group
@@ -244,7 +244,7 @@ export default function SessionDetailPage({ params }: { params: Promise<{ id: st
 
                             {/* Plan your I/O Card */}
                             <div className="flex w-full md:w-[38%] md:max-w-[484px]">
-                                <div className="h-full flex flex-col bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-between lg:justify-center lg:items-end flex-1">
+                                <div className="h-full flex flex-col bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-between lg:justify-center lg:items-end flex-1">
                                     <div className="flex flex-col items-start p-6 pb-0 ml:p-10 ml:pb-0">
                                         <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4">
                                             Plan your I/O

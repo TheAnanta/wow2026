@@ -41,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
   ];
 
   return (
-    <header id="main-header" className={`bg-white border-grey-900 border-b-[1.2px] md:border-b-2 w-full ${className}`}>
+    <header id="main-header" className={`bg-white dark:bg-grey-900! border-grey-900 dark:border-grey-bg! border-b-[1.2px] md:border-b-2 w-full ${className}`}>
       <nav className="max-w-[1640px] mx-auto h-[66px] px-[20px] md:px-[60px] flex items-center justify-between">
         <div className="flex items-center">
           {/* Logo */}
@@ -85,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
                 <option value="pa">ਪੰਜਾਬੀ</option>
               </select>
               <div style={{ zIndex: 10, top: '48px', right: '0' }} className="absolute invisible group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
-                <div className="bg-white dark:bg-grey-900 dark:text-grey-200 border-2 border-grey-900 dark:border-grey-200 text-grey-900 sm:l-cta2 font-medium p-3 pr-6 w-max relative shadow-xl space-x-4!">
+                <div className="bg-white dark:bg-grey-900! dark:text-grey-200 border-2 border-grey-900 dark:border-grey-200 text-grey-900 sm:l-cta2 font-medium p-3 pr-6 w-max relative shadow-xl space-x-4!">
                   <span>In-person content is available in English only </span>
                   <button type="button" className="absolute top-0 bottom-0 right-0 px-2" aria-label="Close">
                     <svg className="fill-current dark:fill-white text-grey-900 w-6 h-6 forced-white-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">

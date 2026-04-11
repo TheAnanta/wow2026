@@ -24,7 +24,7 @@ export const SpeakerCard: React.FC<SpeakerCardProps> = ({ name, title, pronouns 
           />
         ) : (
           <div
-            className="w-[100px] h-[100px] md:w-[136px] md:h-[136px] rounded-full border-[2.25px] border-grey-900 dark:border-white mb-1 flex items-center justify-center bg-grey-bg dark:bg-grey-900"
+            className="w-[100px] h-[100px] md:w-[136px] md:h-[136px] rounded-full border-[2.25px] border-grey-900 dark:border-white mb-1 flex items-center justify-center bg-grey-bg dark:bg-grey-900!"
           >
             <span className="text-2xl font-bold">{name.charAt(0)}</span>
           </div>

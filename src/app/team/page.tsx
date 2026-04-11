@@ -80,10 +80,10 @@ export default function TeamPage() {
     <div className="w-full">
       <Header onRegisterClick={() => router.push('/register')} />
 
-      <main id="content" className="dark:bg-grey-900 flex-1">
+      <main id="content" className="dark:bg-grey-900! flex-1">
         {/* Team Hero */}
         <section id="team-hero">
-          <div className="w-full flex flex-col md:flex-row md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey border-b md:border-b-2 border-grey dark:border-grey-bg">
+          <div className="w-full flex flex-col md:flex-row md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b md:border-b-2 border-grey dark:border-grey-bg">
             <div className="flex flex-col md:text-left md:justify-center px-4 py-8 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
               <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40">
                 Meet the Team
@@ -244,7 +244,7 @@ export default function TeamPage() {
             <div className="flex flex-col align-center items-stretch justify-center mt-4 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row ml:min-h-[400px]">
               {/* Join Community Card */}
               <div className="flex w-full md:w-2/3">
-                <div className="h-full flex flex-col lg:flex-row bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-end flex-1">
+                <div className="h-full flex flex-col lg:flex-row bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-end flex-1">
                   <div className="flex flex-col items-start p-6 pb-0 ml:p-10 -mb-4 lg:mb-0 lg:w-1/2">
                     <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4 lg:-mr-40">
                       Join a community group
@@ -302,7 +302,7 @@ export default function TeamPage() {
 
               {/* Plan your WOW Card */}
               <div className="flex w-full md:w-[38%] md:max-w-[484px]">
-                <div className="h-full flex flex-col bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-between lg:justify-center lg:items-end flex-1">
+                <div className="h-full flex flex-col bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white justify-between lg:justify-center lg:items-end flex-1">
                   <div className="flex flex-col items-start p-6 pb-0 ml:p-10 ml:pb-0">
                     <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4">
                       Plan your WOW

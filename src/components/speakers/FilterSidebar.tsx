@@ -15,7 +15,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
   onToggleItem
 }) => {
   return (
-    <aside className="w-full rounded-2xl border-2 border-grey-900 dark:border-white overflow-hidden bg-white dark:bg-grey-900">
+    <aside className="w-full rounded-2xl border-2 border-grey-900 dark:border-white overflow-hidden bg-white dark:bg-grey-900!">
       <h2 className="text-white font-medium bg-grey-900 dark:text-grey dark:bg-white py-4 px-5 sm:l-cta1">
         {title}
       </h2>

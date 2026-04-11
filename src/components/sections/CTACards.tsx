@@ -5,7 +5,7 @@ export function CTACards() {
     <div className="flex flex-col align-center items-stretch justify-center mt-4 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row">
       {/* Plan your WOW card */}
       <div className="flex w-full md:w-2/3">
-        <div className="h-full flex flex-col bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white lg:flex-row flex-1">
+        <div className="h-full flex flex-col bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white lg:flex-row flex-1">
           <div className="flex flex-col items-start p-6 pb-0 ml:p-10 ml:pb-0 lg:pr-0 lg:w-2/5">
             <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4">
               Plan your WOW
@@ -35,7 +35,7 @@ export function CTACards() {
 
       {/* Join a community card */}
       <div className="md:w-[38%] md:max-w-[484px]">
-        <div className="relative h-full bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white">
+        <div className="relative h-full bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white">
           <div className="absolute bottom-0 right-0 md:max-w-[435px] rounded-br-[16px]">
             <img src="/images/io24-join-community-cta-mobile.svg" className="inline-block md:hidden dark:hidden -mr-[2px]" role="img" aria-hidden="true" width="283" height="172" alt="" loading="lazy" />
             <img src="/images/io24-join-community-cta-mobile-dark.svg" className="hidden dark:inline-block dark:md:hidden -mr-[2px]" role="img" aria-hidden="true" width="283" height="172" alt="" loading="lazy" />

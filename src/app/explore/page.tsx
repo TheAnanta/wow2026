@@ -164,7 +164,7 @@ function ExploreContent() {
 
       <Header onRegisterClick={() => { }} />
 
-      <main id="content" className="dark:bg-grey-900 flex-1">
+      <main id="content" className="dark:bg-grey-900! flex-1">
         <ExploreHero />
 
         <div className="page-wrapper flex flex-col program">
@@ -197,7 +197,7 @@ function ExploreContent() {
                   className="relative rounded-[20px] md:border-2 dark:md:border-transparent md:border-transparent min-h-[135px] md:min-h-[297px] hover:border-grey! group dark:hover:border-grey!-bg transition-all"
                 >
                   <div style={{ background: stack.color }} className="absolute w-full h-full top-[11px] rounded-[20px] border-[1.2px] border-grey dark:border-grey-bg md:border-0 md:hidden" />
-                  <div className="absolute md:relative w-full h-full flex flex-row md:flex-col p-4 md:p-3 bg-white dark:bg-grey rounded-[20px] border-[1.2px] border-grey dark:border-grey-bg md:border-0">
+                  <div className="absolute md:relative w-full h-full flex flex-row md:flex-col p-4 md:p-3 bg-white dark:bg-grey! rounded-[20px] border-[1.2px] border-grey dark:border-grey-bg md:border-0">
                     <img className="hidden md:inline-block w-full group-hover:hidden dark:hidden" src={`https://io.google/2024/app/images/${stack.img}`} alt={stack.label} />
                     <img className="hidden dark:md:inline-block w-full group-hover:md:block dark:hidden" src={`https://io.google/2024/app/images/${stack.img.replace('.svg', '-dark.webp').replace('.png', '-dark.webp')}`} alt={stack.label} />
                     <div className="flex-1 flex flex-col md:mt-6">

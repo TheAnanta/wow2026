@@ -67,7 +67,7 @@ export default function RootLayout({
       <head>
         <meta name="google-site-verification" content="HraCim0B4dPQGhFNZP9GzjjZC6ZtrJ-jj7zFf-70pUc" />
       </head>
-      <body>
+      <body className=" dark:bg-grey-900!">
         <AuthProvider>
           <AnalyticsProvider>
             <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />

@@ -27,19 +27,19 @@ export default function FilterDrawer({
   return (
     <div className="fixed inset-0 z-[100] md:hidden">
       {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" 
+      <div
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
-      
+
       {/* Drawer */}
-      <div className="absolute right-0 top-0 bottom-0 w-[85%] max-w-[400px] bg-white dark:bg-grey-900 shadow-2xl flex flex-col transition-transform duration-300 ease-in-out transform translate-x-0 rounded-l-2xl border-l-2 border-grey-900 dark:border-grey-bg overflow-hidden">
+      <div className="absolute right-0 top-0 bottom-0 w-[85%] max-w-[400px] bg-white dark:bg-grey-900! shadow-2xl flex flex-col transition-transform duration-300 ease-in-out transform translate-x-0 rounded-l-2xl border-l-2 border-grey-900 dark:border-grey-bg overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b dark:border-grey-bg">
           <h2 className="sm:l-h5 md:l-h4 font-medium">Filter</h2>
-          <button 
+          <button
             onClick={onClose}
-            className="p-2 hover:bg-grey-100 dark:hover:bg-grey-800 rounded-full transition-colors"
+            className="p-2 hover:bg-grey-100 dark:hover:bg-grey-800! rounded-full transition-colors"
             aria-label="Close filters"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className="fill-current text-grey-900 w-6 h-6 dark:text-grey-200">
@@ -77,7 +77,7 @@ export default function FilterDrawer({
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                     </div>
-                    <label 
+                    <label
                       htmlFor={`mobile-${option.id}`}
                       className="ml-3 sm:l-cta2 font-medium dark:text-grey-200 cursor-pointer"
                     >
@@ -91,11 +91,11 @@ export default function FilterDrawer({
         </div>
 
         {/* Footer */}
-        <div className="p-5 border-t dark:border-grey-bg bg-white dark:bg-grey-900">
+        <div className="p-5 border-t dark:border-grey-bg bg-white dark:bg-grey-900!">
           <div className="flex gap-4">
             <button
               onClick={onClearAll}
-              className="flex-1 py-3 px-4 rounded-full border-2 border-grey-900 dark:border-white font-medium hover:bg-grey-100 dark:hover:bg-grey-800 transition-colors"
+              className="flex-1 py-3 px-4 rounded-full border-2 border-grey-900 dark:border-white font-medium hover:bg-grey-100 dark:hover:bg-grey-800! transition-colors"
             >
               Clear all
             </button>

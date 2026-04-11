@@ -68,9 +68,9 @@ export default function SpeakerDetailPage() {
         <div className="w-full flex flex-col min-h-screen">
             <Header onRegisterClick={() => router.push('/register')} />
 
-            <main id="content" className="dark:bg-grey-900 flex-1">
+            <main id="content" className="dark:bg-grey-900! flex-1">
                 {/* Speaker Hero Section */}
-                <div className="w-full flex flex-col md:flex-row text-md:h-[407px] bg-grey-bg dark:bg-grey border-b md:border-b-2 border-grey dark:border-grey-bg">
+                <div className="w-full flex flex-col md:flex-row text-md:h-[407px] bg-grey-bg dark:bg-grey! border-b md:border-b-2 border-grey dark:border-grey-bg">
                     <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-3/5 md:p-10 md:pr-0 dark:text-white z-10">
                         <div className="flex flex-col flex-1 justify-center">
                             <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40">{speaker.name}</h1>
@@ -118,12 +118,12 @@ export default function SpeakerDetailPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 md:mb-14">
                         {sessions.map((session, index) => (
                             <div key={session.id} className="group hover:border-[1.5px] border-grey dark:border-grey-bg rounded-xl flex flex-1">
-                                <Link 
-                                    className="flex flex-col relative h-auto w-full" 
+                                <Link
+                                    className="flex flex-col relative h-auto w-full"
                                     href={`/explore/${session.id}`}
                                     onClick={() => analyticsService.trackCTA(session.title, 'SpeakerDetail_Sessions')}
                                 >
-                                    <div className="relative bg-white dark:bg-grey-900 w-full h-full rounded-xl group-hover:rounded-[10px] border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden flex-1">
+                                    <div className="relative bg-white dark:bg-grey-900! w-full h-full rounded-xl group-hover:rounded-[10px] border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden flex-1">
                                         <div className="flex flex-col gap-y-1 text-md:gap-y-4 h-full p-8 md:p-10 z-2">
                                             <div className="flex flex-row gap-2 text-2xl lg:text-5xl">
                                                 {session.title}
@@ -166,7 +166,7 @@ export default function SpeakerDetailPage() {
                     <div className="flex flex-col">
                         <div className="flex flex-col align-center items-stretch justify-center mt-1 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row ml:min-h-[400px]">
                             <div className="flex w-full md:w-1/2">
-                                <div className="flex-1 flex flex-col overflow-hidden bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] dark:border-white text-md:flex-row">
+                                <div className="flex-1 flex flex-col overflow-hidden bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] dark:border-white text-md:flex-row">
                                     <div className="promo-card__body flex-1 flex flex-col items-start p-6 ml:p-10 ml:pr-0">
                                         <div className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4">
                                             Join us at I/O Connect
@@ -188,7 +188,7 @@ export default function SpeakerDetailPage() {
                             </div>
 
                             <div className="flex w-full md:w-1/2">
-                                <div className="flex-1 flex flex-col overflow-hidden border md:border-2 border-grey rounded-[16px] dark:border-white text-md:flex-row bg-grey-bg dark:bg-grey">
+                                <div className="flex-1 flex flex-col overflow-hidden border md:border-2 border-grey rounded-[16px] dark:border-white text-md:flex-row bg-grey-bg dark:bg-grey!">
                                     <div className="promo-card__body flex-1 flex flex-col items-start p-6 ml:p-10 ml:pr-0">
                                         <div className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4">
                                             Attend I/O Extended

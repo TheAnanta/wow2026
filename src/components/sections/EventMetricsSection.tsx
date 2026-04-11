@@ -12,7 +12,7 @@ export default function EventMetricsSection() {
     return (<div className="flex flex-col items-stretch justify-center gap-y-4 md:gap-x-6 md:flex-row md:flex-wrap 3xl:flex-nowrap mt-6">
         {/* Join a community card */}
         <div className="md:flex-1 3xl:flex-none 3xl:w-[38%] 3xl:max-w-[420px]">
-            <div className="relative h-full bg-grey-bg dark:bg-grey border md:border-2 border-grey rounded-[16px] pb-[120px] overflow-hidden dark:border-white">
+            <div className="relative h-full bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] pb-[120px] overflow-hidden dark:border-white">
                 <div className="absolute bottom-0 right-0 md:max-w-[435px] rounded-br-[16px]">
                     <img src="/images/landingpage.png" className="inline-block md:hidden dark:hidden -mr-[2px]" role="img" aria-hidden="true" width="283" height="172" alt="" loading="lazy" />
                     <img src="/images/landingpage.png" className="hidden dark:inline-block dark:md:hidden -mr-[2px]" role="img" aria-hidden="true" width="283" height="172" alt="" loading="lazy" />
@@ -42,7 +42,7 @@ export default function EventMetricsSection() {
         <div className='w-full grid grid-cols-1 gap-y-9 mb-5 md:mb-[unset] md:gap-y-4 md:max-w-[200px]'>
             <div className="relative h-[90px] md:h-[184px]">
                 {/* Front card */}
-                <div className="absolute bg-grey-bg dark:bg-grey w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
+                <div className="absolute bg-grey-bg dark:bg-grey! w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
                     <div className="flex flex-col items-center justify-center gap-y-1 h-full">
                         <div className="flex flex-row justify-center gap-2 h-[50%] md:h-[90px]">
                             <img
@@ -83,7 +83,7 @@ export default function EventMetricsSection() {
 
             <div className="relative h-[90px] md:h-[184px]">
                 {/* Front card */}
-                <div className="absolute bg-grey-bg dark:bg-grey w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
+                <div className="absolute bg-grey-bg dark:bg-grey! w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
                     <div className="flex flex-col items-center justify-center gap-y-1 h-full">
                         <div className="flex flex-row justify-center gap-2 h-[50%] md:h-[90px]">
                             <img
@@ -117,7 +117,7 @@ export default function EventMetricsSection() {
         <div className='w-full grid grid-cols-1 gap-y-9 mb-5 md:mb-[unset] md:gap-y-4 md:max-w-[282px]'>
             <div className="relative h-[90px] md:h-[184px]">
                 {/* Front card */}
-                <div className="absolute bg-grey-bg dark:bg-grey w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
+                <div className="absolute bg-grey-bg dark:bg-grey! w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
                     <div className="flex flex-col items-center justify-center gap-y-1 h-full">
                         <div className="flex flex-row justify-center gap-2 h-[50%] md:h-[90px]">
                             <img
@@ -152,7 +152,7 @@ export default function EventMetricsSection() {
 
             <div className="relative h-[90px] md:h-[184px]">
                 {/* Front card */}
-                <div className="absolute bg-grey-bg dark:bg-grey w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
+                <div className="absolute bg-grey-bg dark:bg-grey! w-full h-full rounded-xl border-[1.5px] md:border-2 border-solid border-grey dark:border-grey-bg z-10 overflow-hidden">
                     <div className="flex flex-col items-center justify-center gap-y-1 h-full">
                         <div className="flex flex-row justify-center gap-2 h-[50%] md:h-[90px]">
                             <img
@@ -197,7 +197,7 @@ export default function EventMetricsSection() {
                 <Carousel images={GALLERY_IMAGES} />
             </div>
             <a href="/now-in-google" data-analytics-event="content_card_select" data-analytics-event-data="{&quot;cardName&quot;: &quot;codelab&quot;}"
-                className="relative shrink-0 group mb-0 flex flex-col p-6 bg-grey-bg dark:bg-grey dark:hover:bg-grey-bg hover:bg-grey w-full h-full 3xl:h-auto! 3xl:flex-1! border-[1px] md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white hover:border-white dark:hover:border-grey hover:ring-[1px] hover:md:ring-2 hover:ring-offset-4 hover:ring-grey dark:hover:ring-0 dark:hover:ring-offset-0 dark:hover:outline dark:hover:outline-white dark:hover:outline-2 dark:hover:outline-offset-8">
+                className="relative shrink-0 group mb-0 flex flex-col p-6 bg-grey-bg dark:bg-grey! dark:hover:bg-grey-bg! hover:bg-grey w-full h-full 3xl:h-auto! 3xl:flex-1! border-[1px] md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white hover:border-white dark:hover:border-grey hover:ring-[1px] hover:md:ring-2 hover:ring-offset-4 hover:ring-grey dark:hover:ring-0 dark:hover:ring-offset-0 dark:hover:outline dark:hover:outline-white dark:hover:outline-2 dark:hover:outline-offset-8">
                 <div className="mb-4 pb-8">
                     <span className="mb-3 sm:s-h5 md:l-h5 text-black dark:text-white group-hover:text-white dark:group-hover:text-black font-semibold!">
                         Now in Google

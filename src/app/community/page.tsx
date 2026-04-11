@@ -331,9 +331,9 @@ export default function CommunityPage() {
     <div className="w-full">
       <Header onRegisterClick={() => router.push('/register')} />
 
-      <main id="content" className="dark:bg-grey-900 flex-1">
+      <main id="content" className="dark:bg-grey-900! flex-1">
         {/* Section 1: Hero */}
-        <div className="w-full flex flex-col md:flex-row text-md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
+        <div className="w-full flex flex-col md:flex-row text-md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
           <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10 ">
             <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40">
               Community
@@ -388,7 +388,7 @@ export default function CommunityPage() {
           <div className="flex flex-col align-center items-stretch justify-center gap-[32px] md:flex-row mb-12 md:mb-[40px]">
             {/* Card 1: I/O Connect */}
             <div className="flex w-full md:w-1/2">
-              <div className="flex-1 flex flex-col overflow-hidden bg-grey-bg dark:bg-grey border-[1px] md:border-2 border-grey rounded-[16px] dark:border-white text-md:flex-row">
+              <div className="flex-1 flex flex-col overflow-hidden bg-grey-bg dark:bg-grey! border-[1px] md:border-2 border-grey rounded-[16px] dark:border-white text-md:flex-row">
                 <div className="promo-card__body flex-1 flex flex-col items-start p-6 ml:p-10 ml:pr-0">
                   <div className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4">
                     Join us at WOW
@@ -412,7 +412,7 @@ export default function CommunityPage() {
             </div>
             {/* Card 2: I/O Extended */}
             <div className="flex w-full md:w-1/2">
-              <div className="flex-1 flex flex-col overflow-hidden border-[1px] md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white text-md:flex-row bg-grey-bg dark:bg-grey">
+              <div className="flex-1 flex flex-col overflow-hidden border-[1px] md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white text-md:flex-row bg-grey-bg dark:bg-grey!">
                 <div className="promo-card__body flex-1 flex flex-col items-start p-6 ml:p-10 ml:pr-0">
                   <div className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4">
                     Attend GDGoC
@@ -480,7 +480,7 @@ export default function CommunityPage() {
           {searchResults && searchResults.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16 px-4">
               {searchResults.map(result => (
-                <div key={result.id} className="flex items-center p-4 border border-[#000000] dark:border-white rounded-lg bg-white dark:bg-grey py-6">
+                <div key={result.id} className="flex items-center p-4 border border-[#000000] dark:border-white rounded-lg bg-white dark:bg-grey! py-6">
                   <div className="w-12 h-12 border border-[#000000] dark:border-white rounded-[4px] mr-5 flex-shrink-0" style={{ background: 'linear-gradient(135deg, #34A853, #4285F4)' }} />
                   <div className="flex flex-col">
                     <div className="font-medium mb-1 text-lg dark:text-white uppercase leading-none">{result.name}</div>
@@ -502,7 +502,7 @@ export default function CommunityPage() {
                 rel="noopener"
                 target="_blank"
                 onClick={() => analyticsService.trackCTA(`chapter_card_${group.name}`, 'CommunityPage')}
-                className="flex flex-row md:flex-col bg-grey dark:bg-grey-bg overflow-hidden p-4 md:p-0 rounded-[20px] md:rounded-[42px] w-full md:max-w-[432px] min-h-[126px] md:min-h-[350px] text-md:min-h-[409px] border-[1.5px] border-grey dark:border-grey-bg md:focus:border-[3px] md:hover:border-[3px] dark:md:hover:border-grey-bg dark:md:focus:border-grey-bg"
+                className="flex flex-row md:flex-col bg-grey dark:bg-grey-bg! overflow-hidden p-4 md:p-0 rounded-[20px] md:rounded-[42px] w-full md:max-w-[432px] min-h-[126px] md:min-h-[350px] text-md:min-h-[409px] border-[1.5px] border-grey dark:border-grey-bg md:focus:border-[3px] md:hover:border-[3px] dark:md:hover:border-grey-bg dark:md:focus:border-grey-bg"
               >
                 <img className="hidden md:inline-block dark:hidden" src={group.img} role="img" aria-hidden="true" width="432" height="242" />
                 <img className="hidden dark:md:inline-block" src={group.imgDark} role="img" aria-hidden="true" width="432" height="242" />
@@ -524,7 +524,7 @@ export default function CommunityPage() {
           {/* Bottom Promos */}
           <div className="flex flex-col align-center items-stretch justify-center mt-4 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row">
             <div className="w-full">
-              <div className="flex flex-col align-center ml:flex-row h-full bg-grey-bg dark:bg-grey border-[1px] md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white">
+              <div className="flex flex-col align-center ml:flex-row h-full bg-grey-bg dark:bg-grey! border-[1px] md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white">
                 <div className="flex flex-col items-start p-6 pb-0 ml:w-1/2 ml:p-10 ml:pr-0">
                   <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4 ml:-mr-24">
                     Plan your WOW

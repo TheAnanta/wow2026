@@ -22,7 +22,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
   };
 
   return (
-    <div className="flex flex-col items-center bg-grey-bg dark:bg-grey">
+    <div className="flex flex-col items-center bg-grey-bg dark:bg-grey!">
       <div className="mb-6 mt-6 md:mb-10 md:mt-12">
         <div className="h-homepage-main-cta" data-bgimage="">
           <div className="flex flex-col items-center text-center p-6 max-w-[800px]">
