@@ -6,6 +6,7 @@ import { useAuth } from '../../context/AuthContext';
 import { signInWithGoogle, logout } from '../../services/firebase';
 import { analyticsService } from '../../services/analytics';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface HeaderProps {
   onRegisterClick: () => void;
@@ -44,21 +45,21 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
       <nav className="max-w-[1640px] mx-auto h-[66px] px-[20px] md:px-[60px] flex items-center justify-between">
         <div className="flex items-center">
           {/* Logo */}
-          <a href="/" className="mr-[24px]" aria-label="Google WOW homepage">
+          <Link href="/" className="mr-[24px]" aria-label="Google WOW homepage">
             GDG<span className='font-black'>WOW</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => analyticsService.trackNavigation(link.label, 'Header', link.href)}
                 className="nav-links text-[16px] font-medium mr-[24px]"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -118,12 +119,14 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
                 >
                   {isUnregistered ? 'Complete registration' : 'Sign out'}
                 </button>
-                <img
-                  src={profile?.profile_url || user?.photoURL || ''}
-                  alt="Profile"
-                  referrerPolicy='no-referrer'
-                  className="w-[40px] h-[40px] rounded-full border-[1.2px] border-grey-900 object-cover bg-white"
-                />
+                <Link href="/profile">
+                  <img
+                    src={profile?.profile_url.replaceAll('=s96-c', '') || user?.photoURL?.replaceAll('=s96-c', '') || ''}
+                    alt="Profile"
+                    referrerPolicy='no-referrer'
+                    className="w-[40px] h-[40px] rounded-full border-[1.2px] border-grey-900 object-cover bg-white"
+                  />
+                </Link>
               </div>
             )}
           </div>
@@ -158,14 +161,14 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
           </div>
           <div className="flex flex-col gap-[16px]">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-[20px] font-medium text-grey-900 py-3 border-b border-grey-bg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="mt-8">
               {!isLoggedIn ? (

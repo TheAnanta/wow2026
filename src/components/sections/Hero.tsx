@@ -47,7 +47,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
             <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
               <span>Get content recommendations by updating your Google Developer Profile.</span>
             </h2>
-            <a href="https://developers.google.com/profile/u/me/settings" target="_blank" className="cta-primary" rel="noreferrer noopener">
+            <a href="/profile" className="cta-primary">
               <span>Update profile</span>
             </a>
           </div>

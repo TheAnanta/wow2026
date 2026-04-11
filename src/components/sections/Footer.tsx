@@ -31,10 +31,10 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="flex flex-wrap gap-x-6 gap-y-4">
-          <a href="#" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('WOW 2026', 'Footer')}>WOW 2026</a>
-          <a href="/terms" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('Privacy & terms', 'Footer', '/terms')}>Privacy & terms</a>
-          <a href="/code-of-conduct" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('Community guidelines', 'Footer', '/code-of-conduct')}>Community guidelines</a>
-          <a href="/about" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('FAQ', 'Footer', '/about')}>FAQ</a>
+          <Link href="/" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('WOW 2026', 'Footer')}>WOW 2026</Link>
+          <Link href="/terms" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('Privacy & terms', 'Footer', '/terms')}>Privacy & terms</Link>
+          <Link href="/code-of-conduct" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('Community guidelines', 'Footer', '/code-of-conduct')}>Community guidelines</Link>
+          <Link href="/about" className="hover:text-white transition-colors duration-200" onClick={() => analyticsService.trackNavigation('FAQ', 'Footer', '/about')}>FAQ</Link>
         </div>
       </div>
 

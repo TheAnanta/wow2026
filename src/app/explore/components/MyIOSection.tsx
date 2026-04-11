@@ -37,7 +37,7 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
             aria-label="Opens Google Developer Profile in new tab - open in new tab"
             target="_blank"
             rel="noreferrer"
-            href="https://developers.google.com/profile/u/me"
+            href="/profile"
           >
             developer profile
           </a>
