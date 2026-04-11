@@ -1,0 +1,62 @@
+[
+  {
+    "badge": {
+      "id": "bronze",
+      "name": "Bronze Attendee",
+      "image": "bronze-7ad033b3ac027995939993b7648507f536d7b089.png",
+      "description": {
+        "earned": "Congrats! You've reached the Bronze tier in the WOW Arcade. You're part of the vibrant community and have unlocked essential workshops and games.",
+        "default": "Learn how to build modern web and mobile applications while playing games. Reach the Bronze tier to unlock this badge!"
+      }
+    },
+    "link": "/arcade"
+  },
+  {
+    "badge": {
+      "id": "silver",
+      "name": "Silver Expert",
+      "image": "silver_sm-64ca96b9e4cf1fc255fbe8e81fba4577965e8311.png",
+      "description": {
+        "earned": "Outstanding! Your Silver badge proves your dedication to mastering technical challenges at WOW 2026.",
+        "default": "Step up your game! Finish mid-level challenges to earn the Silver Badge and better event discounts."
+      }
+    },
+    "link": "/arcade"
+  },
+  {
+    "badge": {
+      "id": "gold",
+      "name": "Gold Champion",
+      "image": "gold_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
+      "description": {
+        "earned": "Incredible work! The Gold badge signifies top-tier commitment and high-ranking performance in the arcade.",
+        "default": "Rise to the top 150! Gold members get priority entry and premium swags."
+      }
+    },
+    "link": "/arcade"
+  },
+  {
+    "badge": {
+      "id": "diamond",
+      "name": "Diamond Elite",
+      "image": "diamond_sm-6bb229d2803807410116694fb0aed7f6f43aa63a.png",
+      "description": {
+        "earned": "Phenomenal! You are among the elite. The Diamond badge gives you exclusive access to expert-led workshop sessions.",
+        "default": "Be part of the top 50! Gain the Diamond badge for ultimate bragging rights and deep discounts."
+      }
+    },
+    "link": "/arcade"
+  },
+  {
+    "badge": {
+      "id": "platinum",
+      "name": "Platinum Guest",
+      "image": "platinum_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
+      "description": {
+        "earned": "Guest of Honour! Your Platinum status means you've conquered the arcade. Your ticket is on us!",
+        "default": "The ultimate prize. Reach the top 10 to receive a full refund and become a Guest of Honour."
+      }
+    },
+    "link": "/arcade"
+  }
+]

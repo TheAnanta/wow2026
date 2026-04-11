@@ -36,7 +36,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
   useEffect(() => {
     // Track that they actually reached the success screen
     analyticsService.trackCheckoutActivity('success_screen', badgeName, 'viewed');
-    
+
     // Flag this session for post-purchase journey tracking (next 5 mins)
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('wow_recent_purchase', Date.now().toString());
@@ -72,7 +72,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
         {/* The Badge Container Card - Switched to static official badge image */}
         <div className="w-full max-w-[440px] bg-white dark:bg-grey-800 border-2 border-grey-bg dark:border-grey-700 rounded-3xl p-8 pt-6 flex flex-col items-center justify-center mb-10 overflow-hidden">
           <img
-            src="/images/io24-badge-registration.svg"
+            src={isArcade ? "/images/wow26-arcade-badge-registration.png" : "/images/io24-badge-registration.svg"}
             alt={badgeName}
             className="w-[200px] md:w-[240px] h-max transition-transform duration-700 hover:scale-[1.05]"
           />

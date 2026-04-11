@@ -5,6 +5,7 @@ import { getFirestore } from 'firebase/firestore';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 import { getMessaging } from 'firebase/messaging';
 import { getPerformance } from 'firebase/performance';
+import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -23,6 +24,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 // messaging is only available in the browser
 const messaging = typeof window !== 'undefined' ? getMessaging(app) : null;
+const storage = getStorage(app);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -83,4 +85,4 @@ export const logout = async () => {
   }
 };
 
-export { auth, db, messaging, analytics, app, performance };
+export { auth, db, messaging, analytics, app, performance, storage };

@@ -379,7 +379,7 @@ export const RegistrationForm: React.FC = () => {
           <div className="animate-fade-in">
             <h3 className="text-[1.5rem] font-bold mb-10">Terms</h3>
 
-            <div className="space-y-6 mb-10">
+            <div className="mb-10">
               {[
                 {
                   key: 'agreeToTerms' as keyof RegistrationData,
@@ -399,26 +399,25 @@ export const RegistrationForm: React.FC = () => {
               ].map(({ key, label, required }) => (
                 <div
                   key={key as string}
-                  className="flex gap-4 items-start group"
+                  className="filter-box__item"
                 >
-                  <label className="relative flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-grey-400 transition-all checked:border-google-blue checked:bg-google-blue"
-                      checked={!!data[key as keyof RegistrationData]}
-                      onChange={() => {
-                        const newState = !data[key as keyof RegistrationData];
-                        analyticsService.trackUI(key as string, newState, 'RegistrationForm');
-                        updateData({ [key]: newState });
-                      }}
-                    />
-                    <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 peer-checked:opacity-100">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    </div>
-                  </label>
-                  <span className="text-[0.875rem] text-grey-800 leading-normal">
+                  <input
+                    type="checkbox"
+                    id={key as string}
+                    className="checkbox"
+                    checked={!!data[key as keyof RegistrationData]}
+                    onChange={() => {
+                      const newState = !data[key as keyof RegistrationData];
+                      analyticsService.trackUI(key as string, newState, 'RegistrationForm');
+                      updateData({ [key]: newState });
+                    }}
+                  />
+                  <label 
+                    className="text-[0.875rem] text-grey-800 leading-normal cursor-pointer flex-1"
+                    htmlFor={key as string}
+                  >
                     {label}{required && <span className="text-google-red font-bold"> *</span>}
-                  </span>
+                  </label>
                 </div>
               ))}
             </div>
@@ -427,7 +426,7 @@ export const RegistrationForm: React.FC = () => {
 
             <div className="flex gap-4">
               <button
-                disabled={!data.termsAgreed || !data.agreeToTerms || isSubmitting}
+                disabled={!data.agreeToTerms || isSubmitting}
                 onClick={handleNextStep}
                 className="px-10 py-2.5 bg-grey-900 text-white rounded-full font-medium hover:bg-grey-text disabled:bg-grey-300 disabled:cursor-not-allowed transition-all flex items-center gap-2"
               >
