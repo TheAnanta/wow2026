@@ -1,28 +1,16 @@
+import { useTranslations } from "next-intl";
 // src/components/sections/CTACards.tsx
 
 export function CTACards() {
-  return (
-    <div className="flex flex-col align-center items-stretch justify-center mt-4 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row">
+  const t = useTranslations();
+  return <div className="flex flex-col align-center items-stretch justify-center mt-4 md:mt-10 gap-y-4 md:gap-x-8 md:flex-row">
       {/* Plan your WOW card */}
       <div className="flex w-full md:w-2/3">
         <div className="h-full flex flex-col bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] overflow-hidden dark:border-white lg:flex-row flex-1">
           <div className="flex flex-col items-start p-6 pb-0 ml:p-10 ml:pb-0 lg:pr-0 lg:w-2/5">
-            <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4">
-              Plan your WOW
-            </span>
-            <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:s-h6 md:l-h6">
-              Visit My WOW for saved content and recommendations based on your personal interests.
-            </p>
-            <a
-              href="/explore"
-              className="cta-secondary"
-              aria-label="Get started with planning your WOW, opens explore page"
-              rel="noopener"
-              data-analytics-event="cta_event_info"
-              data-analytics-event-data='{"cta_position": "body"}'
-            >
-              Get started
-            </a>
+            <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4">{t("plan_your_wow")}</span>
+            <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:s-h6 md:l-h6">{t("visit_my_wow_for_saved_content_and_recommendations_based_on_your_personal_interests")}</p>
+            <a href="/explore" className="cta-secondary" aria-label={t("get_started_with_planning_your_wow_opens_explore_page")} rel="noopener" data-analytics-event="cta_event_info" data-analytics-event-data='{"cta_position": "body"}'>{t("get_started")}</a>
           </div>
           <div className="flex justify-end lg:justify-center lg:items-end lg:w-3/5">
             <img src="/images/io24-planio-cta-mobile.webp" className="inline-block dark:hidden mb-4 mr-4 md:hidden" role="img" aria-hidden="true" width="245" height="193" alt="" loading="lazy" />
@@ -43,25 +31,11 @@ export function CTACards() {
             <img src="/images/io24-join-community-cta-dark.svg" className="hidden dark:md:inline-block object-cover lg:object-contain object-left lg:object-right -mr-[2px] max-w-[272px]" role="img" aria-hidden="true" width="437" height="270" alt="" loading="lazy" />
           </div>
           <div className="relative flex flex-col items-start p-6 ml:p-10 mb-28 sm:mb-16 md:mb-20">
-            <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4 text-md:tracking-tight">
-              Join a community group
-            </span>
-            <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:max-w-[70%] md:max-w-none sm:s-h6 md:l-h6">
-              Meet developers, discover local groups, and build your global network.
-            </p>
-            <a
-              href="/community"
-              data-analytics-event="cta_community"
-              data-analytics-event-data='{"cta_position": "body"}'
-              className="cta-secondary"
-              aria-label="Get started with joining an WOW community group, opens Community page"
-              rel="noopener"
-            >
-              Get started
-            </a>
+            <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4 text-md:tracking-tight">{t("join_a_community_group")}</span>
+            <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:max-w-[70%] md:max-w-none sm:s-h6 md:l-h6">{t("meet_developers_discover_local_groups_and_build_your_global_network")}</p>
+            <a href="/community" data-analytics-event="cta_community" data-analytics-event-data='{"cta_position": "body"}' className="cta-secondary" aria-label={t("get_started_with_joining_an_wow_community_group_opens_community_page")} rel="noopener">{t("get_started")}</a>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }

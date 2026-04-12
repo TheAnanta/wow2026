@@ -1,0 +1,103 @@
+// src/app/page.tsx
+'use client';
+
+import { useTranslations } from "next-intl";
+import React, { useState, useEffect } from 'react';
+import { Header } from '../../components/sections/Header';
+import { Hero } from '../../components/sections/Hero';
+import { CountdownSection } from '../../components/sections/CountdownSection';
+import { CTACards } from '../../components/sections/CTACards';
+import { KeynotesSection } from '../../components/sections/KeynotesSection';
+import { StackCardsSection } from '../../components/sections/StackCardsSection';
+import { Footer } from '../../components/sections/Footer';
+import { useAuth } from '../../context/AuthContext';
+import { useRouter } from 'next/navigation';
+import WhatToExpectSection from '@/components/sections/WhatToExpectSection';
+import EventMetricsSection from '@/components/sections/EventMetricsSection';
+import { useSearchParams } from 'next/navigation';
+import { Toast } from '@/components/ui/Toast';
+import { analyticsService } from '@/services/analytics';
+function Home() {
+  const {
+    isUnregistered,
+    isLoggedIn
+  } = useAuth();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [showToast, setShowToast] = useState(false);
+  useEffect(() => {
+    if (searchParams.get('message') === 'already_has_ticket') {
+      setShowToast(true);
+    }
+  }, [searchParams]);
+  const t = useTranslations();
+  return <div className="w-full min-h-screen text-grey-900 dark:text-grey-bg! overflow-x-hidden">
+    <Header onRegisterClick={() => router.push('/register')} />
+
+    <main>
+      <Hero onRegisterClick={() => router.push('/register')} />
+
+      <div className="page-wrapper flex flex-col">
+        <CountdownSection />
+        <WhatToExpectSection />
+        <EventMetricsSection />
+        <CTACards />
+      </div>
+      {/* <KeynotesSection /> */}
+      <StackCardsSection />
+      <div className='page-wrapper flex flex-col'>
+        <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
+          <span className="font-medium text-left sm:s-h3 md:l-h3">{t("wow_is_made_possible_by")}</span>
+        </div>
+        <div className="flex flex-wrap">
+
+          {[{
+            title: "GITAM University",
+            role: "Partner",
+            link: 'https://gitam.edu',
+            avatar: 'https://play-lh.googleusercontent.com/WqW965xIPuS_-NzTE109zlmF3KoeAprETIpoU2i1B4L_BrxOwlx0rpFG3gSneYZvh0Q'
+          }, {
+            title: "the ananta",
+            role: "Partner",
+            link: 'https://theananta.in',
+            avatar: '/images/logomark.svg'
+          }, {
+            title: "GITAM Career\nGuidance Center",
+            role: "Partner",
+            link: 'https://www.gitam.edu/career-guidance-centre',
+            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrjXuhD15KOoYM7aU-_pY5E_QvxIFzwMm04Q&s'
+          }, {
+            title: "Venture Development Center",
+            role: "Partner",
+            link: 'https://vdc.gitam.edu',
+            avatar: 'default'
+          }].map(e => {
+            return <a href={e.link} className="flex p-4 md:p-6 border md:border-2 border-grey-600 md:border-transparent rounded-[20px] w-full md:mb-2 md:w-[49%] overflow-hidden group hover:bg-grey-bg md:hover:bg-transparent hover:border-grey! group dark:hover:border-grey-bg!" onClick={() => analyticsService.trackNavigation(e.title, 'Home_Partners', e.link)}>
+              <div className={`flex w-[90px] h-[90px] rounded-[8px] justify-center items-center overflow-hidden ${e.avatar.includes("https") ? "border-2 border-grey-900 bg-black" : ""}`}>
+                <img src={e.avatar.includes("gdsc") ? "/images/io24-location-gdsc-logo.svg" : e.avatar.includes("default") || !e.avatar ? "/images/io24-location-default-logo.svg" : e.avatar} height="90" width="90" aria-hidden="true" />
+              </div>
+              <div className="flex gap-y-1 flex-col w-full md:w-3/4 justify-around pl-6 ">
+                <span className="whitespace-pre-wrap font-medium sm:s-p1 md:l-h6 dark:text-white dark:group-hover:text-grey dark:md:group-hover:text-white">
+                  {e.title}
+                </span>
+                <span className="mb-auto mt-1 font-medium sm:s-p1 dark:text-white dark:group-hover:text-grey dark:md:group-hover:text-white">
+                  {e.role}
+                </span>
+                {/* <span role="link" tabIndex={0} className="cta-link-btn w-max cursor-pointer hcm-link dark:group-hover:text-grey dark:md:group-hover:text-white ml-[-18px] md:ml-[-20px]" aria-label="[n] [global_opennewwindow_aria]">
+                    View more
+                   </span> */}
+              </div>
+            </a>;
+          })}
+        </div>
+      </div>
+    </main>
+
+    <Toast message="You're already registered!" isVisible={showToast} onClose={() => setShowToast(false)} />
+  </div>;
+}
+export default function HomeWrapper() {
+  return <React.Suspense fallback={null}>
+    <Home />
+  </React.Suspense>;
+}
