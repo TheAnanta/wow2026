@@ -57,6 +57,7 @@ export default function TeamPage() {
   const organizers = filteredTeam.filter(m => m.category === 'Organizer');
   const leads = filteredTeam.filter(m => m.category === 'Lead');
   const coreTeam = filteredTeam.filter(m => m.category === 'Core Team');
+  const mentors = filteredTeam.filter(m => m.category === 'Mentors');
 
   const toggleResponsibility = (val: string) => {
     analyticsService.trackUI('filter_responsibility', val, 'TeamPage');
@@ -221,6 +222,19 @@ export default function TeamPage() {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {coreTeam.sort((a, b) => { return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1 }).map(member => (
+                          <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} href={`/team/${member.id}`} />
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                  {mentors.length > 0 && (
+                    <section>
+                      <div className="mb-12 border-b-2 border-grey-900 dark:border-white pb-4">
+                        <h2 className="sm:l-h3 md:l-h2">Mentors</h2>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {mentors.sort((a, b) => { return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1 }).map(member => (
                           <TeamMemberCard key={member.id} name={member.name} title={member.role} pronouns={member.pronouns} image={member.avatar} href={`/team/${member.id}`} />
                         ))}
                       </div>

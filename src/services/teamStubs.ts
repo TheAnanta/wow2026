@@ -6,7 +6,7 @@ export interface TeamMember {
   role: string;
   avatar?: string;
   pronouns?: string;
-  category: 'Organizer' | 'Lead' | 'Core Team' | 'Contributors';
+  category: 'Organizer' | 'Lead' | 'Core Team' | 'Contributors' | 'Mentors';
   responsibility: string;
   university: string;
 }
@@ -33,7 +33,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Design',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Kavya-chandana.png'
+    avatar: '/images/coreteam_gitam_7.jpeg'
   },
 
   // Core Team
@@ -63,7 +63,8 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'He/Him',
     responsibility: 'Technology',
-    university: 'Gandhi Institute of Technology and Management'
+    university: 'Gandhi Institute of Technology and Management',
+    avatar: '/images/coreteam_gitam_6.jpeg'
   },
   {
     id: '105',
@@ -73,6 +74,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
+    avatar: '/images/coreteam_gitam_2.jpeg'
   },
   {
     id: '106',
@@ -82,6 +84,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
+    avatar: '/images/coreteam_gitam_3.jpeg'
   },
   {
     id: '107',
@@ -91,6 +94,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
+    avatar: '/images/coreteam_gitam_5.jpeg'
   },
   {
     id: '108',
@@ -100,6 +104,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
+    avatar: '/images/coreteam_gitam_4.jpeg'
   },
   {
     id: '113',
@@ -260,6 +265,16 @@ const mockTeam: TeamMember[] = [
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
     avatar: '/images/Srinivasam_Konchada_rfp5ku.jpg'
+  },
+  {
+    id: '130',
+    name: 'Poorna Shankar Narayanan',
+    role: 'Student Life, GITAM',
+    category: 'Mentors',
+    pronouns: 'He/Him',
+    responsibility: 'Mentor',
+    university: 'Gandhi Institute of Technology and Management',
+    avatar: '/images/coreteam_gitam_1.jpeg'
   },
   //Contributors
   {
