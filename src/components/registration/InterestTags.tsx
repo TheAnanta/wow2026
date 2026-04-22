@@ -17,8 +17,8 @@ const ADDITIONAL_INTERESTS = [
 
 export const InterestTags: React.FC<InterestTagsProps> = ({ selectedInterests, toggleInterest, showAll }) => {
   const allInterests = [...PRIMARY_INTERESTS, ...ADDITIONAL_INTERESTS];
-  const displayedInterests = showAll 
-    ? allInterests 
+  const displayedInterests = showAll
+    ? allInterests
     : allInterests.filter(i => PRIMARY_INTERESTS.includes(i) || selectedInterests.includes(i));
 
   return (
@@ -30,11 +30,10 @@ export const InterestTags: React.FC<InterestTagsProps> = ({ selectedInterests, t
             key={interest}
             type="button"
             onClick={() => toggleInterest(interest)}
-            className={`py-1.5 px-4 border text-[0.875rem] font-medium cursor-pointer transition-all duration-200 rounded-lg ${
-              selected 
-                ? 'bg-grey-900 border-grey-900 text-white' 
-                : 'bg-white border-grey-400 text-grey-900 hover:border-grey-900'
-            }`}
+            className={`py-1.5 px-4 border text-[0.875rem] font-medium cursor-pointer transition-all duration-200 rounded-lg ${selected
+              ? 'bg-grey-900 dark:bg-white border-grey-900 dark:border-white text-white dark:text-grey-900'
+              : 'bg-white dark:bg-grey-900 border-grey-400 text-grey-900 dark:text-white hover:border-grey-900 dark:hover:border-grey-text'
+              }`}
           >
             {interest}
           </button>

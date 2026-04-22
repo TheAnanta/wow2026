@@ -11,9 +11,9 @@ import { ErrorOverlay } from './ErrorOverlays';
 import { useRouter } from 'next/navigation';
 
 const RegistrationBanner = () => (
-  <div className="relative w-full h-40 md:h-56 bg-[#F1F3F4] overflow-hidden border-b border-grey-200 flex items-center px-8 md:px-14">
+  <div className="relative w-full h-40 md:h-56 bg-[#F1F3F4] dark:bg-grey-900 overflow-hidden border-b border-grey-200 dark:border-grey-text flex items-center px-8 md:px-14">
     <div className="flex-1 z-10">
-      <h2 className="text-[1.875rem] md:text-[2.25rem] font-medium text-grey-900 tracking-tight leading-tight">Register for WOW</h2>
+      <h2 className="text-[1.875rem] md:text-[2.25rem] font-medium text-grey-900 dark:text-white tracking-tight leading-tight">Register for WOW</h2>
     </div>
     <div className="absolute bottom-0 -right-16 sm:right-0 w-[80%] md:w-[65%] pointer-events-none select-none">
       <picture className="w-full">
@@ -153,7 +153,7 @@ export const RegistrationForm: React.FC = () => {
     updateData({ interests: updated });
   };
 
-  const inputBaseCls = 'w-full px-4 py-3.5 border border-grey-400 rounded-lg text-[1rem] focus:outline-none focus:border-google-blue focus:ring-1 focus:ring-google-blue transition-all bg-white placeholder:text-grey-600';
+  const inputBaseCls = 'w-full px-4 py-3.5 border border-grey-400 rounded-lg text-[1rem] focus:outline-none focus:border-google-blue focus:ring-1 focus:ring-google-blue transition-all bg-white dark:bg-grey-900 placeholder:text-grey-600';
   const errorTextCls = 'text-[0.75rem] text-google-red mt-2 font-medium px-4';
 
   if (isAuthLoading) {
@@ -227,7 +227,7 @@ export const RegistrationForm: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div>
                   <div className="relative">
-                    <select className={`${inputBaseCls} appearance-none pr-10 ${!data.pronoun ? 'text-grey-600' : 'text-grey-900'}`} value={data.pronoun} onChange={(e) => updateData({ pronoun: e.target.value })}>
+                    <select className={`${inputBaseCls} appearance-none pr-10 ${!data.pronoun ? 'text-grey-600' : 'text-grey-900 dark:text-white'}`} value={data.pronoun} onChange={(e) => updateData({ pronoun: e.target.value })}>
                       <option value="">Pronoun*</option>
                       <option value="he/him">He/Him</option>
                       <option value="she/her">She/Her</option>
@@ -271,7 +271,7 @@ export const RegistrationForm: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div>
                   <div className="relative">
-                    <select className={`${inputBaseCls} appearance-none pr-10 ${!data.role ? 'text-grey-600' : 'text-grey-900'}`} value={data.role} onChange={(e) => updateData({ role: e.target.value })}>
+                    <select className={`${inputBaseCls} appearance-none pr-10 ${!data.role ? 'text-grey-600' : 'text-grey-900  dark:text-white'}`} value={data.role} onChange={(e) => updateData({ role: e.target.value })}>
                       <option value="">Role or job title</option>
                       <optgroup label="Select your role">
                         <option value="Architect">Architect</option>
@@ -316,7 +316,7 @@ export const RegistrationForm: React.FC = () => {
                     type="text"
                     value={data.organization}
                     onChange={(e) => updateData({ organization: e.target.value })}
-                    placeholder="Google"
+                    placeholder="University Name"
                   />
                   <p className="text-[0.75rem] text-grey-500 mt-2 px-4">Name of your Company, Employer, or School</p>
                 </div>
@@ -325,7 +325,7 @@ export const RegistrationForm: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div>
                   <div className="relative">
-                    <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none text-grey-900 font-medium">
+                    <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none text-grey-900 dark:text-white font-medium">
                       <span className="border-r border-grey-300 pr-3 mr-3 h-5 flex items-center">+91</span>
                     </div>
                     <input
@@ -355,7 +355,7 @@ export const RegistrationForm: React.FC = () => {
 
                 <div className="mt-6 mb-10">
                   <button
-                    className="text-[0.875rem] font-medium text-grey-900 underline hover:no-underline decoration-2 underline-offset-4"
+                    className="text-[0.875rem] font-medium text-grey-900 dark:text-white underline hover:no-underline decoration-2 underline-offset-4"
                     type="button"
                     onClick={() => setShowAllInterests(!showAllInterests)}
                   >
@@ -367,7 +367,7 @@ export const RegistrationForm: React.FC = () => {
                   By creating a WOW developer profile, you agree to the <a href="/content-policy" target="_blank" rel="noopener noreferrer" className="underline">Content Policy</a>, <a href="/terms" target="_blank" rel="noopener noreferrer" className="underline">WOW's Terms of Service</a> and <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline">Privacy Policy</a> apply to your use of this service. Your display name may appear where you contribute and can be changed at any time.
                 </p>
 
-                <button onClick={handleNextStep} className="px-10 py-3 bg-grey-900 text-white rounded-full font-medium hover:bg-black transition-all text-[1rem]">
+                <button onClick={handleNextStep} className="px-10 py-3 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-medium hover:bg-black dark:hover:bg-white/80 transition-all text-[1rem]">
                   Next
                 </button>
               </div>
@@ -412,8 +412,8 @@ export const RegistrationForm: React.FC = () => {
                       updateData({ [key]: newState });
                     }}
                   />
-                  <label 
-                    className="text-[0.875rem] text-grey-800 leading-normal cursor-pointer flex-1"
+                  <label
+                    className="text-[0.875rem] text-grey-800 dark:text-white leading-normal cursor-pointer flex-1"
                     htmlFor={key as string}
                   >
                     {label}{required && <span className="text-google-red font-bold"> *</span>}
@@ -428,7 +428,7 @@ export const RegistrationForm: React.FC = () => {
               <button
                 disabled={!data.agreeToTerms || isSubmitting}
                 onClick={handleNextStep}
-                className="px-10 py-2.5 bg-grey-900 text-white rounded-full font-medium hover:bg-grey-text disabled:bg-grey-300 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+                className="px-10 py-2.5 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-medium hover:bg-grey-text disabled:bg-grey-300 disabled:cursor-not-allowed transition-all flex items-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -439,7 +439,7 @@ export const RegistrationForm: React.FC = () => {
                   <span>{profile ? 'Update profile' : 'Register'}</span>
                 )}
               </button>
-              <button onClick={handlePreviousStep} className="px-8 py-2.5 bg-white border border-grey-400 text-grey-900 rounded-full font-medium hover:bg-grey-50 transition-all">
+              <button onClick={handlePreviousStep} className="px-8 py-2.5 bg-white dark:bg-grey-900 dark:text-white border border-grey-400 text-grey-900 rounded-full font-medium hover:bg-grey-50 transition-all">
                 Back
               </button>
             </div>

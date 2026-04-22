@@ -10,7 +10,7 @@ export default function RegisterPage() {
       <Header onRegisterClick={() => { }} />
 
       <main className="flex-1 flex flex-col items-center py-0 md:py-16 px-0 md:px-6">
-        <div className="w-full md:max-w-[800px] bg-white dark:bg-grey-800! md:rounded-2xl md:border border-grey-200 dark:border-grey-700 md:shadow-sm overflow-hidden animate-slide-up">
+        <div className="w-full md:max-w-[800px] bg-white dark:bg-grey-900! md:rounded-2xl md:border border-grey-200 dark:border-grey-text md:shadow-sm overflow-hidden animate-slide-up">
           <RegistrationForm />
         </div>
       </main>
