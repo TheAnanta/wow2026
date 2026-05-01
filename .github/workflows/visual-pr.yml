@@ -1,0 +1,44 @@
+name: PR Multi-Page Preview
+
+on: [pull_request]
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Important for git diff to work
+
+      - name: Get changed pages
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          # Customize this to match your folder structure (e.g., src/pages or app/)
+          files: |
+            pages/**/*.{js,jsx,ts,tsx}
+            src/app/**/*.{js,jsx,ts,tsx}
+
+      - name: Install dependencies
+        run: npm ci && npx playwright install --with-deps chromium
+
+      - name: Start App
+        run: npm run dev &
+        env:
+          TARGET_URL: http://localhost:3000
+
+      - name: Take Screenshots
+        run: |
+          mkdir -p screenshots
+          # We transform file paths into URLs 
+          # e.g., pages/about.tsx -> /about
+          URLS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | sed 's|pages/||g; s|.tsx||g; s|.js||g; s|index||g')
+          node screenshot-script.js $URLS
+        env:
+          TARGET_URL: http://localhost:3000
+
+      - name: Post Screenshots to PR
+        uses: reg-viz/screenshot-reporter-action@v0.4.0
+        with:
+          image-directory-path: ./screenshots
+          github-token: ${{ secrets.GITHUB_TOKEN }}
