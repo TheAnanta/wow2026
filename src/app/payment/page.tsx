@@ -5,7 +5,7 @@ import { Suspense, useState, useEffect, useRef } from "react";
 import { BadgeSuccess } from "@/components/registration/BadgeSuccess";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { fetchTicketTiers, initiateCheckout, verifyPayment } from "@/services/registrationStubs";
+import { fetchTicketTiers, initiateCheckout, verifyPayment, validateCoupon } from "@/services/registrationStubs";
 import { analyticsService } from "@/services/analytics";
 
 function PaymentPage() {
