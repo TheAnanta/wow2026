@@ -194,7 +194,7 @@ function PaymentPage() {
                         </div>
                     )}
 
-                    <h1 className={`font-medium tracking-tight transition-all duration-300 ${isBenefitsVisible ? 'text-6xl mb-0 mt-8 md:mt-[unset]' : 'text-4xl mb-0 mt-8'}`}>WOW+ Experience</h1>
+                    <h1 className={`font-medium tracking-tight transition-all duration-300 ${isBenefitsVisible ? 'text-6xl mb-0 mt-8 md:mt-[unset]' : 'text-4xl mb-0 mt-8'}`}>The WOW+ Experience</h1>
                     <h3 className={`tracking-tighter transition-all duration-300 overflow-hidden ${isBenefitsVisible ? 'text-4xl mb-4 max-h-[100px] opacity-100' : 'text-xl mb-0 max-h-0 opacity-0'}`}>The Community&apos;s Pass</h3>
 
                     <p className={`max-w-[54ch] mt-2 overflow-hidden transition-all duration-500 ${isBenefitsVisible ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 md:max-h-[300px] md:opacity-100'}`}>
