@@ -24,8 +24,10 @@ const { chromium } = require('playwright');
     for (const vp of viewports) {
       await page.setViewportSize({ width: vp.width, height: vp.height });
       
-      // Navigate to the specific page
-      await page.goto(`${baseUrl}${url}`, { waitUntil: 'networkidle' });
+      // Replace the old page.goto line with this:
+      const fullUrl = `${baseUrl.replace(/\/$/, '')}/${url.replace(/^\//, '')}`;
+      console.log(`Navigating to: ${fullUrl}`);
+      await page.goto(fullUrl, { waitUntil: 'networkidle' });
       
       // Clean the URL name for the filename (e.g., /about/team -> about-team)
       const safeUrl = url.replace(/\//g, '-').replace(/^-|-$/g, '') || 'home';
