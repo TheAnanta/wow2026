@@ -34,8 +34,19 @@ jobs:
       - name: Take Screenshots
         run: |
           mkdir -p screenshots
-          # Clean up the file paths to create URL slugs
-          URLS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | sed 's|src/app/||g; s|pages/||g; s|/page||g; s|.tsx||g; s|.js||g; s|index||g')
+          # 1. Get the changed files
+          # 2. Strip the directory and extension
+          # 3. Add a leading slash
+          # 4. If the result is empty or just 'page', make it '/'
+          URLS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | \
+            sed 's|src/app/||g; s|pages/||g; s|page\.tsx||g; s|page\.js||g; s|\.tsx||g; s|\.js||g; s|index||g' | \
+            sed 's|^|/|' | \
+            sed 's|//|/|g')
+          
+          # Default to root if URLS ended up empty
+          [[ -z "${URLS// }" ]] && URLS="/"
+          
+          echo "Testing URLs: $URLS"
           node screenshot-script.js $URLS
         env:
           TARGET_URL: http://localhost:3000
