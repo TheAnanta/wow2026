@@ -22,7 +22,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
   };
 
   return (
-    <div className="flex flex-col items-center bg-grey-bg dark:bg-grey!">
+    <div className="flex flex-col items-center bg-grey-bg dark:bg-grey! mx-10 mt-10 rounded-xl border-2 overflow-hidden">
       <div className="mb-6 mt-6 md:mb-10 md:mt-12">
         <div className="h-homepage-main-cta" data-bgimage="">
           <div className="flex flex-col items-center text-center p-6 max-w-[800px]">
@@ -63,7 +63,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
       </div>
 
       {/* Bottom hero images */}
-      <div className="bottom-image-container w-full border-b-2 md:border-b-0 border-solid border-grey dark:border-grey-bg">
+      <div className="bottom-image-container w-full border-solid border-grey dark:border-grey-bg translate-y-2">
         <img fetchPriority="high" className="object-cover object-top h-auto max-h-[210px] w-full inline-block md:hidden dark:hidden" src="/images/io24-homepage-hero-bg-bottom-mobile.webp" role="img" aria-hidden="true" width="360" height="168" alt="" />
         <img fetchPriority="high" className="object-cover object-top h-auto max-h-[210px] w-full hidden dark:inline-block dark:md:hidden" src="/images/io24-homepage-hero-bg-bottom-mobile-dark.webp" role="img" aria-hidden="true" width="360" height="168" alt="" />
         <img fetchPriority="high" className="hidden md:inline-block object-cover h-auto w-full dark:hidden" src="/images/io24-homepage-hero-bg-bottom.svg" role="img" aria-hidden="true" width="1440" height="207" alt="" />

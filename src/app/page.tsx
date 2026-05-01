@@ -38,7 +38,7 @@ function Home() {
         <Hero onRegisterClick={() => router.push('/register')} />
 
         <div className="page-wrapper flex flex-col">
-          <CountdownSection />
+          {/* <CountdownSection /> */}
           <WhatToExpectSection />
           <EventMetricsSection />
           <CTACards />

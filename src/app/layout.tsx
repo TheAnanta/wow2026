@@ -72,7 +72,7 @@ export default function RootLayout({
           <AnalyticsProvider>
             <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
             {/* Banner */}
-            <AnnouncementBanner props={{ announcement: "GDG WOW 2026 is happening this year, bigger, better and bolder • Tickets open • Register Now • Follow us on Instagram • @gdgwowap" }} />
+            {/* <AnnouncementBanner props={{ announcement: "GDG WOW 2026 is happening this year, bigger, better and bolder • Tickets open • Register Now • Follow us on Instagram • @gdgwowap" }} /> */}
 
             {children}
 
