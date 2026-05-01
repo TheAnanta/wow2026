@@ -36,7 +36,7 @@ const { chromium } = require('playwright');
           path: `./screenshots/${safeUrl}-${vp.width}.png`, 
           fullPage: true 
       });
-      console.log(`Captured ${safeUrl} at ${vp.width}px`);
+      console.log(`Captured ${safeUrl} at ${vp.width}px.`);
     }
   }
 
