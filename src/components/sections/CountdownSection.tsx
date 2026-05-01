@@ -103,9 +103,10 @@ export function CountdownSection() {
       <div
         aria-label="Countdown to Google WOW 2026"
         aria-live="off"
+        suppressHydrationWarning
         className="countdown-sr-announcer grid grid-cols-countdown-cards-2 md:grid-cols-countdown-cards-4 pb-[2.3rem] gap-y-8 gap-6"
       >
-        <span className="visually-hidden">
+        <span className="visually-hidden" suppressHydrationWarning>
           Time left until Google WOW 2026: {time.days} Days {time.hours} Hours {time.minutes} Minutes {time.seconds} Seconds
         </span>
         {units.map((unit) => (

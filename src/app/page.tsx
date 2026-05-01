@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Header } from '../components/sections/Header';
-import { Hero } from '../components/sections/Hero';
+import HeroSection from '../components/sections/HeroSection';
 import { CountdownSection } from '../components/sections/CountdownSection';
 import { CTACards } from '../components/sections/CTACards';
 import { KeynotesSection } from '../components/sections/KeynotesSection';
@@ -35,7 +35,7 @@ function Home() {
       <Header onRegisterClick={() => router.push('/register')} />
 
       <main>
-        <Hero onRegisterClick={() => router.push('/register')} />
+        <HeroSection />
 
         <div className="page-wrapper flex flex-col">
           <CountdownSection />
@@ -75,6 +75,7 @@ function Home() {
               avatar: 'default'
             }].map((e) => {
               return (<a
+                key={e.title}
                 href={e.link}
                 className="flex p-4 md:p-6 border md:border-2 border-grey-600 md:border-transparent rounded-[20px] w-full md:mb-2 md:w-[49%] overflow-hidden group hover:bg-grey-bg md:hover:bg-transparent hover:border-grey! group dark:hover:border-grey-bg!"
                 onClick={() => analyticsService.trackNavigation(e.title, 'Home_Partners', e.link)}
