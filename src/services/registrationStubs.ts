@@ -19,7 +19,7 @@ export interface RegistrationData extends RegistrationProfile {
 
 import { getBearerToken, auth } from './firebase';
 
-const API_BASE_URL = 'https://now-in-google-backend-1010379975924.us-central1.run.app/nowingoogle-backend/api';
+const API_BASE_URL = 'https://now-in-google-backend-1010379975924.asia-south1.run.app/nowingoogle-backend/api';
 
 export const validateProfile = (data: Partial<RegistrationProfile>): { [key: string]: string } => {
   const errors: { [key: string]: string } = {};
