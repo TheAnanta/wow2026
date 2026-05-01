@@ -12,7 +12,7 @@ const TIERS = [
         rank: "300 - 1495",
         price: "₹800",
         ticketPrice: "₹450",
-        passPrice: "₹350",
+        passPrice: "₹500",
         image: "/images/bronze-7ad033b3ac027995939993b7648507f536d7b089.png",
         color: "#CD7F32",
         benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag"],
@@ -22,7 +22,7 @@ const TIERS = [
         rank: "150 - 300",
         price: "₹650",
         ticketPrice: "₹300",
-        passPrice: "₹350",
+        passPrice: "₹500",
         image: "/images/silver_sm-64ca96b9e4cf1fc255fbe8e81fba4577965e8311.png",
         color: "#C0C0C0",
         benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag", "Silver Badge"],
@@ -32,7 +32,7 @@ const TIERS = [
         rank: "50 - 150",
         price: "₹550",
         ticketPrice: "₹200",
-        passPrice: "₹350",
+        passPrice: "₹500",
         image: "/images/gold_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
         color: "#FFD700",
         benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag", "Gold Badge", "Priority Entry"],
@@ -42,7 +42,7 @@ const TIERS = [
         rank: "10 - 50",
         price: "₹400",
         ticketPrice: "₹50",
-        passPrice: "₹350",
+        passPrice: "₹500",
         image: "/images/diamond_sm-6bb229d2803807410116694fb0aed7f6f43aa63a.png",
         color: "#B9F2FF",
         benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag", "Diamond Badge", "Priority Entry", "Exclusive Workshop Access"],
@@ -261,7 +261,7 @@ export default function WOWPlusPage() {
                                 <h2 className="font-medium text-left text-grey-900 dark:text-grey-bg! sm:s-h4 md:l-h2 dark:text-grey-200 tracking-tight! mb-4">
                                     The more you play,<br />the more you save.
                                  </h2>
-                                <p className="text-grey-600 dark:text-grey-400 max-w-2xl">Compare your target rank with standard ticket prices.<br />Getting a WOW+ Pass (₹350) is your first step to a better WOW experience.</p>
+                                <p className="text-grey-600 dark:text-grey-400 max-w-2xl">Compare your target rank with standard ticket prices.<br />Getting a WOW+ Pass (₹500) is your first step to a better WOW experience.</p>
                             </div>
 
                             <div className="flex flex-col gap-8">
@@ -647,11 +647,11 @@ export default function WOWPlusPage() {
                                                     <b>WOW+ winners (top &lt;535 rank)</b> get massive discounts based on their highest achieved tier:
                                                 </p>
                                                 <ul className="list-disc ml-6 space-y-2">
-                                                    <li><b>Platinum Tier:</b> <span className="text-google-green font-bold">Free</span> (Your ₹350 pass fee will be refunded)</li>
-                                                    <li><b>Diamond Tier:</b> <b>₹400</b> total (₹350 already paid in WOW+ + ₹50 for WOW ticket)</li>
-                                                    <li><b>Gold Tier:</b> <b>₹550</b> total (₹350 already paid in WOW+ + ₹200 for WOW ticket)</li>
-                                                    <li><b>Silver Tier:</b> <b>₹650</b> total (₹350 already paid in WOW+ + ₹300 for WOW ticket)</li>
-                                                    <li><b>Bronze Tier:</b> <b>₹800</b> total (₹350 already paid in WOW+ + ₹450 for WOW ticket)</li>
+                                                    <li><b>Platinum Tier:</b> <span className="text-google-green font-bold">Free</span> (Your ₹500 pass fee will be refunded)</li>
+                                                    <li><b>Diamond Tier:</b> <b>₹550</b> total (₹500 already paid in WOW+ + ₹50 for WOW ticket)</li>
+                                                    <li><b>Gold Tier:</b> <b>₹700</b> total (₹500 already paid in WOW+ + ₹200 for WOW ticket)</li>
+                                                    <li><b>Silver Tier:</b> <b>₹800</b> total (₹500 already paid in WOW+ + ₹300 for WOW ticket)</li>
+                                                    <li><b>Bronze Tier:</b> <b>₹950</b> total (₹500 already paid in WOW+ + ₹450 for WOW ticket)</li>
                                                 </ul>
                                             </dd>
                                         </div>

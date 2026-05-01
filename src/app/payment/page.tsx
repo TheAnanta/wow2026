@@ -17,6 +17,9 @@ function PaymentPage() {
     const [wowPlusAck, setWowPlusAck] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
     const [earnedBadge, setEarnedBadge] = useState<string | null>(null);
+    const [couponCode, setCouponCode] = useState("");
+    const [discount, setDiscount] = useState(0);
+    const [isValidatingCoupon, setIsValidatingCoupon] = useState(false);
     const router = useRouter();
 
     const { user, profile, tickets, isUnregistered, isLoading } = useAuth();
@@ -63,7 +66,7 @@ function PaymentPage() {
             const duration = (Date.now() - startTimeRef.current) / 1000;
             analyticsService.trackCheckoutActivity('select_tier', tierSearch, 'initiated', duration);
             analyticsService.trackCTA(`initiate_checkout_${tierSearch}`, 'PaymentPage');
-            const checkoutData = await initiateCheckout(tier.id);
+            const checkoutData = await initiateCheckout(tier.id, couponCode);
 
             const options = {
                 key: checkoutData.key_id,
@@ -215,7 +218,7 @@ function PaymentPage() {
                     <div className={`flex items-end w-full transition-all duration-300 ${isBenefitsVisible ? 'pb-8 md:pb-[unset] mt-4 opacity-100' : 'pb-2 mt-2 gap-x-4'}`}>
                         <div className="flex flex-col md:block">
                             <p className={`leading-[1.2] line-through tracking-tighter opacity-30 transition-all text-2xl`}>₹800</p>
-                            <p className={`font-bold tracking-tighter transition-all text-3xl`}>₹350 <span className={`font-medium opacity-60 ${isBenefitsVisible ? 'text-xl' : 'text-xs'}`}>(excl. of taxes)</span></p>
+                            <p className={`font-bold tracking-tighter transition-all text-3xl`}>₹500 <span className={`font-medium opacity-60 ${isBenefitsVisible ? 'text-xl' : 'text-xs'}`}>(excl. of taxes)</span></p>
                         </div>
                         <div className={`flex ml-auto items-center transition-all ${isBenefitsVisible ? 'flex-col md:flex-row items-end' : 'flex-col gap-2'}`}>
                             {isBenefitsVisible && <a href="/wow-plus" className={`mt-auto cta-secondary flex items-center rounded-full font-medium transition-all ${isBenefitsVisible ? 'md:mr-4 h-12 md:h-14 text-[14px]! md:text-[20px]!' : 'h-10 px-4 flex items-center justify-center text-[12px]! mx-0!'}`}>Know more</a>}
@@ -352,6 +355,46 @@ function PaymentPage() {
                                     </div>
                                 </div>
                             ))}
+
+                        <div className="mt-6 mb-6 w-full text-left">
+                            <label className="block text-sm font-medium text-grey-700 dark:text-grey-300 mb-1">Coupon Code</label>
+                            <div className="flex gap-2">
+                                <input
+                                    type="text"
+                                    value={couponCode}
+                                    onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                                    placeholder="Enter coupon code"
+                                    className="flex-1 px-4 py-2 border-2 border-grey-bg dark:border-grey-700 rounded-xl bg-transparent focus:border-google-blue outline-none transition-all"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={async () => {
+                                        if (!couponCode) return;
+                                        setIsValidatingCoupon(true);
+                                        try {
+                                            const tier = tiers.find(t => t.name.toLowerCase().includes('arcade') || t.name.toLowerCase().includes('wow'));
+                                            const result = await validateCoupon(couponCode, tier?.id);
+                                            setDiscount(result.discount);
+                                            alert(`Coupon applied! Discount: ₹${result.discount}`);
+                                        } catch (err: any) {
+                                            alert(err.message || "Invalid coupon code");
+                                            setDiscount(0);
+                                        } finally {
+                                            setIsValidatingCoupon(false);
+                                        }
+                                    }}
+                                    disabled={!couponCode || isValidatingCoupon}
+                                    className="px-4 py-2 bg-grey-200 dark:bg-grey-700 rounded-xl font-medium disabled:opacity-50"
+                                >
+                                    {isValidatingCoupon ? "..." : "Apply"}
+                                </button>
+                            </div>
+                            {discount > 0 && (
+                                <p className="text-google-green text-sm mt-1 font-medium">
+                                    Coupon applied! New price: ₹{500 - discount}
+                                </p>
+                            )}
+                        </div>
 
                         <button
                             type="button"

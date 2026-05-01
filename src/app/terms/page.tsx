@@ -251,7 +251,7 @@ export default function TermsPage() {
                     <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
-                          <span className="font-medium sm:s-h5 md:l-h5">WOW+ Pass — ₹350 (The Community's Pass)</span>
+                          <span className="font-medium sm:s-h5 md:l-h5">WOW+ Pass — ₹500 (The Community's Pass)</span>
                         </div>
                       </dt>
                       <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">

@@ -150,7 +150,25 @@ export const fetchTicketTiers = async () => {
   }
 };
 
-export const initiateCheckout = async (tierId: string) => {
+export const validateCoupon = async (code: string, tierId?: string) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/commerce/validate-coupon`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ code, tier_id: tierId })
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.message || 'Invalid coupon');
+    return result.data;
+  } catch (err: any) {
+    console.error('Validate Coupon Error:', err);
+    throw err;
+  }
+};
+
+export const initiateCheckout = async (tierId: string, couponCode?: string) => {
   const token = await getBearerToken();
   if (!token) throw new Error('Unauthenticated');
 
@@ -160,7 +178,7 @@ export const initiateCheckout = async (tierId: string) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     },
-    body: JSON.stringify({ tier_id: tierId })
+    body: JSON.stringify({ tier_id: tierId, coupon_code: couponCode })
   });
 
   const result = await response.json();
