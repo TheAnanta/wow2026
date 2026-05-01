@@ -293,7 +293,7 @@ export default function ProfilePage() {
       const derivedBadges: any[] = [];
 
       const hasArcade = tickets.some((t: any) =>
-        (t.tier?.name || t.name || "").toLowerCase().includes("arcade")
+        (t.tier?.name || t.name || "").toLowerCase().includes("arcade") || (t.tier?.name || t.name || "").toLowerCase().includes("wow")
       );
 
       const hasAttendee = tickets.some((t: any) =>
@@ -313,10 +313,10 @@ export default function ProfilePage() {
 
       if (hasArcade) {
         derivedBadges.push({
-          id: "arcade-explorer",
-          name: "Arcade Insider - Explorer",
+          id: "wow-plus-explorer",
+          name: "WOW+ Insider - Explorer",
           image: "/images/wow26-arcade-badge-registration.png",
-          description: "Awarded to members of the WOW Arcade community. This badge recognizes your commitment to learning and growing within the Google developer ecosystem."
+          description: "Awarded to members of the WOW+ Experience community. This badge recognizes your commitment to learning and growing within the Google developer ecosystem."
         });
       }
 

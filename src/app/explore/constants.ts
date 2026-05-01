@@ -65,7 +65,7 @@ export const FILTER_CATEGORIES: FilterCategory[] = [
       { id: 'type-networking', label: 'Networking', classification: 'type', analyticsFilter: 'Networking' },
       { id: 'type-case-study', label: 'Case Study', classification: 'type', analyticsFilter: 'Case Study' },
       { id: 'type-tech-byte', label: 'Tech Byte', classification: 'type', analyticsFilter: 'Tech Byte' },
-      { id: 'type-arcade', label: 'Arcade', classification: 'type', analyticsFilter: 'Arcade' },
+      { id: 'type-wow-plus', label: 'WOW+ Experience', classification: 'type', analyticsFilter: 'WOW+' },
       { id: 'type-check-in', label: 'Check In', classification: 'type', analyticsFilter: 'Check In' }
     ]
   },

@@ -7,11 +7,11 @@ interface BadgeSuccessProps {
   onClose?: () => void;
 }
 
-const BadgeBanner = ({ isArcade }: { isArcade: boolean }) => (
+const BadgeBanner = ({ isWOWPlus }: { isWOWPlus: boolean }) => (
   <div className="relative w-full h-40 md:h-56 bg-[#F1F3F4] dark:bg-grey-900! overflow-hidden border-b border-grey-200 dark:border-grey-700 flex items-center px-8 md:px-14 transition-colors">
     <div className="flex-1 z-10">
       <h2 className="text-[1.875rem] md:text-[2.25rem] font-medium text-grey-900 dark:text-white tracking-tight leading-tight">
-        {isArcade ? 'Welcome to the Community' : 'Register for WOW'}
+        {isWOWPlus ? 'Welcome to the Community' : 'Register for WOW'}
       </h2>
     </div>
 
@@ -30,7 +30,7 @@ const BadgeBanner = ({ isArcade }: { isArcade: boolean }) => (
 );
 
 export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }) => {
-  const isArcade = badgeName === 'Arcade Insider - Explorer';
+  const isWOWPlus = badgeName === 'WOW+ Insider - Explorer' || badgeName === 'Arcade Insider - Explorer';
   const startTimeRef = useRef(Date.now());
 
   useEffect(() => {
@@ -51,8 +51,8 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
     }
   };
   return (
-    <div className="flex flex-col w-full animate-fade-in transition-colors bg-white dark:bg-grey-800!">
-      <BadgeBanner isArcade={isArcade} />
+    <div className="flex-col w-full animate-fade-in transition-colors bg-white dark:bg-grey-800!">
+      <BadgeBanner isWOWPlus={isWOWPlus} />
 
       {/* Content Body */}
       <div className="flex flex-col items-center text-center p-8 md:p-12">
@@ -72,7 +72,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
         {/* The Badge Container Card - Switched to static official badge image */}
         <div className="w-full max-w-[440px] bg-white dark:bg-grey-800! border-2 border-grey-bg dark:border-grey-700 rounded-3xl p-8 pt-6 flex flex-col items-center justify-center mb-10 overflow-hidden">
           <img
-            src={isArcade ? "/images/wow26-arcade-badge-registration.png" : "/images/io24-badge-registration.svg"}
+            src={isWOWPlus ? "/images/wow26-arcade-badge-registration.png" : "/images/io24-badge-registration.svg"}
             alt={badgeName}
             className="w-[200px] md:w-[240px] h-max transition-transform duration-700 hover:scale-[1.05]"
           />
