@@ -40,7 +40,7 @@ function Home() {
       <Header onRegisterClick={() => router.push('/register')} />
 
       <main>
-        <Swiper
+        {/* <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={0}
           slidesPerView={1}
@@ -48,13 +48,13 @@ function Home() {
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           className="w-full"
         >
-          <SwiperSlide>
+          <SwiperSlide> */}
             <HeroSection onRegisterClick={() => router.push('/register')} />
-          </SwiperSlide>
+          {/* </SwiperSlide>
           <SwiperSlide>
             <Hero onRegisterClick={() => router.push('/register')} />
           </SwiperSlide>
-        </Swiper>
+        </Swiper> */}
 
         <div className="page-wrapper flex flex-col">
           {/* <CountdownSection /> */}
