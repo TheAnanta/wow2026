@@ -142,9 +142,9 @@ export default function CodeOfConductPage() {
 
               {/* Section 1 — Introduction */}
               <section id="coc-intro" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Introduction</h2>
@@ -163,9 +163,9 @@ export default function CodeOfConductPage() {
 
               {/* Section 2 — Be nice */}
               <section id="coc-nice" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Be nice to the other attendees</h2>
@@ -184,9 +184,9 @@ export default function CodeOfConductPage() {
 
               {/* Section 3 — Be respectful */}
               <section id="coc-respectful" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Be respectful and constructive</h2>
@@ -205,9 +205,9 @@ export default function CodeOfConductPage() {
 
               {/* Section 4 — Be collaborative */}
               <section id="coc-collaborative" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(270.11deg, #5382EB 1.91%, #5382EB 25.69%, #9F6CD4 51.37%, #EA4335 79.9%, #EA4335 97.02%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Be collaborative</h2>
@@ -226,9 +226,9 @@ export default function CodeOfConductPage() {
 
               {/* Section 5 — Participate */}
               <section id="coc-participate" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Participate</h2>
@@ -247,9 +247,9 @@ export default function CodeOfConductPage() {
 
               {/* Section 6 — Online etiquette */}
               <section id="coc-online" className="pb-10">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Basic etiquette for online discussions</h2>
@@ -268,9 +268,9 @@ export default function CodeOfConductPage() {
 
               {/* Section 7 — Opportunities */}
               <section id="coc-opportunities">
-                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
+                <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
                   <div
-                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200"
+                    className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg"
                     style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}
                   >
                     <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Opportunities</h2>

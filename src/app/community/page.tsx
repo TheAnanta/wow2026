@@ -404,9 +404,9 @@ export default function CommunityPage() {
                 </div>
                 <div className="promo-card__img flex justify-end w-full ml:w-1/2 items-end pt-0 ml:pt-[44.18px] mr-[-2px] mb-[-2px]">
                   <img src="/images/io__-connect-mobile.svg" width={145} height={187} className="ml:hidden dark:hidden max-h-[298px]" role="img" aria-hidden="true" />
-                  <img src="/images/io__-connect-dark-mobile.svg" width={145} height={187} className="hidden dark:inline-block dark:ml:hidden max-h-[298px]" role="img" aria-hidden="true" />
-                  <img src="/images/io__-connect.svg" width={246} height={299} className="hidden ml:block dark:hidden" role="img" aria-hidden="true" />
-                  <img src="/images/io__-connect-dark.svg" width={246} height={299} className="hidden dark:ml:block max-h-[298px]" role="img" aria-hidden="true" />
+                  <img src="/images/io__-connect-dark-mobile.svg" width={145} height={187} className="hidden dark:block ml:dark:hidden! max-h-[298px]" role="img" aria-hidden="true" />
+                  <img src="/images/io__-connect.svg" width={246} height={299} className="hidden ml:block ml:dark:hidden! dark:hidden" role="img" aria-hidden="true" />
+                  <img src="/images/io__-connect-dark.svg" width={246} height={299} className="hidden ml:dark:block max-h-[298px]" role="img" aria-hidden="true" />
                 </div>
               </div>
             </div>

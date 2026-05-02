@@ -205,7 +205,7 @@ export default function EventMetricsSection() {
                     <p className="mb-8 mt-2 font-normal sm:s-p2 text-black dark:text-white group-hover:text-white dark:group-hover:text-black">Start coding today with self-paced exercises.</p>
                     <span
                         data-analytics-event-data='{"cta_position": "body"}'
-                        className="cta-secondary group-hover:text-white dark:group-hover:text-black group-hover:border-white dark:group-hover:border-black">Install</span>
+                        className="cta-secondary group-hover:text-white dark:group-hover:text-black! group-hover:border-white dark:group-hover:border-black!">Install</span>
                 </div>
                 <img src="/images/io24-learning-cta.webp" className="ml-auto max-w-[170px] absolute right-4 bottom-4 dark:hidden group-hover:hidden! dark:group-hover:inline-block! " role="img" aria-hidden="true" />
                 <img src="/images/io24-learning-cta-dark.webp" className="ml-auto max-w-[170px] absolute right-4 bottom-4 hidden dark:inline-block group-hover:inline-block dark:group-hover:hidden! " role="img" aria-hidden="true" />

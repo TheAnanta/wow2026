@@ -57,76 +57,39 @@ export default function NowInGooglePage() {
                 />
             </Head>
 
-            <div className="dark:bg-grey-900! min-h-screen flex flex-col font-sans text-[#202124] dark:text-white bg-white">
+            <div className="w-full dark:bg-grey-900! min-h-screen flex flex-col font-sans text-[#202124] dark:text-white bg-white overflow-x-hidden">
                 <Header onRegisterClick={() => { }} />
 
                 <main id="content" className="dark:bg-grey-900! flex-1">
                     {/* Hero Banner - Exact Arcade/About Pattern */}
-                    {/* Simple & Clean Hero */}
-                    <section className="bg-grey-bg border-b-2 border-grey-900 pt-10 md:pt-10">
-                        <div className="page-wrapper flex flex-col md:flex-row items-center gap-16 pr-0! pb-0!">
-                            <div className="flex-1 pb-16">
-                                <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-grey-900 text-sm font-bold tracking-widest uppercase mb-8">
-                                    Official Companion App
-                                </span>
-                                <h1 className="l-h1 mb-8 tracking-tighter leading-[0.85em]">
-                                    Now in <br /><span className="text-google-blue">Google</span>
-                                </h1>
-                                <p className="text-2xl font-medium text-grey-text mb-12 max-w-lg leading-[1.2em]">
-                                    The ultimate experience companion for GDG WOW, designed to boost your event journey by 500x.
-                                </p>
-                                <button className="cta-primary h-14 px-10 text-xl font-medium">
+                    <div className="w-full flex flex-col md:flex-row text-md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg!">
+                        <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
+                            <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 tracking-tight!">
+                                Now in Google
+                            </h1>
+                            <div className="font-medium sm:s-h6 md:l-h6 mb-6">
+                                <p>The ultimate experience companion for GDG WOW, designed to boost your event journey by 500x.</p>
+                            </div>
+                            <div>
+                                <button className="cta-primary h-12 px-8 text-lg font-medium opacity-50 cursor-not-allowed grayscale">
                                     Coming Soon
                                 </button>
                             </div>
-                            <div className="flex-1 w-full max-w-lg md:max-w-none">
-                                <img
-                                    src="/images/landingpage.png"
-                                    alt="IO 24 Abstract Graphic"
-                                    className="w-full h-auto"
-                                />
-                            </div>
                         </div>
-                    </section>
-                    {/* <div className="w-full flex flex-col md:flex-row text-md:h-[407px] md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg">
-                        <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
-                            <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40 md:-mr-40 tracking-tight!">
-                                Now in Google
-                            </h1>
-                            <div className="font-medium sm:s-h6 md:l-h6 mb-4">
-                                <p>The official event companion that boosts the WOW experience by 500x. Network, explore, and play.</p>
-                            </div>
-                        </div>
-                        <div className="flex justify-end items-end w-full md:w-3/5 !justify-start xl:!justify-end xl:pr-5">
+                        <div className="flex justify-end items-end w-full md:w-3/5 xl:pr-5">
                             <img
-                                className="hidden md:inline-block h-full object-cover object-left dark:hidden md:max-h-[200px] text-md:max-h-[350px] -mb-[2px]"
-                                src="/images/io24-explore-hero.webp"
-                                width="800"
-                                height="350"
-                                alt=""
-                            />
-                            <img
-                                className="hidden dark:md:inline-block h-full object-cover object-left md:max-h-[200px] text-md:max-h-[350px] -mb-[2px]"
-                                src="/images/io24-explore-hero-dark.webp"
-                                width="800"
-                                height="350"
-                                alt=""
-                            />
-                            <img
-                                className="block md:hidden dark:hidden max-w-[90%] md:max-w-[auto]"
-                                src="/images/io24-explore-hero-mobile.webp"
-                                width="800"
-                                height="350"
-                                alt=""
+                                src="/images/landingpage.png"
+                                alt="Now in Google App Mockup"
+                                className="w-full h-auto object-contain object-right max-h-[258px] md:max-h-[407px] -mb-[2px]"
                             />
                         </div>
-                    </div> */}
+                    </div>
 
                     <div className="w-full max-w-[1640px] mx-auto px-5 md:px-10 pt-4 md:pt-10 text-grey-900 dark:text-white flex flex-col">
 
                         {/* Intro Section - Exact 3-column Grid Pattern */}
                         <div className="flex flex-col mt-[8px] md:mt-[4px]">
-                            <h2 className="tracking-tight! font-medium text-left text-grey-900 mb-6 sm:s-h4 md:l-h2 md:mb-12 dark:text-grey-200">
+                            <h2 className="tracking-tight! font-medium text-left text-grey-900 mb-6 sm:s-h4 md:l-h2 md:mb-12 dark:text-grey-bg!">
                                 Experience 500x more
                             </h2>
                             <div className="grid md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:justify-items-center">
@@ -173,11 +136,11 @@ export default function NowInGooglePage() {
                                     Explore the app
                                 </h2>
                                 <div className="flex flex-col faq-pills">
-                                    <button onClick={() => scrollToFaq("section-overview")} className={`faq-pill ${activeFaq === "section-overview" ? "faq-pill__active" : ""}`}>Overview</button>
-                                    <button onClick={() => scrollToFaq("section-networking")} className={`faq-pill ${activeFaq === "section-networking" ? "faq-pill__active" : ""}`}>Networking</button>
-                                    <button onClick={() => scrollToFaq("section-wallet")} className={`faq-pill ${activeFaq === "section-wallet" ? "faq-pill__active" : ""}`}>WOW Wallet</button>
-                                    <button onClick={() => scrollToFaq("section-utilities")} className={`faq-pill ${activeFaq === "section-utilities" ? "faq-pill__active" : ""}`}>Utilities</button>
-                                    <button onClick={() => scrollToFaq("section-social")} className={`last-pill faq-pill ${activeFaq === "section-social" ? "faq-pill__active" : ""}`}>Social & Badges</button>
+                                    <button onClick={() => scrollToFaq("section-overview")} className={`faq-pill ${activeFaq === "section-overview" ? "faq-pill__active" : ""}`} style={{ borderRadius: "8px", minWidth: "fit-content" }}>Overview</button>
+                                    <button onClick={() => scrollToFaq("section-networking")} className={`faq-pill ${activeFaq === "section-networking" ? "faq-pill__active" : ""}`} style={{ borderRadius: "8px", minWidth: "fit-content" }}>Networking</button>
+                                    <button onClick={() => scrollToFaq("section-wallet")} className={`faq-pill ${activeFaq === "section-wallet" ? "faq-pill__active" : ""}`} style={{ borderRadius: "8px", minWidth: "fit-content" }}>WOW Wallet</button>
+                                    <button onClick={() => scrollToFaq("section-utilities")} className={`faq-pill ${activeFaq === "section-utilities" ? "faq-pill__active" : ""}`} style={{ borderRadius: "8px", minWidth: "fit-content" }}>Utilities</button>
+                                    <button onClick={() => scrollToFaq("section-social")} className={`last-pill faq-pill ${activeFaq === "section-social" ? "faq-pill__active" : ""}`} style={{ borderRadius: "8px", minWidth: "fit-content" }}>Social & Badges</button>
                                 </div>
                             </div>
 
@@ -185,18 +148,18 @@ export default function NowInGooglePage() {
 
                                 {/* Section 1: Overview */}
                                 <section id="section-overview" className="pb-10">
-                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
-                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200" style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}>
+                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
+                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg" style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}>
                                             <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Overview</h2>
                                         </div>
                                         <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200">
+                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">What is Now in Google?</dt>
                                                 <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                     <p>It's our latest initiative app that boosts the WOW experience by 500x. Attendees can interact, form groups, and manage their entire event journey from a single place.</p>
                                                 </dd>
                                             </div>
-                                            <div className="pt-[14px] pr-12">
+                                            <div className="pt-[14px] pr-12 text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">Privacy & Security</dt>
                                                 <dd className="mt-4 md:mt-5 faq-entry font-normal">
                                                     <p>Join channels like #android and #cloud, have DMs/group chats with speakers and fellow attendees hassle-free without fear of privacy leaks. Your data stays safe within the event ecosystem.</p>
@@ -208,18 +171,18 @@ export default function NowInGooglePage() {
 
                                 {/* Section 2: Networking */}
                                 <section id="section-networking" className="pb-10">
-                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
-                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200" style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}>
+                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
+                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg" style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}>
                                             <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Networking</h2>
                                         </div>
                                         <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200">
+                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">Attendee Collaboration</dt>
                                                 <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                     <p>Form groups, join interest-based channels, and discuss the latest in tech with the brightest minds in the community.</p>
                                                 </dd>
                                             </div>
-                                            <div className="pt-[14px] pr-12">
+                                            <div className="pt-[14px] pr-12 text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">Speaker DMs</dt>
                                                 <dd className="mt-4 md:mt-5 faq-entry">
                                                     <p>Have direct conversations with speakers and organizers. Ask questions, get feedback on your work, and build meaningful professional relationships.</p>
@@ -231,18 +194,18 @@ export default function NowInGooglePage() {
 
                                 {/* Section 3: Wallet */}
                                 <section id="section-wallet" className="pb-10">
-                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
-                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200" style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}>
+                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
+                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg" style={{ background: "linear-gradient(90deg, #FFCB32 -0.15%, #FFCB32 17.85%, #F46831 52.85%, #EA4335 78.85%, #EA4335 99.85%)" }}>
                                             <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">WOW Wallet</h2>
                                         </div>
                                         <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200">
+                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">One-Stop Payments</dt>
                                                 <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                     <p>The Google WOW Wallet can be refueled and used for everything—from the WOW+ experience to the food court. No need to carry cash or cards during the event.</p>
                                                 </dd>
                                             </div>
-                                            <div className="pt-[14px] pr-12">
+                                            <div className="pt-[14px] pr-12 text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">The WOW+ Hub</dt>
                                                 <dd className="mt-4 md:mt-5 faq-entry">
                                                     <p>The app is the official place to manage your WOW+ experience. Be notified of workshops, book your 1-1 mentor sessions, and track your leaderboard status in real-time.</p>
@@ -254,18 +217,18 @@ export default function NowInGooglePage() {
 
                                 {/* Section 4: Utilities */}
                                 <section id="section-utilities" className="pb-10">
-                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
-                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200" style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}>
+                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
+                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg" style={{ background: "linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)" }}>
                                             <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Utilities</h2>
                                         </div>
                                         <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200">
+                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">Stay Management</dt>
                                                 <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                     <p>Manage, book, or extend your accommodation at GITAM hostels directly through the app. View your check-in QR code instantly upon arrival.</p>
                                                 </dd>
                                             </div>
-                                            <div className="pt-[14px] pr-12">
+                                            <div className="pt-[14px] pr-12 text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">3D Fox Navigator</dt>
                                                 <dd className="mt-4 md:mt-5 faq-entry">
                                                     <p>Our AR navigation tech helps you find sessions, workshops, and booths without getting lost. Just point your camera and follow the Fox!</p>
@@ -277,18 +240,18 @@ export default function NowInGooglePage() {
 
                                 {/* Section 5: Social */}
                                 <section id="section-social" className="pb-10">
-                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-200 overflow-hidden">
-                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-200" style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}>
+                                    <div className="border-2 rounded-2xl border-grey-900 dark:border-grey-bg overflow-hidden">
+                                        <div className="section-header flex justify-between items-center border-b-2 p-[30px] md:py-[23px] md:pl-12 border-grey-900 dark:border-grey-bg" style={{ background: "linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)" }}>
                                             <h2 className="font-medium text-grey-900 sm:s-h4 md:l-h4">Social & Badges</h2>
                                         </div>
                                         <dl className="px-[30px] pb-[50px] pt-5 md:px-12 md:pb-10 md:pt-[42px]">
-                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200">
+                                            <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">Posts & Stories</dt>
                                                 <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                     <p>Share your event moments with posts and stories. Visiting sponsor booths and answering quiz questions in the app earns you extra points!</p>
                                                 </dd>
                                             </div>
-                                            <div className="pt-[14px] pr-12 space-y-4">
+                                            <div className="pt-[14px] pr-12 space-y-4 text-grey-900 dark:text-white">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">Badges & Profiles</dt>
                                                 <dd className="mt-4 md:mt-5 faq-entry">
                                                     <p>View your earned digital badges, manage your public profile, and share your technical interests to get personalized blog recommendations.</p>

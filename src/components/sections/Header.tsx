@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
                 key={link.label}
                 href={link.href}
                 onClick={() => analyticsService.trackNavigation(link.label, 'Header', link.href)}
-                className="nav-links text-[16px] font-medium mr-[24px]"
+                className="nav-links text-[16px] font-medium mr-[24px] dark:text-white!"
               >
                 {link.label}
               </Link>
@@ -84,9 +84,9 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
                 <option value="ml">മലയാളം</option>
                 <option value="pa">ਪੰਜਾਬੀ</option>
               </select>
-              <div style={{ zIndex: 10, top: '48px', right: '0' }} className="absolute invisible group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
-                <div className="bg-white dark:bg-grey-900! dark:text-grey-200 border-2 border-grey-900 dark:border-grey-200 text-grey-900 sm:l-cta2 font-medium p-3 pr-6 w-max relative shadow-xl space-x-4!">
-                  <span>In-person content is available in English only </span>
+              <div style={{ zIndex: 100, top: '48px', right: '0' }} className="absolute invisible group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
+                <div className="bg-white dark:bg-grey-900! dark:text-white border-2 border-grey-900 dark:border-grey-bg text-grey-900 sm:l-cta2 font-medium p-3 pr-6 w-max relative shadow-xl space-x-4!">
+                  <span className="dark:text-white!">In-person content is available in English only </span>
                   <button type="button" className="absolute top-0 bottom-0 right-0 px-2" aria-label="Close">
                     <svg className="fill-current dark:fill-white text-grey-900 w-6 h-6 forced-white-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
                       <path d="m14.53 4.53-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
@@ -139,7 +139,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
             aria-label="Open navigation menu"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" fill="#202124" />
+              <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" className="fill-grey-900 dark:fill-white" />
             </svg>
           </button>
         </div>
@@ -152,25 +152,27 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
 
       {/* Mobile Menu Drawer */}
       <div className={`drawer-nav md:hidden ${isMobileMenuOpen ? 'show' : ''}`}>
-        <div className="p-[20px]">
-          <div className="flex justify-between items-center mb-[32px]">
-            <img src="https://io.google/2024/app/images/io24-logo-mobile.svg" alt="Google WOW" className="h-[30px]" />
+        <div className="p-[20px] h-full flex flex-col">
+          <div className="flex justify-between items-center pb-[20px] mb-[32px] border-b border-grey-bg dark:border-grey-bg/10">
+            <Link href="/" className="mr-[24px]" aria-label="Google WOW homepage" onClick={() => setIsMobileMenuOpen(false)}>
+              GDG<span className='font-black'>WOW</span>
+            </Link>
             <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#202124" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" className="fill-grey-900 dark:fill-white" /></svg>
             </button>
           </div>
-          <div className="flex flex-col gap-[16px]">
+          <div className="flex-1 flex flex-col gap-[16px]">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[20px] font-medium text-grey-900 py-3 border-b border-grey-bg"
+                className="text-[16px] font-medium text-grey-900 dark:text-white py-3 dark:border-grey-bg/10"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="mt-8">
+            <div className="mt-auto pt-8">
               {!isLoggedIn ? (
                 <button
                   onClick={() => { setIsMobileMenuOpen(false); handleAction(); }}
@@ -181,11 +183,30 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
               ) : (
                 <button
                   onClick={() => { setIsMobileMenuOpen(false); handleAction(); }}
-                  className="text-center w-full py-4 text-[20px] font-medium border-2 border-grey-900 rounded-full"
+                  className="text-center w-full py-4 text-[20px] font-medium border-2 border-grey-900 dark:border-white rounded-full dark:text-white"
                 >
                   Sign out
                 </button>
               )}
+            </div>
+            <div className="mt-4 pt-4 border-t border-grey-bg dark:border-grey-bg/10">
+              <select
+                name="language-select"
+                aria-label="Drop down to select language"
+                className="font-medium language-select focus-trapped text-grey-900 dark:text-white w-full border-none pl-0 cursor-pointer appearance-none bg-transparent text-[16px]"
+                defaultValue="en"
+              >
+                <option value="en" className="dark:bg-grey-900">English</option>
+                <option value="hi" className="dark:bg-grey-900">हिन्दी</option>
+                <option value="bn" className="dark:bg-grey-900">বাংলা</option>
+                <option value="te" className="dark:bg-grey-900">తెలుగు</option>
+                <option value="mr" className="dark:bg-grey-900">मराठी</option>
+                <option value="ta" className="dark:bg-grey-900">தமிழ்</option>
+                <option value="gu" className="dark:bg-grey-900">ગુજરાતી</option>
+                <option value="kn" className="dark:bg-grey-900">ಕನ್ನಡ</option>
+                <option value="ml" className="dark:bg-grey-900">മലയാളం</option>
+                <option value="pa" className="dark:bg-grey-900">ਪੰਜਾਬੀ</option>
+              </select>
             </div>
           </div>
         </div>

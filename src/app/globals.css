@@ -655,7 +655,7 @@
 
 /* Custom Utilities for I/O 24 aesthetics */
 .drawer-nav {
-  @apply fixed top-0 left-0 z-50 h-full w-full max-w-[90%] -translate-x-full transition-transform duration-300 ease-in-out bg-white border-r-2 border-grey-900 rounded-r-[20px] overflow-y-auto;
+  @apply fixed top-0 left-0 z-50 h-full w-full max-w-[90%] -translate-x-full transition-transform duration-300 ease-in-out bg-white dark:bg-grey-900 overflow-y-auto dark:text-white;
 }
 
 .drawer-nav.show {
@@ -1898,8 +1898,6 @@ a:is(:link, :active, :visited).sub-nav-links.active-underline {
     overflow: scroll;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    border-width: 2px;
-    border-color: rgb(0 0 0/var(--tw-border-opacity));
     background-color: rgb(255 255 255/var(--tw-bg-opacity));
     transition-property: transform;
     transition-duration: .25s;
@@ -4655,7 +4653,6 @@ p.start-learning p a {
     --tw-bg-opacity:1
 }
     .drawer-nav {
-    border-color: rgb(255 255 255/var(--tw-border-opacity));
     background-color:rgb(32 33 36/var(--tw-bg-opacity))
 }
     .profile-card {

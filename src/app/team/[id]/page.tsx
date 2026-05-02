@@ -187,20 +187,20 @@ export default function TeamMemberDetailPage() {
                                 <div className="flex-1 flex flex-col overflow-hidden bg-grey-bg dark:bg-grey! border md:border-2 border-grey rounded-[16px] dark:border-white text-md:flex-row">
                                     <div className="promo-card__body flex-1 flex flex-col items-start p-6 ml:p-10 ml:pr-0">
                                         <div className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4">
-                                            Join us at I/O Connect
+                                            Join us at WOW
                                         </div>
                                         <div className="flex-1 flex flex-col justify-between items-start">
                                             <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:s-cta2 md:l-cta1">
                                                 Explore, network, and get hands-on with the latest products.
                                             </p>
-                                            <a href="https://developers.google.com/events" rel="noreferrer" target="_blank" className="cta-secondary">Find an event</a>
+                                            <a href="/explore" rel="noreferrer" target="_blank" className="cta-secondary">Find an session</a>
                                         </div>
                                     </div>
                                     <div className="promo-card__img flex justify-end w-full ml:w-1/2 items-end pt-0 ml:pt-[44.18px] mr-[-2px] mb-[-2px]">
                                         <img src="/images/io__-connect.svg" width="246" height="299" className="hidden md:block dark:hidden" role="img" aria-hidden="true" />
-                                        <img src="/images/io__-connect-dark.svg" width="246" height="299" className="hidden dark:md:block max-h-[298px]" role="img" aria-hidden="true" />
+                                        <img src="/images/io__-connect-dark.svg" width="246" height="299" className="hidden md:dark:block max-h-[298px]" role="img" aria-hidden="true" />
                                         <img src="/images/io__-connect-mobile.svg" width="145" height="187" className="md:hidden dark:hidden" role="img" aria-hidden="true" />
-                                        <img src="/images/io__-connect-dark-mobile.svg" width="145" height="187" className="hidden dark:block md:hidden" role="img" aria-hidden="true" />
+                                        <img src="/images/io__-connect-dark-mobile.svg" width="145" height="187" className="hidden dark:block md:dark:hidden" role="img" aria-hidden="true" />
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@ export default function TeamMemberDetailPage() {
                                 <div className="flex-1 flex flex-col overflow-hidden border md:border-2 border-grey rounded-[16px] dark:border-white text-md:flex-row bg-grey-bg dark:bg-grey!">
                                     <div className="promo-card__body flex-1 flex flex-col items-start p-6 ml:p-10 ml:pr-0">
                                         <div className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h4 md:l-h4">
-                                            Attend I/O Extended
+                                            Attend GDGoC
                                         </div>
                                         <div className="flex-1 flex flex-col justify-between items-start">
                                             <p className="text-grey dark:text-white mb-3 text-md:mb-6 sm:s-cta2 md:l-cta1">
