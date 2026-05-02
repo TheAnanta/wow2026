@@ -16,6 +16,11 @@ import EventMetricsSection from '@/components/sections/EventMetricsSection';
 import { useSearchParams } from 'next/navigation';
 import { Toast } from '@/components/ui/Toast';
 import { analyticsService } from '@/services/analytics';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Hero } from '../components/sections/Hero';
 
 function Home() {
   const { isUnregistered, isLoggedIn } = useAuth();
@@ -35,7 +40,21 @@ function Home() {
       <Header onRegisterClick={() => router.push('/register')} />
 
       <main>
-        <HeroSection />
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={0}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          className="w-full"
+        >
+          <SwiperSlide>
+            <HeroSection onRegisterClick={() => router.push('/register')} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Hero onRegisterClick={() => router.push('/register')} />
+          </SwiperSlide>
+        </Swiper>
 
         <div className="page-wrapper flex flex-col">
           {/* <CountdownSection /> */}

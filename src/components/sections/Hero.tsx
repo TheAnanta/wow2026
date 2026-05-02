@@ -1,8 +1,7 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-import { useAuth } from "../../context/AuthContext";
-import { analyticsService } from "../../services/analytics";
+'use client';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '../../context/AuthContext';
+import { analyticsService } from '../../services/analytics';
 
 interface HeroProps {
   onRegisterClick?: () => void;
@@ -14,98 +13,62 @@ export function Hero({ onRegisterClick }: HeroProps) {
   const isRegistered = isLoggedIn && !isUnregistered && !!profile;
   const hasTicket = tickets && tickets.length > 0;
 
-  const buttonText = !isRegistered ? "Register Now" : !hasTicket ? "Complete registration" : "Update profile";
-  const buttonLink = !isRegistered ? "/register" : !hasTicket ? "/payment" : "/register";
+  const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
+  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register');
 
   const handleCTAClick = () => {
-    analyticsService.trackCTA(buttonText, "Hero", "click");
+    analyticsService.trackCTA(buttonText, 'Hero', 'click');
     router.push(buttonLink);
   };
 
   return (
-    <section className="w-full flex justify-center py-8 md:py-12">
-      <div className="w-full max-w-[1180px] px-4">
-        <div className="relative rounded-2xl overflow-hidden bg-[#1e5ef8] shadow-md">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Left content column */}
-            <div className="md:col-span-7 p-8 md:p-12 text-white">
-              <div className="max-w-[560px]">
-                <div className="mb-4 opacity-90 text-sm">Google</div>
-                <h1 className="font-display text-[44px] md:text-[56px] leading-[1.02] font-medium mb-4">The WOW+ Experience</h1>
-                <p className="text-[16px] md:text-[18px] mb-6">Play games, rank up on the leaderboard, earn swags, and get exclusive WOW pass discounts.</p>
-
-                <div className="mb-6">
-                  <button onClick={handleCTAClick} className="inline-flex items-center bg-black text-white rounded-full px-5 py-3 font-medium shadow-sm hover:opacity-95">
-                    {buttonText}
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
-                      <span>Delicious food and swags</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
-                      <span>Engaging games</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
-                      <span>Icebreakers</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
-                      <span># I Am Remarkable</span>
-                    </li>
-                  </ul>
-
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
-                      <span>Project Showcase</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
-                      <span>Funding</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
-                      <span>Pixel 9 Photo Booth</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
-                      <span>1-1 Mentoring with GDEs</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+    <div className="flex flex-col items-center bg-grey-bg dark:bg-grey! mx-10 mt-10 rounded-xl border-2 overflow-hidden">
+      <div className="mb-6 mt-6 md:mb-10 md:mt-12">
+        <div className="h-homepage-main-cta" data-bgimage="">
+          <div className="flex flex-col items-center text-center p-6 max-w-[800px]">
+            <h1 className="font-medium text-grey dark:text-white max-w-[360px] md:max-w-[500px] mb-4 sm:s-h3 md:l-h4">
+              <span>
+                <p>Tune in for<br />GDG on Campus WOW</p>
+                <p>July 4, 2026</p>
+              </span>
+            </h1>
+            <div className="hidden">
+              <img width="660" height="63" src="/images/homepage-main-cta-loading.svg" aria-hidden="true" />
             </div>
-
-            {/* Right visual column */}
-            <div className="md:col-span-5 relative">
-              <div className="absolute top-6 right-6 bg-white text-black rounded-full p-4 shadow-lg w-[160px] h-[120px] flex flex-col items-center justify-center text-center">
-                <span className="text-xs uppercase text-slate-500">Limited opportunity</span>
-                <strong className="text-xl md:text-2xl">19:15:12</strong>
-                <span className="text-[11px] text-slate-500">days:hours:minutes</span>
-              </div>
-
-              <div className="h-[220px] md:h-[320px] flex items-end justify-end pr-6 pb-6">
-                <img src="/images/io24-planio-cta.svg" alt="hero products" className="max-w-[240px] md:max-w-[360px] object-contain" />
-              </div>
-            </div>
+            <div className="flex flex-col items-center" />
+            <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
+              <span>Participate in hands-on workshops, tech talks, and hackathon. Take home some cool swags and cash prizes.</span>
+            </h2>
+            <button type="button" className="cta-primary block" onClick={handleCTAClick}>
+              <span>{buttonText}</span>
+            </button>
           </div>
-
-          {/* Carousel indicators */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-            <div className="flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-white/60" />
-              <span className="w-2 h-2 rounded-full bg-white/30" />
-              <span className="w-2 h-2 rounded-full bg-white/30" />
-            </div>
+          <div className="hidden flex-col items-center">
+            <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
+              <span>Get content recommendations by updating your Google Developer Profile.</span>
+            </h2>
+            <a href="/profile" className="cta-primary">
+              <span>Update profile</span>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+
+      {/* Top hero images */}
+      <div className="top-image-container flex flex-col items-center w-full -mb-6 md:-mb-10">
+        <img fetchPriority="high" className="object-contain h-auto w-auto inline-block md:hidden dark:hidden max-w-[317px]" src="/images/io24-homepage-hero-bg-mobile.webp" role="img" aria-hidden="true" width="304" height="166" alt="" />
+        <img fetchPriority="high" className="object-contain h-auto w-auto hidden dark:inline-block dark:md:hidden max-w-[317px]" src="/images/io24-homepage-hero-bg-mobile-dark.webp" role="img" aria-hidden="true" width="303" height="166" alt="" />
+        <img fetchPriority="high" className="hidden md:inline-block object-contain h-auto w-auto dark:hidden max-w-[690px]" src="/images/io24-homepage-hero-bg.webp" role="img" aria-hidden="true" width="666" height="356" alt="" />
+        <img fetchPriority="high" className="hidden dark:md:inline-block object-contain h-auto w-auto max-w-[690px]" src="/images/io24-homepage-hero-bg-dark.webp" role="img" aria-hidden="true" width="666" height="356" alt="" />
+      </div>
+
+      {/* Bottom hero images */}
+      <div className="bottom-image-container w-full border-solid border-grey dark:border-grey-bg translate-y-2">
+        <img fetchPriority="high" className="object-cover object-top h-auto max-h-[210px] w-full inline-block md:hidden dark:hidden" src="/images/io24-homepage-hero-bg-bottom-mobile.webp" role="img" aria-hidden="true" width="360" height="168" alt="" />
+        <img fetchPriority="high" className="object-cover object-top h-auto max-h-[210px] w-full hidden dark:inline-block dark:md:hidden" src="/images/io24-homepage-hero-bg-bottom-mobile-dark.webp" role="img" aria-hidden="true" width="360" height="168" alt="" />
+        <img fetchPriority="high" className="hidden md:inline-block object-cover h-auto w-full dark:hidden" src="/images/io24-homepage-hero-bg-bottom.svg" role="img" aria-hidden="true" width="1440" height="207" alt="" />
+        <img fetchPriority="high" className="hidden dark:md:inline-block object-cover h-auto w-full" src="/images/io24-homepage-hero-bg-bottom-dark.svg" role="img" aria-hidden="true" width="1430" height="207" alt="" />
+      </div>
+    </div>
   );
 }

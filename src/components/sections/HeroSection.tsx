@@ -30,115 +30,117 @@ function padCountdownValue(value: number) {
 
 function getCountdownText() {
   const remainingMilliseconds = Math.max(0, HERO_COUNTDOWN_TARGET.getTime() - Date.now());
-  const totalMinutes = Math.floor(remainingMilliseconds / 60000);
+  const totalSeconds = Math.floor(remainingMilliseconds / 1000);
+  const totalMinutes = Math.floor(totalSeconds / 60);
   const days = Math.floor(totalMinutes / 1440);
   const hours = Math.floor((totalMinutes % 1440) / 60);
   const minutes = totalMinutes % 60;
+  const seconds = totalSeconds % 60;
 
-  return `${padCountdownValue(days)}:${padCountdownValue(hours)}:${padCountdownValue(minutes)}`;
+  return {
+    days: padCountdownValue(days),
+    hours: padCountdownValue(hours),
+    minutes: padCountdownValue(minutes),
+    seconds: padCountdownValue(seconds),
+    full: `${padCountdownValue(days)}:${padCountdownValue(hours)}:${padCountdownValue(minutes)}`
+  };
 }
 
 function useHeroCountdownText() {
-  const [countdownText, setCountdownText] = useState(() => getCountdownText());
+  const [countdown, setCountdown] = useState(() => getCountdownText());
 
   useEffect(() => {
-    const tick = () => setCountdownText(getCountdownText());
+    const tick = () => setCountdown(getCountdownText());
     tick();
     const intervalId = window.setInterval(tick, 1000);
 
     return () => window.clearInterval(intervalId);
   }, []);
 
-  return countdownText;
+  return countdown;
 }
 
 function CheckIcon() {
   return (
-    <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[4px] border border-black bg-white">
+    <div className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[4px] border border-white bg-white">
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <path d="M3 7.6L6.1 10.7L12 4.8" stroke="#202324" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    </span>
+    </div>
   );
 }
 
 function FeatureItem({ label }: FeatureItemProps) {
   return (
-    <li className="flex min-h-[28px] items-center gap-[10px]">
+    <li className="flex items-center gap-[10px] py-[3px]">
       <CheckIcon />
-      <span className="text-[12px] font-medium leading-[1.2] text-white xl:text-[13px]">
+      <span className="text-[12px] lg:text-[16px] font-medium leading-[2.3] text-white xl:text-[20px]">
         {label}
       </span>
     </li>
   );
 }
 
-function BadgeTimer({ countdownText, className = "" }: { countdownText: string; className?: string }) {
+function BadgeTimer({ countdown, className = "" }: { countdown: ReturnType<typeof getCountdownText>; className?: string }) {
   return (
-    <div className={`w-[260px] h-[260px] xl:w-[320px] xl:h-[320px] ${className}`}>
-      <svg className="absolute -top-12 -right-12 w-[340px] xl:w-[420px] drop-shadow-xl saturate-[1.2]" viewBox="-60 -60 544 471" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path id="wavy-badge-path" d="M285.325 -161.636C283.72 -160.879 281.939 -159.956 278.329 -158.083C276.724 -157.251 275.909 -156.828 275.108 -156.431C256.782 -147.356 236.019 -144.385 215.866 -147.951C214.985 -148.107 214.084 -148.283 212.309 -148.632C208.314 -149.415 206.343 -149.802 204.589 -150.077C163.144 -156.589 122.438 -134.829 104.928 -96.8079C104.187 -95.1985 103.418 -93.3479 101.861 -89.5966C101.169 -87.929 100.818 -87.083 100.46 -86.2649C92.2775 -67.5518 78.2979 -51.9533 60.5734 -41.7591C59.7986 -41.3134 58.9955 -40.8716 57.412 -39.9998C53.8495 -38.0383 52.0918 -37.0705 50.5714 -36.1564C14.6549 -14.5645 -2.48873 28.2262 8.59842 68.6062C9.06778 70.3156 9.67171 72.2273 10.896 76.1024C11.4402 77.825 11.7166 78.6987 11.9697 79.5554C17.76 99.1497 17.1067 120.075 10.1055 139.26C9.79938 140.099 9.46917 140.953 8.81859 142.638C7.35519 146.426 6.633 148.295 6.05798 149.971C-7.52607 189.561 6.91276 233.364 41.4116 257.21C42.8719 258.219 44.5659 259.297 47.9988 261.483C49.525 262.454 50.2995 262.947 51.0451 263.441C68.0975 274.748 81.0753 291.208 88.0737 310.406C88.3797 311.246 88.6774 312.112 89.2643 313.821C90.5846 317.664 91.2364 319.56 91.8757 321.214C106.979 360.28 146.247 384.599 188.015 380.751C189.783 380.588 191.774 380.329 195.81 379.802C197.604 379.568 198.514 379.448 199.403 379.349C219.739 377.079 240.275 381.373 257.998 391.601C258.772 392.049 259.558 392.523 261.108 393.456C264.594 395.556 266.314 396.591 267.869 397.449C304.596 417.711 350.318 411.164 379.809 381.423C381.058 380.164 382.414 378.688 385.164 375.695C386.387 374.365 387.007 373.69 387.623 373.044C401.728 358.258 420.214 348.378 440.369 344.851C441.25 344.697 442.156 344.556 443.944 344.277C447.965 343.65 449.949 343.341 451.691 343.002C492.854 334.977 523.635 300.63 527.052 258.914C527.197 257.148 527.284 255.146 527.461 251.089C527.54 249.285 527.58 248.37 527.636 247.479C528.908 227.096 536.694 207.662 549.851 192.03C550.426 191.346 551.029 190.656 552.218 189.296C554.893 186.236 556.212 184.727 557.327 183.349C583.665 150.794 585.104 104.72 560.848 70.5455C559.821 69.0989 558.6 67.5078 556.122 64.2834C555.02 62.8499 554.461 62.1234 553.929 61.4046C541.774 44.9624 535.217 25.0696 535.219 4.64576C535.219 3.75285 535.235 2.83704 535.269 1.0317C535.345 -3.02928 535.383 -5.03271 535.349 -6.80431C534.541 -48.6558 505.964 -84.9028 465.383 -95.5437C463.665 -95.9942 461.704 -96.43 457.73 -97.3125C455.964 -97.7048 455.068 -97.9037 454.198 -98.1139C434.304 -102.922 416.472 -113.964 403.318 -129.622C402.743 -130.306 402.167 -131.02 401.03 -132.426C398.473 -135.588 397.21 -137.148 396.043 -138.484C368.464 -170.052 323.241 -179.509 285.325 -161.636Z" fill="#F8F8F8" stroke="#1b1b1b" strokeWidth="2.5"/>
-        <text className="text-[12px] xl:text-[13px] font-medium fill-[#3D3D3D] tracking-[0.14em]" dy="-12">
-          <textPath href="#wavy-badge-path" startOffset="0%">
-             • google developer groups on campus • google developer groups on campus • google developer groups on campus • google developer groups on campus • google developer groups on campus • google developer groups on campus
-          </textPath>
-        </text>
-      </svg>
+    <div className='hidden md:flex absolute lg:top-[-150px] lg:right-[-80px] -top-[200px] -right-[120px]'>
+      {/* Wavy Background SVG */}
+      <div className=" scale-75 lg:scale-100">
 
-      <div className="absolute top-[16%] left-[18%] right-[10%] flex flex-col items-center justify-center text-center pointer-events-none xl:top-[20%] xl:left-[22%]">
-        <span className="mb-2 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#1b1b1b] bg-white px-[12px] py-[6px] text-[10px] font-bold tracking-[0.06em] text-[#2563EB] xl:text-[11px] pointer-events-auto shadow-sm">
-          LIMITED OPPORTUNITY
-        </span>
-        <span
-          suppressHydrationWarning
-          aria-live="polite"
-          aria-atomic="true"
-          role="timer"
-          className="font-display text-[44px] font-bold leading-tight tracking-[-0.04em] text-[#111111] xl:text-[52px]"
-        >
-          {countdownText}
-        </span>
-        <span className="font-display text-[15px] font-medium leading-none tracking-[-0.02em] text-[#333333] xl:text-[17px]">
-          days:hours:minutes
-        </span>
+        <svg className="h-[440px] w-[440px] xl:h-[471px] xl:w-[544px] top-[-160px] left-[-200px]" viewBox="0 0 580 582" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M285.325 9.95801C323.242 -7.91483 368.465 1.54166 396.043 33.1097C397.21 34.4461 398.473 36.0057 401.03 39.168C402.167 40.5739 402.743 41.2875 403.318 41.9721C416.472 57.6297 434.305 68.6718 454.199 73.48C455.068 73.6902 455.964 73.8891 457.73 74.2814C461.704 75.1639 463.665 75.5997 465.383 76.0502C505.964 86.691 534.541 122.938 535.349 164.79C535.384 166.561 535.345 168.565 535.269 172.626C535.235 174.431 535.219 175.347 535.219 176.24C535.217 196.664 541.775 216.556 553.929 232.998C554.461 233.717 555.02 234.444 556.122 235.877C558.6 239.102 559.822 240.693 560.848 242.139C585.104 276.314 583.665 322.388 557.327 354.943C556.212 356.321 554.893 357.83 552.218 360.89C551.03 362.25 550.426 362.94 549.851 363.623C536.695 379.256 528.909 398.69 527.636 419.073C527.58 419.964 527.54 420.879 527.462 422.683C527.284 426.74 527.197 428.742 527.052 430.508C523.635 472.224 492.855 506.571 451.691 514.596C449.949 514.935 447.965 515.244 443.944 515.871C442.156 516.15 441.25 516.291 440.369 516.445C420.215 519.972 401.728 529.852 387.623 544.638C387.007 545.284 386.387 545.959 385.164 547.289C382.415 550.282 381.058 551.758 379.809 553.017C350.318 582.757 304.596 589.305 267.869 569.043C266.315 568.185 264.594 567.15 261.108 565.05C259.558 564.116 258.773 563.643 257.998 563.195C240.275 552.967 219.739 548.673 199.403 550.943C198.514 551.042 197.604 551.162 195.81 551.396C191.775 551.923 189.783 552.182 188.015 552.345C146.247 556.193 106.979 531.874 91.8759 492.808C91.2366 491.154 90.5848 489.258 89.2645 485.415C88.6776 483.706 88.38 482.84 88.074 482C81.0756 462.802 68.0977 446.342 51.0454 435.035C50.2998 434.541 49.5252 434.048 47.999 433.076C44.5661 430.891 42.8722 429.813 41.4118 428.804C6.91302 404.958 -7.52583 361.155 6.05822 321.565C6.63324 319.889 7.35543 318.02 8.81883 314.231C9.46942 312.547 9.79962 311.693 10.1057 310.854C17.107 291.669 17.7602 270.744 11.97 251.149C11.7168 250.293 11.4404 249.419 10.8962 247.696C9.67195 243.821 9.06802 241.91 8.59867 240.2C-2.48849 199.82 14.6551 157.029 50.5716 135.437C52.092 134.523 53.8497 133.556 57.4123 131.594C58.9957 130.722 59.7988 130.28 60.5737 129.835C78.2981 119.641 92.2778 104.042 100.46 85.329C100.818 84.5109 101.169 83.6648 101.861 81.9973C103.419 78.246 104.187 76.3954 104.928 74.786C122.439 36.765 163.144 15.0053 204.589 21.5166C206.343 21.7922 208.314 22.1785 212.309 22.9623C214.085 23.3107 214.985 23.4873 215.866 23.6432C236.02 27.2092 256.782 24.2375 275.108 15.1625C275.909 14.7657 276.724 14.3429 278.329 13.5104C281.939 11.638 283.72 10.7146 285.325 9.95801Z" fill="white" stroke="black" stroke-width="2" />
+        </svg>
+
+        <div className="absolute bottom-[118px] left-24 z-10! h-max flex flex-col items-end justify-center text-center pointer-events-none pr-[8%] pt-[4%]">
+          <div className="inline-flex items-center rounded-full border-[1.2px] border-black bg-white px-3.5 py-1.5 text-[12.5px] mb-4 font-bold tracking-wider text-blue-600 xl:text-[16px]">
+            LIMITED OPPORTUNITY
+          </div>
+
+          <span
+            suppressHydrationWarning
+            aria-live="polite"
+            className="font-display text-[64px] font-bold leading-none tracking-tight text-slate-900 xl:text-[84px]"
+          >
+            {countdown.full}
+          </span>
+          <span className="font-display text-[20px] font-medium tracking-wide text-slate-800 xl:text-[18px] w-max">
+            days:hours:minutes
+          </span>
+        </div>
       </div>
     </div>
   );
 }
 
-function DesktopHeroCard({ onRegisterClick, countdownText }: { onRegisterClick: () => void; countdownText: string }) {
+function DesktopHeroCard({ onRegisterClick, countdown }: { onRegisterClick: () => void; countdown: ReturnType<typeof getCountdownText> }) {
   return (
     <section aria-label="Hero" className="page-wrapper mt-4 hidden lg:flex">
-      <div className="relative flex min-h-[660px] w-full items-center justify-between overflow-hidden rounded-[8px] border-[1.5px] border-black bg-[#2563EB] px-[34px] pb-[34px] pt-[32px] xl:min-h-[740px] xl:px-[48px] xl:pb-[42px] xl:pt-[40px]">
-        <div className="relative z-10 flex max-w-[54%] flex-col justify-center pr-8 xl:max-w-[53%]">
-          <div className="mb-3 font-display text-[16px] font-medium leading-none text-white xl:text-[18px]">
-            Google
-          </div>
-          <h1 className="font-display text-[clamp(4rem,6.1vw,6.7rem)] font-bold leading-[0.9] tracking-[-0.05em] text-white">
-            The WOW+
-            <br />
-            Experience
+      <div className="relative flex min-h-[660px] w-full items-center justify-between overflow-hidden rounded-[8px] border-[1.5px] border-black bg-[#2563EB] px-[50px] pb-[34px] pt-[32px] xl:min-h-[740px] xl:px-[64px] xl:pb-[42px] xl:pt-[40px]">
+        <div className="relative z-10 flex max-w-[60%] flex-col justify-center pr-8">
+          <p className="mb-4 text-lg font-medium text-white">Google</p>
+          <h1 className="font-display text-[80px] font-bold leading-[0.9] tracking-tight text-white xl:text-[110px]">
+            The WOW+<br />Experience
           </h1>
-          <p className="mt-4 max-w-[610px] font-display text-[clamp(1.4rem,2vw,2rem)] font-medium leading-[1.14] tracking-[-0.02em] text-white">
+          <p className="mt-6 max-w-lg text-2xl font-medium text-white/90">
             Play games, rank up on the leaderboard, earn swags, and get exclusive WOW pass discounts.
           </p>
 
           <button
             type="button"
             onClick={onRegisterClick}
-            className="mt-6 flex h-[46px] w-max min-w-[136px] items-center justify-center rounded-full bg-[#202324] px-[22px] text-[14px] font-medium text-white shadow-[0_2px_8px_rgba(0,0,0,0.24)] xl:h-[52px] xl:min-w-[150px] xl:px-[24px] xl:text-[16px]"
+            className="mt-8 flex h-[48px] w-max min-w-[160px] items-center justify-center rounded-full bg-[#202324] px-[26px] text-[16px] font-medium text-white xl:h-[56px] xl:min-w-[200px] xl:text-[18px]"
           >
             Register Now
           </button>
 
-          <div className="mt-7 w-full max-w-[610px] xl:mt-8">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-1 xl:gap-x-10">
-              <ul>
+          <div className="mt-10 w-full max-w-[610px]">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-1 xl:gap-x-12">
+              <ul className="flex flex-col gap-1">
                 {leftColumnFeatures.map((featureLabel) => (
                   <FeatureItem key={featureLabel} label={featureLabel} />
                 ))}
               </ul>
-              <ul>
+              <ul className="flex flex-col gap-1">
                 {rightColumnFeatures.map((featureLabel) => (
                   <FeatureItem key={featureLabel} label={featureLabel} />
                 ))}
@@ -148,18 +150,19 @@ function DesktopHeroCard({ onRegisterClick, countdownText }: { onRegisterClick: 
         </div>
 
         {/* Swags Image - Right Bottom Placement */}
-        <div className="absolute -bottom-0 -right-2 z-10 hidden lg:flex h-[300px] w-[460px] xl:-bottom-1 xl:-right-3 xl:h-[380px] xl:w-[580px] pointer-events-none">
+        <div className="absolute -bottom-16 -right-16 z-10 hidden lg:flex h-[320px] w-[480px] xl:-bottom-24 xl:-right-24 xl:h-[440px] xl:w-[640px] pointer-events-none">
           <Image
             src="/images/hero-images/tshirt.png"
             alt="Product collage"
             fill
             priority
-            sizes="(max-width: 1280px) 460px, 580px"
-            className="object-contain object-right-bottom scale-[1.05] translate-y-[2%] translate-x-[2%]"
+            sizes="(max-width: 1280px) 480px, 640px"
+            className="object-contain object-right-bottom"
           />
         </div>
 
-        <BadgeTimer countdownText={countdownText} className="absolute right-0 top-0 z-20 pointer-events-none" />
+
+        <BadgeTimer countdown={countdown} className="absolute -right-8 -top-10 z-20 pointer-events-none scale-90 xl:scale-100" />
 
         <div className="absolute bottom-[10px] left-1/2 flex -translate-x-1/2 items-center gap-[7px] xl:bottom-[12px]">
           <span className="h-[6px] w-[6px] rounded-full border border-black bg-white" />
@@ -172,37 +175,35 @@ function DesktopHeroCard({ onRegisterClick, countdownText }: { onRegisterClick: 
   );
 }
 
-function ResponsiveHeroCard({ onRegisterClick, countdownText }: { onRegisterClick: () => void; countdownText: string }) {
+function ResponsiveHeroCard({ onRegisterClick, countdown }: { onRegisterClick: () => void; countdown: ReturnType<typeof getCountdownText> }) {
   return (
-    <section aria-label="Hero" className="page-wrapper py-4 lg:hidden">
-      <div className="relative w-full overflow-hidden rounded-[8px] border-[1.5px] border-black bg-[#2563EB] px-4 py-5 text-white sm:px-5 sm:py-6 md:px-7 md:py-7">
+    <section aria-label="Hero" className="page-wrapper lg:hidden">
+      <div className="relative w-full overflow-hidden rounded-[8px] border-[1.5px] border-black bg-[#2563EB] px-4 py-5 text-white sm:px-5 sm:py-6 md:px-7 md:py-7 shadow-lg">
         <div className="relative z-10 flex flex-col items-start gap-5">
           <div className="w-full max-w-full">
-            <div className="mb-2 text-[14px] font-medium sm:text-[16px] md:text-[18px]">Google</div>
-            <h1 className="font-display text-[clamp(2.65rem,8.4vw,4.7rem)] font-bold leading-[0.92] tracking-[-0.04em] text-white sm:text-[clamp(3.15rem,8vw,4.85rem)]">
-              The WOW+
-              <br />
-              Experience
+            <p className="mb-4 text-lg font-medium text-white">Google</p>
+            <h1 className="font-display text-[60px] font-bold leading-[0.9] tracking-tight text-white xl:text-[110px]">
+              The WOW+<br />Experience
             </h1>
-            <p className="mt-3 max-w-[520px] font-display text-[clamp(1.05rem,3.3vw,1.8rem)] font-medium leading-[1.14] tracking-[-0.02em] text-white">
+            <p className="mt-6 max-w-sm text-xl font-medium text-white/90">
               Play games, rank up on the leaderboard, earn swags, and get exclusive WOW pass discounts.
             </p>
 
             <button
               type="button"
               onClick={onRegisterClick}
-              className="mt-5 flex h-11 w-auto items-center justify-center rounded-full bg-[#202324] px-5 text-sm font-medium text-white shadow-[0_2px_8px_rgba(0,0,0,0.24)] sm:h-12 sm:px-6 sm:text-base"
+              className="mt-6 flex h-11 w-auto items-center justify-center rounded-full bg-[#202324] px-5 text-sm font-medium text-white shadow-[0_2px_8px_rgba(0,0,0,0.24)] sm:h-12 sm:px-6 sm:text-base"
             >
               Register Now
             </button>
 
-            <div className="mt-5 grid w-full grid-cols-1 gap-x-5 gap-y-1 sm:grid-cols-2 md:gap-x-5">
-              <ul>
+            <div className="mt-6 grid w-full grid-cols-1 gap-x-5 gap-y-1 sm:grid-cols-2 md:gap-x-5">
+              <ul className="flex flex-col gap-1">
                 {leftColumnFeatures.map((featureLabel) => (
                   <FeatureItem key={featureLabel} label={featureLabel} />
                 ))}
               </ul>
-              <ul>
+              <ul className="flex flex-col gap-1">
                 {rightColumnFeatures.map((featureLabel) => (
                   <FeatureItem key={featureLabel} label={featureLabel} />
                 ))}
@@ -210,8 +211,8 @@ function ResponsiveHeroCard({ onRegisterClick, countdownText }: { onRegisterClic
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-center gap-4">
-            <div className="relative h-[180px] w-full max-w-[330px] sm:h-[220px] sm:max-w-[420px] md:h-[250px] md:max-w-[480px]">
+          <div className="flex w-full flex-col items-center gap-6 mb-36">
+            <div className="absolute h-[180px] -right-[115px] w-full max-w-[330px] sm:h-[220px] sm:max-w-[420px] md:h-[250px] md:max-w-[480px]">
               <Image
                 src="/images/hero-images/tshirt.png"
                 alt="Product collage"
@@ -221,8 +222,26 @@ function ResponsiveHeroCard({ onRegisterClick, countdownText }: { onRegisterClic
                 priority
               />
             </div>
+            <div className="md:hidden gap-4 flex flex-col absolute top-[32%] min-[635px]:top-0 rounded-l-xl -right-5 bg-white text-black p-8 border-black border-r-0! border-2 ">
 
-            <BadgeTimer countdownText={countdownText} className="w-[280px] min-w-0 max-w-full" />
+              <div className="flex items-end">
+                <p className="font-medium leading-[90%] text-6xl">{countdown.days}</p>
+                <p className="font-medium text-3xl ml-1">D</p>
+              </div>
+              <div className="flex items-end">
+                <p className="font-medium leading-[90%] text-6xl">{countdown.hours}</p>
+                <p className="font-medium text-3xl ml-1">H</p>
+              </div>
+              <div className="flex items-end">
+                <p className="font-medium leading-[90%] text-6xl">{countdown.minutes}</p>
+                <p className="font-medium text-3xl ml-1">M</p>
+              </div>
+              <div className="flex items-end">
+                <p className="font-medium leading-[90%] text-6xl">{countdown.seconds}</p>
+                <p className="font-medium text-3xl ml-1">S</p>
+              </div>
+            </div>
+            <BadgeTimer countdown={countdown} className="w-[280px] min-w-0 max-w-full scale-90" />
           </div>
         </div>
       </div>
@@ -230,18 +249,18 @@ function ResponsiveHeroCard({ onRegisterClick, countdownText }: { onRegisterClic
   );
 }
 
-export default function HeroSection() {
+export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () => void }) {
   const router = useRouter();
-  const countdownText = useHeroCountdownText();
+  const countdown = useHeroCountdownText();
 
-  const handleRegisterClick = () => {
+  const handleRegisterClick = onRegisterClick || (() => {
     router.push("/register");
-  };
+  });
 
   return (
     <>
-      <DesktopHeroCard onRegisterClick={handleRegisterClick} countdownText={countdownText} />
-      <ResponsiveHeroCard onRegisterClick={handleRegisterClick} countdownText={countdownText} />
+      <DesktopHeroCard onRegisterClick={handleRegisterClick} countdown={countdown} />
+      <ResponsiveHeroCard onRegisterClick={handleRegisterClick} countdown={countdown} />
     </>
   );
 }
