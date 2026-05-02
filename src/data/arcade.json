@@ -5,11 +5,11 @@
       "name": "Bronze Attendee",
       "image": "bronze-7ad033b3ac027995939993b7648507f536d7b089.png",
       "description": {
-        "earned": "Congrats! You've reached the Bronze tier in the WOW Arcade. You're part of the vibrant community and have unlocked essential workshops and games.",
+        "earned": "Congrats! You've reached the Bronze tier in the WOW+ experience. You're part of the vibrant community and have unlocked essential workshops and games.",
         "default": "Learn how to build modern web and mobile applications while playing games. Reach the Bronze tier to unlock this badge!"
       }
     },
-    "link": "/arcade"
+    "link": "/wow-plus"
   },
   {
     "badge": {
@@ -21,7 +21,7 @@
         "default": "Step up your game! Finish mid-level challenges to earn the Silver Badge and better event discounts."
       }
     },
-    "link": "/arcade"
+    "link": "/wow-plus"
   },
   {
     "badge": {
@@ -29,11 +29,11 @@
       "name": "Gold Champion",
       "image": "gold_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
       "description": {
-        "earned": "Incredible work! The Gold badge signifies top-tier commitment and high-ranking performance in the arcade.",
+        "earned": "Incredible work! The Gold badge signifies top-tier commitment and high-ranking performance in the WOW+ experience.",
         "default": "Rise to the top 150! Gold members get priority entry and premium swags."
       }
     },
-    "link": "/arcade"
+    "link": "/wow-plus"
   },
   {
     "badge": {
@@ -45,7 +45,7 @@
         "default": "Be part of the top 50! Gain the Diamond badge for ultimate bragging rights and deep discounts."
       }
     },
-    "link": "/arcade"
+    "link": "/wow-plus"
   },
   {
     "badge": {
@@ -53,10 +53,10 @@
       "name": "Platinum Guest",
       "image": "platinum_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
       "description": {
-        "earned": "Guest of Honour! Your Platinum status means you've conquered the arcade. Your ticket is on us!",
+        "earned": "Guest of Honour! Your Platinum status means you've conquered the WOW+ experience. Your ticket is on us!",
         "default": "The ultimate prize. Reach the top 10 to receive a full refund and become a Guest of Honour."
       }
     },
-    "link": "/arcade"
+    "link": "/wow-plus"
   }
 ]

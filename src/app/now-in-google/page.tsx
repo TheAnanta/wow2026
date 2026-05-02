@@ -159,7 +159,7 @@ export default function NowInGooglePage() {
                                     </div>
                                     <div className="text-grey-900 mt-6 dark:text-white">
                                         <h3 className="font-medium mb-3 sm:s-h5 md:l-h5">Play & Earn</h3>
-                                        <p className="font-normal sm:s-p2 md:l-p1">Manage your WOW wallet, recharge for the Arcade, and track your rank on the live leaderboard.</p>
+                                        <p className="font-normal sm:s-p2 md:l-p1">Manage your WOW wallet, recharge for the WOW+ experience, and track your rank on the live leaderboard.</p>
                                     </div>
                                 </div>
                             </div>
@@ -239,13 +239,13 @@ export default function NowInGooglePage() {
                                             <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-200">
                                                 <dt className="font-medium sm:s-h5 md:l-h5">One-Stop Payments</dt>
                                                 <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                                                    <p>The Google WOW Wallet can be refueled and used for everything—from the Arcade to the food court. No need to carry cash or cards during the event.</p>
+                                                    <p>The Google WOW Wallet can be refueled and used for everything—from the WOW+ experience to the food court. No need to carry cash or cards during the event.</p>
                                                 </dd>
                                             </div>
                                             <div className="pt-[14px] pr-12">
-                                                <dt className="font-medium sm:s-h5 md:l-h5">The Arcade Hub</dt>
+                                                <dt className="font-medium sm:s-h5 md:l-h5">The WOW+ Hub</dt>
                                                 <dd className="mt-4 md:mt-5 faq-entry">
-                                                    <p>The app is the official place to manage your Arcade experience. Be notified of workshops, book your 1-1 mentor sessions, and track your leaderboard status in real-time.</p>
+                                                    <p>The app is the official place to manage your WOW+ experience. Be notified of workshops, book your 1-1 mentor sessions, and track your leaderboard status in real-time.</p>
                                                 </dd>
                                             </div>
                                         </dl>

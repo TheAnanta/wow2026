@@ -251,7 +251,7 @@ export default function TermsPage() {
                     <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">
                       <dt>
                         <div className="flex justify-between items-start w-full text-left">
-                          <span className="font-medium sm:s-h5 md:l-h5">Arcade Pass — ₹350 (The Community's Pass)</span>
+                          <span className="font-medium sm:s-h5 md:l-h5">WOW+ Pass — ₹500 (The Community's Pass)</span>
                         </div>
                       </dt>
                       <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
@@ -262,10 +262,10 @@ export default function TermsPage() {
                           <strong>Inclusions:</strong> Access to live coaching, technical workshops, community channels, peer-to-peer messaging, and recorded content.
                         </p>
                         <p className="mb-2 font-bold text-[#EA4335]">
-                          Important: The Arcade Pass is NOT a ticket to the physical event at GITAM University. It is a prerequisite/supplement that offers a pathway to a discounted event ticket.
+                          Important: The WOW+ Pass is NOT a ticket to the physical event at GITAM University. It is a prerequisite/supplement that offers a pathway to a discounted event ticket.
                         </p>
                         <p>
-                          <strong>The Arcade Route:</strong> Users can earn up to a 100% discount on the WOW Event Ticket based on their leaderboard performance within the app games over the 4-week period.
+                          <strong>The WOW+ Route:</strong> Users can earn up to a 100% discount on the WOW Event Ticket based on their leaderboard performance within the app games over the 4-week period.
                         </p>
                       </dd>
                     </div>
@@ -280,7 +280,7 @@ export default function TermsPage() {
                           <strong>Inclusions:</strong> Access to all physical sessions, Google Developer Expert (GDE) talks, the 14-hour hackathon, and event amenities.
                         </p>
                         <p>
-                          <strong>App Access:</strong> Event pass holders receive app access for networking and schedules but do not have access to the "Games" section, which is exclusive to Arcade Pass holders for discount earning.
+                          <strong>App Access:</strong> Event pass holders receive app access for networking and schedules but do not have access to the "Games" section, which is exclusive to WOW+ Pass holders for discount earning.
                         </p>
                       </dd>
                     </div>
@@ -402,7 +402,7 @@ export default function TermsPage() {
                         </div>
                       </dt>
                       <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
-                        <p>All pass purchases (Arcade and Event) are <strong>final</strong>. No refunds will be issued for no-shows or changes in plans.</p>
+                        <p>All pass purchases (WOW+ and Event) are <strong>final</strong>. No refunds will be issued for no-shows or changes in plans.</p>
                       </dd>
                     </div>
                     <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg text-grey-900 dark:text-white">

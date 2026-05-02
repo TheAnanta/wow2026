@@ -38,7 +38,7 @@ function Home() {
         <HeroSection />
 
         <div className="page-wrapper flex flex-col">
-          <CountdownSection />
+          {/* <CountdownSection /> */}
           <WhatToExpectSection />
           <EventMetricsSection />
           <CTACards />

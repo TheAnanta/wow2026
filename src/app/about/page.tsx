@@ -310,7 +310,7 @@ export default function AboutIO() {
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
-                                                    One of the exciting things about this event is the opportunity to reach a wider audience. Conference recordings will be provided on demand to serve every Arcade pass holder.
+                                                    One of the exciting things about this event is the opportunity to reach a wider audience. Conference recordings will be provided on demand to serve every WOW+ pass holder.
                                                 </p>
                                             </dd>
                                         </div>

@@ -1183,13 +1183,13 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
     },
     {
       id: 'com-2',
-      title: 'Indoor Arcade',
-      description: 'Join us for Indoor Arcade at Community Lounge.',
+      title: 'Indoor WOW+ experience',
+      description: 'Join us for Indoor WOW+ experience at Community Lounge.',
       thumbnail: '/images/io24-featured-keynote-developer.webp',
-      tags: ['Other', 'Arcade', 'Community Lounge', '28 June 2025'],
+      tags: ['Other', 'WOW+ Experience', 'Community Lounge', '28 June 2025'],
       topics: ['topic-other'],
       level: ['e351b55e-b8ab-4b3c-aff9-cee0d294ea29'],
-      type: ['type-arcade'],
+      type: ['type-wow-plus'],
       stack: ['stack-other'],
       sessionCode: 'COM-2',
       time: '02:00 PM'
@@ -1211,13 +1211,13 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
     // --- KRC Lawn ---
     {
       id: 'krc-1',
-      title: 'Outdoor Arcade',
-      description: 'Join us for Outdoor Arcade at KRC Lawn.',
+      title: 'Outdoor WOW+ experience',
+      description: 'Join us for Outdoor WOW+ experience at KRC Lawn.',
       thumbnail: '/images/io24-featured-keynote-developer.webp',
-      tags: ['Other', 'Arcade', 'KRC Lawn', '28 June 2025'],
+      tags: ['Other', 'WOW+ Experience', 'KRC Lawn', '28 June 2025'],
       topics: ['topic-other'],
       level: ['e351b55e-b8ab-4b3c-aff9-cee0d294ea29'],
-      type: ['type-arcade'],
+      type: ['type-wow-plus'],
       stack: ['stack-other'],
       sessionCode: 'KRC-1',
       time: '02:30 PM'
