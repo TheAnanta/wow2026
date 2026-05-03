@@ -115,7 +115,10 @@ function BadgeTimer({ countdown, className = "" }: { countdown: ReturnType<typeo
 }
 
 
-function HeroCard({ onRegisterClick, countdown, buttonText }: { onRegisterClick: () => void; countdown: ReturnType<typeof getCountdownText>; buttonText: string }) {
+
+function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: { onRegisterClick: () => void; 
+  onSpeakerClick: () => void; countdown: ReturnType<typeof getCountdownText>; buttonText: string }) {
+
   return (
     <section aria-label="Hero" className="">
       <div className="relative flex w-full flex-col overflow-hidden  bg-[#2563EB] px-4 py-5 text-white shadow-lg sm:px-5 sm:py-6 md:px-7 md:py-7 lg:min-h-[660px] lg:flex-row lg:items-center lg:justify-between lg:px-[50px] lg:pb-[34px] lg:pt-[32px] lg:shadow-none xl:min-h-[740px] xl:px-[64px] xl:pb-[42px] xl:pt-[40px]">
@@ -128,13 +131,22 @@ function HeroCard({ onRegisterClick, countdown, buttonText }: { onRegisterClick:
             Play games, rank up on the leaderboard, earn swags, and get exclusive WOW pass discounts.
           </p>
 
-          <button
-            type="button"
-            onClick={onRegisterClick}
-            className="mt-6 flex h-11 w-auto items-center justify-center rounded-full bg-[#202324] px-5 text-sm font-medium text-white shadow-[0_2px_8px_rgba(0,0,0,0.24)] sm:h-12 sm:px-6 sm:text-base lg:mt-8 lg:h-[48px] lg:min-w-[160px] lg:px-[26px] lg:text-[16px] lg:shadow-none xl:h-[56px] xl:min-w-[200px] xl:text-[18px]"
-          >
-            {buttonText}
-          </button>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-8">
+            <button
+              type="button"
+              onClick={onRegisterClick}
+              className="flex h-11 w-full items-center justify-center rounded-full bg-[#202324] px-5 text-sm font-medium text-white shadow-[0_2px_8px_rgba(0,0,0,0.24)] sm:h-12 sm:w-auto sm:px-6 sm:text-base lg:h-[48px] lg:min-w-[160px] lg:px-[26px] lg:text-[16px] lg:shadow-none xl:h-[56px] xl:min-w-[200px] xl:text-[18px]"
+            >
+              {buttonText}
+            </button>
+            <button
+              type="button"
+              onClick={onSpeakerClick}
+              className="flex h-11 w-full items-center justify-center rounded-full border-2 border-white bg-white px-5 text-sm font-medium text-[#202324] shadow-[0_2px_8px_rgba(0,0,0,0.18)] transition-colors hover:bg-[#f1f3f4] sm:h-12 sm:w-auto sm:px-6 sm:text-base lg:h-[48px] lg:min-w-[190px] lg:px-[26px] lg:text-[16px] lg:shadow-none xl:h-[56px] xl:min-w-[230px] xl:text-[18px]"
+            >
+              Become a Speaker
+            </button>
+          </div>
 
           <div className="mt-6 lg:mt-10 w-full lg:max-w-[610px]">
             <div className="grid w-full grid-cols-1 gap-x-5 gap-y-1 sm:grid-cols-2 md:gap-x-5 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-1 xl:gap-x-12">
@@ -219,8 +231,12 @@ export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () 
     router.push(buttonLink);
   });
 
+  const handleSpeakerClick = () => {
+    router.push("/become-a-speaker");
+  };
+
   return (
-    <HeroCard onRegisterClick={handleRegisterClick} countdown={countdown} buttonText={buttonText} />
+    <HeroCard onRegisterClick={handleRegisterClick} onSpeakerClick={handleSpeakerClick} countdown={countdown} buttonText={buttonText} />
   );
 }
 
