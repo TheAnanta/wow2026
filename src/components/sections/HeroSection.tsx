@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/services/useAuth";
+import { analyticsService } from "@/services/analytics";
 
 type FeatureItemProps = {
   label: string;
@@ -113,7 +115,7 @@ function BadgeTimer({ countdown, className = "" }: { countdown: ReturnType<typeo
 }
 
 
-function HeroCard({ onRegisterClick, countdown }: { onRegisterClick: () => void; countdown: ReturnType<typeof getCountdownText> }) {
+function HeroCard({ onRegisterClick, countdown, buttonText }: { onRegisterClick: () => void; countdown: ReturnType<typeof getCountdownText>; buttonText: string }) {
   return (
     <section aria-label="Hero" className="">
       <div className="relative flex w-full flex-col overflow-hidden  bg-[#2563EB] px-4 py-5 text-white shadow-lg sm:px-5 sm:py-6 md:px-7 md:py-7 lg:min-h-[660px] lg:flex-row lg:items-center lg:justify-between lg:px-[50px] lg:pb-[34px] lg:pt-[32px] lg:shadow-none xl:min-h-[740px] xl:px-[64px] xl:pb-[42px] xl:pt-[40px]">
@@ -131,7 +133,7 @@ function HeroCard({ onRegisterClick, countdown }: { onRegisterClick: () => void;
             onClick={onRegisterClick}
             className="mt-6 flex h-11 w-auto items-center justify-center rounded-full bg-[#202324] px-5 text-sm font-medium text-white shadow-[0_2px_8px_rgba(0,0,0,0.24)] sm:h-12 sm:px-6 sm:text-base lg:mt-8 lg:h-[48px] lg:min-w-[160px] lg:px-[26px] lg:text-[16px] lg:shadow-none xl:h-[56px] xl:min-w-[200px] xl:text-[18px]"
           >
-            Register Now
+            {buttonText}
           </button>
 
           <div className="mt-6 lg:mt-10 w-full lg:max-w-[610px]">
@@ -204,13 +206,21 @@ function HeroCard({ onRegisterClick, countdown }: { onRegisterClick: () => void;
 export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () => void }) {
   const router = useRouter();
   const countdown = useHeroCountdownText();
+  const { profile, isLoggedIn, isUnregistered, tickets } = useAuth();
+  
+  const isRegistered = isLoggedIn && !isUnregistered && !!profile;
+  const hasTicket = tickets && tickets.length > 0;
+
+  const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
+  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register');
 
   const handleRegisterClick = onRegisterClick || (() => {
-    router.push("/register");
+    analyticsService.trackCTA(buttonText, 'HeroSection', 'click');
+    router.push(buttonLink);
   });
 
   return (
-    <HeroCard onRegisterClick={handleRegisterClick} countdown={countdown} />
+    <HeroCard onRegisterClick={handleRegisterClick} countdown={countdown} buttonText={buttonText} />
   );
 }
 
