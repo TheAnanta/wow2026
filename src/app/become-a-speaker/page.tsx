@@ -1,223 +1,262 @@
-"use client";
+'use client';
 
-import React, { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
-import { Header } from "@/components/sections/Header";
+import React, { FormEvent, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Header } from '../../components/sections/Header';
+import TagMultiSelect from '@/components/ui/TagMultiSelect';
 
 const inputBaseCls =
-  "w-full rounded-lg border border-grey-400 bg-white px-4 py-3 text-[1rem] text-grey-900 placeholder:text-grey-600 transition-all focus:border-google-blue focus:outline-none focus:ring-1 focus:ring-google-blue dark:bg-grey-900 dark:text-white";
+  "w-full h-[48px] rounded-[8px] border border-gray-300 dark:border-white/20 bg-white dark:bg-[#141517] px-4 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#9aa0a6] shadow-sm transition hover:border-gray-400 dark:hover:border-white/35 focus:border-[#4285f4] focus:outline-none focus:ring-2 focus:ring-[#4285f4]/30 [color-scheme:light] dark:[color-scheme:dark]";
+const labelCls =
+  "mb-2 block text-sm font-medium text-gray-700 dark:text-[#e8eaed]";
 
-const labelCls = "mb-2 block text-[0.875rem] font-medium text-grey-900 dark:text-white";
-const sectionCls = "border-t border-grey-300 pt-8";
+const sectionCls = "border-t border-gray-200 dark:border-white/12 pt-10";
 
-function FieldLabel({ children, required = false }: { children: React.ReactNode; required?: boolean }) {
+const selectOptionCls = "bg-white text-gray-900 dark:bg-[#141517] dark:text-white";
+
+const TOPIC_OPTIONS = [
+  'Android',
+  'Web',
+  'AI & Machine Learning',
+  'Cloud',
+  'DevOps',
+  'Flutter',
+  'Firebase',
+  'Design',
+  'Backend',
+];
+
+const yesNoOptions = ['Yes', 'No'];
+
+function FieldLabel({
+  children,
+  required = false,
+}: {
+  children: React.ReactNode;
+  required?: boolean;
+}) {
   return (
     <label className={labelCls}>
       {children}
-      {required && <span className="text-google-red"> *</span>}
+      {required && <span className="text-red-500"> *</span>}
     </label>
   );
 }
 
 function SpeakerApplicationForm() {
-  const router = useRouter();
   const [submitted, setSubmitted] = useState(false);
+  const [topics, setTopics] = useState<string[]>([]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    const payload = {
+      ...data,
+      topics,
+    };
+
+    console.log("FINAL PAYLOAD:", payload);
+
     setSubmitted(true);
     event.currentTarget.reset();
+    setTopics([]);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-10">
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-[8px] border border-gray-200 dark:border-white/14 bg-white dark:bg-[#0f1012] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.10)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.36)] ring-1 ring-gray-100 dark:ring-white/5 md:p-10 lg:p-12 space-y-12"
+    >
       {submitted && (
-        <div className="rounded-lg border border-google-green bg-green-50 px-5 py-4 text-[0.95rem] font-medium text-grey-900">
-          Your speaker application has been captured. The WOW team will review it and reach out soon.
+        <div className="rounded-[8px] border border-[#34a853]/50 bg-[#34a853]/10 px-5 py-4 text-sm font-medium text-[#1a7a36] dark:text-[#d8f7df]">
+          Your speaker application has been submitted successfully.
         </div>
       )}
 
+      {/* PERSONAL */}
       <section>
-        <h2 className="mb-6 text-[1.5rem] font-medium tracking-tight">Personal Details</h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mb-6">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#1a73e8] dark:text-[#8ab4f8]">Step 01</p>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Speaker Details</h2>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <FieldLabel required>Full Name</FieldLabel>
-            <input className={inputBaseCls} name="fullName" type="text" required />
+            <FieldLabel required>Speaker Name</FieldLabel>
+            <input className={inputBaseCls} name="speakerName" required />
           </div>
+
           <div>
             <FieldLabel required>Email</FieldLabel>
             <input className={inputBaseCls} name="email" type="email" required />
           </div>
-          <div>
-            <FieldLabel required>Phone Number</FieldLabel>
-            <input className={inputBaseCls} name="phoneNumber" type="tel" required />
-          </div>
-          <div>
-            <FieldLabel required>LinkedIn Profile</FieldLabel>
-            <input className={inputBaseCls} name="linkedin" type="url" required />
-          </div>
-          <div className="md:col-span-2">
-            <FieldLabel>Portfolio / Website</FieldLabel>
-            <input className={inputBaseCls} name="portfolio" type="url" />
-          </div>
-        </div>
-      </section>
 
-      <section className={sectionCls}>
-        <h2 className="mb-6 text-[1.5rem] font-medium tracking-tight">Professional Info</h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div>
-            <FieldLabel required>Current Role / Title</FieldLabel>
-            <input className={inputBaseCls} name="currentRole" type="text" required />
-          </div>
-          <div>
-            <FieldLabel required>Organization / Company</FieldLabel>
-            <input className={inputBaseCls} name="organization" type="text" required />
-          </div>
-          <div>
-            <FieldLabel>Years of Experience</FieldLabel>
-            <select className={inputBaseCls} name="yearsExperience" defaultValue="">
-              <option value="" disabled>Select experience</option>
-              <option value="0-1">0-1</option>
-              <option value="1-3">1-3</option>
-              <option value="3-5">3-5</option>
-              <option value="5+">5+</option>
-            </select>
-          </div>
-        </div>
-      </section>
-
-      <section className={sectionCls}>
-        <h2 className="mb-6 text-[1.5rem] font-medium tracking-tight">Talk Proposal</h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="md:col-span-2">
-            <FieldLabel required>Talk Title</FieldLabel>
-            <input className={inputBaseCls} name="talkTitle" type="text" required />
-          </div>
-          <div className="md:col-span-2">
-            <FieldLabel required>Talk Description</FieldLabel>
-            <textarea
-              className={`${inputBaseCls} min-h-[180px] resize-y`}
-              name="talkDescription"
+            <FieldLabel required>Speaker Tagline</FieldLabel>
+            <input
+              className={inputBaseCls}
+              name="speakerTagline"
+              placeholder="Developer Advocate, Founder, Cloud Engineer..."
               required
-              minLength={600}
-              placeholder="Minimum 100 words"
             />
-            <p className="mt-2 px-4 text-[0.75rem] text-grey-600">Please write at least 100 words.</p>
           </div>
-          <div>
-            <FieldLabel>Topic Category</FieldLabel>
-            <select className={inputBaseCls} name="topicCategory" defaultValue="">
-              <option value="" disabled>Select category</option>
-              <option value="AI/ML">AI/ML</option>
-              <option value="Web Dev">Web Dev</option>
-              <option value="Mobile Dev">Mobile Dev</option>
-              <option value="Cloud">Cloud</option>
-              <option value="DevOps">DevOps</option>
-              <option value="Design">Design</option>
-              <option value="Startup">Startup</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div>
-            <FieldLabel>Experience Level of Audience</FieldLabel>
-            <select className={inputBaseCls} name="audienceLevel" defaultValue="">
-              <option value="" disabled>Select level</option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-            </select>
-          </div>
-          <div>
-            <FieldLabel>Session Type</FieldLabel>
-            <select className={inputBaseCls} name="sessionType" defaultValue="">
-              <option value="" disabled>Select session type</option>
-              <option value="Talk">Talk</option>
-              <option value="Workshop">Workshop</option>
-              <option value="Panel">Panel</option>
-            </select>
-          </div>
-        </div>
-      </section>
 
-      <section className={sectionCls}>
-        <h2 className="mb-6 text-[1.5rem] font-medium tracking-tight">Credibility</h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div>
-            <FieldLabel>Have you spoken before?</FieldLabel>
-            <select className={inputBaseCls} name="spokenBefore" defaultValue="">
-              <option value="" disabled>Select answer</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-          <div>
-            <FieldLabel>Share past talk/video link</FieldLabel>
-            <input className={inputBaseCls} name="pastTalkLink" type="url" />
-          </div>
           <div className="md:col-span-2">
-            <FieldLabel>If yes, describe experience</FieldLabel>
-            <textarea className={`${inputBaseCls} min-h-[130px] resize-y`} name="speakingExperience" />
+            <FieldLabel required>Speaker Biography</FieldLabel>
+            <textarea
+              className={`${inputBaseCls} min-h-[150px] resize-y`}
+              name="speakerBiography"
+              required
+            />
+          </div>
+
+          <div>
+            <FieldLabel required>Speaker Photo</FieldLabel>
+            <div className="flex items-center justify-center w-full h-[48px] rounded-[8px] border border-gray-300 dark:border-white/20 bg-white dark:bg-[#141517] shadow-sm transition hover:border-gray-400 dark:hover:border-white/35">
+              <input
+                className="file:mr-4 file:rounded-full file:border-0 file:bg-[#4285f4] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-[#669df6] text-sm text-gray-900 dark:text-white w-full px-4"
+                name="speakerPhoto"
+                type="file"
+                accept="image/*"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <FieldLabel>X (Twitter)</FieldLabel>
+            <input className={inputBaseCls} name="twitter" type="url" placeholder="https://" />
+          </div>
+
+          <div>
+            <FieldLabel>LinkedIn</FieldLabel>
+            <input className={inputBaseCls} name="linkedin" type="url" placeholder="https://" />
+          </div>
+
+          <div>
+            <FieldLabel>Instagram</FieldLabel>
+            <input className={inputBaseCls} name="instagram" type="url" placeholder="https://" />
+          </div>
+
+          <div>
+            <FieldLabel>Blog</FieldLabel>
+            <input className={inputBaseCls} name="blog" type="url" placeholder="https://" />
+          </div>
+
+          <div>
+            <FieldLabel>Company Website</FieldLabel>
+            <input className={inputBaseCls} name="companyWebsite" type="url" placeholder="https://" />
           </div>
         </div>
       </section>
 
+      {/* TALK */}
       <section className={sectionCls}>
-        <h2 className="mb-6 text-[1.5rem] font-medium tracking-tight">Motivation</h2>
-        <div className="grid grid-cols-1 gap-6">
-          <div>
-            <FieldLabel>Why do you want to speak at WOW?</FieldLabel>
-            <textarea className={`${inputBaseCls} min-h-[140px] resize-y`} name="motivation" />
-          </div>
-          <div>
-            <FieldLabel>What will attendees gain from your session?</FieldLabel>
-            <textarea className={`${inputBaseCls} min-h-[140px] resize-y`} name="attendeeGain" />
-          </div>
+        <div className="mb-6">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#b8860b] dark:text-[#fdd663]">Step 02</p>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Talk Proposal</h2>
         </div>
-      </section>
 
-      <section className={sectionCls}>
-        <h2 className="mb-6 text-[1.5rem] font-medium tracking-tight">Logistics</h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div>
-            <FieldLabel>Availability</FieldLabel>
-            <input className={inputBaseCls} name="availability" type="text" placeholder="Dates or time windows" />
-          </div>
+        <div className="grid gap-6 md:grid-cols-2">
           <div className="md:col-span-2">
-            <FieldLabel>Any special requirements?</FieldLabel>
-            <textarea className={`${inputBaseCls} min-h-[120px] resize-y`} name="specialRequirements" />
+            <FieldLabel required>Session Title</FieldLabel>
+            <input className={inputBaseCls} name="title" required />
+          </div>
+
+          <div className="md:col-span-2">
+            <FieldLabel required>Description</FieldLabel>
+            <textarea
+              className={`${inputBaseCls} min-h-[140px]`}
+              name="description"
+              required
+            />
+          </div>
+
+          <div>
+            <FieldLabel required>Session Format</FieldLabel>
+            <select className={`${inputBaseCls} !bg-white dark:!bg-[#141517]`} name="sessionFormat" required>
+              <option className={selectOptionCls} value="">Select</option>
+              <option className={selectOptionCls}>Talk</option>
+              <option className={selectOptionCls}>Workshop</option>
+              <option className={selectOptionCls}>Panel</option>
+              <option className={selectOptionCls}>Lightning Talk</option>
+            </select>
+          </div>
+
+          <div>
+            <FieldLabel required>Level of Session</FieldLabel>
+            <select className={inputBaseCls} name="levelOfSession" required>
+              <option className={selectOptionCls} value="">Select</option>
+              <option className={selectOptionCls}>Beginner</option>
+              <option className={selectOptionCls}>Intermediate</option>
+              <option className={selectOptionCls}>Advanced</option>
+            </select>
+          </div>
+
+          {/* TAGS */}
+          <div className="md:col-span-2">
+            <FieldLabel required>Tags</FieldLabel>
+            <TagMultiSelect
+              options={TOPIC_OPTIONS}
+              value={topics}
+              onChange={setTopics}
+            />
+          </div>
+
+          <div className="flex flex-col justify-end">
+            <FieldLabel required>Have you ever taken a session on this topic?</FieldLabel>
+            <select className={inputBaseCls} name="previousSessionOnTopic" required>
+              <option className={selectOptionCls} value="">Select</option>
+              {yesNoOptions.map((option) => (
+                <option className={selectOptionCls} key={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="flex flex-col justify-end">
+            <FieldLabel>Co-speakers</FieldLabel>
+            <input
+              className={inputBaseCls}
+              name="coSpeakers"
+              placeholder="Add names, separated by commas"
+            />
+          </div>
+
+          <div className="md:col-span-2">
+            <FieldLabel>Additional Notes</FieldLabel>
+            <textarea
+              className={`${inputBaseCls} min-h-[130px] resize-y`}
+              name="additionalNotes"
+            />
           </div>
         </div>
       </section>
 
       <section className={sectionCls}>
-        <h2 className="mb-6 text-[1.5rem] font-medium tracking-tight">Consent</h2>
-        <div className="space-y-4">
-          <label className="flex items-start gap-3 text-[0.95rem] font-medium leading-relaxed">
-            <input className="checkbox mt-1" type="checkbox" name="accurateInfo" required />
-            <span>I confirm the information is accurate</span>
-          </label>
-          <label className="flex items-start gap-3 text-[0.95rem] font-medium leading-relaxed">
-            <input className="checkbox mt-1" type="checkbox" name="termsAccepted" required />
-            <span>I agree to terms and conditions</span>
-          </label>
-        </div>
+        <label className="flex items-start gap-3 text-sm font-medium leading-6 text-gray-700 dark:text-[#e8eaed]">
+          <input
+            className="mt-1 h-5 w-5 rounded border border-gray-300 dark:border-white/30 bg-white dark:bg-[#141517] accent-[#4285f4]"
+            type="checkbox"
+            name="termsAccepted"
+            required
+          />
+          <span>I agree to the terms and conditions.</span>
+        </label>
       </section>
 
-      <div className="flex flex-col gap-3 border-t border-grey-300 pt-8 sm:flex-row">
+      {/* SUBMIT */}
+      <div className="flex justify-end">
         <button
           type="submit"
-          className="rounded-full bg-grey-900 px-8 py-3 text-[1rem] font-medium text-white transition-colors hover:bg-black dark:bg-white dark:text-grey-900"
+          className="rounded-full bg-[#4285f4] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#669df6] focus:outline-none focus:ring-2 focus:ring-[#8ab4f8] focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0f1012]"
         >
-          Apply as Speaker
-        </button>
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-          className="rounded-full border border-grey-400 bg-white px-8 py-3 text-[1rem] font-medium text-grey-900 transition-colors hover:bg-grey-50 dark:bg-grey-900 dark:text-white"
-        >
-          Back to home
+          Submit Proposal
         </button>
       </div>
     </form>
@@ -228,25 +267,23 @@ export default function BecomeSpeakerPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] text-grey-900 dark:bg-grey-900 dark:text-white">
-      <Header onRegisterClick={() => router.push("/register")} />
+    <div className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-white">
+      <Header onRegisterClick={() => router.push('/register')} />
 
-      <main className="px-4 py-8 md:px-6 md:py-14">
-        <div className="mx-auto w-full max-w-[960px] overflow-hidden rounded-2xl border border-grey-300 bg-white shadow-sm dark:border-grey-text dark:bg-grey-900">
-          <div className="border-b border-grey-300 bg-[#2563EB] px-6 py-8 text-white md:px-10 md:py-12">
-            <p className="mb-3 text-[0.875rem] font-medium uppercase tracking-[0.08em]">WOW 2026</p>
-            <h1 className="font-display text-[2.25rem] font-bold leading-tight tracking-[-0.04em] md:text-[3.5rem]">
-              Become a Speaker
-            </h1>
-            <p className="mt-4 max-w-[680px] text-[1rem] font-medium leading-relaxed md:text-[1.25rem]">
-              Share your expertise with developers, builders, founders, and students at WOW.
-            </p>
-          </div>
-
-          <div className="px-6 py-8 md:px-10 md:py-12">
-            <SpeakerApplicationForm />
-          </div>
+      <main className="mx-auto max-w-5xl px-4 py-10 md:px-8 md:py-14">
+        <div className="mb-10 max-w-3xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#34a853]">
+            Call for speakers
+          </p>
+          <h1 className="mb-3 text-4xl font-semibold tracking-normal text-gray-900 dark:text-white md:text-5xl">
+            Become a Speaker
+          </h1>
+          <p className="text-base leading-7 text-gray-500 dark:text-[#bdc1c6] md:text-lg">
+            Share your knowledge and inspire others at WOW 2026.
+          </p>
         </div>
+
+        <SpeakerApplicationForm />
       </main>
     </div>
   );
