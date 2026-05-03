@@ -38,7 +38,7 @@ export const FilterSection: React.FC<FilterSectionProps> = ({
         <div key={category.id} className="filter-box w-full max-h-[525px]">
           <button
             type="button"
-            className={`filter-box__header bg-grey-900 dark:bg-white py-4 px-5 align-center ${expandedCategories[category.classification] ? "border-b-2 border-gray-900" : ""}`}
+            className={`filter-box__header bg-grey-900 dark:bg-white py-4 px-5 align-center ${expandedCategories[category.classification] ? "border-b-2 border-grey-900 dark:border-grey-bg" : ""}`}
             aria-expanded={expandedCategories[category.classification]}
             aria-label={`Filter menu for ${category.classification}.`}
             onClick={(event) => onCategoryClick(category.title, event)}

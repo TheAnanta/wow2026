@@ -96,7 +96,9 @@ function ExploreContent() {
     return sessions.filter(session => {
       for (const [cls, activeIds] of Object.entries(activeFilters)) {
         if (activeIds.length > 0) {
-          const sessionIds = (session as any)[cls] || [];
+          // Map classification to session property name (e.g., 'topic' -> 'topics')
+          const propertyName = cls === 'topic' ? 'topics' : cls;
+          const sessionIds = (session as any)[propertyName] || [];
           const hasMatch = sessionIds.some((id: string) => activeIds.includes(id));
           if (!hasMatch) return false;
         }

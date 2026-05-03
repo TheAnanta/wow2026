@@ -648,6 +648,9 @@
     border-color: #202124 !important;
   }
 
+  
+
+
 
 
 }
@@ -4596,11 +4599,15 @@ p.start-learning p a {
   }
     .checkbox:checked {
     background-color: #ffffff !important;
-    border-color: transparent !important;
+    border-color: #ffffff !important;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23202124' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E") !important;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
   }
     .checkbox:focus {
     border-color: #fff !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
   }
     .cta-secondary {
   @apply border-white text-white hover:bg-white hover:text-grey-900;
@@ -4957,3 +4964,29 @@ p.start-learning p a {
     .arrow-green { color: #34a853; }
     .card-border:hover { border-color: #202124; }
     .card-border:hover { border-color: #202124; }
+
+@layer components {
+  /* Final overrides for Dark Mode Checkboxes to ensure they are white with dark checkmarks */
+  @media (prefers-color-scheme: dark) {
+    .checkbox:checked {
+      background-color: #ffffff !important;
+      border-color: #ffffff !important;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23202124' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E") !important;
+      background-size: 100% 100% !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+
+  :root.dark .checkbox:checked,
+  body.dark .checkbox:checked,
+  .dark .checkbox:checked,
+  .dark .filter-box__item input[type="checkbox"]:checked {
+      background-color: #ffffff !important;
+      border-color: #ffffff !important;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23202124' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E") !important;
+      background-size: 100% 100% !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+  }
+}

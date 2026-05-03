@@ -8,7 +8,8 @@ import { FilterSidebar } from '../../components/speakers/FilterSidebar';
 import { SearchBar } from '../../components/speakers/SearchBar';
 import { BentoCard } from '../../components/sections/BentoCard';
 import { Speaker, getSpeakers, searchSpeakers } from '../../services/speakerStubs';
-import { useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { Suspense } from 'react';
 
 const TOPICS = [
   'Accessibility', 'Ads', 'AI/Machine Learning', 'Android', 'AR/VR',
@@ -16,14 +17,33 @@ const TOPICS = [
 ];
 
 export default function SpeakersPage() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center"><p className="sm:l-h4">Finding the experts...</p></div>}>
+      <SpeakersContent />
+    </Suspense>
+  );
+}
+
+function SpeakersContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const qParam = searchParams.get('q') || '';
+
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => { fetchInitially(); }, []);
+  useEffect(() => { 
+    // Handle initial query params
+    if (qParam) {
+      const queryTopics = qParam.toLowerCase().split(',').filter(Boolean);
+      const initialTopics = TOPICS.filter(t => queryTopics.includes(t.toLowerCase().replace(/\s+/g, '-').replace('/', '-')));
+      setSelectedTopics(initialTopics);
+    }
+    fetchInitially(); 
+  }, [qParam]);
   useEffect(() => { applyFilters(); }, [searchQuery, selectedTopics]);
 
   const fetchInitially = async () => {
@@ -42,12 +62,24 @@ export default function SpeakersPage() {
     setLoading(false);
   };
 
+  const updateUrl = (topics: string[]) => {
+    const slugs = topics.map(t => t.toLowerCase().replace(/\s+/g, '-').replace('/', '-'));
+    const newQuery = slugs.join(',');
+    router.push(`/speakers/${newQuery ? `?q=${newQuery}` : ''}`, { scroll: false });
+  };
+
   const toggleTopic = (topic: string) => {
-    setSelectedTopics(prev => prev.includes(topic) ? prev.filter(t => t !== topic) : [...prev, topic]);
+    const updated = selectedTopics.includes(topic) 
+      ? selectedTopics.filter(t => t !== topic) 
+      : [...selectedTopics, topic];
+    setSelectedTopics(updated);
+    updateUrl(updated);
   };
 
   const removeTopic = (topic: string) => {
-    setSelectedTopics(prev => prev.filter(t => t !== topic));
+    const updated = selectedTopics.filter(t => t !== topic);
+    setSelectedTopics(updated);
+    updateUrl(updated);
   };
 
   return (
@@ -125,7 +157,7 @@ export default function SpeakersPage() {
               {selectedTopics.length > 0 && (
                 <span
                   className="text-sm font-medium underline text-[#202124] dark:text-white ml-2 cursor-pointer"
-                  onClick={() => setSelectedTopics([])}
+                  onClick={() => { setSelectedTopics([]); updateUrl([]); }}
                 >
                   Clear all
                 </span>
@@ -256,10 +288,10 @@ export default function SpeakersPage() {
       </main>
 
       {showMobileFilters && (
-        <div className="fixed inset-0 z-2000 bg-white p-8 flex flex-col overflow-y-auto animate-slide-down">
-          <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#000000]">
-            <span className="font-bold text-xl">Topics</span>
-            <button className="bg-transparent border-none text-3xl cursor-pointer" onClick={() => setShowMobileFilters(false)}>&times;</button>
+        <div className="fixed inset-0 z-2000 bg-white dark:bg-grey-900! p-8 flex flex-col overflow-y-auto animate-slide-down">
+          <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#000000] dark:border-white">
+            <span className="font-bold text-xl dark:text-white">Topics</span>
+            <button className="bg-transparent border-none text-3xl cursor-pointer dark:text-white" onClick={() => setShowMobileFilters(false)}>&times;</button>
           </div>
           <FilterSidebar
             title="Topics"
