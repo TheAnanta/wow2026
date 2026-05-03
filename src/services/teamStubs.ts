@@ -357,6 +357,7 @@ const mockTeam: TeamMember[] = [
     university: "Vignan's Institute of Engineering for Women",
     category: 'Core Team',
     pronouns: 'She/Her',
+    avatar: '/images/palletisai_praharshitha.jpeg',
     responsibility: 'Content',
     bio: "Current 2nd year student, working as media and content managers for gdgoc-view. I'm into full stack development.",
     socials: { instagram: 'praharshitha__25' }
@@ -417,6 +418,7 @@ const mockTeam: TeamMember[] = [
     category: 'Core Team',
     pronouns: 'She/Her',
     responsibility: 'Technology',
+    avatar: '/images/gayatri_meenakshi_susarla.jpeg',
     bio: 'Passionate Senior Technology Member at GDG, focused on building scalable solutions.',
   },
   {
@@ -653,7 +655,300 @@ const mockTeam: TeamMember[] = [
     responsibility: 'Design',
     bio: 'UI/UX Lead at GDG On Campus VIIT.',
     socials: { linkedin: 'https://www.linkedin.com/in/bandaru-pravallika-21a51b283' }
-  }
+  },
+  {
+    id: '166',
+    name: 'Ramcharan Peesapati',
+    role: 'Student, Andhra University College of Engineering',
+    university: 'Andhra University College of Engineering',
+    avatar: '/images/ramcharan_peesapati.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'I build across RAG, LLM applications, and agent systems, focused on building AI that holds up beyond ideal conditions.',
+    socials: {
+      instagram: 'https://www.instagram.com/ramcharanpeesapati',
+      linkedin: 'https://www.linkedIn.com/in/ramcharanpeesapati'
+    }
+  },
+  {
+    id: '167',
+    name: 'Uravula Rajesh',
+    role: 'Student, SVR Engineering College',
+    university: 'SVR Engineering College',
+    avatar: '/images/uravula_rajesh.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Operations',
+    bio: 'IAM FROM SVR ENGINEERING COLLEGE Co-lead',
+    socials: { portfolio: 'https://uravularajesh59-del.github.io/URAVULA-RAJESH--Portfolio/' }
+  },
+  {
+    id: '168',
+    name: 'B Basavaraju',
+    role: 'Student, SVR Engineering College',
+    university: 'SVR Engineering College',
+    avatar: '/images/b_basavaraju.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Marketing',
+    bio: 'Day one or one day. Co-lead, social media.',
+    socials: { instagram: 'https://www.instagram.com/solo_guy_.27' }
+  },
+  {
+    id: '169',
+    name: 'Shirin Wafiqah',
+    role: "Student, Vignan's Institute of Information Technology",
+    university: "Vignan's Institute of Information Technology",
+    avatar: '/images/shirin_wafiqah.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Content',
+    bio: 'Core team video editor creating engaging visual content for the community.'
+  },
+  {
+    id: '170',
+    name: 'Katiki Dinesh Sai',
+    role: 'Student, KKR & KSR Institute of Technology & Sciences',
+    university: 'KKR & KSR Institute of Technology & Sciences',
+    avatar: '/images/katiki_dinesh_sai.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'Co-Lead in the stream of Cloud Computing. Highly interested in cloud technologies.',
+    socials: { instagram: 'https://www.instagram.com/dineshh._.16' }
+  },
+  {
+    id: '171',
+    name: 'A. Vasanth',
+    role: 'Student, SVR Engineering College',
+    university: 'SVR Engineering College',
+    avatar: '/images/a_vasanth.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'Technical Lead at GDG, driven by innovation and obsessed with building meaningful tech.'
+  },
+  {
+    id: '172',
+    name: 'Kummari Naga Sireesha',
+    role: 'Student, SVR Engineering College',
+    university: 'SVR Engineering College',
+    category: 'Lead',
+    pronouns: 'She/Her',
+    responsibility: 'Technical',
+    bio: 'Software Engineer & GDG Lead with a focus on cross-platform development and automation.'
+  },
+  {
+    id: '173',
+    name: 'P. Hariteja',
+    role: 'Student, SVR Engineering College',
+    university: 'SVR Engineering College',
+    avatar: '/images/p_hariteja.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Marketing',
+    bio: 'Creative thinker interested in marketing and content.'
+  },
+  {
+    id: '174',
+    name: 'Swathi Theetla',
+    role: 'Student, SVR Engineering College',
+    university: 'SVR Engineering College',
+    avatar: '/images/swathi_theetla.png',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: 'B.Tech student with an interest in data analytics and technology.'
+  },
+  {
+    id: '175',
+    name: 'Vaibhavi Pragna Vanumu',
+    role: "Student, Vignan's Institute of Engineering for Women",
+    university: "Vignan's Institute of Engineering for Women",
+    avatar: '/images/vaibhavi_pragna_vanumu.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Content',
+    bio: 'Media and content creator.',
+    socials: { instagram: 'https://www.instagram.com/vybhavi_11185' }
+  },
+  {
+    id: '176',
+    name: 'T. Naga Sai Asmita',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    avatar: '/images/t_naga_sai_asmita.jpeg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Content',
+    bio: 'III-yr CSE student studying in RGM College, Nandyal.',
+    socials: { linkedin: 'https://www.linkedin.com/in/t-naga-sai-asmita-433804332' }
+  },
+  {
+    id: '177',
+    name: 'Pravallika Adari',
+    role: "Student, Vignan's Institute of Information Technology",
+    university: "Vignan's Institute of Information Technology",
+    avatar: '/images/pravallika_adari.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Content',
+    bio: 'B.Tech AI student passionate about building innovative tech solutions using AI, ML, and web development.',
+    socials: { linkedin: 'https://www.linkedin.com/in/pravallika-adari-0b7a5b2b6' }
+  },
+  {
+    id: '178',
+    name: 'Tejaswini Mukkamalla',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    avatar: '/images/tejaswini_mukkamalla.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Marketing',
+    bio: 'GDG Social Media committee.'
+  },
+  {
+    id: '179',
+    name: 'Dileep Kumar Akula',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Marketing',
+    avatar: '/images/dileep_kumar_akula.jpeg',
+    bio: 'II BTECH CSE(AI&ML). Social Media Lead.',
+    socials: { instagram: 'https://www.instagram.com/dileeep._.royal' }
+  },
+  {
+    id: '180',
+    name: 'Mahanandi Rajini Yadav',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    avatar: '/images/mahanandi_rajini_yadav.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Content',
+    bio: 'Aspiring software engineer specializing in Data Science.',
+    socials: { linkedin: 'https://www.linkedin.com/in/mahanandi-rajini-yadav-49710a357' }
+  },
+  {
+    id: '181',
+    name: 'Kakara Sneha',
+    role: "Student, Vignan's Institute of Engineering for Women",
+    university: "Vignan's Institute of Engineering for Women",
+    avatar: '/images/kakara_sneha.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Technical',
+    bio: 'Enthusiastic in Playing With Data. Senior Data Analyst.',
+    socials: { instagram: 'https://www.instagram.com/itzzzsneha_._' }
+  },
+  {
+    id: '182',
+    name: 'Dedeepya Sreevatsala',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    avatar: '/images/dedeepya_sreevatsala.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Marketing',
+    bio: 'Data Science Student focusing on marketing.'
+  },
+  {
+    id: '183',
+    name: 'Charitha',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: 'Member of GDG. Co-lead.'
+  },
+  {
+    id: '184',
+    name: 'Rahul',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    avatar: '/images/rahul.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Design',
+    bio: 'Creative Editor with skills in video editing and graphic designing.',
+    socials: {
+      instagram: 'https://www.instagram.com/the__5th_emperor_',
+      twitter: 'https://x.com/RahulA02933617',
+      portfolio: 'https://rahula.carrd.co/'
+    }
+  },
+  {
+    id: '185',
+    name: 'Challa Chinna Obulesh',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    avatar: '/images/challa_chinna_obulesh.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'AWS Certified Cloud Practitioner passionate about Data Engineering and Cloud Computing.',
+    socials: { portfolio: 'https://portifolio-c2au.vercel.app/' }
+  },
+  {
+    id: '186',
+    name: 'Rongali Reshma',
+    role: "Student, Vignan's Institute of Engineering for Women",
+    university: "Vignan's Institute of Engineering for Women",
+    avatar: '/images/rongali_reshma.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Design',
+    bio: 'Student at Vignan institute of engineering for women, part of Design team.',
+    socials: { instagram: 'https://www.instagram.com/reshma_rongali' }
+  },
+  {
+    id: '187',
+    name: 'Aditi Pallai',
+    role: 'Student, Maharaj Vijayaram Gajapathi Raj College of Engineering',
+    university: 'Maharaj Vijayaram Gajapathi Raj College of Engineering',
+    avatar: '/images/aditi_pallai.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: 'Core member of gdg @mvgrce as an event manager.'
+  },
+  {
+    id: '188',
+    name: 'K. Pranav',
+    role: 'Student, Maharaj Vijayaram Gajapathi Raj College of Engineering',
+    university: 'Maharaj Vijayaram Gajapathi Raj College of Engineering',
+    avatar: '/images/k_pranav.jpg',
+    category: 'Lead',
+    pronouns: 'He/Him',
+    responsibility: 'Operations',
+    bio: 'GDGoC Organizer Lead.',
+    socials: { linkedin: 'https://www.linkedin.com/in/pranavkhaspa/' }
+  },
+  {
+    id: '189',
+    name: 'Sai Pardhiv',
+    role: 'Student, KKR & KSR Institute of Technology & Sciences',
+    university: 'KKR & KSR Institute of Technology & Sciences',
+    avatar: '/images/sai_pardhiv.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Operations',
+    bio: 'Event management student at KITS.'
+  },
+  {
+    id: '190',
+    name: 'K. Ganga Parvathi',
+    role: "Faculty Advisor, VIEW",
+    category: 'Mentors',
+    pronouns: 'She/Her',
+    responsibility: 'Guidance',
+    university: "Vignan's Institute of Engineering for Women",
+    avatar: "/images/ganga_parvathy.jpeg"
+  },
 ];
 
 export const getTeam = async (): Promise<TeamMember[]> => {

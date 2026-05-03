@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/services/useAuth";
 import { analyticsService } from "@/services/analytics";
+import { useAuth } from "@/context/AuthContext";
 
 type FeatureItemProps = {
   label: string;
@@ -207,7 +207,7 @@ export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () 
   const router = useRouter();
   const countdown = useHeroCountdownText();
   const { profile, isLoggedIn, isUnregistered, tickets } = useAuth();
-  
+
   const isRegistered = isLoggedIn && !isUnregistered && !!profile;
   const hasTicket = tickets && tickets.length > 0;
 
