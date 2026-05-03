@@ -77,8 +77,7 @@ function ExploreContent() {
 
       FILTER_CATEGORIES.forEach(cat => {
         cat.items.forEach(item => {
-          const slug = item.label.toLowerCase().replace(/\s+/g, '-');
-          if (queryFilters.includes(slug)) {
+          if (queryFilters.includes(item.slug || '')) {
             newFilters[cat.classification].push(item.id);
             if (cat.classification === "stack") setIsFocusExpanded(true);
             if (cat.classification === "topic") setIsTopicsExpanded(true);
@@ -131,7 +130,7 @@ function ExploreContent() {
       FILTER_CATEGORIES.forEach(cat => {
         cat.items.forEach(item => {
           if (newFilters[cat.classification]?.includes(item.id)) {
-            queryFilters.push(item.label.toLowerCase().replace(/\s+/g, '-'));
+            queryFilters.push(item.slug || '');
           }
         });
       });
@@ -277,7 +276,7 @@ function ExploreContent() {
                       {searchQuery.split(',').filter(Boolean).map(term => {
                         let title = term;
                         for (const cat of FILTER_CATEGORIES) {
-                          const found = cat.items.find(item => item.label.toLowerCase().replace(/\s+/g, '-') === term);
+                          const found = cat.items.find(item => item.slug === term);
                           if (found) {
                             title = found.label;
                             break;
