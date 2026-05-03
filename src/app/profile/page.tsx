@@ -267,8 +267,8 @@ function ProfileCard({
             </a>
             <button
               onClick={() => {
-                import("@/services/firebase").then(({ auth }) => {
-                  auth.signOut().then(() => {
+                import("@/services/firebase").then(({ logout }) => {
+                  logout().then(() => {
                     window.location.href = "/";
                   });
                 });

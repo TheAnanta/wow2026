@@ -21,8 +21,11 @@ export const metadata: Metadata = {
   title: `${mainData.eventInfo.name} | ${mainData.communityName}`,
   description: mainData.eventInfo.description.short,
   keywords: mainData.seo.keywords,
-  authors: [{ name: "The Ananta Studio" }],
-  creator: "The Ananta Studio",
+  icons: {
+    icon: "/gdg-logo.ico",
+  },
+  authors: [{ name: "Google Developer Groups" }],
+  creator: "Google Developer Groups",
   viewport: "width=device-width, initial-scale=1.0",
   openGraph: {
     title: `${mainData.eventInfo.name} | ${mainData.communityName}`,

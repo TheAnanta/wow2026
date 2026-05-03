@@ -22,7 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
     if (!isLoggedIn) {
       analyticsService.trackCTA('Sign in', 'Header');
       signInWithGoogle().catch(console.error);
-    } else if (isUnregistered || !profile) {
+    } else if (isUnregistered) {
       analyticsService.trackCTA('Complete registration', 'Header');
       router.push('/register');
     } else {
@@ -70,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
               <select
                 name="language-select"
                 aria-label="Drop down to select language"
-                className="font-medium language-select focus-trapped text-grey-900 dark:text-white w-full border-none pl-0 ml:w-32 ml:pl-4 sm:s-cta2 md:s-cta1 cursor-pointer appearance-none bg-transparent"
+                className="font-medium language-select focus-trapped text-grey-900 dark:text-white w-full border-none pl-0 ml:w-32 ml:pl-4 sm:s-cta2 md:s-cta1 cursor-pointer appearance-none bg-transparent dark:bg-grey-900"
                 defaultValue="en"
               >
                 <option value="en">English</option>

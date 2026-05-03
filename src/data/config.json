@@ -124,7 +124,20 @@
     ]
   },
   "seo": {
-    "keywords": "GDG, WOW, Google, Women In Tech, Developer, Community, Vizag, AP",
+    "keywords": [
+      "GDG WOW",
+      "WOW 2026",
+      "Google Developer Groups",
+      "GDG",
+      "Wonders of Web",
+      "Developer Conference",
+      "Tech Event API",
+      "Women In Tech",
+      "Community",
+      "Developers",
+      "Vizag",
+      "Andhra Pradesh"
+    ],
     "hostUrl": "https://wow.gdgap.com"
   }
 }

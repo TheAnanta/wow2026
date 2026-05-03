@@ -9,10 +9,22 @@ import { FilterSidebar } from '../../components/speakers/FilterSidebar';
 import { BentoCard } from '../../components/sections/BentoCard';
 import { TeamMember, getTeam } from '../../services/teamStubs';
 import { analyticsService } from '../../services/analytics';
-import { useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { Suspense } from 'react';
 
 export default function TeamPage() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center"><p className="sm:l-h4">Gathering the crew...</p></div>}>
+      <TeamContent />
+    </Suspense>
+  );
+}
+
+function TeamContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const qParam = searchParams.get('q') || '';
+
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [filteredTeam, setFilteredTeam] = useState<TeamMember[]>([]);
@@ -26,11 +38,31 @@ export default function TeamPage() {
       setLoading(true);
       const data = await getTeam();
       setTeam(data);
+      
+      // Parse query params
+      const queryFilters = qParam ? qParam.toLowerCase().split(',').filter(Boolean) : [];
+      const initialResponsibilities: string[] = [];
+      const initialUniversities: string[] = [];
+      
+      const allResponsibilities = Array.from(new Set(data.map(m => m.responsibility)));
+      const allUniversities = Array.from(new Set(data.map(m => m.university)));
+      
+      queryFilters.forEach(slug => {
+        const respMatch = allResponsibilities.find(r => r.toLowerCase().replace(/\s+/g, '-') === slug);
+        if (respMatch) initialResponsibilities.push(respMatch);
+        
+        const univMatch = allUniversities.find(u => u.toLowerCase().replace(/\s+/g, '-') === slug);
+        if (univMatch) initialUniversities.push(univMatch);
+      });
+      
+      setSelectedResponsibilities(initialResponsibilities);
+      setSelectedUniversities(initialUniversities);
+      
       setFilteredTeam(data);
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [qParam]);
 
   useEffect(() => {
     let results = [...team];
@@ -59,22 +91,42 @@ export default function TeamPage() {
   const coreTeam = filteredTeam.filter(m => m.category === 'Core Team');
   const mentors = filteredTeam.filter(m => m.category === 'Mentors');
 
+  const updateUrl = (responsibilities: string[], universities: string[]) => {
+    const slugs: string[] = [];
+    responsibilities.forEach(r => slugs.push(r.toLowerCase().replace(/\s+/g, '-')));
+    universities.forEach(u => slugs.push(u.toLowerCase().replace(/\s+/g, '-')));
+    const newQuery = slugs.join(',');
+    router.push(`/team/${newQuery ? `?q=${newQuery}` : ''}`, { scroll: false });
+  };
+
   const toggleResponsibility = (val: string) => {
     analyticsService.trackUI('filter_responsibility', val, 'TeamPage');
-    setSelectedResponsibilities(prev => prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]);
+    const updated = selectedResponsibilities.includes(val) 
+      ? selectedResponsibilities.filter(v => v !== val) 
+      : [...selectedResponsibilities, val];
+    setSelectedResponsibilities(updated);
+    updateUrl(updated, selectedUniversities);
   };
 
   const toggleUniversity = (val: string) => {
     analyticsService.trackUI('filter_university', val, 'TeamPage');
-    setSelectedUniversities(prev => prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]);
+    const updated = selectedUniversities.includes(val) 
+      ? selectedUniversities.filter(v => v !== val) 
+      : [...selectedUniversities, val];
+    setSelectedUniversities(updated);
+    updateUrl(selectedResponsibilities, updated);
   };
 
   const removeResponsibility = (val: string) => {
-    setSelectedResponsibilities(prev => prev.filter(v => v !== val));
+    const updated = selectedResponsibilities.filter(v => v !== val);
+    setSelectedResponsibilities(updated);
+    updateUrl(updated, selectedUniversities);
   };
 
   const removeUniversity = (val: string) => {
-    setSelectedUniversities(prev => prev.filter(v => v !== val));
+    const updated = selectedUniversities.filter(v => v !== val);
+    setSelectedUniversities(updated);
+    updateUrl(selectedResponsibilities, updated);
   };
 
   return (
@@ -142,7 +194,7 @@ export default function TeamPage() {
 
             {/* Main Content Area */}
             <div className="flex-1">
-              <SearchBar value={searchQuery} onChange={(e) => {
+              <SearchBar value={searchQuery} placeholder="Search for a team member" onChange={(e) => {
                 setSearchQuery(e.target.value);
                 analyticsService.trackUI('search_team', e.target.value, 'TeamPage');
               }} />
@@ -176,7 +228,12 @@ export default function TeamPage() {
                 {(selectedResponsibilities.length > 0 || selectedUniversities.length > 0) && (
                   <span
                     className="text-sm font-medium underline text-[#202124] dark:text-white ml-2 cursor-pointer"
-                    onClick={() => { setSelectedResponsibilities([]); setSelectedUniversities([]); analyticsService.trackUI('clear_filters', 'all', 'TeamPage'); }}
+                    onClick={() => { 
+                      setSelectedResponsibilities([]); 
+                      setSelectedUniversities([]); 
+                      updateUrl([], []);
+                      analyticsService.trackUI('clear_filters', 'all', 'TeamPage'); 
+                    }}
                   >
                     Clear all
                   </span>
@@ -362,10 +419,10 @@ export default function TeamPage() {
 
       {/* Mobile Filters UI */}
       {showMobileFilters && (
-        <div className="fixed inset-0 z-2000 bg-white p-8 flex flex-col overflow-y-auto animate-slide-down">
-          <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#000000]">
-            <span className="font-bold text-xl">Filters</span>
-            <button className="bg-transparent border-none text-3xl cursor-pointer" onClick={() => setShowMobileFilters(false)}>&times;</button>
+        <div className="fixed inset-0 z-2000 bg-white dark:bg-grey-900! p-8 flex flex-col overflow-y-auto animate-slide-down">
+          <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#000000] dark:border-white">
+            <span className="font-bold text-xl dark:text-white">Filters</span>
+            <button className="bg-transparent border-none text-3xl cursor-pointer dark:text-white" onClick={() => setShowMobileFilters(false)}>&times;</button>
           </div>
           <div className="flex flex-col gap-8">
             <FilterSidebar title="Responsibility" items={responsibilities} selectedItems={selectedResponsibilities} onToggleItem={toggleResponsibility} />
