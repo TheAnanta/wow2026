@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: mainData.eventInfo.description.short,
   keywords: mainData.seo.keywords,
   icons: {
-    icon: "/gdg-logo.webp",
+    icon: "/gdg-logo.ico",
   },
   authors: [{ name: "Google Developer Groups" }],
   creator: "Google Developer Groups",
