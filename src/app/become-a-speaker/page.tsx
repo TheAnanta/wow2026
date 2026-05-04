@@ -15,6 +15,8 @@ import {
   saveDraft,
   loadDraft,
   submitSpeakerApplication,
+  updateSpeakerApplication,
+  fetchMySubmissions,
   type SpeakerFormData,
 } from "@/services/speakerService";
 
@@ -66,16 +68,38 @@ function SpeakerApplicationForm() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [lastSaved, setLastSaved] = useState<string | null>(null);
+  const [submissions, setSubmissions] = useState<any[]>([]);
+  const [editingCfpId, setEditingCfpId] = useState<number | null>(null);
+
+  const [checkingSubmissions, setCheckingSubmissions] = useState(true);
 
   const [formData, setFormData] = useState<SpeakerFormData>(defaultFormData);
 
-  // Load draft on mount
+  // Check for existing submissions and load draft on mount
   useEffect(() => {
-    const { formData: savedData, tags } = loadDraft();
-    if (savedData) {
-      setFormData(savedData);
-      setSelectedTags(tags);
-    }
+    const init = async () => {
+      // First check if already submitted
+      const data = await fetchMySubmissions();
+      if (data && data.submissions && data.submissions.length > 0) {
+        setSubmissions(data.submissions);
+        setSubmitted(true);
+        // Populate email for the success screen
+        if (data.user?.email) {
+          setFormData(prev => ({ ...prev, email: data.user.email }));
+        }
+        setCheckingSubmissions(false);
+        return;
+      }
+
+      // Then load draft if not submitted
+      const { formData: savedData, tags } = loadDraft();
+      if (savedData) {
+        setFormData(savedData);
+        setSelectedTags(tags);
+      }
+      setCheckingSubmissions(false);
+    };
+    init();
   }, []);
 
   // Auto-save on form changes (debounced)
@@ -130,36 +154,127 @@ function SpeakerApplicationForm() {
     setSubmitting(true);
     setSubmitError(null);
 
-    const result = await submitSpeakerApplication(formData, selectedTags);
+    let result;
+    if (editingCfpId) {
+      result = await updateSpeakerApplication(editingCfpId, formData, selectedTags);
+    } else {
+      result = await submitSpeakerApplication(formData, selectedTags);
+    }
 
     setSubmitting(false);
 
     if (result.success) {
+      // Refresh submissions
+      const data = await fetchMySubmissions();
+      if (data) setSubmissions(data.submissions);
+      
       setSubmitted(true);
+      setEditingCfpId(null);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       setSubmitError(result.error || "Something went wrong. Please try again.");
     }
   };
 
+  const handleEditSubmission = (cfp: any) => {
+    // Basic mapping back to form data
+    setFormData(prev => ({
+      ...prev,
+      sessionTitle: cfp.title,
+      description: cfp.description.split('\n\n---')[0], // Extract main description
+      sessionFormat: Object.keys(formatMap).find(key => formatMap[key] === cfp.type) || "",
+      // ... other fields might need manual extraction if they were combined into description
+    }));
+    setEditingCfpId(cfp.id);
+    setSubmitted(false);
+  };
+
+  const formatMap: Record<string, string> = {
+    "Lightening Talk": "LIGHTENING_TALK",
+    "Tech Byte": "TECH_BYTE",
+    "Talk": "TALK",
+    "Workshop": "WORKSHOP",
+  };
+
+  if (checkingSubmissions) {
+    return (
+      <div className="flex flex-col items-center justify-center py-20 text-center space-y-4">
+        <div className="w-12 h-12 border-4 border-google-blue border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-grey-500 font-medium">Checking application status...</p>
+      </div>
+    );
+  }
+
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 text-center animate-fade-in">
-        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-google-green/10 text-google-green">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-            <path d="M20 6L9 17l-5-5" />
-          </svg>
+      <div className="animate-fade-in space-y-12">
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-google-green/10 text-google-green">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+          </div>
+          <h2 className="text-[2rem] font-bold tracking-tight text-grey-900 dark:text-white">Application Dashboard</h2>
+          <p className="mt-4 max-w-md text-[1.125rem] text-grey-600 dark:text-grey-400">
+            You have submitted <strong>{submissions.length}</strong> proposal{submissions.length > 1 ? 's' : ''} for WOW 2026.
+          </p>
         </div>
-        <h2 className="text-[2rem] font-bold tracking-tight text-grey-900 dark:text-white">Submission Received!</h2>
-        <p className="mt-4 max-w-md text-[1.125rem] text-grey-600 dark:text-grey-400">
-          Thank you for submitting your session for WOW 2026. Our team will review your proposal and contact you at <strong>{formData.email}</strong>.
-        </p>
-        <button
-          onClick={() => router.push("/")}
-          className="mt-10 rounded-full bg-google-blue px-10 py-3.5 text-[1rem] font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl active:scale-95"
-        >
-          Back to Home
-        </button>
+
+        <div className="space-y-4">
+          <h3 className="text-lg font-bold text-grey-900 dark:text-white px-1">Your Submissions</h3>
+          <div className="grid gap-4">
+            {submissions.map((cfp) => (
+              <div key={cfp.id} className="flex items-center justify-between p-6 rounded-2xl border border-grey-200 dark:border-grey-text bg-grey-50 dark:bg-grey-900/50 hover:border-google-blue transition-colors">
+                <div className="flex-1 min-w-0 pr-4">
+                  <h4 className="font-bold text-lg text-grey-900 dark:text-white truncate">{cfp.title}</h4>
+                  <div className="flex items-center gap-3 mt-1">
+                    <span className="text-xs font-bold uppercase tracking-wider text-google-blue px-2 py-0.5 bg-google-blue/10 rounded">
+                      {cfp.type.replace('_', ' ')}
+                    </span>
+                    <span className={`text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
+                      cfp.is_approved ? 'bg-google-green/10 text-google-green' : 'bg-google-yellow/10 text-google-yellow'
+                    }`}>
+                      {cfp.is_approved ? 'Approved' : 'Pending Review'}
+                    </span>
+                  </div>
+                </div>
+                {!cfp.is_approved && (
+                  <button 
+                    onClick={() => handleEditSubmission(cfp)}
+                    className="shrink-0 px-4 py-2 text-sm font-bold text-google-blue hover:bg-google-blue/5 rounded-lg transition-colors border border-google-blue/20"
+                  >
+                    Edit Proposal
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 border-t border-grey-100 dark:border-grey-text">
+          <button
+            onClick={() => {
+              setEditingCfpId(null);
+              setSubmitted(false);
+              setFormData(prev => ({
+                ...prev,
+                sessionTitle: "",
+                description: "",
+                additionalNotes: "",
+                experienceRef: "",
+              }));
+            }}
+            className="w-full sm:w-auto rounded-full bg-google-blue px-10 py-3.5 text-[1rem] font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl active:scale-95"
+          >
+            Submit Another Session
+          </button>
+          <button
+            onClick={() => router.push("/")}
+            className="w-full sm:w-auto px-10 py-3.5 text-[1rem] font-semibold text-grey-600 dark:text-grey-300 hover:text-grey-900 transition-colors"
+          >
+            Back to Home
+          </button>
+        </div>
       </div>
     );
   }
@@ -318,9 +433,9 @@ function SpeakerApplicationForm() {
         </h2>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div className="md:col-span-2 flex flex-col md:flex-row gap-8 items-stretch">
-            <div className="relative group shrink-0 aspect-square py-1.5">
-              <div className="h-full w-full overflow-hidden rounded-2xl border-2 border-dashed border-grey-300 dark:border-grey-text bg-grey-50 dark:bg-grey-900 flex items-center justify-center transition-all group-hover:border-google-blue cursor-pointer"
+          <div className="md:col-span-2 flex flex-col md:flex-row gap-8 items-start">
+            <div className="relative group shrink-0 py-1.5">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 overflow-hidden rounded-2xl border-2 border-dashed border-grey-300 dark:border-grey-text bg-grey-50 dark:bg-grey-900 flex items-center justify-center transition-all group-hover:border-google-blue cursor-pointer"
                 onClick={() => fileInputRef.current?.click()}
               >
                 {photoPreview ? (
@@ -568,6 +683,22 @@ export default function BecomeSpeakerPage() {
         }
         .animate-slide-down {
           animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Safari Select Normalization */
+        select {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 9l4 4 4-4' /%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 1rem center;
+          background-size: 1.5rem;
+          padding-right: 2.5rem !important;
+        }
+
+        .dark select {
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 9l4 4 4-4' /%3E%3C/svg%3E");
         }
       `}</style>
     </div>

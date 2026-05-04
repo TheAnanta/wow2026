@@ -81,10 +81,7 @@ export const submitSpeakerApplication = async (
 ): Promise<{ success: boolean; data?: any; error?: string }> => {
   try {
     const token = await getBearerToken();
-    if (!token) {
-      return { success: false, error: 'User is not authenticated. Please sign in first.' };
-    }
-
+    
     const apiPayload = {
       session_title: formData.sessionTitle,
       description: formData.description,
@@ -113,7 +110,7 @@ export const submitSpeakerApplication = async (
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
       },
       body: JSON.stringify(apiPayload),
     });
@@ -136,12 +133,53 @@ export const submitSpeakerApplication = async (
 };
 
 /**
- * Fetch the current user's past submissions
+ * Update an existing CFP
  */
-export const fetchMySubmissions = async (): Promise<any[]> => {
+export const updateSpeakerApplication = async (
+  cfpId: number,
+  formData: SpeakerFormData,
+  tags: string[]
+): Promise<{ success: boolean; data?: any; error?: string }> => {
   try {
     const token = await getBearerToken();
-    if (!token) return [];
+    if (!token) return { success: false, error: 'Unauthorized' };
+
+    const apiPayload = {
+      session_title: formData.sessionTitle,
+      description: formData.description,
+      session_format: formData.sessionFormat,
+      level: formData.level,
+      tags,
+      additional_notes: formData.additionalNotes,
+      experience_ref: formData.experienceRef,
+    };
+
+    const response = await fetch(`${API_BASE_URL}/speaker/cfp/${cfpId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(apiPayload),
+    });
+
+    const result = await response.json();
+    if (!response.ok) return { success: false, error: result.message || 'Update failed' };
+
+    return { success: true, data: result.data };
+  } catch (error: any) {
+    console.error('Update CFP error:', error);
+    return { success: false, error: error.message || 'Network error' };
+  }
+};
+
+/**
+ * Fetch the current user's past submissions and profile
+ */
+export const fetchMySubmissions = async (): Promise<{ user: any; submissions: any[] } | null> => {
+  try {
+    const token = await getBearerToken();
+    if (!token) return null;
 
     const response = await fetch(`${API_BASE_URL}/speaker/my-submissions`, {
       method: 'GET',
@@ -150,11 +188,11 @@ export const fetchMySubmissions = async (): Promise<any[]> => {
       },
     });
 
-    if (!response.ok) return [];
+    if (!response.ok) return null;
     const result = await response.json();
-    return result.data || [];
+    return result.data || { user: null, submissions: [] };
   } catch (err) {
     console.error('Fetch submissions error:', err);
-    return [];
+    return null;
   }
 };

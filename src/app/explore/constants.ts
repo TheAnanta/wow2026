@@ -3,6 +3,7 @@ export interface FilterOption {
   label: string;
   classification: string;
   analyticsFilter: string;
+  slug: string;
 }
 
 export interface FilterCategory {
