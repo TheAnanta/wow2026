@@ -190,7 +190,7 @@ export const RegistrationForm: React.FC = () => {
             className="inline-flex items-center gap-3 px-8 py-3 bg-white border border-grey-300 rounded-full hover:bg-grey-50 transition-colors shadow-sm font-medium"
           >
             <img src="/images/google.svg" alt="Google" width="18" />
-            <span>Sign in with Google</span>
+            <span className='text-gray-900'>Sign in with Google</span>
           </button>
         </div>
       </div>

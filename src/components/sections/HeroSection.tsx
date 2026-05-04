@@ -116,8 +116,10 @@ function BadgeTimer({ countdown, className = "" }: { countdown: ReturnType<typeo
 
 
 
-function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: { onRegisterClick: () => void; 
-  onSpeakerClick: () => void; countdown: ReturnType<typeof getCountdownText>; buttonText: string }) {
+function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: {
+  onRegisterClick: () => void;
+  onSpeakerClick: () => void; countdown: ReturnType<typeof getCountdownText>; buttonText: string
+}) {
 
   return (
     <section aria-label="Hero" className="">

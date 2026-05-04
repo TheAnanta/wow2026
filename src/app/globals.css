@@ -648,12 +648,68 @@
     border-color: #202124 !important;
   }
 
-  
+  /* Official Radio Style */
+  .radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    background-origin: border-box;
+    user-select: none;
+    flex-shrink: 0;
+    height: 1.25rem;
+    width: 1.25rem;
+    background-color: transparent;
+    border: 2px solid #202124;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out;
+    position: relative;
+    @apply dark:border-white;
+  }
 
+  .radio:checked {
+    border-color: #202124 !important;
+    @apply dark:border-white!;
+  }
 
+  .radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.625rem;
+    height: 0.625rem;
+    background-color: #202124;
+    border-radius: 50%;
+    @apply dark:bg-white;
+  }
 
+  .radio:focus {
+    outline: none;
+    border-color: #202124 !important;
+    @apply dark:border-white!;
+  }
 
+  .dark .checkbox {
+    border-color: #eeeeee;
+  }
+
+  .dark .checkbox:checked {
+    background-color: #eeeeee !important;
+  }
+
+  .dark .checkbox:checked {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23202124' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E") !important;
+  }
 }
+
+
+
+
 
 
 /* Custom Utilities for I/O 24 aesthetics */
