@@ -180,7 +180,7 @@ function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: {
         </div>
 
         <BadgeTimer countdown={countdown} className="hidden lg:flex absolute -right-8 -top-10 z-20 pointer-events-none scale-90 xl:scale-100" />
-        
+
         <p className="absolute bottom-4 left-[50px] xl:left-[64px] text-[10px] text-white/60 pointer-events-none hidden lg:block">
           * Discount is based on rank, read T&C
         </p>
@@ -231,7 +231,7 @@ function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: {
         </div>
 
         {/* Mobile Disclaimer - On Blue Background */}
-        <p className="px-6 pb-2 text-[10px] text-white/60 pointer-events-none z-20">
+        <p className="px-6 text-[10px] text-white/60 pointer-events-none z-20">
           * Discount is based on rank, read T&C
         </p>
 
