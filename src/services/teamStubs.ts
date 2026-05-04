@@ -36,19 +36,17 @@ const mockTeam: TeamMember[] = [
       portfolio: 'https://manasmalla.dev'
     }
   },
-
   // Leads
   {
     id: '101',
     name: 'Kavya Chandana',
-    role: 'GDGoC GITAM Lead',
+    role: 'SWE Apprentice, PwC',
     category: 'Lead',
     pronouns: 'She/Her',
     responsibility: 'Design',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/chandana_kavya_B4zneuz.webp'
+    avatar: '/images/kavya_chandana.webp'
   },
-
   // Core Team
   {
     id: '102',
@@ -58,7 +56,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Varshita_fqkkzb.jpg'
+    avatar: '/images/varshita_palleti.jpg'
   },
   {
     id: '103',
@@ -78,7 +76,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Technology',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/coreteam_gitam_6.jpeg'
+    avatar: '/images/harshith_lanki.jpeg'
   },
   {
     id: '105',
@@ -88,7 +86,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/coreteam_gitam_2.jpeg',
+    avatar: '/images/danush_yallamilli.jpeg',
     // avatar: '/images/danush_yallamilli.jpg',
     bio: 'Computer Science undergraduate, tech enthusiast.',
     socials: { linkedin: 'www.linkedin.com/in/danush-datta-yallamilli' }
@@ -101,7 +99,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/coreteam_gitam_3.jpeg',
+    avatar: '/images/nikhila_pathi.jpeg',
     bio: 'Tech Enthusiast Content, social media, marketing',
   },
   {
@@ -112,7 +110,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/coreteam_gitam_5.jpeg'
+    avatar: '/images/sai_vardhan_k.jpeg'
   },
   {
     id: '108',
@@ -122,7 +120,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/coreteam_gitam_4.jpeg'
+    avatar: '/images/aneesha_yerra.jpeg'
   },
   {
     id: '113',
@@ -132,7 +130,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Yashwanth_Kamireddi_os8fu1.jpg'
+    avatar: '/images/yashwanth_kamireddi.jpg'
   },
   {
     id: '114',
@@ -142,7 +140,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Aftab_Ali_j7xluo.jpg'
+    avatar: '/images/aafthab_ali.jpg'
   },
   {
     id: '115',
@@ -152,7 +150,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Chaitanya_Sameer_az2ci0.jpg',
+    avatar: '/images/chaitanya_sameer.jpg',
     bio: 'Love to delve deeper into things and try to understand from first principles.',
     socials: { instagram: 'chaitanya_sameer' }
   },
@@ -164,7 +162,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Deva_Harshini_tiogrf.jpg'
+    avatar: '/images/deva_harshini_m.jpg'
   },
   {
     id: '117',
@@ -174,7 +172,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Gagana_sgp8gf.jpg'
+    avatar: '/images/gagana_bandaru.jpg'
   },
   {
     id: '118',
@@ -184,7 +182,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Jaswanth_Kumar_cz9e9w.jpg'
+    avatar: '/images/jaswanth_kumar.jpg'
   },
   {
     id: '119',
@@ -194,7 +192,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/K_Sharvan_znnlot.jpg'
+    avatar: '/images/k_sharvan_babu.jpg'
   },
   {
     id: '120',
@@ -204,7 +202,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/M.G.S.S_Srikar_xvimcj.jpg'
+    avatar: '/images/m_g_s_s_srikar.jpg'
   },
   {
     id: '121',
@@ -214,7 +212,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Pavan_Kumar_axeprk.jpg'
+    avatar: '/images/pavan_kumar.jpg'
   },
   {
     id: '122',
@@ -224,7 +222,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Sanvi_Seetha_osj2tt.jpg'
+    avatar: '/images/sanvi_seetha.jpg'
   },
   {
     id: '123',
@@ -234,7 +232,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Tummala_Somanadh_nabuku.jpg'
+    avatar: '/images/tummala_somanadh.jpg'
   },
   {
     id: '124',
@@ -244,7 +242,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/V_Sohana_hmydkm.jpg'
+    avatar: '/images/sohana_vuppala.jpg'
   },
   {
     id: '125',
@@ -254,7 +252,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Vaibhav_af7o5n.jpg',
+    avatar: '/images/vaibhav_tslv.jpg',
     bio: 'A 19-year-old individual with a strong interest in technology and automobiles.',
   },
   {
@@ -265,7 +263,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Satwika_Rejeti_rnn0fh.jpg'
+    avatar: '/images/satwika_rejeti.jpg'
   },
   {
     id: '127',
@@ -275,7 +273,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Aashita_fq7qbd.jpg',
+    avatar: '/images/aashita_jolly.jpg',
     bio: 'Exploring DevOps & Web3 | Data Analytics Enthusiast',
     socials: { linkedin: 'https://www.linkedin.com/in/aashita-jolly/' }
   },
@@ -287,7 +285,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    // avatar: '/images/Srinivasam_Konchada_rfp5ku.jpg'
+    // avatar: '/images/srinivasam_konchada.jpg'
     bio: 'Gitam student marketing',
     avatar: '/images/srinivasam_konchada.jpg',
     socials: { linkedin: 'https://www.linkedin.com/in/konchada-srinivasam-533197345/' }
@@ -300,7 +298,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'He/Him',
     responsibility: 'Guidance',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/coreteam_gitam_1.jpeg'
+    avatar: '/images/poorna_shankar_narayanan.jpeg'
   },
   //Contributors
   {
@@ -311,7 +309,7 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Operations',
     university: 'Gandhi Institute of Technology and Management',
-    avatar: '/images/Srinivasam_Konchada_rfp5ku.jpg'
+    avatar: '/images/pranathi_jerripothula.jpg'
   },
   // Other colleges
   {
@@ -734,6 +732,7 @@ const mockTeam: TeamMember[] = [
     name: 'Kummari Naga Sireesha',
     role: 'Student, SVR Engineering College',
     university: 'SVR Engineering College',
+    avatar: '/images/kummari_naga_sireesha.jpeg',
     category: 'Lead',
     pronouns: 'She/Her',
     responsibility: 'Technical',
@@ -947,7 +946,234 @@ const mockTeam: TeamMember[] = [
     pronouns: 'She/Her',
     responsibility: 'Guidance',
     university: "Vignan's Institute of Engineering for Women",
-    avatar: "/images/ganga_parvathy.jpeg"
+    avatar: "/images/k_ganga_parvathi.jpeg"
+  },
+  {
+    id: '191',
+    name: 'Mani Varshith',
+    role: "Student, Vignan's Institute of Information Technology",
+    university: "Vignan's Institute of Information Technology",
+    avatar: '/images/mani_varshith.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'AI/ML enthusiast and technical contributor.',
+    socials: {
+      twitter: 'https://x.com/varsh83613',
+      linkedin: 'https://www.linkedin.com/in/mani-varshith-b06ba3329'
+    }
+  },
+  {
+    id: '192',
+    name: 'Deepesh Reddy Kalapureddy',
+    role: 'Student, Andhra University College of Engineering',
+    university: 'Andhra University College of Engineering',
+    avatar: '/images/deepesh_reddy_kalapureddy.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'Co-lead for Machine Learning, passionate about AI.',
+    socials: { linkedin: 'https://www.linkedin.com/in/deepesh-reddy-kalapureddy/' }
+  },
+  {
+    id: '193',
+    name: 'Dunna Sai Charmi',
+    role: "Student, Vignan's Institute of Information Technology",
+    university: "Vignan's Institute of Information Technology",
+    avatar: '/images/dunna_sai_charmi.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: 'Event Coordinator with a passion for organizing impactful tech events and building strong communities.'
+  },
+  {
+    id: '194',
+    name: 'Poojith Pappala',
+    role: 'Student, Maharaj Vijayaram Gajapathi Raj College of Engineering',
+    university: 'Maharaj Vijayaram Gajapathi Raj College of Engineering',
+    avatar: '/images/poojith_pappala.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Operations',
+    bio: 'Event Manager in GDG campus, currently in CSE 2nd year.',
+    socials: { linkedin: 'https://www.linkedin.com/in/poojithpappala' }
+  },
+  {
+    id: '195',
+    name: 'Godugu Veena',
+    role: 'Student, Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    university: 'Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET)',
+    avatar: '/images/godugu_veena.jpg',
+    category: 'Lead',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: 'GDG on Campus Organizer at RGMCET. Aspiring Data Scientist.',
+    socials: {
+      instagram: 'https://www.instagram.com/_.veena._.24',
+      linkedin: 'https://www.linkedin.com/in/veena-godugu-61b606327'
+    }
+  },
+  {
+    id: '196',
+    name: 'Bhavya Gopisetty',
+    role: 'Student, Annamacharya Institute of Technology and Sciences',
+    university: 'Annamacharya Institute of Technology and Sciences',
+    avatar: '/images/bhavya_gopisetty.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: '3rd year B.Tech student interested in software development and web technologies.',
+    socials: { linkedin: 'https://www.linkedin.com/in/bhavya-gopisetty-9672522a8' }
+  },
+  {
+    id: '197',
+    name: 'Siva Balaji Budumuri',
+    role: 'Advisor, Sri Venkateswara College of Engineering',
+    university: 'Sri Venkateswara College of Engineering',
+    avatar: '/images/siva_balaji_budumuri.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Mentorship',
+    bio: 'Advisor for GDG campus community.',
+    socials: { instagram: 'mr_boombastic_511' }
+  },
+  {
+    id: '198',
+    name: 'Vepa Lakshmi Sahasra Gayathri',
+    role: 'Student, Andhra University College of Engineering',
+    university: 'Andhra University College of Engineering',
+    avatar: '/images/vepa_lakshmi_sahasra_gayathri.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: 'Lead of Community Outreach. Podcaster and YouTuber who loves hosting events.'
+  },
+  {
+    id: '199',
+    name: 'Pavan Kumar Zilla',
+    role: 'Student, KKR & KSR Institute of Technology & Sciences',
+    university: 'KKR & KSR Institute of Technology & Sciences',
+    avatar: '/images/pavan_kumar_zilla.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Marketing',
+    bio: 'Pursuing 3rd year B.Tech in ECE with a focus on community marketing.',
+    socials: { instagram: 'https://www.instagram.com/pavan_kumar_zilla' }
+  },
+  {
+    id: '200',
+    name: 'Rayudu Siva Sai Prakash',
+    role: 'Student, Andhra University College of Engineering',
+    university: 'Andhra University College of Engineering',
+    avatar: '/images/rayudu_siva_sai_prakash.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'Android Lead at AU. Into IoT & AI.',
+    socials: { linkedin: 'https://www.linkedin.com/in/rayudu-siva-sai-prakash/' }
+  },
+  {
+    id: '201',
+    name: 'K Gagan Rohith',
+    role: 'Student, Annamacharya Institute of Technology and Sciences',
+    university: 'Annamacharya Institute of Technology and Sciences',
+    avatar: '/images/k_gagan_rohith.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'Aspiring tech leader majoring in Computer Science.',
+    socials: { linkedin: 'https://www.linkedin.com/in/k-gagan-rohith' }
+  },
+  {
+    id: '202',
+    name: 'Vignesh Kumar',
+    role: 'Student, Sri Venkateswara College of Engineering',
+    university: 'Sri Venkateswara College of Engineering',
+    avatar: '/images/vignesh_kumar.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Technical',
+    bio: 'Passionate about working in collaborative environments and organizing technical events.',
+    socials: { instagram: 'https://www.instagram.com/vigneshgani1205/' }
+  },
+  {
+    id: '203',
+    name: 'Gowra Deekshitha Vini',
+    role: 'Student, Annamacharya Institute of Technology and Sciences',
+    university: 'Annamacharya Institute of Technology and Sciences',
+    avatar: '/images/gowra_deekshitha_vini.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: 'Tech enthusiast interested in problem-solving and innovation.'
+  },
+  {
+    id: '204',
+    name: 'Anshika Vishwakarma',
+    role: "Student, Vignan's Institute of Information Technology",
+    university: "Vignan's Institute of Information Technology",
+    avatar: '/images/anshika_vishwakarma.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Design',
+    bio: 'UI/UX enthusiast with a focus on detailing and community leadership.'
+  },
+  {
+    id: '205',
+    name: 'Mallela Sai Sahithi',
+    role: 'Student, Annamacharya Institute of Technology and Sciences',
+    university: 'Annamacharya Institute of Technology and Sciences',
+    avatar: '/images/mallela_sai_sahithi.jpg',
+    category: 'Core Team',
+    pronouns: 'She/Her',
+    responsibility: 'Operations',
+    bio: '2nd-year CSIT student, creator of the Bunkmate app.',
+    socials: { linkedin: 'https://www.linkedin.com/in/saisahithimallela' }
+  },
+  {
+    id: '206',
+    name: 'Devalla Dinesh',
+    role: 'Student, Annamacharya Institute of Technology and Sciences',
+    university: 'Annamacharya Institute of Technology and Sciences',
+    avatar: '/images/devalla_dinesh.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Marketing',
+    bio: '3rd year student passionate about programming languages and social media.'
+  },
+  {
+    id: '207',
+    name: 'Karthik',
+    role: 'Student, Annamacharya Institute of Technology and Sciences',
+    university: 'Annamacharya Institute of Technology and Sciences',
+    avatar: '/images/karthik.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Operations',
+    bio: 'Passionate CSD undergraduate part of the engagement team.',
+    socials: { instagram: 'https://www.instagram.com/karthik_sanapala_' }
+  },
+  {
+    id: '208',
+    name: 'Sai Rohit',
+    role: 'Student, Annamacharya Institute of Technology and Sciences',
+    university: 'Annamacharya Institute of Technology and Sciences',
+    avatar: '/images/sai_rohit.jpg',
+    category: 'Core Team',
+    pronouns: 'He/Him',
+    responsibility: 'Operations',
+    bio: 'Interested in solving real-world problems and app development.',
+    socials: { instagram: 'https://www.instagram.com/sai_rohit19' }
+  },
+  {
+    id: '209',
+    name: 'N Rakesh Babu',
+    role: 'Faculty Advisor, SVR Engineering College',
+    category: 'Mentors',
+    pronouns: 'He/Him',
+    responsibility: 'Guidance',
+    university: 'SVR Engineering College',
+    avatar: '/images/n_rakesh_babu.jpeg'
   },
 ];
 
