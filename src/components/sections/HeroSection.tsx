@@ -11,14 +11,14 @@ type FeatureItemProps = {
 };
 
 const leftColumnFeatures = [
-  "Delicious food and swags",
+  "Upto 100% off on WOW pass*",
   "Engaging games",
   "Icebreakers",
   "# I Am Remarkable",
 ];
 
 const rightColumnFeatures = [
-  "Project Showcase",
+  "Pre-WOW technical workshops",
   "Funding",
   "Pixel 9 Photo Booth",
   "1-1 Mentoring with GDEs",
@@ -122,8 +122,9 @@ function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: {
 }) {
 
   return (
-    <section aria-label="Hero" className="">
-      <div className="relative flex w-full flex-col overflow-hidden  bg-[#2563EB] px-4 py-5 text-white shadow-lg sm:px-5 sm:py-6 md:px-7 md:py-7 lg:min-h-[660px] lg:flex-row lg:items-center lg:justify-between lg:px-[50px] lg:pb-[34px] lg:pt-[32px] lg:shadow-none xl:min-h-[740px] xl:px-[64px] xl:pb-[42px] xl:pt-[40px]">
+    <section aria-label="Hero">
+      {/* Desktop Design (lg and up) */}
+      <div className="hidden lg:flex relative w-full flex-col overflow-hidden bg-[#2563EB] px-4 py-5 text-white shadow-lg sm:px-5 sm:py-6 md:px-7 md:py-7 lg:min-h-[660px] lg:flex-row lg:items-center lg:justify-between lg:px-[50px] lg:pb-[34px] lg:pt-[32px] lg:shadow-none xl:min-h-[740px] xl:px-[64px] xl:pb-[42px] xl:pt-[40px]">
         <div className="relative z-10 flex flex-col items-start gap-5 lg:max-w-[60%] lg:justify-center lg:pr-8 lg:gap-0">
           <p className="mb-4 text-lg font-medium text-white">Google</p>
           <h1 className="font-display text-[60px] font-bold leading-[0.9] tracking-tight text-white lg:text-[80px] xl:text-[110px]">
@@ -166,39 +167,6 @@ function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: {
           </div>
         </div>
 
-        {/* Mobile Image and Timers */}
-        <div className="lg:hidden flex w-full flex-col items-center gap-6 mb-36 mt-6">
-          <div className="absolute h-[240px] -bottom-[44px] -right-[85px] w-full max-w-[330px] sm:h-[220px] sm:max-w-[420px] md:h-[250px] md:max-w-[480px]">
-            <Image
-              src="/images/hero-images/tshirt.png"
-              alt="Product collage"
-              fill
-              sizes="(max-width: 640px) 300px, (max-width: 1024px) 420px, 520px"
-              className="object-contain"
-              priority
-            />
-          </div>
-          <div className="md:hidden gap-4 flex flex-col absolute top-[34%] min-[635px]:top-0 rounded-l-xl -right-5 bg-white text-black p-8 border-black border-r-0! border-2 ">
-            <div className="flex items-end">
-              <p className="font-medium leading-[90%] text-6xl min-w-[2ch] text-end">{countdown.days}</p>
-              <p className="font-medium text-3xl ml-1">D</p>
-            </div>
-            <div className="flex items-end">
-              <p className="font-medium leading-[90%] text-6xl min-w-[2ch] text-end">{countdown.hours}</p>
-              <p className="font-medium text-3xl ml-1">H</p>
-            </div>
-            <div className="flex items-end">
-              <p className="font-medium leading-[90%] text-6xl min-w-[2ch] text-end">{countdown.minutes}</p>
-              <p className="font-medium text-3xl ml-1">M</p>
-            </div>
-            <div className="flex items-end">
-              <p className="font-medium leading-[90%] text-6xl min-w-[2ch] text-end">{countdown.seconds}</p>
-              <p className="font-medium text-3xl ml-1">S</p>
-            </div>
-          </div>
-          <BadgeTimer countdown={countdown} className="w-[280px] min-w-0 max-w-full scale-90" />
-        </div>
-
         {/* Desktop Swags Image */}
         <div className="absolute -bottom-16 -right-16 z-10 hidden lg:flex h-[320px] w-[480px] xl:-bottom-24 xl:-right-24 xl:h-[440px] xl:w-[640px] pointer-events-none">
           <Image
@@ -212,10 +180,88 @@ function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: {
         </div>
 
         <BadgeTimer countdown={countdown} className="hidden lg:flex absolute -right-8 -top-10 z-20 pointer-events-none scale-90 xl:scale-100" />
+        
+        <p className="absolute bottom-4 left-[50px] xl:left-[64px] text-[10px] text-white/60 pointer-events-none hidden lg:block">
+          * Discount is based on rank, read T&C
+        </p>
+      </div>
+
+      {/* New Mobile/Medium Design (< lg) */}
+      <div className="lg:hidden relative flex w-full flex-col overflow-hidden bg-[#1a73e8] text-white min-h-[520px] sm:min-h-[600px]">
+        <div className="px-6 py-10 md:px-12 md:py-16 flex flex-col md:flex-row items-start md:items-center justify-between z-10">
+          <div className="flex flex-col items-start max-w-lg">
+            <p className="text-xl font-medium mb-4">Google</p>
+            <h1 className="font-display text-[48px] sm:text-[60px] md:text-[72px] font-bold leading-[1] tracking-tight">
+              The WOW+<br />Experience
+            </h1>
+            <p className="mt-6 max-w-[280px] sm:max-w-md text-lg sm:text-xl font-medium text-white/90 leading-snug">
+              Play games, rank up on the leaderboard, earn swags, and get exclusive WOW pass discounts.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={onRegisterClick}
+                className="bg-[#FBBC04] text-black border-[3px] border-black rounded-full px-10 py-3.5 text-lg font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1.5px] hover:translate-y-[1.5px] hover:shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+              >
+                {buttonText === 'Register' ? 'Register Now' : buttonText}
+              </button>
+            </div>
+          </div>
+
+          {/* Medium Swag Image (Landscape) - Clipped to bottom right */}
+          <div className="hidden md:block absolute -bottom-6 -right-12 h-[380px] w-[440px] xl:h-[480px] xl:w-[550px] pointer-events-none z-0">
+            <Image
+              src="/images/hero-images/tshirt.png"
+              alt="Product collage"
+              fill
+              className="object-contain object-right-bottom"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Mobile Swag Image (Portrait) - Clipped to bottom right */}
+        <div className="md:hidden absolute bottom-4 -right-12 h-[240px] sm:h-[300px] w-[280px] sm:w-[360px] pointer-events-none z-0">
+          <Image
+            src="/images/hero-images/tshirt.png"
+            alt="Product collage"
+            fill
+            className="object-contain object-right-bottom"
+            priority
+          />
+        </div>
+
+        {/* Bottom Yellow Countdown Bar */}
+        <div className="h-16 md:h-20 w-full bg-[#FBBC04] border-t-[3px] border-black mt-auto z-10 flex items-center justify-center">
+          <p className="absolute left-6 bottom-[18px] md:bottom-[22px] text-[10px] text-black/60 pointer-events-none z-20">
+            * Discount is based on rank, read T&C
+          </p>
+          <div className="flex items-center gap-4 text-black font-bold text-2xl md:text-3xl tracking-tight">
+            <div className="flex items-baseline gap-1">
+              <span>{countdown.days}</span>
+              <span className="text-sm md:text-base opacity-70">D</span>
+            </div>
+            <span className="opacity-30">:</span>
+            <div className="flex items-baseline gap-1">
+              <span>{countdown.hours}</span>
+              <span className="text-sm md:text-base opacity-70">H</span>
+            </div>
+            <span className="opacity-30">:</span>
+            <div className="flex items-baseline gap-1">
+              <span>{countdown.minutes}</span>
+              <span className="text-sm md:text-base opacity-70">M</span>
+            </div>
+            <span className="opacity-30">:</span>
+            <div className="flex items-baseline gap-1">
+              <span>{countdown.seconds}</span>
+              <span className="text-sm md:text-base opacity-70">S</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
+
 
 export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () => void }) {
   const router = useRouter();
