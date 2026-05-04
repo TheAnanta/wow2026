@@ -230,11 +230,13 @@ function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: {
           />
         </div>
 
+        {/* Mobile Disclaimer - On Blue Background */}
+        <p className="px-6 pb-2 text-[10px] text-white/60 pointer-events-none z-20">
+          * Discount is based on rank, read T&C
+        </p>
+
         {/* Bottom Yellow Countdown Bar */}
         <div className="h-16 md:h-20 w-full bg-[#FBBC04] border-t-[3px] border-black mt-auto z-10 flex items-center justify-center">
-          <p className="absolute left-6 bottom-[18px] md:bottom-[22px] text-[10px] text-black/60 pointer-events-none z-20">
-            * Discount is based on rank, read T&C
-          </p>
           <div className="flex items-center gap-4 text-black font-bold text-2xl md:text-3xl tracking-tight">
             <div className="flex items-baseline gap-1">
               <span>{countdown.days}</span>
