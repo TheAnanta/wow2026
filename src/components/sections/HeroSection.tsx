@@ -24,7 +24,7 @@ const rightColumnFeatures = [
   "1-1 Mentoring with GDEs",
 ];
 
-const HERO_COUNTDOWN_TARGET = new Date("2026-05-07T11:59:00+05:30");
+const HERO_COUNTDOWN_TARGET = new Date("2026-05-14T11:59:00+05:30");
 
 function padCountdownValue(value: number) {
   return String(Math.max(0, value)).padStart(2, "0");
