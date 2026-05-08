@@ -22,8 +22,17 @@ const firebaseConfig = {
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-// messaging is only available in the browser
-const messaging = typeof window !== 'undefined' ? getMessaging(app) : null;
+// Detect Instagram webview to prevent FCM initialization issues
+const isInstagram = typeof window !== 'undefined' && (
+  /Instagram/i.test(navigator.userAgent) || 
+  new URLSearchParams(window.location.search).get('referrer') === 'instagram'
+);
+
+// messaging is only available in the browser and not on Instagram
+if (isInstagram) {
+  console.log('Instagram webview detected. Disabling FCM initialization for compatibility.');
+}
+const messaging = (typeof window !== 'undefined' && !isInstagram) ? getMessaging(app) : null;
 const storage = getStorage(app);
 
 const googleProvider = new GoogleAuthProvider();
