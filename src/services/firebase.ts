@@ -62,6 +62,9 @@ export const signInWithGoogle = async () => {
  * Get the current user's bearer token refreshingly
  */
 export const getBearerToken = async (): Promise<string | null> => {
+  if (auth.currentUser) {
+    return auth.currentUser.getIdToken(true);
+  }
   // Wait for auth to initialize if needed
   return new Promise((resolve) => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {

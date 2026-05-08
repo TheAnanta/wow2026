@@ -35,6 +35,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const fetchProfile = useCallback(async () => {
+    setIsLoading(true);
     try {
       const result = await fetchCurrentUser();
       if (result === null) {

@@ -31,15 +31,17 @@ function PaymentPage() {
     }, [earnedBadge]);
 
     useEffect(() => {
-        if (isLoading) return;
+        if (isLoading || isProcessing) return;
 
         // Redirect if unregistered
-        if (user && isUnregistered) {
+        if (user && isUnregistered && !profile) {
+            console.log("Redirecting to /register: user is logged in but unregistered");
             router.push('/register');
             return;
         }
 
         if (!user) {
+            console.log("Redirecting to /register: no user found");
             router.push('/register');
             return;
         }

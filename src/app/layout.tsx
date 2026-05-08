@@ -74,6 +74,10 @@ export default function RootLayout({
         <AuthProvider>
           <AnalyticsProvider>
             <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
+            <Script src="https://cdn.jsdelivr.net/npm/eruda" strategy="lazyOnload" onReady={() => {
+              // @ts-ignore
+              eruda.init();
+            }} />
             {/* Banner */}
             {/* <AnnouncementBanner props={{ announcement: "GDG WOW 2026 is happening this year, bigger, better and bolder • Tickets open • Register Now • Follow us on Instagram • @gdgwowap" }} /> */}
 
