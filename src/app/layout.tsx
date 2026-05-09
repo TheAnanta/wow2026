@@ -1,11 +1,79 @@
 import type { Metadata } from "next";
-import { Google_Sans, Google_Sans_Code } from "next/font/google";
+import { Google_Sans_Code } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 
-const googleSans = Google_Sans({
+const googleSans = localFont({
+  src: [
+    {
+      path: "../../public/fonts/GoogleSans-Regular-v1.27.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/GoogleSans-Italic-v1.27.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/GoogleSans-Medium-v1.27.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/GoogleSans-MediumItalic-v1.27.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/GoogleSans-Bold-v1.27.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/GoogleSans-BoldItalic-v1.27.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
   variable: "--font-google-sans",
-  subsets: ["latin"],
+});
+
+const googleSansDisplay = localFont({
+  src: [
+    {
+      path: "../../public/fonts/GoogleSansDisplay-Regular-v1.27.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/GoogleSansDisplay-Italic-v1.27.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/GoogleSansDisplay-Medium-v1.27.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/GoogleSansDisplay-MediumItalic-v1.27.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/GoogleSansDisplay-Bold-v1.27.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/GoogleSansDisplay-BoldItalic-v1.27.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-google-sans-display",
 });
 
 const googleSansCode = Google_Sans_Code({
@@ -65,7 +133,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${googleSans.variable} ${googleSansCode.variable}`}
+      className={`${googleSans.variable} ${googleSansDisplay.variable} ${googleSansCode.variable}`}
     >
       <head>
         <meta name="google-site-verification" content="HraCim0B4dPQGhFNZP9GzjjZC6ZtrJ-jj7zFf-70pUc" />
