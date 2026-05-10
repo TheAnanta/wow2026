@@ -30,7 +30,7 @@
       "image": "gold_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
       "description": {
         "earned": "Incredible work! The Gold badge signifies top-tier commitment and high-ranking performance in the WOW+ experience.",
-        "default": "Rise to the top 150! Gold members get priority entry and premium swags."
+        "default": "Rise to the top 320! Gold members get priority entry and premium swags."
       }
     },
     "link": "/wow-plus"
@@ -42,7 +42,7 @@
       "image": "diamond_sm-6bb229d2803807410116694fb0aed7f6f43aa63a.png",
       "description": {
         "earned": "Phenomenal! You are among the elite. The Diamond badge gives you exclusive access to expert-led workshop sessions.",
-        "default": "Be part of the top 50! Gain the Diamond badge for ultimate bragging rights and deep discounts."
+        "default": "Be part of the top 120! Gain the Diamond badge for ultimate bragging rights and deep discounts."
       }
     },
     "link": "/wow-plus"
@@ -54,7 +54,7 @@
       "image": "platinum_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
       "description": {
         "earned": "Guest of Honour! Your Platinum status means you've conquered the WOW+ experience. Your ticket is on us!",
-        "default": "The ultimate prize. Reach the top 10 to receive a full refund and become a Guest of Honour."
+        "default": "The ultimate prize. Reach the top 20 to receive a full refund and become a Guest of Honour."
       }
     },
     "link": "/wow-plus"

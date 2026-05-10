@@ -22,6 +22,7 @@ interface MaterialCheckoutProps {
   setCouponCode: (code: string) => void;
   discount: number;
   onApplyCoupon: (code: string) => Promise<any>;
+  onBack: () => void;
 }
 
 const PASS = { price: 1200, list: 2000 };
@@ -36,7 +37,8 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   couponCode,
   setCouponCode,
   discount,
-  onApplyCoupon
+  onApplyCoupon,
+  onBack
 }) => {
   const [rank, setRank] = useState(87);
   const [promos, setPromos] = useState<any[]>([]);
@@ -109,7 +111,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
         style={{ height: 56, background: 'var(--m-surface)', borderColor: 'var(--m-outline-variant)' }}
       >
         <div className="flex-1 flex items-center gap-2 px-4 max-w-[1200px] mx-auto w-full">
-          <button className="m-pressable rounded-full flex items-center justify-center -ml-2"
+          <button onClick={onBack} className="m-pressable rounded-full flex items-center justify-center -ml-2"
             style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Back">
             <IconBack size={24} />
           </button>
@@ -176,7 +178,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                 </div>
                 <div className="flex-1">
                   <div className="t-title-s" style={{ color: 'var(--m-on-surface)' }}>
-                    Secure checkout · refundable up to 7 days
+                    Secure checkout · Non-refundable
                   </div>
                   <div className="t-body-s mt-1" style={{ color: 'var(--m-on-surface-variant)' }}>
                     Payments processed by Razorpay. We never store card details.
@@ -277,7 +279,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
             height: 56,
             paddingLeft: 28, paddingRight: 28,
             background: 'var(--m-primary)',
-            color: '#fff',
+            color: 'var(--m-on-primary)',
             fontSize: 16,
             minWidth: 140,
             boxShadow: '0 1px 2px rgba(0,0,0,0.1), 0 4px 12px rgba(44,95,217,0.25)',
@@ -323,10 +325,10 @@ function PayLaterDisclosure({ open, setOpen, payLater, rank }: any) {
               based on your final leaderboard rank — climb up tiers to reduce or eliminate it.
             </p>
             <ul className="mt-2 space-y-1 t-body-s">
-              <li>· <b>Diamond / Platinum:</b> ₹0 due later</li>
-              <li>· <b>Gold:</b> up to ₹200 due later</li>
-              <li>· <b>Silver:</b> ₹100–₹400 due later</li>
-              <li>· <b>Bronze:</b> ₹200–₹600 due later</li>
+              <li>· <b>Platinum / Diamond:</b> ₹0 / ₹50 due later</li>
+              <li>· <b>Gold:</b> ₹200 due later</li>
+              <li>· <b>Silver:</b> ₹300 due later</li>
+              <li>· <b>Bronze:</b> ₹450 due later</li>
             </ul>
           </div>
         </div>

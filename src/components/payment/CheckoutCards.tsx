@@ -7,11 +7,11 @@ import { IconTrophy, IconSparkle, IconTag, IconCheck, IconChevronDown, IconTrash
 
 // ---------- Tiers ----------
 export const TIERS = [
-  { id: 'diamond', label: 'Diamond', range: [0, 10], short: '0–10', color: '#5C7CFF' },
-  { id: 'platinum', label: 'Platinum', range: [10, 50], short: '10–50', color: '#9CA3AF' },
-  { id: 'gold', label: 'Gold', range: [50, 150], short: '50–150', color: '#F2A93B' },
-  { id: 'silver', label: 'Silver', range: [150, 300], short: '150–300', color: '#B6B6C2' },
-  { id: 'bronze', label: 'Bronze', range: [300, 1495], short: '300–1495', color: '#B07A3F' },
+  { id: 'platinum', label: 'Platinum', range: [0, 20],     short: '0–20',     color: '#E5E4E2' },
+  { id: 'diamond',  label: 'Diamond',  range: [21, 120],   short: '21–120',   color: '#5C7CFF' },
+  { id: 'gold',     label: 'Gold',     range: [121, 320],  short: '121–320',  color: '#F2A93B' },
+  { id: 'silver',   label: 'Silver',   range: [321, 670],  short: '321–670',  color: '#B6B6C2' },
+  { id: 'bronze',   label: 'Bronze',   range: [671, 1515], short: '671–1515', color: '#B07A3F' },
 ];
 
 export function tierForRank(rank: number) {
@@ -21,11 +21,11 @@ export function tierForRank(rank: number) {
 export function payLaterRange(rank: number) {
   const tier = tierForRank(rank);
   switch (tier.id) {
-    case 'diamond': return { min: 0, max: 0, label: '₹0 — you owe nothing later' };
-    case 'platinum': return { min: 0, max: 50, label: '₹0–₹50 based on final rank' };
-    case 'gold': return { min: 0, max: 200, label: '₹0–₹200 based on final rank' };
-    case 'silver': return { min: 100, max: 400, label: '₹100–₹400 based on final rank' };
-    case 'bronze': return { min: 200, max: 600, label: '₹200–₹600 based on final rank' };
+    case 'platinum': return { min: 0, max: 0, label: '₹0 — you owe nothing later' };
+    case 'diamond': return { min: 50, max: 50, label: '₹50 later based on tier' };
+    case 'gold': return { min: 200, max: 200, label: '₹200 later based on tier' };
+    case 'silver': return { min: 300, max: 300, label: '₹300 later based on tier' };
+    case 'bronze': return { min: 450, max: 450, label: '₹450 later based on tier' };
     default: return { min: 0, max: 0, label: '₹0' };
   }
 }
@@ -126,7 +126,7 @@ interface RankCardProps {
 
 export const RankCard: React.FC<RankCardProps> = ({ rank, setRank, interactive, brand, disabled }) => {
   const tier = tierForRank(rank);
-  const max = 1495;
+  const max = 1515;
   const progress = (rank / max) * 100;
 
   if (disabled) {
@@ -169,9 +169,12 @@ export const RankCard: React.FC<RankCardProps> = ({ rank, setRank, interactive, 
       <div className="mt-4 mb-3 flex items-center gap-3">
         <div
           className="px-3 py-2 rounded-full inline-flex items-center gap-2"
-          style={{ background: 'var(--m-tier-gold-container)', color: 'var(--m-on-tier-gold-container)' }}
+          style={{ 
+            background: `var(--m-tier-${tier.id}-container, var(--m-tier-gold-container))`, 
+            color: `var(--m-on-tier-${tier.id}-container, var(--m-on-tier-gold-container))` 
+          }}
         >
-          <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--m-tier-gold)' }} />
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: `var(--m-tier-${tier.id}, var(--m-tier-gold))` }} />
           <span className="t-label-l">You're #{rank} · {tier.label} tier</span>
         </div>
       </div>

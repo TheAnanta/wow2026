@@ -9,7 +9,7 @@ import { analyticsService } from "@/services/analytics";
 const TIERS = [
     {
         name: "Bronze",
-        rank: "300 - 1495",
+        rank: "671 - 1515",
         price: "₹800",
         ticketPrice: "₹450",
         passPrice: "₹500",
@@ -19,7 +19,7 @@ const TIERS = [
     },
     {
         name: "Silver",
-        rank: "150 - 300",
+        rank: "321 - 670",
         price: "₹650",
         ticketPrice: "₹300",
         passPrice: "₹500",
@@ -29,7 +29,7 @@ const TIERS = [
     },
     {
         name: "Gold",
-        rank: "50 - 150",
+        rank: "121 - 320",
         price: "₹550",
         ticketPrice: "₹200",
         passPrice: "₹500",
@@ -39,7 +39,7 @@ const TIERS = [
     },
     {
         name: "Diamond",
-        rank: "10 - 50",
+        rank: "21 - 120",
         price: "₹400",
         ticketPrice: "₹50",
         passPrice: "₹500",
@@ -49,7 +49,7 @@ const TIERS = [
     },
     {
         name: "Platinum",
-        rank: "0 - 10",
+        rank: "0 - 20",
         price: "FREE",
         ticketPrice: "₹0",
         passPrice: "Refunded",
@@ -321,7 +321,7 @@ export default function WOWPlusPage() {
                                                 <div className="mt-8 flex items-center justify-between border-t-2 border-grey-bg dark:border-grey pt-6">
                                                     <div className="flex items-baseline gap-2">
                                                         <span className="text-sm font-bold text-grey-500 uppercase">Rank Needed:</span>
-                                                        <span className="text-xl font-black text-grey-900 dark:text-white">0 - 10</span>
+                                                        <span className="text-xl font-black text-grey-900 dark:text-white">0 - 20</span>
                                                     </div>
                                                     <Link href="/payment?type=wow-plus" className="nav-cta-btn bg-grey-900! dark:bg-grey-bg! dark:text-grey-900! px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform" onClick={() => analyticsService.trackCTA('Claim Platinum', 'WOWPlusPage')}>
                                                         Claim Now
@@ -548,11 +548,11 @@ export default function WOWPlusPage() {
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p className="mb-2">Your tier is determined by your active rank on the overall event leaderboard:</p>
                                                 <ul className="list-disc ml-6 space-y-1 mb-4">
-                                                    <li><b>Platinum:</b> Top 0 to 10</li>
-                                                    <li><b>Diamond:</b> Rank 10 to 50</li>
-                                                    <li><b>Gold:</b> Rank 50 to 150</li>
-                                                    <li><b>Silver:</b> Rank 150 to 300</li>
-                                                    <li><b>Bronze:</b> Rank 300 to 1495</li>
+                                                    <li><b>Platinum:</b> Top 0 to 20</li>
+                                                    <li><b>Diamond:</b> Rank 21 to 120</li>
+                                                    <li><b>Gold:</b> Rank 121 to 320</li>
+                                                    <li><b>Silver:</b> Rank 321 to 670</li>
+                                                    <li><b>Bronze:</b> Rank 671 to 1515</li>
                                                 </ul>
                                             </dd>
                                         </div>
@@ -644,7 +644,7 @@ export default function WOWPlusPage() {
                                                     Original WOW ticket is priced at ₹1200 in early bird, and ₹2000 in regular sales.
                                                 </p>
                                                 <p className="mb-2">
-                                                    <b>WOW+ winners (top &lt;535 rank)</b> get massive discounts based on their highest achieved tier:
+                                                    <b>WOW+ winners (top &lt;1515 rank)</b> get massive discounts based on their highest achieved tier:
                                                 </p>
                                                 <ul className="list-disc ml-6 space-y-2">
                                                     <li><b>Platinum Tier:</b> <span className="text-google-green font-bold">Free</span> (Your ₹500 pass fee will be refunded)</li>

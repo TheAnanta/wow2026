@@ -183,10 +183,12 @@ export const fetchTicketTiers = async () => {
 
 export const validateCoupon = async (code: string, tierId?: string) => {
   try {
+    const token = await getBearerToken();
     const response = await fetch(`${API_BASE_URL}/commerce/validate-coupon`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({ code, tier_id: tierId })
     });

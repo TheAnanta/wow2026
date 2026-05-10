@@ -122,19 +122,16 @@ function PaymentPage() {
 
     if (earnedBadge) {
         return (
-            <div className="w-full min-h-screen bg-white flex flex-col items-center">
-                <div className="w-full max-w-[800px] animate-fade-in">
-                    <BadgeSuccess
-                        badgeName={earnedBadge}
-                        orderId={orderId}
-                        onClose={() => {
-                            setEarnedBadge(null);
-                            setOrderId(null);
-                            router.push('/explore');
-                        }}
-                    />
-                </div>
-            </div>
+            <BadgeSuccess
+                badgeName={earnedBadge}
+                orderId={orderId}
+                couponCode={couponCode}
+                onClose={() => {
+                    setEarnedBadge(null);
+                    setOrderId(null);
+                    router.push('/explore');
+                }}
+            />
         );
     }
 
@@ -150,6 +147,7 @@ function PaymentPage() {
                 setCouponCode={setCouponCode}
                 discount={discount}
                 onApplyCoupon={handleApplyCoupon}
+                onBack={() => router.push('/register?update=true')}
             />
         </div>
     );
