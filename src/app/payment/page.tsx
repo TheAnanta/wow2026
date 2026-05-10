@@ -17,10 +17,18 @@ function PaymentPage() {
     const [wowPlusAck, setWowPlusAck] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
     const [earnedBadge, setEarnedBadge] = useState<string | null>(() => {
-        if (typeof window !== 'undefined' && 
-            (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && 
+        if (typeof window !== 'undefined' &&
+            (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') &&
             searchParams.get('mock') === 'true') {
             return 'WOW 2026 - Attendee';
+        }
+        return null;
+    });
+    const [orderId, setOrderId] = useState<string | null>(() => {
+        if (typeof window !== 'undefined' &&
+            (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') &&
+            searchParams.get('mock') === 'true') {
+            return 'order_Sg8MadWlL3f1Ty';
         }
         return null;
     });
@@ -96,6 +104,7 @@ function PaymentPage() {
                         analyticsService.trackCheckoutActivity('payment_verify', tierSearch, 'completed', verifyDuration);
                         analyticsService.trackForm('payment_verify', tierSearch, 'complete', { tier: tierSearch });
                         setEarnedBadge(badgeName || tier.name);
+                        setOrderId(response.razorpay_order_id);
                         // Trigger context refresh
                         window.dispatchEvent(new CustomEvent('registrationSuccess'));
                     } catch (err: any) {
@@ -170,8 +179,10 @@ function PaymentPage() {
                     <div className="w-full md:max-w-[800px] bg-white dark:bg-grey-900! md:rounded-2xl border-b md:border border-grey-200 dark:border-grey-700 md:shadow-sm overflow-hidden animate-slide-up">
                         <BadgeSuccess
                             badgeName={earnedBadge}
+                            orderId={orderId}
                             onClose={() => {
                                 setEarnedBadge(null);
+                                setOrderId(null);
                                 router.push('/explore');
                             }}
                         />

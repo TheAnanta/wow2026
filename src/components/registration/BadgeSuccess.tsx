@@ -6,15 +6,21 @@ import { updateProfile } from '../../services/registrationStubs';
 
 interface BadgeSuccessProps {
   badgeName: string;
+  orderId?: string | null;
   onClose?: () => void;
 }
 
-const BadgeBanner = ({ isWOWPlus }: { isWOWPlus: boolean }) => (
+const BadgeBanner = ({ isWOWPlus, orderId }: { isWOWPlus: boolean; orderId?: string | null }) => (
   <div className="relative w-full h-40 md:h-56 bg-[#F1F3F4] dark:bg-grey-900! overflow-hidden border-b border-grey-200 dark:border-grey-700 flex items-center px-8 md:px-14 transition-colors">
     <div className="flex-1 z-10">
-      <h2 className="text-[1.875rem] md:text-[2.25rem] font-medium text-grey-900 dark:text-white tracking-tight leading-tight">
-        {isWOWPlus ? 'Welcome to the Community' : 'Register for WOW'}
+      <h2 className="text-[2.575rem] md:text-[4rem] font-medium text-grey-900 dark:text-white tracking-tighter leading-[0.9]">
+        Payment<br />Successful.
       </h2>
+      {orderId && (
+        <p className="text-[0.875rem] opacity-45 uppercase md:text-[1rem] text-grey-600 dark:text-grey-400 mt-1 font-medium">
+          #{orderId.replace('order_', '')}
+        </p>
+      )}
     </div>
 
     {/* Decorative Background - Using pencil road SVGs */}
@@ -31,7 +37,7 @@ const BadgeBanner = ({ isWOWPlus }: { isWOWPlus: boolean }) => (
   </div>
 );
 
-export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }) => {
+export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, orderId, onClose }) => {
   const isWOWPlus = badgeName === 'WOW+ Insider - Explorer' || badgeName === 'Arcade Insider - Explorer';
   const startTimeRef = useRef(Date.now());
   const [showInterests, setShowInterests] = useState(false);
@@ -55,7 +61,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
   const handleFinish = async () => {
     const duration = (Date.now() - startTimeRef.current) / 1000;
     analyticsService.trackTiming('post_payment', 'done', duration, badgeName);
-    
+
     if (selectedInterests.length > 0) {
       setIsSaving(true);
       try {
@@ -73,7 +79,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
 
   return (
     <div className="flex-col w-full animate-fade-in transition-colors bg-white dark:bg-grey-800!">
-      <BadgeBanner isWOWPlus={isWOWPlus} />
+      <BadgeBanner isWOWPlus={isWOWPlus} orderId={orderId} />
 
       <div className="flex flex-col items-center text-center p-8 md:p-12">
         {!showInterests ? (
@@ -140,7 +146,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, onClose }
               >
                 Personalize my experience
               </button>
-              
+
               <button
                 onClick={() => handleFinish()}
                 className="text-grey-600 dark:text-grey-400 font-medium hover:underline"
