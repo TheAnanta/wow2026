@@ -62,7 +62,7 @@ function PaymentPage() {
 
             const duration = (Date.now() - startTimeRef.current) / 1000;
             analyticsService.trackCheckoutActivity('select_tier', tierSearch, 'initiated', duration);
-            
+
             const checkoutData = await initiateCheckout(tier.id, couponCode);
 
             const options = {
@@ -125,7 +125,7 @@ function PaymentPage() {
             <BadgeSuccess
                 badgeName={earnedBadge}
                 orderId={orderId}
-                couponCode={couponCode}
+                // couponCode={couponCode}
                 onClose={() => {
                     setEarnedBadge(null);
                     setOrderId(null);
@@ -137,7 +137,7 @@ function PaymentPage() {
 
     return (
         <div className="w-full min-h-screen">
-            <MaterialCheckout 
+            <MaterialCheckout
                 tiers={tiers}
                 profile={profile}
                 user={user}
