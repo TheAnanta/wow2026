@@ -1,13 +1,17 @@
 // src/components/sections/Footer.tsx
 'use client';
 
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import React from 'react';
 import { analyticsService } from '../../services/analytics';
 
 export const Footer: React.FC = () => {
+  const pathname = usePathname();
+  const isPaymentPage = pathname === '/payment';
+
   return (
-    <footer id="footer" className="pt-10 pb-16 lg:py-12 px-6 lg:px-12 bg-text flex flex-col lg:flex-row lg:justify-between lg:items-center w-full mt-10">
+    <footer id="footer" className={`${isPaymentPage ? 'hidden' : 'flex'} pt-10 pb-16 lg:py-12 px-6 lg:px-12 bg-text flex-col lg:flex-row lg:justify-between lg:items-center w-full mt-10`}>
       <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-10 text-[#9aa0a6] text-base font-medium flex-1">
         <div className="flex justify-between w-full lg:w-auto items-center mb-4 lg:mb-0">
           <a

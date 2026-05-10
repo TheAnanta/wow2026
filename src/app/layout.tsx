@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Google_Sans_Code } from "next/font/google";
+import { Google_Sans_Code, Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
@@ -81,6 +81,12 @@ const googleSansCode = Google_Sans_Code({
   subsets: ["latin"],
 });
 
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
 import mainData from "@/data/config.json";
 
 export const metadata: Metadata = {
@@ -133,7 +139,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${googleSans.variable} ${googleSansDisplay.variable} ${googleSansCode.variable}`}
+      className={`${googleSans.variable} ${googleSansDisplay.variable} ${googleSansCode.variable} ${manrope.variable}`}
     >
       <head>
         <meta name="google-site-verification" content="HraCim0B4dPQGhFNZP9GzjjZC6ZtrJ-jj7zFf-70pUc" />

@@ -1,0 +1,65 @@
+import React from 'react';
+
+export const Icon: React.FC<{ children: React.ReactNode; size?: number; className?: string; stroke?: number }> = ({ children, size = 24, className = '', stroke = 2, ...rest }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={stroke}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    {...rest}
+  >
+    {children}
+  </svg>
+);
+
+export const IconMenu: React.FC<any> = (p) => (
+  <Icon {...p}><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" /></Icon>
+);
+export const IconBack: React.FC<any> = (p) => (
+  <Icon {...p}><polyline points="15,5 8,12 15,19" /></Icon>
+);
+export const IconInfo: React.FC<any> = (p) => (
+  <Icon {...p}><circle cx="12" cy="12" r="9" /><line x1="12" y1="11" x2="12" y2="16" /><circle cx="12" cy="8" r="0.5" fill="currentColor" /></Icon>
+);
+export const IconCheck: React.FC<any> = (p) => (
+  <Icon {...p}><polyline points="5,12 10,17 19,7" /></Icon>
+);
+export const IconClose: React.FC<any> = (p) => (
+  <Icon {...p}><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></Icon>
+);
+export const IconTag: React.FC<any> = (p) => (
+  <Icon {...p}><path d="M3 12 V4 H11 L21 14 L14 21 L4 11" /><circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" /></Icon>
+);
+export const IconChevronDown: React.FC<any> = (p) => (
+  <Icon {...p}><polyline points="6,9 12,15 18,9" /></Icon>
+);
+export const IconLock: React.FC<any> = (p) => (
+  <Icon {...p}><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11 V8 a4 4 0 0 1 8 0 V11" /></Icon>
+);
+export const IconShield: React.FC<any> = (p) => (
+  <Icon {...p}><path d="M12 3 L20 6 V12 C20 16.5 16.5 20 12 21 C7.5 20 4 16.5 4 12 V6 Z" /><polyline points="9,12 11,14 15,10" /></Icon>
+);
+export const IconSparkle: React.FC<any> = (p) => (
+  <Icon {...p}><path d="M12 4 L13.5 10 L19 11.5 L13.5 13 L12 19 L10.5 13 L5 11.5 L10.5 10 Z" /></Icon>
+);
+export const IconTrash: React.FC<any> = (p) => (
+  <Icon {...p}><polyline points="4,7 20,7" /><path d="M6 7 V19 a2 2 0 0 0 2 2 H16 a2 2 0 0 0 2 -2 V7" /><path d="M9 7 V5 a2 2 0 0 1 2 -2 H13 a2 2 0 0 1 2 2 V7" /></Icon>
+);
+export const IconTrophy: React.FC<any> = (p) => (
+  <Icon {...p}>
+    <path d="M7 4 H17 V10 a5 5 0 0 1 -10 0 Z" />
+    <path d="M7 6 H4 V8 a3 3 0 0 0 3 3" />
+    <path d="M17 6 H20 V8 a3 3 0 0 0 -3 3" />
+    <line x1="10" y1="20" x2="14" y2="20" />
+    <line x1="12" y1="15" x2="12" y2="20" />
+  </Icon>
+);
+export const IconArrowUp: React.FC<any> = (p) => (
+  <Icon {...p}><line x1="12" y1="19" x2="12" y2="5" /><polyline points="6,11 12,5 18,11" /></Icon>
+);

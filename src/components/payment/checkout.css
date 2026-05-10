@@ -1,0 +1,147 @@
+/* Material 3 checkout styles — Direct port from Charan anna's Checkout.html */
+/* All values are 1:1 from the original design */
+
+/* M3 tonal palette */
+.checkout-root {
+  --m-primary: #2c5fd9;
+  --m-on-primary: #ffffff;
+  --m-primary-container: #dde6ff;
+  --m-on-primary-container: #00164d;
+
+  --m-secondary: #5a5e72;
+  --m-secondary-container: #dee1f9;
+
+  --m-tertiary: #6f5575;
+  --m-tertiary-container: #f9d8fd;
+
+  --m-success: #156c3a;
+  --m-success-container: #a7f3c8;
+  --m-on-success-container: #002111;
+
+  --m-tier-gold: #b9700a;
+  --m-tier-gold-container: #ffe2b8;
+  --m-on-tier-gold-container: #2a1700;
+
+  --m-surface: #fbf8ff;
+  --m-surface-dim: #dbd9e0;
+  --m-surface-bright: #fbf8ff;
+  --m-surface-container-lowest: #ffffff;
+  --m-surface-container-low: #f5f2fa;
+  --m-surface-container: #efedf4;
+  --m-surface-container-high: #e9e7ee;
+  --m-surface-container-highest: #e3e1e9;
+
+  --m-on-surface: #1b1b21;
+  --m-on-surface-variant: #46464f;
+  --m-outline: #767680;
+  --m-outline-variant: #c6c5d0;
+
+  --m-error: #ba1a1a;
+
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  color: var(--m-on-surface);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* M3 type scale — exact values from original */
+.t-display-s { font-size: 36px; line-height: 44px; font-weight: 600; letter-spacing: 0; }
+.t-headline-l { font-size: 32px; line-height: 40px; font-weight: 600; letter-spacing: 0; }
+.t-headline-m { font-size: 28px; line-height: 36px; font-weight: 600; }
+.t-headline-s { font-size: 22px; line-height: 28px; font-weight: 600; }
+.t-title-l { font-size: 18px; line-height: 24px; font-weight: 600; letter-spacing: 0; }
+.t-title-m { font-size: 16px; line-height: 22px; font-weight: 600; letter-spacing: 0.1px; }
+.t-title-s { font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0.1px; }
+.t-body-l { font-size: 16px; line-height: 24px; font-weight: 400; letter-spacing: 0.15px; }
+.t-body-m { font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: 0.25px; }
+.t-body-s { font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0.4px; }
+.t-label-l { font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0.1px; }
+.t-label-m { font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.5px; }
+.t-label-s { font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.5px; }
+
+/* Material ripple-ish active state */
+.m-pressable { transition: transform 120ms cubic-bezier(.2,0,0,1), background-color 120ms; }
+.m-pressable:active { transform: scale(0.97); }
+
+.m-cta { transition: transform 140ms cubic-bezier(.2,0,0,1), box-shadow 140ms; }
+.m-cta:active { transform: scale(0.96); }
+
+/* Slider thumb */
+input[type=range].m-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  height: 36px;
+}
+input[type=range].m-range::-webkit-slider-runnable-track {
+  height: 16px;
+  background: transparent;
+}
+input[type=range].m-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4px;
+  height: 36px;
+  background: var(--m-primary);
+  border-radius: 2px;
+  margin-top: -10px;
+  box-shadow: 0 0 0 6px rgba(44, 95, 217, 0.0);
+  cursor: grab;
+}
+input[type=range].m-range:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  box-shadow: 0 0 0 12px rgba(44, 95, 217, 0.12);
+}
+input[type=range].m-range::-moz-range-thumb {
+  width: 4px;
+  height: 36px;
+  background: var(--m-primary);
+  border: none;
+  border-radius: 2px;
+}
+
+/* Disclosure animation */
+.disc-enter {
+  overflow: hidden;
+  transition: grid-template-rows 280ms cubic-bezier(.2,0,0,1);
+  display: grid;
+  grid-template-rows: 0fr;
+}
+.disc-enter.open { grid-template-rows: 1fr; }
+.disc-enter > div { min-height: 0; }
+
+/* Soft toast */
+.toast-in { animation: toastIn 240ms cubic-bezier(.2,0,0,1) both; }
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Top bar shadow when scrolled */
+.scrolled-shadow { box-shadow: 0 1px 0 var(--m-outline-variant); }
+
+/* Sticky bar shadow */
+.sticky-bar-shadow { box-shadow: 0 -1px 0 var(--m-outline-variant); }
+
+/* Press flash for promo applied chip */
+.pulse-once { animation: pulse 1.4s ease-out 1; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(21, 108, 58, 0.35); }
+  100% { box-shadow: 0 0 0 14px rgba(21, 108, 58, 0); }
+}
+
+/* Tier highlight */
+.tier-card-active {
+  background: var(--m-tier-gold-container);
+  color: var(--m-on-tier-gold-container);
+}
+
+/* Caret blink for coupon empty input */
+.caret-blink::after {
+  content: ''; display: inline-block; width: 1px; height: 16px;
+  background: currentColor; margin-left: 2px;
+  animation: caret 1s steps(2) infinite;
+  vertical-align: middle;
+}
+@keyframes caret { 50% { opacity: 0; } }
