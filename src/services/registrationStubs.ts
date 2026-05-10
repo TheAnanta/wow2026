@@ -3,8 +3,8 @@
 export interface RegistrationProfile {
   displayName: string;
   pronoun: string;
-  cityTown: string;
-  role: string;
+  cityTown?: string;
+  role?: string;
   organization: string;
   phoneNumber: string;
 }
@@ -14,6 +14,7 @@ export interface RegistrationData extends RegistrationProfile {
   termsAgreed: boolean;
   agreeToTerms: boolean;
   marketingConsent: boolean;
+  newsletterConsent: boolean;
   fcm_token?: string;
 }
 
@@ -25,7 +26,7 @@ export const validateProfile = (data: Partial<RegistrationProfile>): { [key: str
   const errors: { [key: string]: string } = {};
   if (!data.displayName?.trim()) errors.displayName = 'Display name is required.';
   if (!data.pronoun?.trim()) errors.pronoun = 'Pronoun is required.';
-  if (!data.cityTown?.trim()) errors.cityTown = 'City or town is required.';
+  if (!data.organization?.trim()) errors.organization = 'University/School name is required.';
 
   // 10-digit Indian mobile number validation
   if (!data.phoneNumber?.trim()) {
@@ -61,9 +62,9 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
       phone: data.phoneNumber ? (data.phoneNumber.startsWith('+91') ? data.phoneNumber : `+91${data.phoneNumber}`) : '',
       gender: data.pronoun.toUpperCase().replace(/\s+/g, '_').replace(/\//g, '_'),
       bio: 'Developer at I/O 2026', // Improved default
-      designation: data.role || 'Developer',
-      organization: data.organization || 'Google',
-      city: data.cityTown || 'Global',
+      designation: data.role || 'Student',
+      organization: data.organization || '',
+      city: data.cityTown || '',
       interests: data.interests || [],
       profile_url: user.photoURL || '',
       fcm_token: data.fcm_token
@@ -131,6 +132,36 @@ export const fetchCurrentUser = async () => {
   } catch (err) {
     console.error('Fetch Current User Cache Error:', err);
     return { isError: true };
+  }
+};
+
+/**
+ * Update profile using the dynamic Firebase Token
+ */
+export const updateProfile = async (data: any) => {
+  try {
+    const token = await getBearerToken();
+    if (!token) throw new Error('Unauthenticated');
+
+    const response = await fetch(`${API_BASE_URL}/auth/profile`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || 'Failed to update profile');
+    }
+
+    const result = await response.json();
+    return { success: true, data: result.data || result };
+  } catch (err: any) {
+    console.error('Update Profile Error:', err);
+    return { success: false, error: err.message };
   }
 };
 

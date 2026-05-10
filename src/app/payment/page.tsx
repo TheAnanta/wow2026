@@ -16,7 +16,14 @@ function PaymentPage() {
     const [terms, setTerms] = useState(false);
     const [wowPlusAck, setWowPlusAck] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
-    const [earnedBadge, setEarnedBadge] = useState<string | null>(null);
+    const [earnedBadge, setEarnedBadge] = useState<string | null>(() => {
+        if (typeof window !== 'undefined' && 
+            (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && 
+            searchParams.get('mock') === 'true') {
+            return 'WOW 2026 - Attendee';
+        }
+        return null;
+    });
     const [couponCode, setCouponCode] = useState("");
     const [discount, setDiscount] = useState(0);
     const [isValidatingCoupon, setIsValidatingCoupon] = useState(false);

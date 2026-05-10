@@ -11,7 +11,13 @@ export default function RegisterPage() {
 
       <main className="flex-1 flex flex-col items-center py-0 md:py-16 px-0 md:px-6">
         <div className="w-full md:max-w-[800px] bg-white dark:bg-grey-900! md:rounded-2xl md:border border-grey-200 dark:border-grey-text md:shadow-sm overflow-hidden animate-slide-up">
-          <RegistrationForm />
+          <React.Suspense fallback={
+            <div className="flex flex-col items-center justify-center min-h-[400px]">
+              <div className="w-10 h-10 border-4 border-google-blue border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
+            <RegistrationForm />
+          </React.Suspense>
         </div>
       </main>
 
