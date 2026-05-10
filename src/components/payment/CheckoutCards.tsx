@@ -267,9 +267,10 @@ export const PromotionsCard: React.FC<PromotionsCardProps> = ({ promos, onRemove
   const [error, setError] = useState('');
   const [focused, setFocused] = useState(false);
 
-  function handleApply() {
+  async function handleApply() {
     if (!code.trim()) return;
-    const result = onApply(code.trim().toUpperCase());
+    setError('');
+    const result = await onApply(code.trim().toUpperCase());
     if (result.ok) {
       setCode('');
       setError('');
@@ -370,7 +371,7 @@ export const PromotionsCard: React.FC<PromotionsCardProps> = ({ promos, onRemove
       {/* Applied promos list */}
       <div className="mt-3 flex flex-col gap-2">
         {promos.map((p) => (
-          <AppliedPromoRow key={p.code} promo={p} onRemove={() => onRemove(p.code)} />
+          <AppliedPromoRow key={p.code} promo={p} onRemove={() => { onRemove(p.code); setCode(''); }} />
         ))}
         {promos.length === 0 && (
           <div className="rounded-xl px-3 py-3 t-body-m"
