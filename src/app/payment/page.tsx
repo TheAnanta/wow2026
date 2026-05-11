@@ -3,6 +3,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense, useState, useEffect, useRef } from "react";
 import { BadgeSuccess } from "@/components/registration/BadgeSuccess";
 import { MaterialCheckout } from "@/components/payment/MaterialCheckout";
+import { GroupInviteModal } from "@/components/payment/GroupInviteModal";
 import { useAuth } from "@/context/AuthContext";
 import { fetchTicketTiers, initiateCheckout, verifyPayment, fetchMyTickets, validateCoupon } from "@/services/registrationStubs";
 import { analyticsService } from "@/services/analytics";
@@ -33,6 +34,18 @@ function PaymentPage() {
     });
     const [couponCode, setCouponCode] = useState("");
     const [discount, setDiscount] = useState(0);
+    const [showGroupModal, setShowGroupModal] = useState(false);
+    const [lastOrderDetails, setLastOrderDetails] = useState<{ id: string, badgeName: string } | null>(null);
+
+    // Mock/Auto-success detection
+    useEffect(() => {
+        if (typeof window !== 'undefined' && 
+            (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && 
+            searchParams.get('mockGroup') === 'true') {
+            setShowGroupModal(true);
+            setLastOrderDetails({ id: 'order_MOCK_GROUP_123', badgeName: 'WOW 2026 - Attendee' });
+        }
+    }, [searchParams]);
 
     useEffect(() => {
         if (isLoading || isProcessing) return;
@@ -80,8 +93,13 @@ function PaymentPage() {
                             razorpay_payment_id: response.razorpay_payment_id,
                             razorpay_signature: response.razorpay_signature,
                         });
-                        setEarnedBadge(badgeName || tier.name);
-                        setOrderId(response.razorpay_order_id);
+                        if (couponCode === 'BETTERTOGETHER') {
+                            setLastOrderDetails({ id: response.razorpay_order_id, badgeName: badgeName || tier.name });
+                            setShowGroupModal(true);
+                        } else {
+                            setEarnedBadge(badgeName || tier.name);
+                            setOrderId(response.razorpay_order_id);
+                        }
                         window.dispatchEvent(new CustomEvent('registrationSuccess'));
                     } catch (err: any) {
                         alert(err.message || 'Payment verification failed.');
@@ -149,6 +167,18 @@ function PaymentPage() {
                 onApplyCoupon={handleApplyCoupon}
                 onBack={() => router.push('/register?update=true')}
             />
+
+            {showGroupModal && lastOrderDetails && (
+                <GroupInviteModal 
+                    orderId={lastOrderDetails.id} 
+                    isMock={typeof window !== 'undefined' && window.location.hostname === 'localhost' && searchParams.get('mockGroup') === 'true'}
+                    onFinish={() => {
+                        setShowGroupModal(false);
+                        setEarnedBadge(lastOrderDetails.badgeName);
+                        setOrderId(lastOrderDetails.id);
+                    }}
+                />
+            )}
         </div>
     );
 }

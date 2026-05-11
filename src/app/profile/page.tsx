@@ -12,6 +12,8 @@ import {
 } from "react-icons/fi";
 import { MdCheckCircle } from "react-icons/md";
 import { Header } from "@/components/sections/Header";
+import { GroupInviteModal } from "@/components/payment/GroupInviteModal";
+import React from "react";
 
 const getSocialIconComponent = (providerValue?: string) => {
   switch (providerValue) {
@@ -164,7 +166,7 @@ function ProfileCard({
               href={`https://wow.vizag.dev/p/${userDetails.username}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-max mx-auto flex items-center gap-1 mt-3 border-2 border-grey-900 text-grey-900 font-medium px-6 py-2 rounded-full text-sm no-underline hover:bg-gray-50" // display: flex, align-items: center, column-gap: 4px, margin-top: 12px, border: 1px solid #dadce0, color: #1a73e8, padding: 6px 12px, border-radius: 48px, text-decoration:none;
+              className="w-max mx-auto flex items-center gap-1 mt-3 border-2 border-grey-900 text-grey-900 font-medium px-6 py-2 rounded-full text-sm no-underline hover:bg-gray-50"
             >
               wow.vizag.dev/p/{userDetails.username}{" "}
               <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="24px" fill="#1a73e8"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" /></svg>
@@ -217,45 +219,6 @@ function ProfileCard({
               <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#202023"><path d="M371.01-324 480-390.22 589-324l-29-124 97-84-127-11-50-117-50 117-127 11 96.89 83.95L371.01-324ZM480-62.91 358.8-183.87H183.87V-358.8L62.91-480l120.96-121.2v-174.93H358.8L480-897.33l121.2 121.2h174.93v174.93L897.33-480l-121.2 121.2v174.93H601.2L480-62.91Zm0-117.31 86.65-86.65h126.48v-126.48L779.78-480l-86.65-86.65v-126.48H566.65L480-779.78l-86.65 86.65H266.87v126.48L180.22-480l86.65 86.65v126.48h126.48L480-180.22ZM480-480Z" /></svg>
               {badgesCount} • Badges earned
             </p>{" "}
-            {/* {(userDetails.handles?.length ?? 0) > 0 && (
-              <>
-                <p className="font-semibold mt-2 mb-1">Links</p>{" "}
-                <ul className="list-none p-0 w-full">
-                  {" "}
-                  {userDetails.handles?.map((item: any, index: any) => (
-                    <li
-                      key={index}
-                      className="flex items-center gap-3 my-3"
-                    >
-                      <span
-                        className={`material-symbols-outlined !text-[18px]`}
-                      >
-                        {" "}
-                        {item.icon}
-                      </span>
-                      <a
-                        href={
-                          item.provider === "instagram"
-                            ? `https://instagram.com/${item.name}`
-                            : item.provider === "github"
-                              ? `https://github.com/${item.name}`
-                              : item.provider === "linkedin"
-                                ? `https://linkedin.com/in/${item.name}`
-                                : item.name.startsWith("http")
-                                  ? item.name
-                                  : `https://${item.name}`
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#202023] dark:text-gray-500"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )} */}
           </div>
 
           <div className="flex flex-col md:flex-row gap-3">
@@ -286,7 +249,25 @@ function ProfileCard({
 
 export default function ProfilePage() {
   const { user, profile, tickets, isLoading } = useAuth();
+  const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
   const [badges, setBadges] = useState<any[]>([]);
+  const [showInviteModal, setShowInviteModal] = useState(false);
+  const [groupOrderId, setGroupOrderId] = useState<string | null>(null);
+  const [generatedCodes, setGeneratedCodes] = useState<any[]>([]);
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  const isMockGroup = typeof window !== 'undefined' &&
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') &&
+    searchParams?.get('mockGroup') === 'true';
+
+  React.useEffect(() => {
+    if (isMockGroup && typeof window !== 'undefined') {
+      const saved = localStorage.getItem('wow_mock_group_invites');
+      if (saved) {
+        setGeneratedCodes(JSON.parse(saved));
+      }
+    }
+  }, [isMockGroup]);
 
   useEffect(() => {
     if (tickets && tickets.length > 0) {
@@ -395,9 +376,46 @@ export default function ProfilePage() {
                 </div>
               )}
             </div>
+
+            {/* Squad Management Section */}
+            {(isMockGroup || tickets.some((t: any) => t.order?.coupon_code === 'BETTERTOGETHER')) && (
+              <div className="p-8 rounded-[32px] border-2 border-grey-900 overflow-hidden relative group"
+                style={{ background: 'var(--m-surface-container-low)' }}>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                  <div className="flex gap-4">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-none"
+                      style={{ background: 'var(--m-primary-container)', color: 'var(--m-on-primary-container)' }}>
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" /></svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold tracking-tight">Manage your Squad</h3>
+                      <p className="text-grey-600 dark:text-grey-400">You have 4 group passes to distribute</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      const groupTicket = tickets.find((t: any) => t.order?.coupon_code === 'BETTERTOGETHER');
+                      setGroupOrderId(groupTicket?.order_id || 'order_MOCK_123');
+                      setShowInviteModal(true);
+                    }}
+                    className="cta-primary w-full md:w-auto px-8"
+                  >
+                    Manage Invites
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </main>
+
+      {showInviteModal && groupOrderId && (
+        <GroupInviteModal
+          orderId={groupOrderId}
+          isMock={isMockGroup}
+          onFinish={() => setShowInviteModal(false)}
+        />
+      )}
 
       <style jsx global>{`
         .animate-fade-in {

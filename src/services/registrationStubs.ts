@@ -262,6 +262,29 @@ export const fetchMyTickets = async () => {
   }
 };
 
+export const generateGroupCoupons = async (orderId: string, emails: string[]) => {
+  try {
+    const token = await getBearerToken();
+    if (!token) throw new Error('Unauthenticated');
+
+    const response = await fetch(`${API_BASE_URL}/commerce/generate-group-coupons`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({ order_id: orderId, emails })
+    });
+
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.message || 'Failed to generate coupons');
+    return result.data;
+  } catch (err: any) {
+    console.error('Generate Group Coupons Error:', err);
+    throw err;
+  }
+};
+
 /**
  * FCM Token APIs
  */

@@ -94,7 +94,7 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, orderId, 
             </div>
 
             <p className="text-[0.9375rem] text-grey-600 dark:text-grey-400 mb-10 max-w-[320px] leading-relaxed">
-              This badge was saved to your WOW Developer Profile.
+              This badge was saved to your WOW Student Profile.
             </p>
 
             <div className="w-full max-w-[440px] bg-white dark:bg-grey-800! border-2 border-grey-bg dark:border-grey-700 rounded-3xl p-8 pt-6 flex flex-col items-center justify-center mb-10 overflow-hidden">

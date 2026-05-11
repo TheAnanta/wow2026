@@ -264,7 +264,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                 <StickyBarContent
                   finalNow={finalNow}
                   isProcessing={isProcessing}
-                  onPurchase={() => onPurchase('Early Bird', 'WOW 2026 - Attendee')}
+                  onPurchase={() => onPurchase(isWOWPlus ? 'Arcade' : 'Early Bird', isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee')}
                   payLaterOpen={payLaterOpen}
                   setPayLaterOpen={setPayLaterOpen}
                   payLater={payLater}
@@ -284,7 +284,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
         <StickyBarContent
           finalNow={finalNow}
           isProcessing={isProcessing}
-          onPurchase={() => onPurchase('Early Bird', 'WOW 2026 - Attendee')}
+          onPurchase={() => onPurchase(isWOWPlus ? 'Arcade' : 'Early Bird', isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee')}
           payLaterOpen={payLaterOpen}
           setPayLaterOpen={setPayLaterOpen}
           payLater={payLater}
