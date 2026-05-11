@@ -4,6 +4,8 @@
 
 import './checkout.css';
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { analyticsService } from '../../services/analytics';
 import {
   IconMenu, IconBack, IconInfo, IconChevronDown, IconLock, IconShield, IconCheck,
   IconTag
@@ -28,6 +30,15 @@ interface MaterialCheckoutProps {
 const PASS = { price: 1200, list: 2000 };
 const SUB_DISCOUNT = 850;
 
+const navLinks = [
+  { label: 'WOW+', href: '/wow-plus' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Speakers', href: '/speakers' },
+  { label: 'Team', href: '/team' },
+  { label: 'Community', href: '/community' },
+  { label: 'About', href: '/about' },
+];
+
 export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   tiers,
   onPurchase,
@@ -43,8 +54,10 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   const [rank, setRank] = useState(87);
   const [promos, setPromos] = useState<any[]>([]);
   const [payLaterOpen, setPayLaterOpen] = useState(false);
+  const [isWOWPlus, setIsWOWPlus] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const brand = "WOW";
 
@@ -87,8 +100,8 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
 
   const isBetterTogether = promos.some(p => p.code === 'BETTERTOGETHER');
   const qty = isBetterTogether ? 5 : 1;
-  const currentSubDiscount = isBetterTogether ? 0 : SUB_DISCOUNT;
-  
+  const currentSubDiscount = (isBetterTogether || !isWOWPlus) ? 0 : SUB_DISCOUNT;
+
   const subtotal = (PASS.price * qty) - currentSubDiscount;
   const promoTotal = promos.reduce((a, p) => a + p.amount, 0);
   const finalNow = Math.max(0, (PASS.price * qty) - currentSubDiscount - promoTotal);
@@ -115,23 +128,73 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
             style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Back">
             <IconBack size={24} />
           </button>
-          <div className="flex-1 flex items-baseline">
+          
+          <div className="flex-grow flex items-baseline">
             <span className="t-title-l tracking-tight" style={{ color: 'var(--m-on-surface)' }}>
               {"gdgoc".toLowerCase()}
             </span>
             <span className="t-title-l font-extrabold mr-3" style={{ color: 'var(--m-primary)' }}>
               wow
             </span>
-            <span className="t-label-m ml-2" style={{ color: 'var(--m-on-surface-variant)' }}>
+            <span className="t-label-m ml-2 hidden sm:inline" style={{ color: 'var(--m-on-surface-variant)' }}>
               Checkout
             </span>
           </div>
-          <button className="m-pressable rounded-full flex items-center justify-center -mr-2"
-            style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Menu">
+
+          {/* Desktop Navigation Links — Moved to right */}
+          <div className="hidden md:flex items-center gap-6 mr-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => analyticsService.trackNavigation(link.label, 'Checkout Header', link.href)}
+                className="t-label-l font-medium hover:text-[var(--m-primary)] transition-colors"
+                style={{ color: 'var(--m-on-surface-variant)' }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <button 
+            className="md:hidden m-pressable rounded-full flex items-center justify-center -mr-2"
+            style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} 
+            aria-label="Menu"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
             <IconMenu size={24} />
           </button>
         </div>
       </header>
+
+      {/* Mobile Menu Backdrop */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[100] bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
+      )}
+
+      {/* Mobile Menu Drawer */}
+      <div className={`fixed top-0 right-0 bottom-0 w-[280px] z-[101] bg-[var(--m-surface)] shadow-2xl transition-transform duration-300 transform md:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="p-5 flex flex-col h-full">
+          <div className="flex justify-between items-center mb-8">
+            <span className="t-title-l font-bold">Menu</span>
+            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="t-title-m py-2 px-4 rounded-xl hover:bg-[var(--m-surface-container-low)] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Scrollable content */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto" style={{ scrollSnapType: 'y proximity' }}>
@@ -148,9 +211,18 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
             {/* Left Column */}
             <div className="flex-1 flex flex-col gap-6">
               <div style={{ scrollSnapAlign: 'start' }}>
-                <OrderSummaryCard pass={PASS} sub={currentSubDiscount} subtotal={subtotal} brand={brand}
+                <OrderSummaryCard 
+                  pass={PASS} 
+                  sub={currentSubDiscount} 
+                  subtotal={subtotal} 
+                  brand={brand}
                   qty={qty}
-                  userName={profile?.displayName} userEmail={user?.email} />
+                  userName={profile?.displayName} 
+                  userEmail={user?.email} 
+                  isWOWPlus={isWOWPlus}
+                  onToggleWOWPlus={() => setIsWOWPlus(!isWOWPlus)}
+                  disabled={isBetterTogether}
+                />
               </div>
 
               <div style={{ scrollSnapAlign: 'start' }}>

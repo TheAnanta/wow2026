@@ -7,11 +7,11 @@ import { IconTrophy, IconSparkle, IconTag, IconCheck, IconChevronDown, IconTrash
 
 // ---------- Tiers ----------
 export const TIERS = [
-  { id: 'platinum', label: 'Platinum', range: [0, 20],     short: '0–20',     color: '#E5E4E2' },
-  { id: 'diamond',  label: 'Diamond',  range: [21, 120],   short: '21–120',   color: '#5C7CFF' },
-  { id: 'gold',     label: 'Gold',     range: [121, 320],  short: '121–320',  color: '#F2A93B' },
-  { id: 'silver',   label: 'Silver',   range: [321, 670],  short: '321–670',  color: '#B6B6C2' },
-  { id: 'bronze',   label: 'Bronze',   range: [671, 1515], short: '671–1515', color: '#B07A3F' },
+  { id: 'platinum', label: 'Platinum', range: [0, 20], short: '0–20', color: '#E5E4E2' },
+  { id: 'diamond', label: 'Diamond', range: [21, 120], short: '21–120', color: '#5C7CFF' },
+  { id: 'gold', label: 'Gold', range: [121, 320], short: '121–320', color: '#F2A93B' },
+  { id: 'silver', label: 'Silver', range: [321, 670], short: '321–670', color: '#B6B6C2' },
+  { id: 'bronze', label: 'Bronze', range: [671, 1515], short: '671–1515', color: '#B07A3F' },
 ];
 
 export function tierForRank(rank: number) {
@@ -39,11 +39,16 @@ interface OrderSummaryCardProps {
   qty: number;
   userName?: string;
   userEmail?: string;
+  isWOWPlus?: boolean;
+  onToggleWOWPlus?: () => void;
+  disabled?: boolean;
 }
 
-export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({ pass, sub, subtotal, brand, qty, userName, userEmail }) => (
+export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({ 
+  pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled 
+}) => (
   <section
-    className="rounded-2xl p-4 m-pressable"
+    className="rounded-2xl p-4"
     style={{ background: 'var(--m-surface-container-low)' }}
   >
     <header className="flex items-center justify-between mb-3">
@@ -67,8 +72,8 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({ pass, sub, s
         <div className="t-body-s mt-0.5" style={{ color: 'var(--m-on-surface-variant)' }}>
           Qty {qty} · General admission
           {qty > 1 && (
-            <div className="mt-1 flex items-center gap-1.5 py-1 px-2 rounded-lg" 
-                 style={{ background: 'var(--m-surface-container-high)', width: 'fit-content' }}>
+            <div className="mt-1 flex items-center gap-1.5 py-1 px-2 rounded-lg"
+              style={{ background: 'var(--m-surface-container-high)', width: 'fit-content' }}>
               <IconInfo size={14} />
               <span className="text-[11px] font-medium leading-tight">Details for {qty - 1} extra members will be collected post-payment</span>
             </div>
@@ -81,7 +86,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({ pass, sub, s
       </div>
     </div>
 
-    {sub > 0 && (
+    {sub > 0 && isWOWPlus && (
       <>
         <hr className="my-1 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
 
@@ -106,7 +111,52 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({ pass, sub, s
       </>
     )}
 
-    <hr className="my-1 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
+    {/* WOW+ Opt-out Option */}
+    {!disabled && (
+      <div className="mt-1 mb-4 p-4 rounded-xl bg-[var(--m-surface-container-high)]">
+        <div className="flex items-start gap-4">
+          {/* M3 Expressive Checkbox */}
+          <div className="relative flex-none mt-1 flex items-center justify-center w-5 h-5">
+            <input 
+              type="checkbox" 
+              checked={isWOWPlus} 
+              onChange={onToggleWOWPlus}
+              className="peer absolute inset-0 opacity-0 cursor-pointer z-10"
+              id="wow-plus-toggle"
+            />
+            <div className={`
+              w-5 h-5 rounded-[4px] border-2 transition-all duration-200 flex items-center justify-center
+              ${isWOWPlus 
+                ? 'bg-[var(--m-primary)] border-[var(--m-primary)]' 
+                : 'bg-transparent border-[var(--m-outline)]'}
+              peer-active:scale-90
+            `}>
+              <IconCheck 
+                size={14} 
+                stroke={4} 
+                className={`transition-all duration-200 ${isWOWPlus ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+                style={{ color: 'var(--m-on-primary)' }}
+              />
+            </div>
+            {/* M3 State Layer (Ripple) */}
+            <div className="absolute inset-[-10px] rounded-full bg-[var(--m-primary)] opacity-0 peer-hover:opacity-[0.08] peer-active:opacity-[0.16] transition-opacity pointer-events-none" />
+          </div>
+
+          <label htmlFor="wow-plus-toggle" className="flex-1 cursor-pointer">
+            <div className="t-title-s" style={{ color: 'var(--m-on-surface)' }}>
+              {isWOWPlus ? `I commit to the ${brand}+ Arcade` : `Want to commit to ${brand}+?`}
+            </div>
+            <div className="t-body-s mt-1" style={{ color: 'var(--m-on-surface-variant)' }}>
+              {isWOWPlus 
+                ? "Can't commit to arcade challenges? Uncheck this for direct entry." 
+                : "Direct entry selected. Re-check this if you want to commit to arcade challenges and save ₹850."}
+            </div>
+          </label>
+        </div>
+      </div>
+    )}
+
+    <hr className="my-4 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
 
     <div className="flex items-center justify-between pt-3">
       <span className="t-body-l" style={{ color: 'var(--m-on-surface-variant)' }}>Subtotal</span>
@@ -169,9 +219,9 @@ export const RankCard: React.FC<RankCardProps> = ({ rank, setRank, interactive, 
       <div className="mt-4 mb-3 flex items-center gap-3">
         <div
           className="px-3 py-2 rounded-full inline-flex items-center gap-2"
-          style={{ 
-            background: `var(--m-tier-${tier.id}-container, var(--m-tier-gold-container))`, 
-            color: `var(--m-on-tier-${tier.id}-container, var(--m-on-tier-gold-container))` 
+          style={{
+            background: `var(--m-tier-${tier.id}-container, var(--m-tier-gold-container))`,
+            color: `var(--m-on-tier-${tier.id}-container, var(--m-on-tier-gold-container))`
           }}
         >
           <span className="w-2.5 h-2.5 rounded-full" style={{ background: `var(--m-tier-${tier.id}, var(--m-tier-gold))` }} />
@@ -334,21 +384,21 @@ export const PromotionsCard: React.FC<PromotionsCardProps> = ({ promos, onRemove
       )}
 
       {/* Better Together Offer — moved below input */}
-      <div 
+      <div
         className={`mt-4 mb-2 rounded-2xl p-4 flex items-start gap-4 transition-all ${promos.some(p => p.code === 'BETTERTOGETHER') ? 'cursor-default' : 'cursor-pointer m-pressable'}`}
-        style={{ 
-          background: 'var(--m-tertiary-container)', 
-          color: 'var(--m-on-tertiary-container)' 
+        style={{
+          background: 'var(--m-tertiary-container)',
+          color: 'var(--m-on-tertiary-container)'
         }}
-        onClick={() => { 
+        onClick={() => {
           if (!promos.some(p => p.code === 'BETTERTOGETHER')) {
-            setCode('BETTERTOGETHER'); 
-            setTimeout(handleApply, 10); 
+            setCode('BETTERTOGETHER');
+            setTimeout(handleApply, 10);
           }
         }}
       >
         <div className="w-12 h-12 rounded-2xl flex-none flex items-center justify-center"
-             style={{ background: 'var(--m-tertiary)', color: '#fff' }}>
+          style={{ background: 'var(--m-tertiary)', color: '#fff' }}>
           <IconSparkle size={24} stroke={2} />
         </div>
         <div className="flex-1 min-w-0">
