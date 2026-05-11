@@ -270,6 +270,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   payLater={payLater}
                   rank={rank}
                   isBetterTogether={isBetterTogether}
+                  isWOWPlus={isWOWPlus}
                 />
               </div>
             </div>
@@ -289,6 +290,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
           payLater={payLater}
           rank={rank}
           isBetterTogether={isBetterTogether}
+          isWOWPlus={isWOWPlus}
         />
       </div>
 
@@ -309,7 +311,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
 
 // --- StickyBarContent — shared between mobile fixed bar and desktop section ---
 // Uses the exact same markup from Charan anna's original sticky bottom bar
-function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, setPayLaterOpen, payLater, rank, isBetterTogether }: any) {
+function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, setPayLaterOpen, payLater, rank, isBetterTogether, isWOWPlus }: any) {
   return (
     <>
       {/* Additional Coupons link — refined to match M3 design system */}
@@ -331,6 +333,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
           setOpen={setPayLaterOpen}
           payLater={payLater}
           rank={rank}
+          isWOWPlus={isWOWPlus}
         />
       )}
 
@@ -366,7 +369,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
 }
 
 // --- PayLaterDisclosure — exact from original ---
-function PayLaterDisclosure({ open, setOpen, payLater, rank }: any) {
+function PayLaterDisclosure({ open, setOpen, payLater, rank, isWOWPlus }: any) {
   const tier = tierForRank(rank);
   return (
     <div style={{ background: 'var(--m-surface-container-lowest)' }}>
@@ -381,7 +384,9 @@ function PayLaterDisclosure({ open, setOpen, payLater, rank }: any) {
           <span className="t-label-s">+</span>
         </span>
         <span className="flex-1 text-left">
-          {payLater.max === 0
+          {!isWOWPlus
+            ? <>No pay-later — Standard pass is fully settled.</>
+            : payLater.max === 0
             ? <>No pay-later — at <b style={{ color: 'var(--m-on-surface)' }}>{tier.label}</b> you owe nothing later.</>
             : <><b style={{ color: 'var(--m-on-surface)' }}>{payLater.label}</b> · pay later, based on rank</>}
         </span>
@@ -392,16 +397,25 @@ function PayLaterDisclosure({ open, setOpen, payLater, rank }: any) {
       <div className={`disc-enter ${open ? 'open' : ''}`}>
         <div>
           <div className="px-4 pb-3 t-body-m" style={{ color: 'var(--m-on-surface-variant)' }}>
-            <p>
-              You only pay the <b>now</b> amount upfront. The <b>pay-later</b> amount is settled after the conference,
-              based on your final leaderboard rank — climb up tiers to reduce or eliminate it.
-            </p>
-            <ul className="mt-2 space-y-1 t-body-s">
-              <li>· <b>Platinum / Diamond:</b> ₹0 / ₹50 due later</li>
-              <li>· <b>Gold:</b> ₹200 due later</li>
-              <li>· <b>Silver:</b> ₹300 due later</li>
-              <li>· <b>Bronze:</b> ₹450 due later</li>
-            </ul>
+            {!isWOWPlus ? (
+              <p>
+                Since you've opted for the <b>Standard WOW Pass</b>, you pay the full amount upfront and 
+                owe nothing after the conference. The pay-later system only applies to the discounted WOW+ passes.
+              </p>
+            ) : (
+              <>
+                <p>
+                  You only pay the <b>now</b> amount upfront. The <b>pay-later</b> amount is settled after the conference,
+                  based on your final leaderboard rank — climb up tiers to reduce or eliminate it.
+                </p>
+                <ul className="mt-2 space-y-1 t-body-s">
+                  <li>· <b>Platinum / Diamond:</b> ₹0 / ₹50 due later</li>
+                  <li>· <b>Gold:</b> ₹200 due later</li>
+                  <li>· <b>Silver:</b> ₹300 due later</li>
+                  <li>· <b>Bronze:</b> ₹450 due later</li>
+                </ul>
+              </>
+            )}
           </div>
         </div>
       </div>
