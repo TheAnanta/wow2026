@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
 
 interface MyIOSectionProps {
   isMyIoVisible: boolean;
@@ -19,6 +20,9 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
   setIsSavedVisible,
   setIsRecommendedVisible,
 }) => {
+  const { isLoggedIn, profile, isUnregistered } = useAuth();
+  const isRegistered = isLoggedIn && !isUnregistered && !!profile;
+
   return (
     <div
       className="h-my-io h-inherit"
@@ -118,10 +122,10 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
             >
               <div className="flex flex-col justify-between pt-2 md:pt-3 w-full overflow-auto myio-scrollbar">
                 <Link
-                  href="/register"
+                  href={isRegistered ? "/register?update=true" : "/register"}
                   className="cta-secondary no-dark-mode ml-2 mb-2 block"
                 >
-                  <span>Register to save</span>
+                  <span>{isRegistered ? "Update profile" : "Register to save"}</span>
                 </Link>
               </div>
             </div>
@@ -178,15 +182,13 @@ export const MyIOSection: React.FC<MyIOSectionProps> = ({
               <div className="flex flex-col justify-between pt-2 md:pt-3 w-full overflow-auto myio-scrollbar">
                 <p className="cta underline-link">
                   Create a{" "}
-                  <a
+                  <Link
                     className=""
                     aria-label="Opens Google Developer Profile in new tab - open in new tab"
-                    target="_blank"
-                    rel="noreferrer"
-                    href="/register"
+                    href={isRegistered ? "/register?update=true" : "/register"}
                   >
                     WOW Developer Profile
-                  </a>{" "}
+                  </Link>{" "}
                   to see programming recommended for you
                 </p>
               </div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { RegistrationData, validateProfile, submitRegistration } from '../../services/registrationStubs';
+import { applyReferralCode } from '../../services/registrationStubs';
 import { requestFirebaseToken } from '../../services/fcm';
 import { analyticsService } from '../../services/analytics';
 import { useAuth } from '../../context/AuthContext';
@@ -56,6 +57,14 @@ export const RegistrationForm: React.FC = () => {
   const { user, profile, isLoggedIn, isLoading: isAuthLoading, refreshProfile } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorType, setErrorType] = useState<'signin' | 'account' | 'general' | null>(null);
+  const [referralCode, setReferralCode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return new URLSearchParams(window.location.search).get('ref') || '';
+    }
+    return '';
+  });
+  const [referralStatus, setReferralStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [referralMessage, setReferralMessage] = useState('');
 
   useEffect(() => {
     if (profile) {
@@ -125,6 +134,19 @@ export const RegistrationForm: React.FC = () => {
         analyticsService.trackForm('registration', 'all', 'complete');
         window.dispatchEvent(new CustomEvent('registrationSuccess'));
         await refreshProfile(); // Ensure state is updated before redirecting
+
+        // Apply referral code if provided
+        if (referralCode.trim()) {
+          try {
+            await applyReferralCode(referralCode.trim());
+            setReferralStatus('success');
+            setReferralMessage('₹100 WOW Cash added to your account! 🎉');
+          } catch (err: any) {
+            console.warn('Referral code error:', err.message);
+            // Don't block registration if referral fails
+          }
+        }
+
         router.push('/payment');
       } else {
         analyticsService.trackForm('registration', 'all', 'error', { message: result.error });
@@ -251,6 +273,7 @@ export const RegistrationForm: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              {/* Phone Number */}
               <div>
                 <div className="relative">
                   <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none text-grey-900 dark:text-white font-medium">
@@ -266,6 +289,27 @@ export const RegistrationForm: React.FC = () => {
                 </div>
                 <p className="text-[0.75rem] text-grey-500 mt-2 px-4">10-digit mobile number for communication</p>
                 {errors.phoneNumber && <p className={errorTextCls}>{errors.phoneNumber}</p>}
+              </div>
+
+              {/* Referral Code */}
+              <div>
+                <div className="relative">
+                  <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-grey-500">
+                      <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                      <line x1="7" y1="7" x2="7.01" y2="7" />
+                    </svg>
+                  </div>
+                  <input
+                    className={`${inputBaseCls} pl-12`}
+                    type="text"
+                    value={referralCode}
+                    onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
+                    placeholder="Referral code (optional)"
+                  />
+                </div>
+                <p className="text-[0.75rem] text-grey-500 mt-2 px-4">Got a friend's code? Get ₹100 WOW Cash on signup!</p>
+                {referralStatus === 'success' && <p className="text-[0.75rem] text-google-green mt-2 px-4 font-medium">{referralMessage}</p>}
               </div>
             </div>
 

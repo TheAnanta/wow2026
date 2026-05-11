@@ -1,11 +1,14 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export const WOWPlusAlert = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [detailOpen, setDetailOpen] = useState(false);
     const router = useRouter();
+    const { isLoggedIn, profile, isUnregistered } = useAuth();
+    const isRegistered = isLoggedIn && !isUnregistered && !!profile;
 
     useEffect(() => {
         const hasSeen = localStorage.getItem('wow_plus_alert_seen_v4');
@@ -22,7 +25,7 @@ export const WOWPlusAlert = () => {
 
     const handleGetPass = () => {
         handleClose();
-        router.push('/register');
+        router.push(isRegistered ? '/register?update=true' : '/register');
     };
 
     if (!isOpen) return null;
@@ -241,7 +244,7 @@ export const WOWPlusAlert = () => {
                             border: 'none',
                         }}
                     >
-                        Register for WOW
+                        {isRegistered ? 'Update profile' : 'Register for WOW'}
                     </button>
                 </div>
             </div>

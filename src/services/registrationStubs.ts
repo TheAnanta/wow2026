@@ -309,3 +309,47 @@ export const patchFCMToken = async (token: string, action: 'ADD' | 'REMOVE' = 'A
     return { success: false, error: error.message };
   }
 };
+
+/**
+ * Referral APIs
+ */
+
+export const fetchMyReferrals = async () => {
+  try {
+    const token = await getBearerToken();
+    if (!token) return null;
+
+    const response = await fetch(`${API_BASE_URL}/referral/my-referrals`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    if (!response.ok) return null;
+    const result = await response.json();
+    return result.data;
+  } catch (err) {
+    console.error('Fetch Referrals Error:', err);
+    return null;
+  }
+};
+
+export const applyReferralCode = async (referralCode: string) => {
+  const token = await getBearerToken();
+  if (!token) throw new Error('Unauthenticated');
+
+  const response = await fetch(`${API_BASE_URL}/referral/apply-referral`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({ referral_code: referralCode })
+  });
+
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.message || 'Failed to apply referral code');
+  return result;
+};
+

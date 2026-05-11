@@ -274,7 +274,7 @@ export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () 
   const hasTicket = tickets && tickets.length > 0;
 
   const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
-  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register');
+  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register?update=true');
 
   const handleRegisterClick = onRegisterClick || (() => {
     analyticsService.trackCTA(buttonText, 'HeroSection', 'click');

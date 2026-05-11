@@ -13,6 +13,7 @@ import {
 import { MdCheckCircle } from "react-icons/md";
 import { Header } from "@/components/sections/Header";
 import { GroupInviteModal } from "@/components/payment/GroupInviteModal";
+import { ReferralCard } from "@/components/profile/ReferralCard";
 import React from "react";
 
 const getSocialIconComponent = (providerValue?: string) => {
@@ -223,7 +224,7 @@ function ProfileCard({
 
           <div className="flex flex-col md:flex-row gap-3">
             <a
-              href="/register"
+              href="/register?update=true"
               className="cta-primary w-full max-w-none text-sm! text-center"
             >
               Update Profile
@@ -350,6 +351,9 @@ export default function ProfilePage() {
           {/* Main Content Area */}
           <div className="flex-1 space-y-12">
             <BadgeGrid badges={badges} />
+
+            {/* Referral Card */}
+            <ReferralCard />
 
             {/* Tickets Section */}
             <div className="p-8 bg-grey-bg dark:bg-white/5 rounded-[32px] border-2 border-grey-900 dark:border-white/10">

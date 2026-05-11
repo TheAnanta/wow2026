@@ -14,7 +14,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
   const hasTicket = tickets && tickets.length > 0;
 
   const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
-  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register');
+  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register?update=true');
 
   const handleCTAClick = () => {
     analyticsService.trackCTA(buttonText, 'Hero', 'click');
