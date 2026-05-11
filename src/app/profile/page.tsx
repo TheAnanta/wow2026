@@ -364,7 +364,7 @@ export default function ProfilePage() {
                     <div key={i} className="bg-white dark:bg-grey! p-6 rounded-2xl border-2 border-grey-900 flex justify-between items-center group">
                       <div>
                         <h4 className="font-bold text-lg tracking-tight">{t.tier?.name || t.name || "Attendee Pass"}</h4>
-                        <p className="text-xs text-grey-500 uppercase font-black tracking-widest mt-1">Order #{t.gateway_order_id?.slice(-8) || "N/A"}</p>
+                        <p className="text-xs text-grey-500 uppercase font-black tracking-widest mt-1">Order #{t.order?.gateway_order_id?.slice(-8) || "N/A"}</p>
                       </div>
                       <div className="flex items-center gap-3">
                         <span className="text-xs font-bold bg-google-green px-4 py-2 rounded-full border-2 border-grey-900">CONFIRMED</span>
