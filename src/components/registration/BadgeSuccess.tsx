@@ -1,55 +1,84 @@
-// src/components/registration/BadgeSuccess.tsx
+import '../payment/checkout.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { analyticsService } from '../../services/analytics';
-import { InterestTags } from './InterestTags';
 import { updateProfile } from '../../services/registrationStubs';
+import { 
+  IconCheck, IconSparkle, IconUser, IconBack, IconMenu, IconShield, IconInfo, IconChevronDown
+} from '../payment/Icons';
 
 interface BadgeSuccessProps {
   badgeName: string;
   orderId?: string | null;
+  couponCode?: string | null;
   onClose?: () => void;
 }
 
-const BadgeBanner = ({ isWOWPlus, orderId }: { isWOWPlus: boolean; orderId?: string | null }) => (
-  <div className="relative w-full h-40 md:h-56 bg-[#F1F3F4] dark:bg-grey-900! overflow-hidden border-b border-grey-200 dark:border-grey-700 flex items-center px-8 md:px-14 transition-colors">
-    <div className="flex-1 z-10">
-      <h2 className="text-[2.575rem] md:text-[4rem] font-medium text-grey-900 dark:text-white tracking-tighter leading-[0.9]">
-        Payment<br />Successful.
-      </h2>
-      {orderId && (
-        <p className="text-[0.875rem] opacity-45 uppercase md:text-[1rem] text-grey-600 dark:text-grey-400 mt-1 font-medium">
-          #{orderId.replace('order_', '')}
-        </p>
-      )}
+const TopBar = ({ scrolled, onBack }: { scrolled: boolean; onBack: () => void }) => (
+  <header
+    className={`flex items-center ${scrolled ? 'scrolled-shadow' : ''} transition-shadow sticky top-0 z-[50]`}
+    style={{ height: 56, background: 'var(--m-surface)', borderBottom: scrolled ? 'none' : '1px solid var(--m-outline-variant)' }}
+  >
+    <div className="flex-1 flex items-center gap-2 px-4 max-w-[800px] mx-auto w-full">
+      <button onClick={onBack} className="m-pressable rounded-full flex items-center justify-center -ml-2"
+        style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Back">
+        <IconBack size={24} />
+      </button>
+      <div className="flex-1 flex items-baseline">
+        <span className="t-title-l tracking-tight" style={{ color: 'var(--m-on-surface)' }}>
+          {"gdgoc".toLowerCase()}
+        </span>
+        <span className="t-title-l font-extrabold mr-3" style={{ color: 'var(--m-primary)' }}>
+          wow
+        </span>
+        <span className="t-label-m ml-2" style={{ color: 'var(--m-on-surface-variant)' }}>
+          Confirmation
+        </span>
+      </div>
+      <button className="m-pressable rounded-full flex items-center justify-center -mr-2"
+        style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Menu">
+        <IconMenu size={24} />
+      </button>
     </div>
-
-    {/* Decorative Background - Using pencil road SVGs */}
-    <div className="absolute bottom-0 -right-16 h-full w-[90%] md:w-[78%] pointer-events-none select-none">
-      <picture className="w-full h-full">
-        <source srcSet="/images/io24-pencil-road-centered-dark.svg" media="(prefers-color-scheme: dark)" />
-        <img
-          src="/images/io24-pencil-road-centered.svg"
-          alt=""
-          className="w-full h-full object-contain object-bottom-right"
-        />
-      </picture>
-    </div>
-  </div>
+  </header>
 );
 
-export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, orderId, onClose }) => {
-  const isWOWPlus = badgeName === 'WOW+ Insider - Explorer' || badgeName === 'Arcade Insider - Explorer';
+const InterestChip = ({ label, selected, onClick }: any) => (
+  <button
+    onClick={onClick}
+    className={`h-10 px-4 rounded-full t-label-l flex items-center gap-2 transition-all duration-200 m-pressable border`}
+    style={{
+      background: selected ? 'var(--m-primary-container)' : 'transparent',
+      borderColor: selected ? 'var(--m-primary)' : 'var(--m-outline-variant)',
+      color: selected ? 'var(--m-on-primary-container)' : 'var(--m-on-surface-variant)'
+    }}
+  >
+    {selected && <IconCheck size={16} stroke={3} />}
+    {label}
+  </button>
+);
+
+export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, orderId, couponCode, onClose }) => {
+  const isWOWPlus = badgeName?.includes('Explorer');
+  const isBetterTogether = couponCode === 'BETTERTOGETHER';
   const startTimeRef = useRef(Date.now());
-  const [showInterests, setShowInterests] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  
+  const [step, setStep] = useState(isBetterTogether ? 'team' : 'interests');
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const [teamMembers, setTeamMembers] = useState(['', '', '', '']);
   const [showAllInterests, setShowAllInterests] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
+  const INTEREST_OPTIONS = [
+    'Android', 'Mobile', 'AI & Machine Learning', 'Web', 'Cloud', 'Open Source', 'Design', 'Location/Maps', 'A11y', 'Ads',
+    'AR/VR', 'ChromeOS', 'Firebase', 'Flutter', 'Gaming', 'Google Play', 'Internet of Things (IoT)', 'iOS', 'Payments', 'Search', 'Smart Home Ecosystem', 'Quantum Computing', 'Wear OS', 'Health & Fitness'
+  ];
+
   useEffect(() => {
     analyticsService.trackCheckoutActivity('success_screen', badgeName, 'viewed');
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('wow_recent_purchase', Date.now().toString());
-    }
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, [badgeName]);
 
   const toggleInterest = (interest: string) => {
@@ -58,145 +87,175 @@ export const BadgeSuccess: React.FC<BadgeSuccessProps> = ({ badgeName, orderId, 
     );
   };
 
-  const handleFinish = async () => {
-    const duration = (Date.now() - startTimeRef.current) / 1000;
-    analyticsService.trackTiming('post_payment', 'done', duration, badgeName);
-
-    if (selectedInterests.length > 0) {
-      setIsSaving(true);
-      try {
-        await updateProfile({ interests: selectedInterests });
-        analyticsService.trackForm('post_payment_interests', 'all', 'complete', { count: selectedInterests.length });
-      } catch (err) {
-        console.error('Failed to save interests:', err);
-      } finally {
-        setIsSaving(false);
-      }
+  const handleSave = async () => {
+    setIsSaving(true);
+    try {
+      await updateProfile({ 
+        interests: selectedInterests,
+        team_members: isBetterTogether ? teamMembers.filter(m => m.trim()) : undefined
+      });
+    } catch (err) {
+      console.error('Failed to save details:', err);
+    } finally {
+      setIsSaving(false);
+      if (onClose) onClose();
     }
-
-    if (onClose) onClose();
   };
 
   return (
-    <div className="flex-col w-full animate-fade-in transition-colors bg-white dark:bg-grey-800!">
-      <BadgeBanner isWOWPlus={isWOWPlus} orderId={orderId} />
+    <div className="checkout-root min-h-screen flex flex-col" style={{ background: 'var(--m-surface)' }}>
+      <TopBar scrolled={scrolled} onBack={onClose} />
 
-      <div className="flex flex-col items-center text-center p-8 md:p-12">
-        {!showInterests ? (
-          <>
-            <div className="mb-4">
-              <h2 className="text-[1.75rem] md:text-[2rem] font-medium text-grey-900 dark:text-white tracking-tight leading-[1.1] mb-1">
-                You earned a badge!
-              </h2>
-              <p className="text-[1.75rem] md:text-[2rem] font-medium text-grey-900 dark:text-white tracking-tight leading-[1.1]">
-                {badgeName}
-              </p>
-            </div>
+      <main className="flex-1 w-full max-w-[800px] mx-auto px-4 py-12 relative z-10">
+        <div className="flex flex-col items-center text-center mb-12 toast-in">
+          <div className="w-20 h-20 rounded-3xl flex items-center justify-center mb-6 shadow-xl animate-bounce-slow" style={{ background: 'var(--m-success-container)', color: 'var(--m-on-success-container)' }}>
+            <IconCheck size={40} stroke={3} />
+          </div>
+          <h1 className="t-display-s mb-2" style={{ color: 'var(--m-on-surface)' }}>Congratulations!</h1>
+          <p className="t-body-l opacity-70 max-w-md" style={{ color: 'var(--m-on-surface-variant)' }}>
+            Your registration for GDG WOW 2026 is confirmed. You're now part of the journey.
+          </p>
+        </div>
 
-            <p className="text-[0.9375rem] text-grey-600 dark:text-grey-400 mb-10 max-w-[320px] leading-relaxed">
-              This badge was saved to your WOW Developer Profile.
-            </p>
-
-            <div className="w-full max-w-[440px] bg-white dark:bg-grey-800! border-2 border-grey-bg dark:border-grey-700 rounded-3xl p-8 pt-6 flex flex-col items-center justify-center mb-10 overflow-hidden">
+        <div className="flex flex-col gap-8">
+          {/* Badge Section */}
+          <section className="rounded-[40px] p-10 flex flex-col items-center gap-8 toast-in" 
+            style={{ 
+              background: 'var(--m-surface-container-low)',
+              animationDelay: '100ms'
+            }}>
+            <div className="relative w-full max-w-[320px] aspect-square flex items-center justify-center">
+              <div className="absolute inset-0 rounded-full blur-[60px] opacity-30 animate-pulse" style={{ background: 'var(--m-primary)' }}></div>
               <img
                 src={isWOWPlus ? "/images/wow26-arcade-badge-registration.png" : "/images/io24-badge-registration.svg"}
-                alt={badgeName}
-                className="w-[200px] md:w-[240px] h-max transition-transform duration-700 hover:scale-[1.05]"
+                alt="Badge"
+                className="w-full h-full object-contain relative z-10 transition-transform hover:scale-110 duration-500 cursor-zoom-in"
               />
-              <p className="mt-4 mb-4 text-[1.25rem] md:text-[1.5rem] font-medium text-grey-900 dark:text-white tracking-tight leading-none">
-                {badgeName}
-              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="t-label-s opacity-60 uppercase tracking-widest mb-1">Badge Earned</div>
+              <h2 className="t-headline-m">{badgeName}</h2>
+              <p className="t-label-m mt-2 opacity-60">ORDER #{orderId?.slice(-8).toUpperCase()}</p>
             </div>
 
-            <div className="flex flex-col items-center gap-8 w-full max-w-[400px]">
-              <div className="flex flex-col items-center">
-                <span className="font-medium text-grey-600 dark:text-grey-400 mb-4">Share your badge</span>
-                <div className="flex gap-4">
-                  {[
-                    { icon: 'https://www.gstatic.com/devrel-devsite/prod/v4d48f48533ab79e337c1ef540cdee78fc2ebfef5357fb91b7a6b4a7aa8d0c6c8/images/share_facebook.svg', alt: 'facebook' },
-                    { icon: 'https://www.gstatic.com/devrel-devsite/prod/v4d48f48533ab79e337c1ef540cdee78fc2ebfef5357fb91b7a6b4a7aa8d0c6c8/images/share_twitter.svg', alt: 'twitter' },
-                    { icon: 'https://www.gstatic.com/devrel-devsite/prod/v4d48f48533ab79e337c1ef540cdee78fc2ebfef5357fb91b7a6b4a7aa8d0c6c8/images/share_linkedin.svg', alt: 'linkedin' },
-                    { icon: 'link', alt: 'copy link' }
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
-                      onClick={() => analyticsService.trackCTA(`share_badge_${item.alt}`, 'BadgeSuccess')}
-                    >
-                      {item.icon === 'link' ? (
-                        <div className="w-full h-full bg-[#303234] rounded-md flex items-center justify-center">
-                          <svg viewBox="0 -960 960 960" width="28" height="28" fill="currentColor" className="text-white">
-                            <path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z" />
-                          </svg>
-                        </div>
-                      ) : (
-                        <img src={item.icon} alt={item.alt} className="w-full h-full object-contain brightness-50" />
-                      )}
-                    </div>
-                  ))}
+            <div className="flex gap-4 w-full">
+              <button className="flex-1 m-cta h-12 rounded-full border flex items-center justify-center gap-2 t-label-l" style={{ borderColor: 'var(--m-outline-variant)' }}>
+                Download
+              </button>
+              <button className="flex-1 m-cta h-12 rounded-full flex items-center justify-center gap-2 t-label-l" style={{ background: 'var(--m-primary)', color: 'var(--m-on-primary)' }}>
+                Share
+              </button>
+            </div>
+          </section>
+
+          {/* Data Collection Steps */}
+          {step === 'team' && (
+            <section className="rounded-[32px] p-8 flex flex-col gap-8 toast-in" 
+              style={{ 
+                background: 'var(--m-surface-container-highest)',
+                animationDelay: '200ms'
+              }}>
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-none" style={{ background: 'var(--m-secondary-container)', color: 'var(--m-on-surface)' }}>
+                  <IconSchool size={28} />
+                </div>
+                <div className="flex-1">
+                  <h2 className="t-headline-s">Better Together</h2>
+                  <p className="t-body-m opacity-70">Add your 4 team members to complete the group registration.</p>
                 </div>
               </div>
 
-              <button
-                onClick={() => {
-                  analyticsService.trackCTA('Personalize', 'BadgeSuccess');
-                  setShowInterests(true);
-                }}
-                className="w-full px-10 py-3.5 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-bold text-[1rem] hover:bg-black dark:hover:bg-grey-100! transition-colors shadow-sm"
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {teamMembers.map((email, i) => (
+                  <div key={i} className="relative">
+                    <input
+                      type="email"
+                      placeholder={`Team Member ${i + 1} Email`}
+                      value={email}
+                      onChange={(e) => {
+                        const newMembers = [...teamMembers];
+                        newMembers[i] = e.target.value;
+                        setTeamMembers(newMembers);
+                      }}
+                      className="w-full h-14 px-4 rounded-2xl bg-white/50 dark:bg-black/20 outline-none t-body-m border-2 border-transparent focus:border-[#2c5fd9] transition-all"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <button 
+                onClick={() => setStep('interests')}
+                disabled={teamMembers.some(m => !m)}
+                className="m-cta h-14 rounded-full flex items-center justify-center gap-2 t-label-l"
+                style={{ background: 'var(--m-primary)', color: 'var(--m-on-primary)' }}
               >
-                Personalize my experience
+                Continue to Interests
+                <IconSparkle size={18} />
               </button>
+            </section>
+          )}
 
-              <button
-                onClick={() => handleFinish()}
-                className="text-grey-600 dark:text-grey-400 font-medium hover:underline"
-              >
-                Skip for now
-              </button>
-            </div>
-          </>
-        ) : (
-          <div className="w-full max-w-[640px] text-left animate-fade-in">
-            <h3 className="text-[1.75rem] font-medium text-grey-900 dark:text-white mb-3 tracking-tight">Select your interests</h3>
-            <p className="text-[0.9375rem] text-grey-700 dark:text-grey-400 mb-8 leading-relaxed">
-              Choose the topics you&apos;re most excited about. This will help us recommend the best WOW sessions and content tailored just for you.
-            </p>
+          {step === 'interests' && (
+            <section className="rounded-[32px] p-8 flex flex-col gap-6 toast-in" 
+              style={{ 
+                background: 'var(--m-surface-container-lowest)', 
+                animationDelay: '200ms'
+              }}>
+              <div>
+                <h2 className="t-headline-s mb-1">What are you into?</h2>
+                <p className="t-body-m opacity-60">Help us personalize your event feed and session recommendations.</p>
+              </div>
 
-            <InterestTags
-              selectedInterests={selectedInterests}
-              toggleInterest={toggleInterest}
-              showAll={showAllInterests}
-            />
-
-            <div className="mt-6 mb-10 border-b border-grey-200 dark:border-grey-700 pb-10">
-              <button
-                className="text-[0.875rem] font-medium text-grey-900 dark:text-white underline hover:no-underline decoration-2 underline-offset-4"
-                type="button"
+              <div className="flex flex-wrap gap-2">
+                {(showAllInterests ? INTEREST_OPTIONS : INTEREST_OPTIONS.slice(0, 10)).map(interest => (
+                  <InterestChip 
+                    key={interest} 
+                    label={interest} 
+                    selected={selectedInterests.includes(interest)}
+                    onClick={() => toggleInterest(interest)}
+                  />
+                ))}
+              </div>
+              <button 
                 onClick={() => setShowAllInterests(!showAllInterests)}
+                className="t-label-l w-max px-4 py-2 rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+                style={{ color: 'var(--m-primary)' }}
               >
                 {showAllInterests ? 'See less' : 'See all'}
               </button>
-            </div>
 
-            <div className="flex gap-4">
-              <button
-                onClick={handleFinish}
-                disabled={isSaving}
-                className="px-10 py-3.5 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-bold text-[1rem] hover:bg-black dark:hover:bg-grey-100! transition-colors shadow-sm flex items-center gap-2"
-              >
-                {isSaving ? <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></div> : null}
-                <span>Finish</span>
-              </button>
-              <button
-                onClick={() => setShowInterests(false)}
-                className="px-8 py-3.5 border border-grey-400 dark:border-grey-600 rounded-full font-medium hover:bg-grey-50 dark:hover:bg-grey-800 transition-colors"
-              >
-                Back
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+              <div className="pt-4">
+                <button 
+                  onClick={handleSave}
+                  disabled={isSaving}
+                  className="w-full m-cta h-14 rounded-full flex items-center justify-center gap-2 t-label-l"
+                  style={{ background: 'var(--m-primary)', color: 'var(--m-on-primary)' }}
+                >
+                  {isSaving ? (
+                    <div className="w-5 h-5 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: 'var(--m-on-primary)', borderTopColor: 'transparent' }}></div>
+                  ) : (
+                    <>
+                      <span>Complete & continue to Arcade</span>
+                      <IconSparkle size={18} />
+                    </>
+                  )}
+                </button>
+              </div>
+            </section>
+          )}
+        </div>
+      </main>
+
+      <style jsx global>{`
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-bounce-slow {
+          animation: bounce-slow 3s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };

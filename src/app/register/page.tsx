@@ -6,19 +6,15 @@ import { Header } from '../../components/sections/Header';
 
 export default function RegisterPage() {
   return (
-    <div className="w-full min-h-screen bg-[#f8f9fa] dark:bg-grey-900! text-grey-900 dark:text-white flex flex-col transition-colors duration-300">
-      <Header onRegisterClick={() => { }} />
-
-      <main className="flex-1 flex flex-col items-center py-0 md:py-16 px-0 md:px-6">
-        <div className="w-full md:max-w-[800px] bg-white dark:bg-grey-900! md:rounded-2xl md:border border-grey-200 dark:border-grey-text md:shadow-sm overflow-hidden animate-slide-up">
-          <React.Suspense fallback={
-            <div className="flex flex-col items-center justify-center min-h-[400px]">
-              <div className="w-10 h-10 border-4 border-google-blue border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
-            <RegistrationForm />
-          </React.Suspense>
-        </div>
+    <div className="w-full min-h-screen bg-transparent transition-colors duration-300">
+      <main className="w-full">
+        <React.Suspense fallback={
+          <div className="flex flex-col items-center justify-center min-h-[400px]">
+            <div className="w-10 h-10 border-4 border-t-transparent rounded-full animate-spin" style={{ borderColor: 'var(--m-primary)', borderTopColor: 'transparent' }}></div>
+          </div>
+        }>
+          <RegistrationForm />
+        </React.Suspense>
       </main>
 
 

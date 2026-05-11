@@ -1,5 +1,4 @@
-'use client';
-
+import '../payment/checkout.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { RegistrationData, validateProfile, submitRegistration } from '../../services/registrationStubs';
 import { requestFirebaseToken } from '../../services/fcm';
@@ -8,36 +7,123 @@ import { useAuth } from '../../context/AuthContext';
 import { signInWithGoogle } from '../../services/firebase';
 import { ErrorOverlay } from './ErrorOverlays';
 import { useRouter, useSearchParams } from 'next/navigation';
+import {
+  IconBack, IconMenu, IconUser, IconSchool, IconPhone, IconChevronDown, IconCheck, IconInfo, IconSparkle
+} from '../payment/Icons';
 
-const RegistrationBanner = () => (
-  <div className="relative w-full h-40 md:h-56 bg-[#F1F3F4] dark:bg-grey-900 overflow-hidden border-b border-grey-200 dark:border-grey-text flex items-center px-8 md:px-14">
-    <div className="flex-1 z-10">
-      <h2 className="text-[1.875rem] md:text-[2.25rem] font-medium text-grey-900 dark:text-white tracking-tight leading-tight">Register for WOW</h2>
+const TopBar = ({ scrolled, onBack }: { scrolled: boolean; onBack: () => void }) => (
+  <header
+    className={`flex items-center ${scrolled ? 'scrolled-shadow' : ''} transition-shadow sticky top-0 z-[50]`}
+    style={{ height: 56, background: 'var(--m-surface)', borderBottom: scrolled ? 'none' : '1px solid var(--m-outline-variant)' }}
+  >
+    <div className="flex-1 flex items-center gap-2 px-4 max-w-[800px] mx-auto w-full">
+      <button onClick={onBack} className="m-pressable rounded-full flex items-center justify-center -ml-2"
+        style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Back">
+        <IconBack size={24} />
+      </button>
+      <div className="flex-1 flex items-baseline">
+        <span className="t-title-l tracking-tight" style={{ color: 'var(--m-on-surface)' }}>
+          {"gdgoc".toLowerCase()}
+        </span>
+        <span className="t-title-l font-extrabold mr-3" style={{ color: 'var(--m-primary)' }}>
+          wow
+        </span>
+        <span className="t-label-m ml-2" style={{ color: 'var(--m-on-surface-variant)' }}>
+          Registration
+        </span>
+      </div>
+      <button className="m-pressable rounded-full flex items-center justify-center -mr-2"
+        style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Menu">
+        <IconMenu size={24} />
+      </button>
     </div>
-    <div className="absolute bottom-0 -right-16 sm:right-0 w-[80%] md:w-[65%] pointer-events-none select-none">
-      <picture className="w-full">
-        <source srcSet="/images/io24-pencil-road-centered-dark.svg" media="(prefers-color-scheme: dark)" />
-        <img
-          src="/images/io24-pencil-road-centered.svg"
-          alt=""
-          className="w-full max-h-[200px] md:max-h-[300px] object-contain object-bottom-right"
-        />
-      </picture>
-    </div>
-    <button
-      onClick={() => window.history.back()}
-      className="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-full bg-white/40 hover:bg-white text-grey-700 transition-all border border-grey-300 z-20 group shadow-sm"
+  </header>
+);
+
+const MaterialInput = ({ icon: Icon, placeholder, value, onChange, error, detail, type = "text", prefix }: any) => (
+  <div className="w-full">
+    <div
+      className="flex items-center gap-3 px-4 rounded-2xl transition-all duration-200"
+      style={{
+        height: 56,
+        background: 'var(--m-surface-container-high)',
+        borderBottom: error ? '2px solid var(--m-error)' : 'none'
+      }}
     >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="group-hover:scale-95 transition-transform">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
+      <div className="flex-none" style={{ color: error ? 'var(--m-error)' : 'var(--m-on-surface-variant)' }}>
+        <Icon size={22} />
+      </div>
+      <div className="flex-1 flex items-center gap-1">
+        {prefix && <span className="t-body-l font-bold opacity-60">{prefix}</span>}
+        <input
+          type={type}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          className="w-full bg-transparent outline-none t-body-l"
+          style={{ color: 'var(--m-on-surface)' }}
+        />
+      </div>
+    </div>
+    {error ? (
+      <p className="t-label-s mt-1 px-4" style={{ color: 'var(--m-error)' }}>{error}</p>
+    ) : detail ? (
+      <p className="t-label-s mt-1 px-4 opacity-60" style={{ color: 'var(--m-on-surface-variant)' }}>{detail}</p>
+    ) : null}
   </div>
 );
+
+const MaterialSelect = ({ icon: Icon, value, onChange, options, placeholder, error }: any) => (
+  <div className="w-full relative">
+    <div
+      className="flex items-center gap-3 px-4 rounded-2xl transition-all duration-200"
+      style={{
+        height: 56,
+        background: 'var(--m-surface-container-high)',
+        borderBottom: error ? '2px solid var(--m-error)' : 'none'
+      }}
+    >
+      <div className="flex-none" style={{ color: error ? 'var(--m-error)' : 'var(--m-on-surface-variant)' }}>
+        <Icon size={22} />
+      </div>
+      <select
+        value={value}
+        onChange={onChange}
+        className="flex-1 bg-transparent outline-none t-body-l appearance-none"
+        style={{ color: value ? 'var(--m-on-surface)' : 'var(--m-on-surface-variant)' }}
+      >
+        <option value="" disabled>{placeholder}</option>
+        {options.map((opt: any) => (
+          <option key={opt.value} value={opt.value}>{opt.label}</option>
+        ))}
+      </select>
+      <div className="flex-none opacity-60 pointer-events-none" style={{ color: 'var(--m-on-surface-variant)' }}>
+        <IconChevronDown size={20} />
+      </div>
+    </div>
+    {error && <p className="t-label-s mt-1 px-4" style={{ color: 'var(--m-error)' }}>{error}</p>}
+  </div>
+);
+
+const MaterialCheckbox = ({ label, checked, onChange }: any) => (
+  <label className="flex items-start gap-4 p-4 rounded-2xl cursor-pointer transition-all hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98]">
+    <div
+      className={`flex-none w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all duration-200 ${checked ? 'bg-blue-600 border-blue-600' : 'border-gray-400'}`}
+      onClick={(e) => { e.preventDefault(); onChange(); }}
+    >
+      {checked && <IconCheck size={18} stroke={3} style={{ color: '#fff' }} />}
+    </div>
+    <input type="checkbox" className="hidden" checked={checked} onChange={onChange} />
+    <span className="t-body-m" style={{ color: 'var(--m-on-surface)' }}>{label}</span>
+  </label>
+);
+
+
 
 export const RegistrationForm: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [scrolled, setScrolled] = useState(false);
   const formStartTimeRef = useRef(Date.now());
   const [data, setData] = useState<RegistrationData>({
     displayName: '',
@@ -57,6 +143,8 @@ export const RegistrationForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorType, setErrorType] = useState<'signin' | 'account' | 'general' | null>(null);
 
+
+
   useEffect(() => {
     if (profile) {
       setData(prev => ({
@@ -75,12 +163,16 @@ export const RegistrationForm: React.FC = () => {
   }, [profile, user]);
 
   useEffect(() => {
-    // If user is already registered (has a profile) and not in 'update' mode, 
-    // redirect them to the payment page.
     if (isLoggedIn && profile && searchParams.get('update') !== 'true') {
       router.replace('/payment');
     }
   }, [isLoggedIn, profile, searchParams, router]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const updateData = (updates: Partial<RegistrationData>) => {
     setData((prev) => ({ ...prev, ...updates }));
@@ -92,13 +184,13 @@ export const RegistrationForm: React.FC = () => {
     }
   };
 
+
+
   const handleGoogleSignIn = async () => {
     try {
       setErrorType(null);
       await signInWithGoogle();
     } catch (err: any) {
-      console.error('Google Sign In Error:', err);
-      // Show the 'Whoops' error screen unless it was just a manual close by user
       if (err.code !== 'auth/popup-closed-by-user' && err.code !== 'auth/cancelled-popup-request') {
         setErrorType('signin');
       }
@@ -108,239 +200,217 @@ export const RegistrationForm: React.FC = () => {
   const handleSubmit = async () => {
     const newErrors = validateProfile(data);
     if (Object.keys(newErrors).length !== 0) {
-      analyticsService.trackForm('registration', 'all', 'error', { errors: Object.keys(newErrors) });
       setErrors(newErrors);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
-    analyticsService.trackCTA('Register', 'RegistrationForm', 'submit_start');
     setIsSubmitting(true);
     try {
-      // Attempt to get FCM token before submission
       const fcm_token = await requestFirebaseToken();
       const result = await submitRegistration({ ...data, fcm_token: fcm_token || undefined });
       if (result.success) {
-        const totalDuration = (Date.now() - formStartTimeRef.current) / 1000;
-        analyticsService.trackTiming('registration_form', 'total_duration', totalDuration);
-        analyticsService.trackForm('registration', 'all', 'complete');
-        window.dispatchEvent(new CustomEvent('registrationSuccess'));
-        await refreshProfile(); // Ensure state is updated before redirecting
+        await refreshProfile();
         router.push('/payment');
       } else {
-        analyticsService.trackForm('registration', 'all', 'error', { message: result.error });
-        setErrors({ submit: result.error || 'The user account type is not allowed.' });
+        setErrors({ submit: result.error || 'Account type not allowed.' });
         setErrorType('account');
       }
     } catch (err: any) {
-      analyticsService.trackForm('registration', 'all', 'error', { message: err.message });
-      setErrors({ submit: err.message || 'An error occurred. Please try again.' });
+      setErrors({ submit: err.message || 'An error occurred.' });
       setErrorType('general');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const inputBaseCls = 'w-full px-4 py-3.5 border border-grey-400 rounded-lg text-[1rem] focus:outline-none focus:border-google-blue focus:ring-1 focus:ring-google-blue transition-all bg-white dark:bg-grey-900 placeholder:text-grey-600';
-  const errorTextCls = 'text-[0.75rem] text-google-red mt-2 font-medium px-4';
-
   if (isAuthLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px]">
-        <div className="w-10 h-10 border-4 border-google-blue border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-12 h-12 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: 'var(--m-primary)', borderTopColor: 'transparent' }}></div>
       </div>
     );
   }
 
   if (errorType) {
     return (
-      <div className="flex-1 flex flex-col justify-center">
-        <ErrorOverlay
-          type={errorType}
-          onTryAgain={() => setErrorType(null)}
-          errorMessage={(errorType === 'account' || errorType === 'general') ? errors.submit : undefined}
-        />
+      <div className="checkout-root min-h-screen flex flex-col" style={{ background: 'var(--m-surface)' }}>
+        <TopBar scrolled={scrolled} onBack={() => setErrorType(null)} />
+        <div className="flex-1 flex flex-col justify-center">
+          <ErrorOverlay type={errorType} onTryAgain={() => setErrorType(null)} errorMessage={errors.submit} />
+        </div>
       </div>
     );
   }
 
   if (!isLoggedIn) {
     return (
-      <div className="flex flex-col">
-        <RegistrationBanner />
-        <div className="p-8 md:p-12 text-center">
-          <h2 className="text-[1.75rem] font-medium text-grey-900 mb-4">Register for WOW</h2>
-          <p className="text-[1rem] text-grey-700 mb-8 max-w-md mx-auto">
-            Please sign in to your Google Account to register for the event and create your student profile.
+      <div className="checkout-root min-h-screen flex flex-col" style={{ background: 'var(--m-surface)' }}>
+        <TopBar scrolled={scrolled} onBack={() => window.history.back()} />
+        <main className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+          <div className="w-24 h-24 mb-8 flex items-center justify-center rounded-3xl" style={{ background: 'var(--m-primary-container)', color: 'var(--m-primary)' }}>
+            <IconSparkle size={48} />
+          </div>
+          <h1 className="t-headline-m mb-4" style={{ color: 'var(--m-on-surface)' }}>Welcome to WOW</h1>
+          <p className="t-body-l mb-10 max-w-sm" style={{ color: 'var(--m-on-surface-variant)' }}>
+            Sign in to create your student profile and unlock exclusive sessions and swags.
           </p>
           <button
             onClick={handleGoogleSignIn}
-            className="inline-flex items-center gap-3 px-8 py-3 bg-white border border-grey-300 rounded-full hover:bg-grey-50 transition-colors shadow-sm font-medium"
+            className="m-cta h-14 px-8 bg-white border rounded-full t-label-l flex items-center gap-3 hover:bg-gray-50 transition-all shadow-sm"
+            style={{ borderColor: 'var(--m-outline-variant)', color: '#202124' }}
           >
-            <img src="/images/google.svg" alt="Google" width="18" />
-            <span className='text-gray-900'>Sign in with Google</span>
+            <img src="/images/google.svg" alt="Google" width="20" />
+            Sign in with Google
           </button>
-        </div>
+        </main>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col animate-fade-in">
-      <RegistrationBanner />
+    <div className="checkout-root min-h-screen flex flex-col" style={{ background: 'var(--m-surface)' }}>
+      <TopBar scrolled={scrolled} onBack={() => window.history.back()} />
 
-      <div className="p-8 md:p-12">
-        <div className="animate-fade-in">
-          <h3 className="text-[1.25rem] font-medium mb-3">Create a student profile</h3>
-          <p className="text-[0.9375rem] text-grey-700 mb-10 leading-relaxed max-w-[640px]">
-            Create a student profile to get recommendations for the best WOW sessions and content for you. You can also use your profile to save content to watch on demand.
+      <main className="flex-1 w-full max-w-[800px] mx-auto px-4 py-12 relative z-10">
+        <div className="mb-12 toast-in">
+
+          <h1 className="t-display-s mb-2" style={{ color: 'var(--m-on-surface)' }}>Create your profile</h1>
+          <p className="t-body-l opacity-70" style={{ color: 'var(--m-on-surface-variant)' }}>
+            Join the community and tailor your WOW experience.
           </p>
+        </div>
 
-          <p className="text-[0.8125rem] text-google-red mb-4 mt-4">*Required field</p>
+        <div className="flex flex-col gap-8">
+          <section className="rounded-[32px] p-8 flex flex-col gap-8 toast-in"
+            style={{
+              background: 'var(--m-surface-container-lowest)',
+              animationDelay: '100ms'
+            }}>
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-none" style={{ background: 'var(--m-primary-container)', color: 'var(--m-primary)' }}>
+                <IconUser size={28} />
+              </div>
+              <div className="flex-1">
+                <h2 className="t-headline-s">Basic Information</h2>
+                <p className="t-body-m opacity-70">Personalize your public developer profile.</p>
+              </div>
+            </div>
 
-          <div className="space-y-8">
-            <div>
-              <input
-                className={inputBaseCls}
-                type="text"
+            <div className="grid grid-cols-1 gap-6">
+              <MaterialInput
+                icon={IconUser}
+                placeholder="Display Name*"
                 value={data.displayName}
-                onChange={(e) => updateData({ displayName: e.target.value })}
-                placeholder="Display name*"
+                onChange={(e: any) => updateData({ displayName: e.target.value })}
+                error={errors.displayName}
+                detail="This name will appear on your event badge and profile."
               />
-              <p className="text-[0.75rem] text-grey-500 mt-2 px-4">Your name may appear where you contribute and can be changed at any time.</p>
-              {errors.displayName && <p className={errorTextCls}>{errors.displayName}</p>}
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-              <div>
-                <div className="relative">
-                  <select className={`${inputBaseCls} appearance-none pr-10 ${!data.pronoun ? 'text-grey-600' : 'text-grey-900 dark:text-white'}`} value={data.pronoun} onChange={(e) => updateData({ pronoun: e.target.value })}>
-                    <option value="">Pronoun*</option>
-                    <option value="he/him">He/Him</option>
-                    <option value="she/her">She/Her</option>
-                    <option value="they/them">They/Them</option>
-                    <option value="prefer not to say">Prefer not to say</option>
-                  </select>
-                  <div className="absolute right-4 inset-y-0 flex items-center pointer-events-none transform rotate-180">
-                    <img
-                      className="block dark:hidden h-2.5"
-                      src="/images/chevron-up.svg"
-                      alt=""
-                      aria-hidden="true"
-                    />
-                    <img
-                      className="hidden dark:block h-2.5"
-                      src="/images/chevron-up-white.svg"
-                      alt=""
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-                {errors.pronoun && <p className={errorTextCls}>{errors.pronoun}</p>}
-              </div>
-              <div>
-                <input
-                  className={inputBaseCls}
-                  type="text"
-                  value={data.organization}
-                  onChange={(e) => updateData({ organization: e.target.value })}
-                  placeholder="University Name*"
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <MaterialSelect
+                  icon={IconSparkle}
+                  placeholder="Pronoun*"
+                  value={data.pronoun}
+                  onChange={(e: any) => updateData({ pronoun: e.target.value })}
+                  error={errors.pronoun}
+                  options={[
+                    { value: 'he/him', label: 'He/Him' },
+                    { value: 'she/her', label: 'She/Her' },
+                    { value: 'they/them', label: 'They/Them' },
+                    { value: 'prefer not to say', label: 'Prefer not to say' },
+                  ]}
                 />
-                <p className="text-[0.75rem] text-grey-500 mt-2 px-4">Name of your University, College or School</p>
-                {errors.organization && <p className={errorTextCls}>{errors.organization}</p>}
+                <MaterialInput
+                  icon={IconSchool}
+                  placeholder="University Name*"
+                  value={data.organization}
+                  onChange={(e: any) => updateData({ organization: e.target.value })}
+                  error={errors.organization}
+                  detail="Your current educational institution."
+                />
               </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-              <div>
-                <div className="relative">
-                  <div className="absolute left-4 inset-y-0 flex items-center pointer-events-none text-grey-900 dark:text-white font-medium">
-                    <span className="border-r border-grey-300 pr-3 mr-3 h-5 flex items-center">+91</span>
-                  </div>
-                  <input
-                    className={`${inputBaseCls} pl-16`}
-                    type="tel"
-                    value={data.phoneNumber}
-                    onChange={(e) => updateData({ phoneNumber: e.target.value })}
-                    placeholder="Phone number*"
-                  />
-                </div>
-                <p className="text-[0.75rem] text-grey-500 mt-2 px-4">10-digit mobile number for communication</p>
-                {errors.phoneNumber && <p className={errorTextCls}>{errors.phoneNumber}</p>}
-              </div>
+              <MaterialInput
+                icon={IconPhone}
+                prefix="+91"
+                placeholder="Phone Number*"
+                value={data.phoneNumber}
+                onChange={(e: any) => updateData({ phoneNumber: e.target.value })}
+                error={errors.phoneNumber}
+                detail="For important event updates via SMS/WhatsApp."
+                type="tel"
+              />
             </div>
+          </section>
 
-            <div className="mb-10">
+          <section className="rounded-[32px] p-8 toast-in"
+            style={{
+              background: 'var(--m-surface-container-low)',
+              animationDelay: '200ms'
+            }}>
+            <h2 className="t-title-l mb-6 flex items-center gap-3">
+              Preferences & Consents
+            </h2>
+            <div className="space-y-1">
               {[
-
                 {
-                  key: 'marketingConsent' as keyof RegistrationData,
-                  label: 'I would like to receive marketing and events emails and updates about GDG WOW 2026.',
-                  required: false
+                  key: 'marketingConsent',
+                  label: 'I would like to receive marketing and event updates about GDG WOW 2026.',
                 },
                 {
-                  key: 'newsletterConsent' as keyof RegistrationData,
-                  label: 'I would like to receive newsletters with the latest news and features for me. I understand that I can unsubscribe at any time by visiting my WOW Developer Profile settings.',
-                  required: false
+                  key: 'newsletterConsent',
+                  label: 'I would like to receive newsletters with the latest features and news.',
                 },
-              ].map(({ key, label, required }) => (
-                <div
-                  key={key as string}
-                  className="filter-box__item"
-                >
-                  <input
-                    type="checkbox"
-                    id={key as string}
-                    className="checkbox"
-                    checked={!!data[key as keyof RegistrationData]}
-                    onChange={() => {
-                      const newState = !data[key as keyof RegistrationData];
-                      analyticsService.trackUI(key as string, newState, 'RegistrationForm');
-                      updateData({ [key]: newState });
-                    }}
-                  />
-                  <label
-                    className="text-[0.875rem] text-grey-800 dark:text-white leading-normal cursor-pointer flex-1"
-                    htmlFor={key as string}
-                  >
-                    {label}{required && <span className="text-google-red font-bold"> *</span>}
-                  </label>
-                </div>
+              ].map(({ key, label }) => (
+                <MaterialCheckbox
+                  key={key}
+                  label={label}
+                  checked={!!data[key as keyof RegistrationData]}
+                  onChange={() => updateData({ [key]: !data[key as keyof RegistrationData] })}
+                />
               ))}
             </div>
+          </section>
 
-            <p className="text-[0.8125rem] text-grey-600 leading-relaxed mb-10">
-              By creating a WOW student profile, you agree to the <a href="/content-policy" target="_blank" rel="noopener noreferrer" className="underline">Content Policy</a>, <a href="/terms" target="_blank" rel="noopener noreferrer" className="underline">WOW's Terms of Service</a> and <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline">Privacy Policy</a> apply to your use of this service. Your display name may appear where you contribute and can be changed at any time.
+          <div className="toast-in" style={{ animationDelay: '300ms' }}>
+            <p className="t-body-s px-4 leading-relaxed opacity-60 text-center mb-8" style={{ color: 'var(--m-on-surface)' }}>
+              By registering, you agree to our <a href="/terms" className="underline font-bold">Terms of Service</a> and <a href="/privacy" className="underline font-bold">Privacy Policy</a>.
             </p>
 
-            {errors.submit && <p className="text-sm font-medium text-google-red mb-6">{errors.submit}</p>}
+            <div className="flex flex-col gap-4">
+              <button
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className="m-cta h-16 rounded-full flex items-center justify-center gap-3 t-label-l shadow-lg group relative overflow-hidden"
+                style={{
+                  background: 'var(--m-primary)',
+                  color: 'var(--m-on-primary)',
+                  boxShadow: '0 4px 20px rgba(44,95,217,0.3)'
+                }}
+              >
+                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                {isSubmitting ? (
+                  <div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: 'var(--m-on-primary)', borderTopColor: 'transparent' }}></div>
+                ) : (
+                  <>
+                    <IconCheck size={24} stroke={3} />
+                    <span className="text-lg">{profile ? 'Save Changes' : 'Complete Registration'}</span>
+                  </>
+                )}
+              </button>
 
-            <button
-              disabled={isSubmitting}
-              onClick={handleSubmit}
-              className="px-10 py-3 bg-grey-900 dark:bg-white text-white dark:text-grey-900 rounded-full font-medium hover:bg-black dark:hover:bg-white/80 disabled:bg-grey-300 disabled:cursor-not-allowed transition-all text-[1rem] flex items-center gap-2"
-            >
-              {isSubmitting ? (
-                <>
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>{profile ? 'Updating...' : 'Registering...'}</span>
-                </>
-              ) : (
-                <span>{profile ? 'Update profile' : 'Register'}</span>
+              {!profile && (
+                <div className="flex items-center justify-center gap-3 t-label-m py-4" style={{ color: 'var(--m-on-surface-variant)' }}>
+                  <span className="px-3 py-1 rounded-full bg-black/5 dark:bg-white/5">Step 1 of 2</span>
+                  <div className="w-8 h-[2px] bg-current opacity-10"></div>
+                  <span>Next: Checkout & Payment</span>
+                </div>
               )}
-            </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <style jsx global>{`
-        .animate-fade-in {
-          animation: fadeIn 0.4s ease-out forwards;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-      `}</style>
+      </main>
     </div>
   );
 };
