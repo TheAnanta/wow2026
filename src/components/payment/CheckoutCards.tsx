@@ -97,8 +97,20 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
             <IconSparkle size={22} stroke={2} />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="t-body-l font-semibold" style={{ color: 'var(--m-on-surface)' }}>
+            <div className="t-body-l font-semibold flex items-center" style={{ color: 'var(--m-on-surface)' }}>
               {brand}+ subscription
+              <span className="t-label-s px-2 py-0.5 rounded-full ml-2 border" 
+                style={{ 
+                  background: 'var(--m-tertiary-container)', 
+                  color: 'var(--m-on-tertiary-container)',
+                  borderColor: 'var(--m-tertiary)',
+                  fontSize: '10px',
+                  letterSpacing: '1px',
+                  fontWeight: 800,
+                  transform: 'translateY(-1px)'
+                }}>
+                ADD-ON
+              </span>
             </div>
             <div className="t-body-s" style={{ color: 'var(--m-on-surface-variant)' }}>
               Member benefit · auto-applied

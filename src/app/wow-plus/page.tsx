@@ -15,7 +15,7 @@ const TIERS = [
         passPrice: "₹500",
         image: "/images/bronze-7ad033b3ac027995939993b7648507f536d7b089.png",
         color: "#CD7F32",
-        benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag"],
+        benefits: ["Workshops", "Games", "WOW Ticket", "WOW+ Swag"],
     },
     {
         name: "Silver",
@@ -25,7 +25,7 @@ const TIERS = [
         passPrice: "₹500",
         image: "/images/silver_sm-64ca96b9e4cf1fc255fbe8e81fba4577965e8311.png",
         color: "#C0C0C0",
-        benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag", "Silver Badge"],
+        benefits: ["Workshops", "Games", "WOW Ticket", "WOW+ Swag", "Silver Badge"],
     },
     {
         name: "Gold",
@@ -35,7 +35,7 @@ const TIERS = [
         passPrice: "₹500",
         image: "/images/gold_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
         color: "#FFD700",
-        benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag", "Gold Badge", "Priority Entry"],
+        benefits: ["Workshops", "Games", "WOW Ticket", "WOW+ Swag", "Gold Badge", "Priority Entry"],
     },
     {
         name: "Diamond",
@@ -45,7 +45,7 @@ const TIERS = [
         passPrice: "₹500",
         image: "/images/diamond_sm-6bb229d2803807410116694fb0aed7f6f43aa63a.png",
         color: "#B9F2FF",
-        benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag", "Diamond Badge", "Priority Entry", "Exclusive Workshop Access"],
+        benefits: ["Workshops", "Games", "WOW Ticket", "WOW+ Swag", "Diamond Badge", "Priority Entry", "Exclusive Workshop Access"],
     },
     {
         name: "Platinum",
@@ -56,7 +56,7 @@ const TIERS = [
         image: "/images/platinum_sm-a4a1073053c6007a0017602901287f7f6f292b35.png",
         color: "#E5E4E2",
         featured: true,
-        benefits: ["Workshops", "Games", "WOW Ticket", "WOW Swag", "Platinum Badge", "Priority Entry", "Exclusive Workshop Access", "Guest of Honour"],
+        benefits: ["Workshops", "Games", "WOW Ticket", "WOW+ Swag", "Platinum Badge", "Priority Entry", "Exclusive Workshop Access", "Guest of Honour"],
     },
 ];
 
@@ -102,16 +102,16 @@ export default function WOWPlusPage() {
     return (
         <>
             <Head>
-                <title>Experience WOW+ | WOW 2026</title>
+                <title>WOW+ Add-on | WOW 2026</title>
                 <meta
                     name="description"
-                    content="Discover the WOW+ experience at World of Wonders 2026! Access exclusive features, content, and benefits with your WOW+ pass."
+                    content="Discover the WOW+ Add-on for World of Wonders 2026! Access exclusive features, content, and benefits for your WOW pass."
                 />
             </Head>
 
             <div className="dark:bg-grey-900! min-h-screen flex flex-col font-sans text-[#202124] dark:text-white bg-white">
                 <div id="page-title" className="absolute top-[-40px]">
-                    Experience WOW+ | WOW 2026
+                    WOW+ Add-on | WOW 2026
                 </div>
 
                 <Header onRegisterClick={() => { }} />
@@ -121,10 +121,10 @@ export default function WOWPlusPage() {
                     <div className="w-full flex flex-col md:flex-row text-md:h-[407px] md:h-[407px] overflow-hidden bg-grey-bg dark:bg-grey! border-b-[1px] md:border-b-2 border-grey dark:border-grey-bg!">
                         <div className="flex flex-col md:text-left md:justify-center px-4 py-5 w-full md:w-2/5 md:p-10 md:pr-0 dark:text-white z-10">
                             <h1 className="font-medium mb-4 sm:s-h2 md:l-h1 text-md:-mr-40 md:-mr-40 tracking-tight!">
-                                The WOW+ Experience
+                                The WOW+ Add-on
                             </h1>
                             <div className="font-medium sm:s-h6 md:l-h6 mb-4">
-                                <p>Discover everything you need to know about the WOW+ experience! Play games, rank up on the leaderboard, earn swags, and get exclusive event discounts.</p>
+                                <p>Play arcade challenges, win exclusive rewards, and unlock massive discounts on your WOW pass.</p>
                             </div>
                         </div>
                         <div className="flex justify-end items-end w-full md:w-3/5 !justify-start xl:!justify-end xl:pr-5">
@@ -244,7 +244,7 @@ export default function WOWPlusPage() {
                                     </div>
                                     <div className="text-grey-900 mt-6 dark:text-white">
                                         <h3 className="font-medium mb-3 sm:s-h5 md:l-h5">Discover our App</h3>
-                                        <p className="font-normal sm:s-p2 md:l-p1">The official app will be your companion for playing these games and unlocking the best WOW+ experience.</p>
+                                        <p className="font-normal sm:s-p2 md:l-p1">The official app will be your companion for playing these games and unlocking the full potential of your WOW+ Add-on.</p>
                                         <div>
                                             <Link href="/now-in-google" className="text-black underline font-medium inline-block mt-3 dark:text-white" onClick={() => analyticsService.trackCTA('App Detail', 'WOWPlusPage_Intro')}>
                                                 More about the app
@@ -260,8 +260,8 @@ export default function WOWPlusPage() {
                             <div className="flex flex-col mb-8 mt-12">
                                 <h2 className="font-medium text-left text-grey-900 dark:text-grey-bg! sm:s-h4 md:l-h2 dark:text-grey-200 tracking-tight! mb-4">
                                     The more you play,<br />the more you save.
-                                 </h2>
-                                <p className="text-grey-600 dark:text-grey-400 max-w-2xl">Compare your target rank with standard ticket prices.<br />Getting a WOW+ Pass (₹500) is your first step to a better WOW experience.</p>
+                                </h2>
+                                <p className="text-grey-600 dark:text-grey-400 max-w-2xl">Compare your target rank with standard ticket prices.<br />Adding the WOW+ Add-on (₹500) to your WOW pass is your first step to a better WOW experience.</p>
                             </div>
 
                             <div className="flex flex-col gap-8">
@@ -288,7 +288,7 @@ export default function WOWPlusPage() {
                                                         <p className="uppercase font-black tracking-tight text-[10px] mb-4 border-2 w-max p-1 px-4 rounded-full">
                                                             Top Tier Achievement
                                                         </p>
-                                                        <h3 className="font-bold text-4xl md:text-5xl tracking-tight mb-4">{tier.name} Pass</h3>
+                                                        <h3 className="font-bold text-4xl md:text-5xl tracking-tight mb-4">{tier.name} League</h3>
                                                         <p className="text-grey-600 dark:text-grey-400 text-sm max-w-[45ch] leading-relaxed">
                                                             You&apos;ve reached the ultimate rank! As a Guest of Honour, you enjoy full event access and premium rewards at no cost.
                                                         </p>
@@ -299,7 +299,7 @@ export default function WOWPlusPage() {
                                                                 <span className="text-2xl font-bold text-google-green">FREE</span>
                                                             </div>
                                                             <div className="flex flex-col">
-                                                                <span className="text-[10px] font-bold text-grey-500 uppercase tracking-widest">WOW+ Pass</span>
+                                                                <span className="text-[10px] font-bold text-grey-500 uppercase tracking-widest">WOW+ Add-on</span>
                                                                 <span className="text-2xl font-bold text-google-green">REFUNDED</span>
                                                             </div>
                                                         </div>
@@ -371,7 +371,7 @@ export default function WOWPlusPage() {
                                                     <div className="w-full space-y-4 pt-6 border-t border-grey/20 dark:border-white/10 text-left">
                                                         <div className="flex items-start gap-2 text-[10px] font-bold text-grey-600 dark:text-grey-400">
                                                             <span className="w-1 h-1 rounded-full bg-google-blue mt-1.5 shrink-0"></span>
-                                                            <span>WOW+ Pass: {tier.passPrice}</span>
+                                                            <span>WOW+ Add-on: {tier.passPrice}</span>
                                                         </div>
                                                         <div className="flex items-start gap-2 text-[10px] font-bold text-grey-600 dark:text-grey-400">
                                                             <span className="w-1 h-1 rounded-full bg-google-green mt-1.5 shrink-0"></span>
@@ -398,19 +398,19 @@ export default function WOWPlusPage() {
                                     <div className="flex flex-col md:flex-row items-center gap-10">
                                         <div className="flex-1 text-center md:text-left">
                                             <h4 className="text-grey-500 uppercase font-black tracking-widest text-[10px] mb-2">Baseline Comparison</h4>
-                                            <h3 className="text-2xl font-bold tracking-tight mb-3">Standard Tickets (No WOW+)</h3>
+                                            <h3 className="text-2xl font-bold tracking-tight mb-1">No WOW+ Add-on?</h3>
                                             <p className="text-xs text-grey-600 dark:text-grey-400 leading-relaxed max-w-[40ch]">
-                                                If you choose not to participate in the WOW+ experience, standard tickets are available at full price without swags or exclusive workshop access.
+                                                If you choose not to participate in the WOW+ program, standard tickets are available at full price without swags or exclusive workshop access.
                                             </p>
                                         </div>
 
                                         <div className="flex flex-wrap justify-center gap-6 md:gap-12 shrink-0">
                                             <div className="flex flex-col items-center md:items-start">
-                                                <span className="text-[10px] font-bold text-grey-400 uppercase tracking-widest mb-1">Early Bird</span>
+                                                <span className="text-[10px] font-bold text-grey-400 uppercase tracking-widest mb-1">Before May 25th</span>
                                                 <span className="text-3xl font-bold text-grey-900 dark:text-white">₹1200</span>
                                             </div>
                                             <div className="flex flex-col items-center md:items-start">
-                                                <span className="text-[10px] font-bold text-grey-400 uppercase tracking-widest mb-1">Regular Sales</span>
+                                                <span className="text-[10px] font-bold text-grey-400 uppercase tracking-widest mb-1">After May 25th</span>
                                                 <span className="text-3xl font-bold text-grey-900 dark:text-white">₹2000</span>
                                             </div>
                                         </div>
@@ -492,36 +492,48 @@ export default function WOWPlusPage() {
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">What is the WOW+ experience?</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Are WOW+ and the WOW pass different?</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
-                                                    The WOW+ experience is a competitive and gamified learning environment designed to bring the developers from all over India together. It involves playing games, attending workshops, and earning points that translate to swags and special discounts for the World of Wonders 2026 conference.
+                                                    <b>No, they are the same pass!</b> WOW+ is simply an optional add-on that unlocks the Arcade experience. By adding WOW+ to your pass, you get to earn higher discounts (up to 100% off) through challenges and unlock the <b>Pay Later</b> option, allowing you to settle your discounted fee after the conference.
                                                 </p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">How does the WOW+ experience work?</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">What is the WOW+ Add-on?</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
-                                                    Players earn points by completing games and attending workshops. Your performance dictates your position on the live Leaderboard. Depending on your placement, you will fall into different badge tiers which grant you specific advantages and benefits such as exclusive swags.
+                                                    The WOW+ Add-on is a competitive and gamified learning program designed to bring developers from all over India together. It involves playing games, attending workshops, and earning points that translate to swags and special discounts for your WOW 2026 ticket.
+                                                </p>
+                                            </dd>
+                                        </div>
+                                        <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
+                                            <dt>
+                                                <div className="flex justify-between items-start w-full text-left">
+                                                    <span className="font-medium sm:s-h5 md:l-h5">How does the WOW+ Add-on work?</span>
+                                                </div>
+                                            </dt>
+                                            <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
+                                                <p>
+                                                    Participants earn points by completing games and attending workshops. Your performance dictates your position on the live Leaderboard. Depending on your placement, you will fall into different badge tiers which grant you specific advantages and benefits such as exclusive swags.
                                                 </p>
                                             </dd>
                                         </div>
                                         <div className="pt-[14px] pr-12 border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">Advantages of purchasing a WOW+ Pass</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">Advantages of the WOW+ Add-on</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 md:mt-5 faq-entry">
                                                 <p>
-                                                    Getting a WOW+ pass gives you full access to all exclusive workshops, continuous game drops, and puts you in the running for premium swags and massive cost discounts on your final WOW 2026 ticket.
+                                                    Adding WOW+ to your pass gives you full access to all exclusive workshops, continuous game drops, and puts you in the running for premium swags and massive discounts on your final WOW 2026 ticket.
                                                 </p>
                                             </dd>
                                         </div>
@@ -542,7 +554,7 @@ export default function WOWPlusPage() {
                                         <div className="pt-[14px] pr-12 border-b-2 mb-[18px] pb-[14px] border-grey-900 dark:border-grey-bg! text-grey-900 dark:text-white">
                                             <dt>
                                                 <div className="flex justify-between items-start w-full text-left">
-                                                    <span className="font-medium sm:s-h5 md:l-h5">What are the different Tiers in the WOW+ experience?</span>
+                                                    <span className="font-medium sm:s-h5 md:l-h5">What are the different Tiers in the WOW+ Add-on?</span>
                                                 </div>
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
@@ -628,7 +640,7 @@ export default function WOWPlusPage() {
                                             </dt>
                                             <dd className="mt-4 mb-[18px] md:mt-5 faq-entry">
                                                 <p>
-                                                    At WOW, effort is always rewarded. The points and tiers you achieve aren't just for show! Different tiers provide exclusive premium swags as a token of your achievement in the WOW+ experience. The higher the tier, the better the rewards.
+                                                    At WOW, effort is always rewarded. The points and tiers you achieve aren't just for show! Different tiers provide exclusive premium swags as a token of your achievement with the WOW+ Add-on. The higher the tier, the better the rewards.
                                                 </p><br />
                                                 <p>Even if you don't reach the Bronze tier, all active participants will receive <b>exclusive WOW swags</b> as a token of appreciation for being part of the journey.</p>
                                             </dd>

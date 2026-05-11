@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
   };
 
   const navLinks = [
-    { label: 'WOW+', href: '/wow-plus' },
+    { label: 'WOW+ Add-on', href: '/wow-plus' },
     { label: 'Explore', href: '/explore' },
     { label: 'Speakers', href: '/speakers' },
     { label: 'Team', href: '/team' },

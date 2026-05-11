@@ -31,7 +31,7 @@ const PASS = { price: 1200, list: 2000 };
 const SUB_DISCOUNT = 850;
 
 const navLinks = [
-  { label: 'WOW+', href: '/wow-plus' },
+  { label: 'WOW+ Add-on', href: '/wow-plus' },
   { label: 'Explore', href: '/explore' },
   { label: 'Speakers', href: '/speakers' },
   { label: 'Team', href: '/team' },
