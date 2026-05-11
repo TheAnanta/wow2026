@@ -129,6 +129,7 @@ import { AuthProvider } from "../context/AuthContext";
 import { AnalyticsProvider } from "../components/AnalyticsProvider";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import { Footer } from "@/components/sections/Footer";
+import { WOWPlusAlert } from "@/components/WOWPlusAlert";
 
 export default function RootLayout({
   children,
@@ -151,6 +152,7 @@ export default function RootLayout({
 
             {/* Banner */}
             <AnnouncementBanner props={{ announcement: "WOW+ starts 14th May • Join now for up to 100% discounts & certificates for courses • Pass offer sale ends 25th May • Hurry, get your tickets now!" }} />
+            <WOWPlusAlert />
 
             {children}
 

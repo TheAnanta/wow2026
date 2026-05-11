@@ -31,7 +31,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
               alt="Google for Developers"
               className="h-6 mb-2 dark:invert brightness-30 max-w-[800px]"
             />
-            <h1 className="font-medium text-grey dark:text-white mb-2 text-5xl md:text-7xl lg:l-h1 tracking-tighter whitespace-nowrap">
+            <h1 className="font-medium text-grey dark:text-white mb-2 text-[42px] md:text-7xl lg:l-h1 tracking-tighter whitespace-nowrap">
               Wonder of Wonders
             </h1>
 
