@@ -44,8 +44,8 @@ interface OrderSummaryCardProps {
   disabled?: boolean;
 }
 
-export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({ 
-  pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled 
+export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
+  pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled
 }) => (
   <section
     className="rounded-2xl p-4"
@@ -99,9 +99,9 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
           <div className="flex-1 min-w-0">
             <div className="t-body-l font-semibold flex items-center" style={{ color: 'var(--m-on-surface)' }}>
               {brand}+ subscription
-              <span className="t-label-s px-2 py-0.5 rounded-full ml-2 border" 
-                style={{ 
-                  background: 'var(--m-tertiary-container)', 
+              <span className="t-label-s px-2 py-0.5 rounded-full ml-2 border"
+                style={{
+                  background: 'var(--m-tertiary-container)',
                   color: 'var(--m-on-tertiary-container)',
                   borderColor: 'var(--m-tertiary)',
                   fontSize: '10px',
@@ -129,23 +129,23 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
         <div className="flex items-start gap-4">
           {/* M3 Expressive Checkbox */}
           <div className="relative flex-none mt-1 flex items-center justify-center w-5 h-5">
-            <input 
-              type="checkbox" 
-              checked={isWOWPlus} 
+            <input
+              type="checkbox"
+              checked={isWOWPlus}
               onChange={onToggleWOWPlus}
               className="peer absolute inset-0 opacity-0 cursor-pointer z-10"
               id="wow-plus-toggle"
             />
             <div className={`
               w-5 h-5 rounded-[4px] border-2 transition-all duration-200 flex items-center justify-center
-              ${isWOWPlus 
-                ? 'bg-[var(--m-primary)] border-[var(--m-primary)]' 
+              ${isWOWPlus
+                ? 'bg-[var(--m-primary)] border-[var(--m-primary)]'
                 : 'bg-transparent border-[var(--m-outline)]'}
               peer-active:scale-90
             `}>
-              <IconCheck 
-                size={14} 
-                stroke={4} 
+              <IconCheck
+                size={14}
+                stroke={4}
                 className={`transition-all duration-200 ${isWOWPlus ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
                 style={{ color: 'var(--m-on-primary)' }}
               />
@@ -159,8 +159,8 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
               {isWOWPlus ? `I commit to the ${brand}+ Arcade` : `Want to commit to ${brand}+?`}
             </div>
             <div className="t-body-s mt-1" style={{ color: 'var(--m-on-surface-variant)' }}>
-              {isWOWPlus 
-                ? "Can't commit to arcade challenges? Uncheck this for direct entry." 
+              {isWOWPlus
+                ? "Can't commit to arcade challenges? Uncheck this for direct entry."
                 : "Direct entry selected. Re-check this if you want to commit to arcade challenges and save ₹850."}
             </div>
           </label>
@@ -237,7 +237,7 @@ export const RankCard: React.FC<RankCardProps> = ({ rank, setRank, interactive, 
           }}
         >
           <span className="w-2.5 h-2.5 rounded-full" style={{ background: `var(--m-tier-${tier.id}, var(--m-tier-gold))` }} />
-          <span className="t-label-l">You're #{rank} · {tier.label} tier</span>
+          <span className="t-label-l">If you're #{rank} · {tier.label} tier</span>
         </div>
       </div>
 
