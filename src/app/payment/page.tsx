@@ -108,9 +108,9 @@ function PaymentPage() {
                     }
                 },
                 prefill: {
-                    name: profile?.displayName || user?.displayName || "",
-                    email: user?.email || "",
-                    contact: profile?.phone || "",
+                    name: profile?.displayName || user?.displayName || undefined,
+                    email: user?.email || undefined,
+                    contact: (profile?.phone && profile.phone.length > 5) ? profile.phone : undefined,
                 },
                 theme: { color: "#2c5fd9" },
                 modal: { ondismiss: () => setIsProcessing(false) }

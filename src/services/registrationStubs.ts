@@ -58,7 +58,7 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
       username: (data.displayName || user.displayName || 'user').toLowerCase().replace(/\s+/g, '_'),
       first_name: firstName,
       last_name: lastName,
-      email: user.email || 'manasmalla.dev@gmail.com',
+      email: user.email || '',
       phone: data.phoneNumber ? (data.phoneNumber.startsWith('+91') ? data.phoneNumber : `+91${data.phoneNumber}`) : '',
       gender: data.pronoun.toUpperCase().replace(/\s+/g, '_').replace(/\//g, '_'),
       bio: 'Developer at I/O 2026', // Improved default
