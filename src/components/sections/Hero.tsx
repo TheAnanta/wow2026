@@ -22,23 +22,29 @@ export function Hero({ onRegisterClick }: HeroProps) {
   };
 
   return (
-    <div className="flex flex-col items-center bg-grey-bg dark:bg-grey! mx-10 mt-10 rounded-xl border-2 overflow-hidden">
+    <div className="flex flex-col items-center bg-grey-bg dark:bg-grey! border-b-2 overflow-hidden">
       <div className="mb-6 mt-6 md:mb-10 md:mt-12">
         <div className="h-homepage-main-cta" data-bgimage="">
-          <div className="flex flex-col items-center text-center p-6 max-w-[800px]">
-            <h1 className="font-medium text-grey dark:text-white max-w-[360px] md:max-w-[500px] mb-4 sm:s-h3 md:l-h4">
-              <span>
-                <p>Tune in for<br />GDG on Campus WOW</p>
-                <p>July 4, 2026</p>
-              </span>
+          <div className="flex flex-col items-center text-center p-6 w-full">
+            <img
+              src="/images/Logo-GoogleForDevelopers.svg"
+              alt="Google for Developers"
+              className="h-6 mb-2 dark:invert brightness-30 max-w-[800px]"
+            />
+            <h1 className="font-medium text-grey dark:text-white mb-2 text-5xl md:text-7xl lg:l-h1 tracking-tighter whitespace-nowrap">
+              Wonder of Wonders
             </h1>
-            <div className="hidden">
-              <img width="660" height="63" src="/images/homepage-main-cta-loading.svg" aria-hidden="true" />
+
+            <div className="max-w-[450px] md:max-w-[600px] flex flex-col items-center">
+              <p className="mb-4 sm:s-h5 md:l-h5">July 4, 2026</p>
+              <div className="hidden">
+                <img width="660" height="63" src="/images/homepage-main-cta-loading.svg" aria-hidden="true" />
+              </div>
+              <div className="flex flex-col items-center" />
+              <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
+                <span>Participate in hands-on workshops, tech talks, and hackathon. Take home some cool swags and cash prizes.</span>
+              </h2>
             </div>
-            <div className="flex flex-col items-center" />
-            <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
-              <span>Participate in hands-on workshops, tech talks, and hackathon. Take home some cool swags and cash prizes.</span>
-            </h2>
             <button type="button" className="cta-primary block" onClick={handleCTAClick}>
               <span>{buttonText}</span>
             </button>

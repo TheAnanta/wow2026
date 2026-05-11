@@ -49,15 +49,17 @@ function Home() {
           className="w-full"
         >
           <SwiperSlide> */}
-            <HeroSection onRegisterClick={() => router.push('/register')} />
-          {/* </SwiperSlide>
+        {/* <HeroSection onRegisterClick={() => router.push('/register')} /> */}
+        {/* </SwiperSlide>
           <SwiperSlide>
             <Hero onRegisterClick={() => router.push('/register')} />
           </SwiperSlide>
         </Swiper> */}
 
+        <Hero onRegisterClick={() => router.push('/register')} />
+
         <div className="page-wrapper flex flex-col">
-          {/* <CountdownSection /> */}
+          <CountdownSection />
           <WhatToExpectSection />
           <EventMetricsSection />
           <CTACards />
