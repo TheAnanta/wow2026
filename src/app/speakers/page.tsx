@@ -2,23 +2,31 @@
 
 import React, { useState, useEffect } from 'react';
 import { Header } from '../../components/sections/Header';
-import { Footer } from '../../components/sections/Footer';
 import { SpeakerCard } from '../../components/speakers/SpeakerCard';
 import { FilterSidebar } from '../../components/speakers/FilterSidebar';
 import { SearchBar } from '../../components/speakers/SearchBar';
-import { BentoCard } from '../../components/sections/BentoCard';
 import { Speaker, getSpeakers, searchSpeakers } from '../../services/speakerStubs';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Suspense } from 'react';
+
+// Toggle this variable to switch between the 'Coming Soon' announcement and the active speakers list
+const isSpeakersSectionActive = false;
 
 const TOPICS = [
   'Accessibility', 'Ads', 'AI/Machine Learning', 'Android', 'AR/VR',
   'Chrome OS', 'Cloud', 'Design', 'Firebase', 'Web', 'Mobile'
 ];
 
+const GRADIENTS = [
+  'linear-gradient(90deg, #4285F4 -36.98%, #4285F4 22.31%, #34A853 78.95%, #34A853 132.93%)',
+  'linear-gradient(270deg, #FFCB32 6.94%, #FFCB32 27.99%, #34A853 73.59%, #34A853 94.64%)',
+  'linear-gradient(90deg, #EA4335 -36.98%, #EA4335 22.31%, #4285F4 78.95%, #4285F4 132.93%)',
+  'linear-gradient(270deg, #34A853 6.94%, #34A853 27.99%, #FFCB32 73.59%, #FFCB32 94.64%)',
+];
+
 export default function SpeakersPage() {
   return (
-    <Suspense fallback={<div className="py-20 text-center"><p className="sm:l-h4">Finding the experts...</p></div>}>
+    <Suspense fallback={<div className="py-20 text-center"><p className="sm:l-h4">Loading speakers...</p></div>}>
       <SpeakersContent />
     </Suspense>
   );
@@ -35,16 +43,21 @@ function SpeakersContent() {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => { 
+  useEffect(() => {
+    if (!isSpeakersSectionActive) return;
     // Handle initial query params
     if (qParam) {
       const queryTopics = qParam.toLowerCase().split(',').filter(Boolean);
       const initialTopics = TOPICS.filter(t => queryTopics.includes(t.toLowerCase().replace(/\s+/g, '-').replace('/', '-')));
       setSelectedTopics(initialTopics);
     }
-    fetchInitially(); 
+    fetchInitially();
   }, [qParam]);
-  useEffect(() => { applyFilters(); }, [searchQuery, selectedTopics]);
+
+  useEffect(() => {
+    if (!isSpeakersSectionActive) return;
+    applyFilters();
+  }, [searchQuery, selectedTopics]);
 
   const fetchInitially = async () => {
     setLoading(true);
@@ -69,8 +82,8 @@ function SpeakersContent() {
   };
 
   const toggleTopic = (topic: string) => {
-    const updated = selectedTopics.includes(topic) 
-      ? selectedTopics.filter(t => t !== topic) 
+    const updated = selectedTopics.includes(topic)
+      ? selectedTopics.filter(t => t !== topic)
       : [...selectedTopics, topic];
     setSelectedTopics(updated);
     updateUrl(updated);
@@ -83,7 +96,7 @@ function SpeakersContent() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col min-h-screen">
       <Header onRegisterClick={() => router.push('/register')} />
 
       <main id="content" className="dark:bg-grey-900! flex-1">
@@ -124,66 +137,164 @@ function SpeakersContent() {
           </div>
         </section>
 
-        {/* Two-column layout */}
-        <div className="page-wrapper flex flex-col pt-6 text-md:flex-row speaker-list max-lg:px-4">
-          {/* Sidebar Area */}
-          <div className="text-md:block hidden w-full md:w-1/5 pr-4">
-            <FilterSidebar
-              title="Topics"
-              items={TOPICS}
-              selectedItems={selectedTopics}
-              onToggleItem={toggleTopic}
-            />
-          </div>
+        {!isSpeakersSectionActive ? (
+          /* Announcing Soon Layout */
+          <div className="page-wrapper py-12 md:py-24 animate-slide-down">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+              {/* Main Bento Card */}
+              <div className="md:col-span-7 lg:col-span-8 bg-grey-bg dark:bg-grey! border-2 border-grey dark:border-white rounded-[16px] p-8 md:p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden group shadow-sm hover:shadow-xl transition-all duration-500">
+                <div className="absolute top-0 right-0 p-8 md:p-12">
+                  <div className="w-16 h-16 rounded-full border-2 border-grey dark:border-white flex items-center justify-center animate-spin-slow">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="dark:text-white">
+                      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                    </svg>
+                  </div>
+                </div>
 
-          {/* Main Content Area */}
-          <div id="speaker-list-section" className="flex flex-col w-full text-md:w-4/5 md:ml-8">
-            <SearchBar value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                <div className="relative z-10">
+                  <span className="inline-block px-4 py-1 rounded-full border-2  tracking-tight border-grey-900 dark:border-white text-sm font-medium mb-6 dark:text-white">
+                    Announcing Soon
+                  </span>
+                  <h2 className="l-h2 md:text-[80px] md:leading-[85px] tracking-tight mb-4 dark:text-white">
+                    Speakers <br />
+                    <span className="text-[#2563eb] dark:text-white">will be revealed</span>
+                  </h2>
+                  <p className="tracking-tight sm:l-h6 md:l-h6 mb-6 text-grey-600 dark:text-grey-400 max-w-lg" style={{
+                    fontWeight: 400,
+                    fontFamily: 'Google Sans Text'
+                  }}>
+                    We&apos;re curating an exceptional lineup of Google experts and industry leaders to share insights on the future of technology. Check back soon for the full roster.
+                  </p>
+                  <p className="text-[18px] font-medium mb-10 text-grey-900 dark:text-white tracking-tight">
+                    Have a story to tell? Apply to speak at WOW 2026.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <button className="cta-primary bg-black! dark:bg-white! dark:text-black!" onClick={() => router.push('/become-a-speaker')}>Become a Speaker</button>
+                    <button className="cta-secondary dark:border-white dark:text-white" onClick={() => router.push('/about')}>Learn More</button>
+                  </div>
+                </div>
 
-            {/* Active Filter Chips */}
-            <div className="flex flex-wrap items-center gap-3 mt-4 mb-4">
-              {selectedTopics.map(topic => (
+                {/* Bottom Gradient Bar */}
                 <div
-                  key={topic}
-                  className="inline-flex items-center py-2 px-4 bg-[#202124] dark:bg-white text-white dark:text-grey-900 rounded-full text-sm font-medium cursor-pointer"
-                  onClick={() => removeTopic(topic)}
-                >
-                  {topic}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </div>
-              ))}
-              {selectedTopics.length > 0 && (
-                <span
-                  className="text-sm font-medium underline text-[#202124] dark:text-white ml-2 cursor-pointer"
-                  onClick={() => { setSelectedTopics([]); updateUrl([]); }}
-                >
-                  Clear all
-                </span>
-              )}
-            </div>
+                  className="absolute bottom-0 left-0 right-0 h-2 md:h-3 z-20"
+                  style={{ backgroundImage: GRADIENTS[0] }}
+                ></div>
+              </div>
 
-            <div className={`grid w-full grid-cols-1 md:mt-6 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${loading ? 'opacity-50 pointer-events-none' : ''}`}>
-              {speakers.length > 0 ? (
-                speakers.sort((a, b) => ((a.isGDE ? -1 : 1) + (b.isGDE ? 1 : -1)) || a.name.localeCompare(b.name)).map(speaker => (
-                  <SpeakerCard
-                    key={speaker.id}
-                    name={speaker.name}
-                    title={speaker.title}
-                    pronouns={speaker.pronouns || 'They/Them'}
-                    image={speaker.avatar ? `/images/speakers/${speaker.avatar}` : ''}
-                    href={`/speakers/${speaker.id}`}
-                  />
-                ))
-              ) : (
-                <div className="col-span-full py-10 text-center">
-                  <p className="sm:l-h5">No speakers found matching your filters.</p>
+              {/* Sidebar Teasers */}
+              <div className="md:col-span-5 lg:col-span-4 flex flex-col gap-8">
+                <div className="bg-grey-bg dark:bg-grey! border-2 border-grey dark:border-white rounded-[16px] p-8 md:p-10 flex-1 flex flex-col justify-center group overflow-hidden relative shadow-sm hover:shadow-xl transition-all duration-500">
+                  <div className="relative z-10">
+                    <h3 className="s-h3 text-[32px] dark:text-white mb-4">30+ Sessions</h3>
+                    <p className="text-[18px] text-grey-600 dark:text-grey-400 leading-relaxed">From deep dives into Gemini and AI to hands-on workshops in Android and Web.</p>
+                  </div>
+                  <div className="mt-4 flex -space-x-4 relative z-10 items-center">
+                    {[
+                      'Charan-manikanta.jpeg',
+                      'Diksha-patro.jpeg',
+                      'Gireesh-kumar.jpeg',
+                    ].map((img, i) => (
+                      <div key={i} className="w-14 h-14 rounded-full border-4 border-grey-bg dark:border-grey bg-grey-200 dark:bg-grey-800 flex items-center justify-center overflow-hidden transition-transform hover:scale-110 hover:z-20 cursor-pointer">
+                        <img src={`/images/speakers/${img}`} alt="" className="w-full h-full object-cover" />
+                      </div>
+                    ))}
+                    <div className="w-14 h-14 rounded-full border-4 border-grey-bg dark:border-grey bg-black text-white flex items-center justify-center text-sm font-bold z-20 transition-transform hover:scale-110">
+                      +25
+                    </div>
+                  </div>
+
+                  {/* Bottom Gradient Bar */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-2 md:h-3 z-20"
+                    style={{ backgroundImage: GRADIENTS[1] }}
+                  ></div>
                 </div>
-              )}
+
+                <div className="bg-grey-bg dark:bg-grey! border-2 border-grey dark:border-white rounded-[16px] p-8 md:p-10 flex-1 flex flex-col justify-center group overflow-hidden relative shadow-sm hover:shadow-xl transition-all duration-500">
+                  <div className="relative z-10">
+                    <h3 className="s-h3 text-[32px] dark:text-white mb-4">Stay Connected</h3>
+                    <p className="text-[18px] text-grey-600 dark:text-grey-400 leading-relaxed">Follow us on social media for the earliest speaker reveals and event updates.</p>
+                  </div>
+                  <div className="mt-10 flex gap-4 relative z-10">
+                    <button className="w-12 h-12 rounded-full border-2 border-grey dark:border-white flex items-center justify-center hover:bg-grey-900 hover:text-white dark:hover:bg-white dark:hover:text-grey-900 transition-all duration-300">
+                      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" /></svg>
+                    </button>
+                    <button className="w-12 h-12 rounded-full border-2 border-grey dark:border-white flex items-center justify-center hover:bg-grey-900 hover:text-white dark:hover:bg-white dark:hover:text-grey-900 transition-all duration-300">
+                      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                    </button>
+                  </div>
+
+                  {/* Bottom Gradient Bar */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-2 md:h-3 z-20"
+                    style={{ backgroundImage: GRADIENTS[2] }}
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          /* Active Speakers List Layout */
+          <div className="page-wrapper flex flex-col pt-6 text-md:flex-row speaker-list max-lg:px-4 animate-slide-down">
+            {/* Sidebar Area */}
+            <div className="text-md:block hidden w-full md:w-1/5 pr-4">
+              <FilterSidebar
+                title="Topics"
+                items={TOPICS}
+                selectedItems={selectedTopics}
+                onToggleItem={toggleTopic}
+              />
+            </div>
+
+            {/* Main Content Area */}
+            <div id="speaker-list-section" className="flex flex-col w-full text-md:w-4/5 md:ml-8">
+              <SearchBar value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+
+              {/* Active Filter Chips */}
+              <div className="flex flex-wrap items-center gap-3 mt-4 mb-4">
+                {selectedTopics.map(topic => (
+                  <div
+                    key={topic}
+                    className="inline-flex items-center py-2 px-4 bg-[#202124] dark:bg-white text-white dark:text-grey-900 rounded-full text-sm font-medium cursor-pointer"
+                    onClick={() => removeTopic(topic)}
+                  >
+                    {topic}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                      <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </div>
+                ))}
+                {selectedTopics.length > 0 && (
+                  <span
+                    className="text-sm font-medium underline text-[#202124] dark:text-white ml-2 cursor-pointer"
+                    onClick={() => { setSelectedTopics([]); updateUrl([]); }}
+                  >
+                    Clear all
+                  </span>
+                )}
+              </div>
+
+              <div className={`grid w-full grid-cols-1 md:mt-6 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${loading ? 'opacity-50 pointer-events-none' : ''}`}>
+                {speakers.length > 0 ? (
+                  speakers.sort((a, b) => ((a.isGDE ? -1 : 1) + (b.isGDE ? 1 : -1)) || a.name.localeCompare(b.name)).map(speaker => (
+                    <SpeakerCard
+                      key={speaker.id}
+                      name={speaker.name}
+                      title={speaker.title}
+                      pronouns={speaker.pronouns || 'They/Them'}
+                      image={speaker.avatar ? `/images/speakers/${speaker.avatar}` : ''}
+                      href={`/speakers/${speaker.id}`}
+                    />
+                  ))
+                ) : (
+                  <div className="col-span-full py-10 text-center">
+                    <p className="sm:l-h5">No speakers found matching your filters.</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Bottom CTA Section */}
         <section className="page-wrapper pb-16">
@@ -287,7 +398,7 @@ function SpeakersContent() {
         </section>
       </main>
 
-      {showMobileFilters && (
+      {showMobileFilters && isSpeakersSectionActive && (
         <div className="fixed inset-0 z-2000 bg-white dark:bg-grey-900! p-8 flex flex-col overflow-y-auto animate-slide-down">
           <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#000000] dark:border-white">
             <span className="font-bold text-xl dark:text-white">Topics</span>
@@ -311,15 +422,17 @@ function SpeakersContent() {
       )}
 
       {/* Mobile Filter FAB */}
-      <button
-        className="hidden max-md:flex fixed bottom-8 right-6 cta-primary items-center gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.3)] z-100"
-        onClick={() => setShowMobileFilters(true)}
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M4 21V14M4 10V3M12 21V12M12 8V3M20 21V16M20 12V3M1 14h6M9 8h6M17 16h6" />
-        </svg>
-        Filter
-      </button>
+      {isSpeakersSectionActive && (
+        <button
+          className="hidden max-md:flex fixed bottom-8 right-6 cta-primary items-center gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.3)] z-100"
+          onClick={() => setShowMobileFilters(true)}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M4 21V14M4 10V3M12 21V12M12 8V3M20 21V16M20 12V3M1 14h6M9 8h6M17 16h6" />
+          </svg>
+          Filter
+        </button>
+      )}
     </div>
   );
 }
