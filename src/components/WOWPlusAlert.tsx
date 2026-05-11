@@ -34,7 +34,7 @@ export const WOWPlusAlert = () => {
         >
             {/* M3 Dialog Container */}
             <div
-                className="rounded-[28px] w-full max-w-[440px] overflow-hidden"
+                className="rounded-[28px] w-full max-w-[440px] overflow-hidden wow-dialog"
                 style={{
                     background: 'var(--m-surface-container-high)',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
@@ -43,7 +43,7 @@ export const WOWPlusAlert = () => {
                 }}
             >
                 {/* Header */}
-                <div className="px-6 pt-6 pb-2">
+                <div className="wow-dialog-header px-6 pt-6 pb-2">
                     <div className="flex items-center gap-3 mb-1">
                         <div
                             className="w-10 h-10 rounded-full flex items-center justify-center flex-none"
@@ -73,7 +73,7 @@ export const WOWPlusAlert = () => {
                 </div>
 
                 {/* Benefits section — styled like OrderSummaryCard line items */}
-                <div className="px-6 py-3">
+                <div className="wow-dialog-benefits px-6 py-3">
                     <div
                         className="rounded-2xl p-4"
                         style={{ background: 'var(--m-surface-container-low)' }}
@@ -217,7 +217,7 @@ export const WOWPlusAlert = () => {
                 </div>
 
                 {/* Action buttons — M3 dialog pattern */}
-                <div className="px-6 pt-3 pb-6 flex items-center justify-end gap-2">
+                <div className="wow-dialog-actions px-6 pt-3 pb-6 flex items-center justify-end gap-2">
                     <button
                         onClick={handleClose}
                         className="m-pressable t-label-l px-5 rounded-full"
@@ -250,6 +250,66 @@ export const WOWPlusAlert = () => {
                 @keyframes dialogIn {
                     from { opacity: 0; transform: scale(0.94) translateY(8px); }
                     to   { opacity: 1; transform: scale(1)    translateY(0);   }
+                }
+
+                /* Compact layout for short viewports (iPhone SE, 13 mini, etc.) */
+                @media (max-height: 740px) {
+                    .wow-dialog-header {
+                        padding-top: 1rem;
+                        padding-bottom: 0.25rem;
+                    }
+                    .wow-dialog-header .t-body-m {
+                        font-size: 13px;
+                        line-height: 18px;
+                        margin-top: 0.5rem;
+                    }
+                    .wow-dialog-benefits {
+                        padding-top: 0.375rem;
+                        padding-bottom: 0.375rem;
+                    }
+                    .wow-dialog-benefits .rounded-2xl {
+                        padding: 0.625rem;
+                    }
+                    .wow-dialog-benefits .t-label-m {
+                        margin-bottom: 0.375rem;
+                    }
+                    .wow-dialog-benefits .flex.items-start {
+                        padding-top: 0.25rem;
+                        padding-bottom: 0.25rem;
+                        gap: 0.5rem;
+                        align-items: center;
+                    }
+                    .wow-dialog-benefits .w-10 {
+                        width: 2rem;
+                        height: 2rem;
+                        border-radius: 0.5rem;
+                    }
+                    .wow-dialog-benefits .w-10 svg {
+                        width: 16px;
+                        height: 16px;
+                    }
+                    .wow-dialog-benefits .t-body-l {
+                        font-size: 13px;
+                        line-height: 18px;
+                    }
+                    .wow-dialog-benefits .t-body-s {
+                        display: none;
+                    }
+                    .wow-dialog-benefits hr {
+                        margin-top: 0.125rem;
+                        margin-bottom: 0.125rem;
+                    }
+                    .wow-dialog .rounded-xl.px-4.py-3 {
+                        padding: 0.5rem 0.75rem;
+                    }
+                    .wow-dialog .rounded-xl .t-body-m {
+                        font-size: 12px;
+                        line-height: 16px;
+                    }
+                    .wow-dialog-actions {
+                        padding-top: 0.5rem;
+                        padding-bottom: 1rem;
+                    }
                 }
             `}</style>
         </div>
