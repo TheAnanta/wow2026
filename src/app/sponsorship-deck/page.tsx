@@ -137,55 +137,71 @@ export default function SponsorshipDeck() {
                         </div>
                     </div>
 
-                    {/* Content */}
-                    <div className="w-full max-w-[1200px] mx-auto px-5 md:px-10 pt-8 md:pt-14 text-grey-900 dark:text-white flex flex-col">
+                    <div className="w-full max-w-[1640px] mx-auto px-5 md:px-10 pt-4 md:pt-10 text-grey-900 dark:text-white flex flex-col">
 
                         {/* Why Partner Section */}
-                        <section className="mb-12 md:mb-16">
-                            <h2 className="font-medium text-left text-grey-900 mb-6 sm:s-h4 md:l-h2 dark:text-grey-bg!">
+                        <div className="flex flex-col mt-[8px] md:mt-[4px] mb-12 md:mb-16">
+                            <h2 className="font-medium text-left text-grey-900 mb-4 sm:s-h4 md:l-h2 md:mb-8 dark:text-grey-bg!">
                                 Why Partner with WoW 2026?
                             </h2>
                             <p className="font-normal sm:s-p2 md:l-p1 max-w-3xl mb-10 text-grey-600 dark:text-grey-400">
                                 Wonder of Wonders is the flagship student-run tech festival by 36+ Google Developer Groups on Campus chapters across Andhra Pradesh. With 3,000+ in-person attendees expected at GITAM University, Visakhapatnam on July 4–5, this is your gateway to the next generation of tech talent.
                             </p>
 
-                            {/* Key Benefits Grid */}
-                            <div className="grid md:grid-cols-3 gap-6">
-                                <div className="p-6 rounded-2xl border-2 border-grey dark:border-grey-bg">
-                                    <div className="w-12 h-12 rounded-full bg-[#E8F0FE] dark:bg-[#1a3a6b] flex items-center justify-center mb-4">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#4285F4" />
-                                        </svg>
+                            {/* Key Benefits Grid - Bento Style */}
+                            <div className="grid md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:justify-items-center">
+                                {/* Direct Engagement Card */}
+                                <div className="mb-6 basis-full w-full">
+                                    <div className="flex flex-col justify-center items-start p-8 md:p-10 rounded-3xl bg-[#E8F0FE] dark:bg-[#1a3a6b] h-full transition-transform hover:-translate-y-1">
+                                        <div className="w-14 h-14 rounded-full bg-white dark:bg-grey-900 flex items-center justify-center mb-6 shadow-sm">
+                                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#4285F4" />
+                                            </svg>
+                                        </div>
+                                        <div className="text-grey-900 dark:text-white">
+                                            <h3 className="font-medium mb-3 sm:s-h5 md:l-h5">Direct Engagement</h3>
+                                            <p className="font-normal sm:s-p2 md:l-p1 opacity-80">
+                                                Dedicated booth space and stage time to address 3,000+ attendees directly.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <h3 className="font-medium mb-2 sm:s-h5 md:l-h5">Direct Engagement</h3>
-                                    <p className="font-normal sm:s-p2 md:l-p2 text-grey-600 dark:text-grey-400">
-                                        Dedicated booth space and stage time to address 3,000+ attendees directly.
-                                    </p>
                                 </div>
-                                <div className="p-6 rounded-2xl border-2 border-grey dark:border-grey-bg">
-                                    <div className="w-12 h-12 rounded-full bg-[#E6F4EA] dark:bg-[#1a4d2e] flex items-center justify-center mb-4">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" fill="#34A853" />
-                                        </svg>
+
+                                {/* Recruitment Access Card */}
+                                <div className="mb-6 basis-full w-full">
+                                    <div className="flex flex-col justify-center items-start p-8 md:p-10 rounded-3xl bg-[#E6F4EA] dark:bg-[#1a4d2e] h-full transition-transform hover:-translate-y-1">
+                                        <div className="w-14 h-14 rounded-full bg-white dark:bg-grey-900 flex items-center justify-center mb-6 shadow-sm">
+                                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" fill="#34A853" />
+                                            </svg>
+                                        </div>
+                                        <div className="text-grey-900 dark:text-white">
+                                            <h3 className="font-medium mb-3 sm:s-h5 md:l-h5">Recruitment Access</h3>
+                                            <p className="font-normal sm:s-p2 md:l-p1 opacity-80">
+                                                Direct access to student participation data and exclusive feedback from top talent.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <h3 className="font-medium mb-2 sm:s-h5 md:l-h5">Recruitment Access</h3>
-                                    <p className="font-normal sm:s-p2 md:l-p2 text-grey-600 dark:text-grey-400">
-                                        Direct access to student participation data and exclusive feedback from top talent.
-                                    </p>
                                 </div>
-                                <div className="p-6 rounded-2xl border-2 border-grey dark:border-grey-bg">
-                                    <div className="w-12 h-12 rounded-full bg-[#FEF7E0] dark:bg-[#4d3a1a] flex items-center justify-center mb-4">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#FBBC04" />
-                                        </svg>
+
+                                {/* Brand Integration Card */}
+                                <div className="mb-6 basis-full w-full">
+                                    <div className="flex flex-col justify-center items-start p-8 md:p-10 rounded-3xl bg-[#FEF7E0] dark:bg-[#4d3a1a] h-full transition-transform hover:-translate-y-1">
+                                        <div className="w-14 h-14 rounded-full bg-white dark:bg-grey-900 flex items-center justify-center mb-6 shadow-sm">
+                                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#FBBC04" />
+                                            </svg>
+                                        </div>
+                                        <div className="text-grey-900 dark:text-white">
+                                            <h3 className="font-medium mb-3 sm:s-h5 md:l-h5">Brand Integration</h3>
+                                            <p className="font-normal sm:s-p2 md:l-p1 opacity-80">
+                                                Logo placement on event banners, ID cards, certificates, and attendee kits.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <h3 className="font-medium mb-2 sm:s-h5 md:l-h5">Brand Integration</h3>
-                                    <p className="font-normal sm:s-p2 md:l-p2 text-grey-600 dark:text-grey-400">
-                                        Logo placement on event banners, ID cards, certificates, and attendee kits.
-                                    </p>
                                 </div>
                             </div>
-                        </section>
+                        </div>
 
                         {/* Sponsorship Tiers */}
                         <section className="mb-12 md:mb-16">
@@ -289,6 +305,38 @@ export default function SponsorshipDeck() {
                                     </svg>
                                     Download PDF
                                 </a>
+                            </div>
+                        </section>
+
+                        {/* FAQ Section */}
+                        <section className="mb-16 md:mb-24 flex flex-col md:flex-row gap-8 lg:gap-16">
+                            <div className="md:w-1/3">
+                                <h2 className="font-medium mb-4 sm:l-h2 text-grey-900 dark:text-white">
+                                    Frequently asked questions
+                                </h2>
+                                <p className="font-normal sm:s-p2 md:l-p1 text-grey-600 dark:text-grey-400">
+                                    Have more questions about sponsoring WoW 2026? Reach out to us at <a href="mailto:gdgocwow@gmail.com" className="text-[#2c5fd9] dark:text-[#8ab4f8] underline">gdgocwow@gmail.com</a>
+                                </p>
+                            </div>
+                            <div className="md:w-2/3 flex flex-col gap-6">
+                                <div className="border-b border-grey dark:border-grey-bg pb-6">
+                                    <h4 className="font-medium sm:s-h5 md:l-h5 mb-3 text-grey-900 dark:text-white">Can we customize our sponsorship tier?</h4>
+                                    <p className="font-normal sm:s-p2 md:l-p1 text-grey-700 dark:text-grey-300">
+                                        Absolutely! While we have standard tiers, we understand that every company has unique goals. Reach out to us and we can tailor a custom package that perfectly aligns with your objectives.
+                                    </p>
+                                </div>
+                                <div className="border-b border-grey dark:border-grey-bg pb-6">
+                                    <h4 className="font-medium sm:s-h5 md:l-h5 mb-3 text-grey-900 dark:text-white">What kind of data will we receive from the attendees?</h4>
+                                    <p className="font-normal sm:s-p2 md:l-p1 text-grey-700 dark:text-grey-300">
+                                        Depending on your tier, you'll receive opted-in attendee data which includes academic backgrounds, graduation years, technical skills, and contact information for recruitment purposes.
+                                    </p>
+                                </div>
+                                <div className="border-b border-grey dark:border-grey-bg pb-6">
+                                    <h4 className="font-medium sm:s-h5 md:l-h5 mb-3 text-grey-900 dark:text-white">How many attendees are expected?</h4>
+                                    <p className="font-normal sm:s-p2 md:l-p1 text-grey-700 dark:text-grey-300">
+                                        We are expecting over 3,000 in-person attendees over the course of the 2-day event at GITAM University.
+                                    </p>
+                                </div>
                             </div>
                         </section>
 
