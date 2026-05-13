@@ -37,6 +37,7 @@ function PaymentPage() {
     const [discount, setDiscount] = useState(0);
     const [showGroupModal, setShowGroupModal] = useState(false);
     const [lastOrderDetails, setLastOrderDetails] = useState<{ id: string, badgeName: string } | null>(null);
+    const [isWOWPlus, setIsWOWPlus] = useState(false);
 
     // Mock/Auto-success detection
     useEffect(() => {
@@ -167,9 +168,11 @@ function PaymentPage() {
                 discount={discount}
                 onApplyCoupon={handleApplyCoupon}
                 onBack={() => router.push('/register?update=true')}
+                isWOWPlus={isWOWPlus}
+                onToggleWOWPlus={() => setIsWOWPlus(!isWOWPlus)}
             />
 
-            <WOWPlusAlert />
+            <WOWPlusAlert onConfirm={() => setIsWOWPlus(true)} />
 
             {showGroupModal && lastOrderDetails && (
                 <GroupInviteModal 

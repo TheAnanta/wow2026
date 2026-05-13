@@ -91,8 +91,17 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
 
     {/* WOW+ Opt-out Option */}
     {!disabled && (
-      <div className="mt-1 mb-4 p-4 rounded-xl bg-[var(--m-surface-container-high)]">
+      <div 
+        className="mt-1 mb-4 p-4 rounded-xl bg-[var(--m-surface-container-high)] cursor-pointer hover:bg-[var(--m-surface-container-highest)] transition-colors m-pressable select-none"
+        onClick={(e) => {
+          // If the click is not on the checkbox itself, trigger the toggle
+          if ((e.target as HTMLElement).tagName !== 'INPUT') {
+            onToggleWOWPlus?.();
+          }
+        }}
+      >
         <div className="flex items-start gap-4">
+
           {/* M3 Expressive Checkbox */}
           <div className="relative flex-none mt-1 flex items-center justify-center w-5 h-5">
             <input
@@ -121,13 +130,25 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
           </div>
 
           <label htmlFor="wow-plus-toggle" className="flex-1 cursor-pointer">
-            <div className="t-title-s" style={{ color: 'var(--m-on-surface)' }}>
+            <div className="t-title-s flex items-center gap-2" style={{ color: 'var(--m-on-surface)' }}>
               {isWOWPlus ? `I commit to the ${brand}+ Arcade` : `Want to commit to ${brand}+?`}
+              <span className="t-label-s px-2 py-0.5 rounded-full border shrink-0"
+                style={{
+                  background: 'var(--m-tertiary-container)',
+                  color: 'var(--m-on-tertiary-container)',
+                  borderColor: 'var(--m-tertiary)',
+                  fontSize: '10px',
+                  letterSpacing: '0.5px',
+                  fontWeight: 700
+                }}>
+                LIMITED OFFER
+              </span>
             </div>
+
             <div className="t-body-s mt-1" style={{ color: 'var(--m-on-surface-variant)' }}>
               {isWOWPlus
                 ? "Can't commit to arcade challenges? Uncheck this for direct entry."
-                : "Direct entry selected. Re-check this if you want to commit to arcade challenges and save ₹850."}
+                : "Check this if you want to commit to arcade challenges and workshops and save ₹850."}
             </div>
           </label>
         </div>
@@ -146,11 +167,11 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
         <>
           <div className="flex items-center justify-between">
             <span className="t-body-m flex items-center gap-1.5" style={{ color: 'var(--m-on-surface-variant)' }}>
-              Pay later (18th June)
+              Pay later (18th June, based on points)
               <div className="group relative flex items-center">
                 <IconInfo size={14} className="cursor-help opacity-70 hover:opacity-100 transition-opacity" />
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-[#1b1b21] text-white text-[11px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20">
-                  Points based - Score points on arcade and workshops
+                  Score points on arcade and workshops
                 </div>
               </div>
             </span>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
-export const WOWPlusAlert = () => {
+export const WOWPlusAlert = ({ onConfirm }: { onConfirm?: () => void }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [detailOpen, setDetailOpen] = useState(false);
     const router = useRouter();
@@ -25,7 +25,11 @@ export const WOWPlusAlert = () => {
 
     const handleGetPass = () => {
         handleClose();
-        router.push(isRegistered ? '/register?update=true' : '/register');
+        if (onConfirm) {
+            onConfirm();
+        } else {
+            router.push(isRegistered ? '/register?update=true' : '/register');
+        }
     };
 
     if (!isOpen) return null;
@@ -53,7 +57,7 @@ export const WOWPlusAlert = () => {
                             style={{ background: 'var(--m-primary-container)', color: 'var(--m-on-primary-container)' }}
                         >
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M12 3l1.912 5.885h6.19l-5.007 3.638 1.912 5.885-5.007-3.638-5.007 3.638 1.912-5.885-5.007-3.638h6.19L12 3z"/>
+                                <path d="M12 3l1.912 5.885h6.19l-5.007 3.638 1.912 5.885-5.007-3.638-5.007 3.638 1.912-5.885-5.007-3.638h6.19L12 3z" />
                             </svg>
                         </div>
                         <div className="flex-1">
@@ -92,7 +96,7 @@ export const WOWPlusAlert = () => {
                                 style={{ background: 'var(--m-success-container)', color: 'var(--m-on-success-container)' }}
                             >
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                                    <path d="M20 6L9 17l-5-5"/>
+                                    <path d="M20 6L9 17l-5-5" />
                                 </svg>
                             </div>
                             <div className="flex-1 min-w-0">
@@ -114,9 +118,9 @@ export const WOWPlusAlert = () => {
                                 style={{ background: 'var(--m-primary-container)', color: 'var(--m-on-primary-container)' }}
                             >
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
-                                    <path d="M12 14v6"/>
-                                    <path d="M6 11v4c0 2 6 4 6 4s6-2 6-4v-4"/>
+                                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                                    <path d="M12 14v6" />
+                                    <path d="M6 11v4c0 2 6 4 6 4s6-2 6-4v-4" />
                                 </svg>
                             </div>
                             <div className="flex-1 min-w-0">
@@ -138,11 +142,11 @@ export const WOWPlusAlert = () => {
                                 style={{ background: 'var(--m-secondary-container)', color: 'var(--m-on-surface)' }}
                             >
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <rect x="3" y="8" width="18" height="13" rx="2"/>
-                                    <path d="M12 8V3"/>
-                                    <path d="M12 3c-1.5 0-4 1.5-4 4h4"/>
-                                    <path d="M12 3c1.5 0 4 1.5 4 4h-4"/>
-                                    <line x1="12" y1="8" x2="12" y2="21"/>
+                                    <rect x="3" y="8" width="18" height="13" rx="2" />
+                                    <path d="M12 8V3" />
+                                    <path d="M12 3c-1.5 0-4 1.5-4 4h4" />
+                                    <path d="M12 3c1.5 0 4 1.5 4 4h-4" />
+                                    <line x1="12" y1="8" x2="12" y2="21" />
                                 </svg>
                             </div>
                             <div className="flex-1 min-w-0">
@@ -164,9 +168,9 @@ export const WOWPlusAlert = () => {
                         style={{ background: 'var(--m-surface-container-highest)' }}
                     >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--m-primary)', flexShrink: 0 }}>
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="12" y1="16" x2="12" y2="12"/>
-                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="16" x2="12" y2="12" />
+                            <line x1="12" y1="8" x2="12.01" y2="8" />
                         </svg>
                         <span className="t-body-m" style={{ color: 'var(--m-on-surface)' }}>
                             <b>WOW+ is not a separate pass.</b> It&apos;s an add-on to your WOW pass.
@@ -194,7 +198,7 @@ export const WOWPlusAlert = () => {
                             width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                             className={`transition-transform duration-200 ${detailOpen ? 'rotate-180' : ''}`}
                         >
-                            <path d="M6 9l6 6 6-6"/>
+                            <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
 
@@ -244,7 +248,7 @@ export const WOWPlusAlert = () => {
                             border: 'none',
                         }}
                     >
-                        {isRegistered ? 'Update profile' : 'Register for WOW'}
+                        {isRegistered ? 'Update profile' : 'Add WOW+ now'}
                     </button>
                 </div>
             </div>

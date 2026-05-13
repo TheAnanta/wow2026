@@ -25,6 +25,8 @@ interface MaterialCheckoutProps {
   discount: number;
   onApplyCoupon: (code: string) => Promise<any>;
   onBack: () => void;
+  isWOWPlus: boolean;
+  onToggleWOWPlus: () => void;
 }
 
 const PASS = { price: 1200, list: 2000 };
@@ -49,12 +51,13 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   setCouponCode,
   discount,
   onApplyCoupon,
-  onBack
+  onBack,
+  isWOWPlus,
+  onToggleWOWPlus
 }) => {
   const [rank, setRank] = useState(87);
   const [promos, setPromos] = useState<any[]>([]);
   const [payLaterOpen, setPayLaterOpen] = useState(false);
-  const [isWOWPlus, setIsWOWPlus] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
