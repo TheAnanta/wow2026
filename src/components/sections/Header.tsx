@@ -151,7 +151,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
       )}
 
       {/* Mobile Menu Drawer */}
-      <div className={`drawer-nav md:hidden bg-white dark:bg-grey-900! ${isMobileMenuOpen ? 'show' : ''}`}>
+      <div className={`drawer-nav md:hidden bg-white! dark:bg-grey-900! ${isMobileMenuOpen ? 'show' : ''}`}>
         <div className="p-[20px] h-full flex flex-col">
           <div className="flex justify-between items-center pb-[20px] mb-[32px] border-b border-grey-bg dark:border-grey-bg/10">
             <Link href="/" className="mr-[24px]" aria-label="Google WOW homepage" onClick={() => setIsMobileMenuOpen(false)}>
