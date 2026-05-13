@@ -62,7 +62,7 @@ export const WOWPlusAlert = ({ onConfirm }: { onConfirm?: () => void }) => {
                         </div>
                         <div className="flex-1">
                             <h2 className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>
-                                Add WOW+ to your pass
+                                What is WOW+?
                             </h2>
                         </div>
                         <span
@@ -74,8 +74,7 @@ export const WOWPlusAlert = ({ onConfirm }: { onConfirm?: () => void }) => {
                     </div>
 
                     <p className="t-body-m mt-3" style={{ color: 'var(--m-on-surface-variant)' }}>
-                        Register before <b style={{ color: 'var(--m-on-surface)' }}>May 14th</b> to
-                        add WOW+ to your WOW pass — a limited-time add-on that unlocks arcade challenges for bigger discounts.
+                        Add WOW+ to your WOW pass — compete for points and unlock bigger discounts (upto 100% off).
                     </p>
                 </div>
 
