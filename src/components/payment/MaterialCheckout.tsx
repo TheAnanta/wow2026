@@ -223,7 +223,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   userName={profile?.displayName} 
                   userEmail={user?.email} 
                   isWOWPlus={isWOWPlus}
-                  onToggleWOWPlus={() => setIsWOWPlus(!isWOWPlus)}
+                  onToggleWOWPlus={onToggleWOWPlus}
                   disabled={isBetterTogether}
                 />
               </div>
