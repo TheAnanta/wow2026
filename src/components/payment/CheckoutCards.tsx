@@ -53,7 +53,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
   >
     <header className="flex items-center justify-between mb-3">
       <h2 className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>Order summary</h2>
-      <span className="t-label-m" style={{ color: 'var(--m-on-surface-variant)' }}>{qty + (sub > 0 ? 1 : 0)} items</span>
+      <span className="t-label-m" style={{ color: 'var(--m-on-surface-variant)' }}>{qty} items</span>
     </header>
 
     {/* Pass line item */}
@@ -64,7 +64,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
       <div className="flex-1 min-w-0">
         <div className="t-body-l font-semibold truncate" style={{ color: 'var(--m-on-surface)' }}>
-          {brand} pass
+          {isWOWPlus ? `${brand} pass with ${brand}+` : `${brand} pass`}
         </div>
         <div className="t-body-s" style={{ color: 'var(--m-on-surface-variant)' }}>
           {userName || 'User'} · {userEmail || 'email@example.com'}
@@ -81,47 +81,13 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
         </div>
       </div>
       <div className="text-right flex-none">
-        <div className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>₹{(pass.price * qty).toLocaleString('en-IN')}</div>
+        <div className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>
+          {isWOWPlus ? `upto ₹${(800 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`}
+        </div>
         <div className="t-body-s line-through" style={{ color: 'var(--m-on-surface-variant)' }}>₹{(pass.list * qty).toLocaleString('en-IN')}</div>
       </div>
     </div>
 
-    {sub > 0 && isWOWPlus && (
-      <>
-        <hr className="my-1 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
-
-        {/* Subscription discount */}
-        <div className="flex items-start gap-3 py-2">
-          <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-none"
-            style={{ background: 'var(--m-success-container)', color: 'var(--m-on-success-container)' }}>
-            <IconSparkle size={22} stroke={2} />
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="t-body-l font-semibold flex items-center" style={{ color: 'var(--m-on-surface)' }}>
-              {brand}+ subscription
-              <span className="t-label-s px-2 py-0.5 rounded-full ml-2 border"
-                style={{
-                  background: 'var(--m-tertiary-container)',
-                  color: 'var(--m-on-tertiary-container)',
-                  borderColor: 'var(--m-tertiary)',
-                  fontSize: '10px',
-                  letterSpacing: '1px',
-                  fontWeight: 800,
-                  transform: 'translateY(-1px)'
-                }}>
-                ADD-ON
-              </span>
-            </div>
-            <div className="t-body-s" style={{ color: 'var(--m-on-surface-variant)' }}>
-              Member benefit · auto-applied
-            </div>
-          </div>
-          <div className="text-right flex-none">
-            <div className="t-title-m" style={{ color: 'var(--m-success)' }}>−₹{sub.toLocaleString('en-IN')}</div>
-          </div>
-        </div>
-      </>
-    )}
 
     {/* WOW+ Opt-out Option */}
     {!disabled && (
@@ -170,10 +136,37 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
 
     <hr className="my-4 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
 
-    <div className="flex items-center justify-between pt-3">
-      <span className="t-body-l" style={{ color: 'var(--m-on-surface-variant)' }}>Subtotal</span>
-      <span className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>₹{subtotal.toLocaleString('en-IN')}</span>
+    <div className="mt-4 pt-3 flex flex-col gap-2">
+      <div className="flex items-center justify-between">
+        <span className="t-body-l" style={{ color: 'var(--m-on-surface-variant)' }}>Subtotal</span>
+        <span className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>₹{subtotal.toLocaleString('en-IN')}</span>
+      </div>
+
+      {isWOWPlus && (
+        <>
+          <div className="flex items-center justify-between">
+            <span className="t-body-m flex items-center gap-1.5" style={{ color: 'var(--m-on-surface-variant)' }}>
+              Pay later (18th June)
+              <div className="group relative flex items-center">
+                <IconInfo size={14} className="cursor-help opacity-70 hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-[#1b1b21] text-white text-[11px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20">
+                  Points based - Score points on arcade and workshops
+                </div>
+              </div>
+            </span>
+            <span className="t-body-l tabular-nums" style={{ color: 'var(--m-on-surface-variant)' }}>upto ₹{(450 * qty).toLocaleString('en-IN')}</span>
+          </div>
+
+          <hr className="my-1 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
+
+          <div className="flex items-center justify-between">
+            <span className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>Total</span>
+            <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>upto ₹{(800 * qty).toLocaleString('en-IN')}</span>
+          </div>
+        </>
+      )}
     </div>
+
   </section>
 );
 

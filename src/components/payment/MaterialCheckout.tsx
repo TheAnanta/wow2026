@@ -225,9 +225,9 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                 />
               </div>
 
-              <div style={{ scrollSnapAlign: 'start' }}>
-                <RankCard rank={rank} setRank={setRank} interactive={true} brand={brand} disabled={isBetterTogether} />
-              </div>
+{/* <div style={{ scrollSnapAlign: 'start' }}>
+  <RankCard rank={rank} setRank={setRank} interactive={true} brand={brand} disabled={isBetterTogether} />
+</div> */}
             </div>
 
             {/* Right Column */}
@@ -386,9 +386,7 @@ function PayLaterDisclosure({ open, setOpen, payLater, rank, isWOWPlus }: any) {
         <span className="flex-1 text-left">
           {!isWOWPlus
             ? <>No pay-later — Standard pass is fully settled.</>
-            : payLater.max === 0
-            ? <>No pay-later — at <b style={{ color: 'var(--m-on-surface)' }}>{tier.label}</b> you owe nothing later.</>
-            : <><b style={{ color: 'var(--m-on-surface)' }}>{payLater.label}</b> · pay later, based on rank</>}
+            : <>you will need to pay 0-450 based on rank (decided on June 18)</>}
         </span>
         <IconInfo size={18} />
         <IconChevronDown size={18} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
@@ -403,18 +401,10 @@ function PayLaterDisclosure({ open, setOpen, payLater, rank, isWOWPlus }: any) {
                 owe nothing after the conference. The pay-later system only applies to the discounted WOW+ passes.
               </p>
             ) : (
-              <>
-                <p>
-                  You only pay the <b>now</b> amount upfront. The <b>pay-later</b> amount is settled after the conference,
-                  based on your final leaderboard rank — climb up tiers to reduce or eliminate it.
-                </p>
-                <ul className="mt-2 space-y-1 t-body-s">
-                  <li>· <b>Platinum / Diamond:</b> ₹0 / ₹50 due later</li>
-                  <li>· <b>Gold:</b> ₹200 due later</li>
-                  <li>· <b>Silver:</b> ₹300 due later</li>
-                  <li>· <b>Bronze:</b> ₹450 due later</li>
-                </ul>
-              </>
+              <p>
+                You only pay the <b>now</b> amount upfront. The <b>pay-later</b> amount (up to ₹450) is settled after the conference,
+                based on your final leaderboard rank which will be decided on June 18.
+              </p>
             )}
           </div>
         </div>
