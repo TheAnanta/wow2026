@@ -7,6 +7,7 @@ import { GroupInviteModal } from "@/components/payment/GroupInviteModal";
 import { useAuth } from "@/context/AuthContext";
 import { fetchTicketTiers, initiateCheckout, verifyPayment, fetchMyTickets, validateCoupon } from "@/services/registrationStubs";
 import { analyticsService } from "@/services/analytics";
+import { WOWPlusAlert } from "@/components/WOWPlusAlert";
 
 function PaymentPage() {
     const startTimeRef = useRef(Date.now());
@@ -167,6 +168,8 @@ function PaymentPage() {
                 onApplyCoupon={handleApplyCoupon}
                 onBack={() => router.push('/register?update=true')}
             />
+
+            <WOWPlusAlert />
 
             {showGroupModal && lastOrderDetails && (
                 <GroupInviteModal 
