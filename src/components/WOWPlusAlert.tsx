@@ -247,7 +247,7 @@ export const WOWPlusAlert = ({ onConfirm }: { onConfirm?: () => void }) => {
                             border: 'none',
                         }}
                     >
-                        {isRegistered ? 'Update profile' : 'Add WOW+ now'}
+                        {onConfirm ? 'Add WOW+ now' : (isRegistered ? 'Update profile' : 'Add WOW+ now')}
                     </button>
                 </div>
             </div>
