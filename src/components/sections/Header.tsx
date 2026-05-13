@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
   };
 
   const navLinks = [
-    { label: 'Explore', href: '/explore' },
+    { label: 'Schedule', href: '/explore' },
     { label: 'Speakers', href: '/speakers' },
     { label: 'Team', href: '/team' },
     { label: 'Community', href: '/community' },
