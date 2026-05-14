@@ -88,6 +88,15 @@ function PaymentPage() {
             analyticsService.trackCheckoutActivity('select_tier', tierSearch, 'initiated', duration);
 
             const checkoutData = await initiateCheckout(tier.id, couponCode);
+            
+            if (checkoutData.is_free) {
+                // 🚀 ZERO-AMOUNT BYPASS: Skip Razorpay
+                setEarnedBadge(badgeName || tier.name);
+                setOrderId(checkoutData.order_id);
+                window.dispatchEvent(new CustomEvent('registrationSuccess'));
+                setIsProcessing(false);
+                return;
+            }
 
             const options = {
                 key: checkoutData.key_id,
