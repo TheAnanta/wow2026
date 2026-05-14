@@ -47,6 +47,10 @@ function PaymentPage() {
             setShowGroupModal(true);
             setLastOrderDetails({ id: 'order_MOCK_GROUP_123', badgeName: 'WOW 2026 - Attendee' });
         }
+        
+        if (searchParams.get('wowplus') === 'true') {
+            setIsWOWPlus(true);
+        }
     }, [searchParams]);
 
     useEffect(() => {
@@ -62,12 +66,17 @@ function PaymentPage() {
             return;
         }
 
+        if (tickets && tickets.length > 0) {
+            router.push('/?message=already_has_ticket');
+            return;
+        }
+
         const loadData = async () => {
             const tiersData = await fetchTicketTiers();
             setTiers(tiersData);
         };
         loadData();
-    }, [profile, user, isLoading, router]);
+    }, [profile, user, isLoading, router, tickets]);
 
     const handlePurchase = async (tierSearch: string, badgeName?: string) => {
         setIsProcessing(true);
