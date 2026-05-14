@@ -14,9 +14,11 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) => {
-  const { user, profile, isLoggedIn, isUnregistered } = useAuth();
+  const { user, profile, isLoggedIn, isUnregistered, tickets } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+
+  const hasTicket = tickets && tickets.length > 0;
 
   const handleAction = () => {
     if (!isLoggedIn) {
@@ -31,13 +33,19 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
     }
   };
 
+  const hasArcade = tickets?.some((t: any) =>
+    (t.tier?.name || t.name || "").toLowerCase().includes("arcade") || 
+    (t.tier?.name || t.name || "").toLowerCase().includes("wow")
+  );
+
   const navLinks = [
+    ...(hasArcade ? [{ label: 'Arcade', href: '/arcade' }] : []),
     { label: 'Schedule', href: '/explore' },
     { label: 'Speakers', href: '/speakers' },
     { label: 'Team', href: '/team' },
     { label: 'Community', href: '/community' },
     { label: 'About', href: '/about' },
-    { label: 'WOW+ Add-on', href: '/wow-plus' },
+    ...(!hasTicket ? [{ label: 'WOW+ Add-on', href: '/wow-plus' }] : []),
   ];
 
   return (

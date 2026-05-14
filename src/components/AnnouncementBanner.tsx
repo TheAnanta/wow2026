@@ -2,9 +2,14 @@
 import { useState } from "react";
 import { analyticsService } from "../services/analytics";
 
-export default function AnnouncementBanner({ props }: { props: { announcement: string } }) {
+import { useAuth } from "../context/AuthContext";
 
+export default function AnnouncementBanner({ props }: { props: { announcement: string } }) {
+    const { tickets } = useAuth();
     const [showBanner, setShowBanner] = useState<boolean>(true);
+
+    if (tickets && tickets.length > 0) return null;
+
     return showBanner && (
         <div className="bg-[#202124] dark:bg-black/80 text-white py-3 px-4 text-sm flex items-center relative overflow-hidden">
             <div className="flex whitespace-nowrap animate-marquee">

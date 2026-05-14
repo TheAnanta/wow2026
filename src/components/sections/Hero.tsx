@@ -13,8 +13,8 @@ export function Hero({ onRegisterClick }: HeroProps) {
   const isRegistered = isLoggedIn && !isUnregistered && !!profile;
   const hasTicket = tickets && tickets.length > 0;
 
-  const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
-  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register?update=true');
+  const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : "You're in.");
+  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/profile');
 
   const handleCTAClick = () => {
     analyticsService.trackCTA(buttonText, 'Hero', 'click');
@@ -45,8 +45,18 @@ export function Hero({ onRegisterClick }: HeroProps) {
                 <span>Participate in hands-on workshops, tech talks, and hackathon. Take home some cool swags and cash prizes.</span>
               </h2>
             </div>
-            <button type="button" className="cta-primary block" onClick={handleCTAClick}>
+            <button
+              type="button"
+              className={hasTicket ? "flex items-center gap-2 px-8 py-3 bg-[#e3e1e9] dark:bg-[#35343b] text-[#1b1b21] dark:text-[#e5e1e9] rounded-full font-bold transition-all border border-[#c6c5d0] dark:border-[#46464f]" : "cta-primary block"}
+              onClick={handleCTAClick}
+            >
+              {hasTicket && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-[#0061a4] dark:text-[#a1c9ff] mr-2">
+                  <path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.7 3.1 5.52l.34 3.69L1 12l2.44 2.79-.34 3.69 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.2 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z" />
+                </svg>
+              )}
               <span>{buttonText}</span>
+
             </button>
           </div>
           <div className="hidden flex-col items-center">
