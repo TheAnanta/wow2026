@@ -35,7 +35,6 @@ export function Hero({ onRegisterClick }: HeroProps) {
               Wonder of Wonders 2026
             </h1>
             <h2 style={{
-              fontFamily: "Google Sans Flex",
               fontWeight: "400"
             }} className="text-grey dark:text-white mb-2 text-[18px] lg:text-[24px] tracking-tighter">
               The largest student developer festival in South India.<br />
