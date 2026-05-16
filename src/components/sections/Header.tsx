@@ -53,16 +53,11 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
       <nav className="max-w-[1640px] mx-auto h-[66px] px-[20px] md:px-[60px] flex items-center justify-between">
         <div className="flex items-center">
           {/* Logo */}
-          <Link href="/" className="mr-[24px]" aria-label="Google WOW homepage">
+          <Link href="/" className="mr-[48px]" aria-label="Google WOW homepage">
             <img
-              src="https://developers.google.com/static/program/images/gdp/gdp-full-logo.svg"
-              alt="Google for Developers"
-              className="h-8 md:h-10 dark:hidden"
-            />
-            <img
-              src="https://wow.vizag.dev/images/gdp-full-logo-dark.svg"
-              alt="Google for Developers"
-              className="h-8 md:h-10 hidden dark:block"
+              src="/images/gdg-logo-icon.svg"
+              alt="GDG on Campus"
+              className="h-5"
             />
           </Link>
 
@@ -173,14 +168,9 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
           <div className="flex justify-between items-center pb-[20px] mb-[32px] border-b border-grey-bg dark:border-grey-bg/10">
             <Link href="/" className="mr-[24px]" aria-label="Google WOW homepage" onClick={() => setIsMobileMenuOpen(false)}>
               <img
-                src="https://developers.google.com/static/program/images/gdp/gdp-full-logo.svg"
-                alt="Google for Developers"
-                className="h-6 dark:hidden"
-              />
-              <img
-                src="https://wow.vizag.dev/images/gdp-full-logo-dark.svg"
-                alt="Google for Developers"
-                className="h-6 hidden dark:block"
+                src="/images/gdg-logo-icon.svg"
+                alt="GDG on Campus"
+                className="h-6"
               />
             </Link>
             <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
