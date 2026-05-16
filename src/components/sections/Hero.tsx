@@ -31,12 +31,12 @@ export function Hero({ onRegisterClick }: HeroProps) {
               alt="Google for Developers"
               className="h-6 mb-2 dark:invert brightness-30 max-w-[800px]"
             />
-            <h1 className="font-medium text-grey dark:text-white text-[42px] md:text-7xl lg:l-h1 tracking-tighter whitespace-nowrap">
+            <h1 className="font-medium text-grey dark:text-white text-[40px] md:text-7xl lg:l-h1 tracking-tighter whitespace-nowrap">
               Wonder of Wonders 2026
             </h1>
             <h2 style={{
               fontWeight: "400"
-            }} className="text-grey dark:text-white mb-2 text-[18px] lg:text-[24px] tracking-tighter">
+            }} className="text-grey dark:text-white mb-2 text-[16px] lg:text-[24px] tracking-tighter">
               The largest student developer festival in South India.<br />
               <span style={{ fontWeight: '600' }}>July 4–5 · GITAM University, Visakhapatnam</span>
             </h2>
