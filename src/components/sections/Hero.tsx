@@ -31,32 +31,34 @@ export function Hero({ onRegisterClick }: HeroProps) {
               alt="Google for Developers"
               className="h-6 mb-2 dark:invert brightness-30 max-w-[800px]"
             />
-            <h1 className="font-medium text-grey dark:text-white mb-2 text-[42px] md:text-7xl lg:l-h1 tracking-tighter whitespace-nowrap">
-              Wonder of Wonders
+            <h1 className="font-medium text-grey dark:text-white text-[42px] md:text-7xl lg:l-h1 tracking-tighter whitespace-nowrap">
+              Wonder of Wonders 2026
             </h1>
+            <h2 style={{
+              fontFamily: "Google Sans Flex",
+              fontWeight: "400"
+            }} className="text-grey dark:text-white mb-2 text-[18px] lg:text-[24px] tracking-tighter">
+              The largest student developer festival in South India.<br />
+              <span style={{ fontWeight: '600' }}>July 4–5 · GITAM University, Visakhapatnam</span>
+            </h2>
 
             <div className="max-w-[450px] md:max-w-[600px] flex flex-col items-center">
-              <p className="mb-4 sm:s-h5 md:l-h5">July 4, 2026</p>
               <div className="hidden">
                 <img width="660" height="63" src="/images/homepage-main-cta-loading.svg" aria-hidden="true" />
               </div>
-              <div className="flex flex-col items-center" />
-              <h2 className="font-medium text-grey dark:text-white mb-4 sm:s-h6 md:l-h6">
-                <span>Participate in hands-on workshops, tech talks, and hackathon. Take home some cool swags and cash prizes.</span>
-              </h2>
+
             </div>
             <button
               type="button"
-              className={hasTicket ? "flex items-center gap-2 px-8 py-3 bg-[#e3e1e9] dark:bg-[#35343b] text-[#1b1b21] dark:text-[#e5e1e9] rounded-full font-bold transition-all border border-[#c6c5d0] dark:border-[#46464f]" : "cta-primary block"}
+              className={hasTicket ? "mt-4 flex items-center gap-3 px-10 py-3 bg-[#1a3f8f] dark:bg-[#dde6ff] text-[#dde6ff] dark:text-[#00164d] rounded-full font-bold transition-all hover:shadow-md hover:scale-[1.02] active:scale-95" : "mt-4 cta-primary block"}
               onClick={handleCTAClick}
             >
               {hasTicket && (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-[#0061a4] dark:text-[#a1c9ff] mr-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-[#dde6ff] dark:text-[#004a77]">
                   <path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.7 3.1 5.52l.34 3.69L1 12l2.44 2.79-.34 3.69 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.2 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z" />
                 </svg>
               )}
               <span>{buttonText}</span>
-
             </button>
           </div>
           <div className="hidden flex-col items-center">

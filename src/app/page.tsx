@@ -13,6 +13,7 @@ import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/navigation';
 import WhatToExpectSection from '@/components/sections/WhatToExpectSection';
 import EventMetricsSection from '@/components/sections/EventMetricsSection';
+import { WhatIsWOW } from '@/components/sections/WhatIsWOW';
 import { useSearchParams } from 'next/navigation';
 import { Toast } from '@/components/ui/Toast';
 import { analyticsService } from '@/services/analytics';
@@ -58,12 +59,13 @@ function Home() {
 
         <Hero onRegisterClick={() => router.push('/register')} />
 
-        <div className="page-wrapper flex flex-col">
-          <CountdownSection />
-          <WhatToExpectSection />
+        {/* <div className="page-wrapper flex flex-col"> */}
+        {/* <CountdownSection /> */}
+        {/* <WhatToExpectSection />
           <EventMetricsSection />
-          <CTACards />
-        </div>
+          <CTACards /> */}
+        {/* </div> */}
+        <WhatIsWOW />
         {/* <KeynotesSection /> */}
         <StackCardsSection />
         <div className='page-wrapper flex flex-col'>

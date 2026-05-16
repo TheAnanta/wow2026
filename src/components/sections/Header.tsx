@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
   };
 
   const hasArcade = tickets?.some((t: any) =>
-    (t.tier?.name || t.name || "").toLowerCase().includes("arcade") || 
+    (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
     (t.tier?.name || t.name || "").toLowerCase().includes("wow")
   );
 
@@ -49,12 +49,21 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
   ];
 
   return (
-    <header id="main-header" className={`bg-white dark:bg-grey-900! border-grey-900 dark:border-grey-bg! border-b-[1.2px] md:border-b-2 w-full ${className}`}>
+    <header id="main-header" className={`bg-white dark:bg-grey-900! w-full ${className}`}>
       <nav className="max-w-[1640px] mx-auto h-[66px] px-[20px] md:px-[60px] flex items-center justify-between">
         <div className="flex items-center">
           {/* Logo */}
           <Link href="/" className="mr-[24px]" aria-label="Google WOW homepage">
-            GDG<span className='font-black'>WOW</span>
+            <img
+              src="https://developers.google.com/static/program/images/gdp/gdp-full-logo.svg"
+              alt="Google for Developers"
+              className="h-8 md:h-10 dark:hidden"
+            />
+            <img
+              src="https://wow.vizag.dev/images/gdp-full-logo-dark.svg"
+              alt="Google for Developers"
+              className="h-8 md:h-10 hidden dark:block"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -163,7 +172,16 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
         <div className="p-[20px] h-full flex flex-col">
           <div className="flex justify-between items-center pb-[20px] mb-[32px] border-b border-grey-bg dark:border-grey-bg/10">
             <Link href="/" className="mr-[24px]" aria-label="Google WOW homepage" onClick={() => setIsMobileMenuOpen(false)}>
-              GDG<span className='font-black'>WOW</span>
+              <img
+                src="https://developers.google.com/static/program/images/gdp/gdp-full-logo.svg"
+                alt="Google for Developers"
+                className="h-6 dark:hidden"
+              />
+              <img
+                src="https://wow.vizag.dev/images/gdp-full-logo-dark.svg"
+                alt="Google for Developers"
+                className="h-6 hidden dark:block"
+              />
             </Link>
             <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" className="fill-grey-900 dark:fill-white" /></svg>
@@ -218,6 +236,13 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
             </div>
           </div>
         </div>
+      </div>
+      {/* Google-colour accent bar */}
+      <div className="flex w-full h-[4px]">
+        <div className="flex-1 bg-[#4285F4]"></div>
+        <div className="flex-1 bg-[#EA4335]"></div>
+        <div className="flex-1 bg-[#FBBC04]"></div>
+        <div className="flex-1 bg-[#34A853]"></div>
       </div>
     </header>
   );
