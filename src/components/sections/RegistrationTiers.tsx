@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useAuth } from '../../context/AuthContext';
 
 const TierCard: React.FC<{
   name: string;
@@ -73,6 +74,14 @@ const TierCard: React.FC<{
 };
 
 export const RegistrationTiers = () => {
+  const { profile, isLoggedIn, isUnregistered, tickets } = useAuth();
+  const hasTicket = tickets && tickets.length > 0;
+
+  if (hasTicket) return null;
+
+  const isRegistered = isLoggedIn && !isUnregistered && !!profile;
+  const baseLink = isRegistered ? '/payment' : '/register';
+
   return (
     <section id="registration-tiers" className=" bg-white dark:bg-grey-900 overflow-hidden">
       <div className="page-wrapper">
@@ -85,7 +94,7 @@ export const RegistrationTiers = () => {
             name="Basic"
             price="₹1,200"
             buttonText="Get started"
-            href="/register"
+            href={baseLink}
             features={[
               "15+ Hands-on Workshops",
               "72+ Talks",
@@ -104,7 +113,7 @@ export const RegistrationTiers = () => {
             name="WOW+"
             price="₹350*"
             buttonText="Get started"
-            href="/register?tier=wowplus"
+            href={`${baseLink}?tier=wowplus`}
             isRecommended
             pricingSubtext={
               <>
@@ -134,7 +143,7 @@ export const RegistrationTiers = () => {
           />
           <TierCard
             name="Group Pass"
-            href="/register?tier=group&promo=bettertogether"
+            href={`${baseLink}?tier=group&promo=bettertogether`}
             badge={
               <div className="inline-flex items-center gap-1.5 bg-[#e6f4ea] text-[#137333] dark:bg-[#137333]/20 dark:text-[#81c995] px-3 py-1 rounded-full">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

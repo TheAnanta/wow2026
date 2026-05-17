@@ -14,11 +14,15 @@ export function Hero({ onRegisterClick }: HeroProps) {
   const hasTicket = tickets && tickets.length > 0;
 
   const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : "You're in.");
-  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/profile');
+  const buttonLink = !hasTicket ? '#registration-tiers' : '/profile';
 
   const handleCTAClick = () => {
     analyticsService.trackCTA(buttonText, 'Hero', 'click');
-    if (!isRegistered) {
+    if (!hasTicket) {
+      if (onRegisterClick) {
+        onRegisterClick();
+        return;
+      }
       const element = document.getElementById('registration-tiers');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });

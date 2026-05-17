@@ -43,7 +43,9 @@ function Home() {
 
   return (
     <div className="w-full min-h-screen text-grey-900 dark:text-grey-bg! overflow-x-hidden">
-      <Header onRegisterClick={() => router.push('/register')} />
+      <Header onRegisterClick={() => {
+        document.getElementById('registration-tiers')?.scrollIntoView({ behavior: 'smooth' });
+      }} />
 
       <main>
         {/* <Swiper
@@ -62,7 +64,9 @@ function Home() {
           </SwiperSlide>
         </Swiper> */}
 
-        <Hero onRegisterClick={() => router.push('/register')} />
+        <Hero onRegisterClick={() => {
+          document.getElementById('registration-tiers')?.scrollIntoView({ behavior: 'smooth' });
+        }} />
 
         {/* <div className="page-wrapper flex flex-col"> */}
         {/* <CountdownSection /> */}

@@ -1,35 +1,45 @@
 import React from 'react';
-
-const steps = [
-  {
-    title: "Pay ₹350 now",
-    description: "Before 25th May",
-    number: "1",
-    button: { text: "Pay now", link: "/register?tier=wowplus" }
-  },
-  {
-    title: "Attend online workshops\nand play games",
-    description: "May 18 - June 18",
-    number: "2",
-  },
-  {
-    title: "Score points",
-    description: "Every week",
-    number: "3",
-  },
-  {
-    title: "Win a league",
-    description: "18th June",
-    number: "4",
-  },
-  {
-    title: "Pay rest & get WOW pass",
-    description: "Before 25th June",
-    number: "5",
-  }
-];
+import { useAuth } from '../../context/AuthContext';
 
 export const HowWOWPlusWorks = () => {
+  const { tickets } = useAuth();
+  const hasArcade = tickets?.some((t: any) =>
+    (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("wow")
+  );
+
+  const steps = [
+    {
+      title: "Pay ₹350 now",
+      description: "Before 25th May",
+      number: "1",
+      button: hasArcade 
+        ? { text: "Paid", link: "#", isPaid: true } 
+        : { text: "Pay now", link: "/register?tier=wowplus" }
+    },
+    {
+      title: "Attend online workshops\nand play games",
+      description: "May 18 - June 18",
+      number: "2",
+      button: hasArcade ? { text: "Go to Arcade", link: "/arcade" } : undefined
+    },
+    {
+      title: "Score points",
+      description: "Every week",
+      number: "3",
+      button: hasArcade ? { text: "View profile", link: "/profile" } : undefined
+    },
+    {
+      title: "Win a league",
+      description: "18th June",
+      number: "4",
+    },
+    {
+      title: "Pay rest & get WOW pass",
+      description: "Before 25th June",
+      number: "5",
+    }
+  ];
   return (
     <section id="how-wow-plus-works" className="pb-20 md:pb-32 bg-white dark:bg-grey-900 overflow-hidden px-4">
       <div className="max-w-5xl mx-auto bg-white dark:bg-[#191c21] rounded-[24px] shadow-sm relative overflow-hidden"
@@ -43,7 +53,7 @@ export const HowWOWPlusWorks = () => {
         <div className="p-8 md:p-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1b1b21] dark:text-[#e2e2e9] tracking-tight">
-              How does WOW+ work?
+              {hasArcade ? "Welcome to WOW+" : "How does WOW+ work?"}
             </h2>
           </div>
 
@@ -71,9 +81,15 @@ export const HowWOWPlusWorks = () => {
                   )}
                   {step.button && (
                     <div className="mt-4">
-                      <a href={step.button.link} className="inline-block text-[13px] font-bold px-5 py-2 bg-[#2c5fd9] text-white rounded-full hover:bg-[#1a4bba] transition-colors shadow-sm">
-                        {step.button.text}
-                      </a>
+                      {step.button.isPaid ? (
+                        <span className="inline-block text-[13px] font-bold px-5 py-2 bg-[#dadce0] dark:bg-[#46464f] text-[#767680] dark:text-[#9aa0a6] rounded-full cursor-not-allowed shadow-none border border-[#dadce0] dark:border-[#46464f]">
+                          {step.button.text}
+                        </span>
+                      ) : (
+                        <a href={step.button.link} className="inline-block text-[13px] font-bold px-5 py-2 bg-[#2c5fd9] text-white rounded-full hover:bg-[#1a4bba] transition-colors shadow-sm">
+                          {step.button.text}
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>

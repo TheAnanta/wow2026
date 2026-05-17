@@ -26,7 +26,11 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
       signInWithGoogle().catch(console.error);
     } else if (isUnregistered) {
       analyticsService.trackCTA('Complete registration', 'Header');
-      router.push('/register');
+      if (onRegisterClick) {
+        onRegisterClick();
+      } else {
+        router.push('/register');
+      }
     } else {
       analyticsService.trackCTA('Sign out', 'Header');
       logout().catch(console.error);

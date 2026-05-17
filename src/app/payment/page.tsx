@@ -79,7 +79,7 @@ function PaymentPage() {
             const promo = searchParams.get('promo');
             if (promo) {
                 try {
-                    const tier = tiersData.find(t => t.name.toLowerCase().includes('early') || t.name.toLowerCase().includes('arcade'));
+                    const tier = tiersData.find((t: any) => t.name.toLowerCase().includes('early') || t.name.toLowerCase().includes('arcade'));
                     const result = await validateCoupon(promo.toUpperCase(), tier?.id);
                     setCouponCode(promo.toUpperCase());
                     setDiscount(result.discount);
