@@ -10,7 +10,8 @@ const TierCard: React.FC<{
   isRecommended?: boolean;
   pricingSubtext?: React.ReactNode;
   badge?: React.ReactNode;
-}> = ({ name, price, buttonText, features, isRecommended, pricingSubtext, badge }) => {
+  href?: string;
+}> = ({ name, price, buttonText, features, isRecommended, pricingSubtext, badge, href = '#' }) => {
   return (
     <div
       className="flex flex-col h-full bg-white dark:bg-[#191c21] rounded-[16px]"
@@ -47,7 +48,7 @@ const TierCard: React.FC<{
             </div>
           )}
           <a
-            href="#"
+            href={href}
             className={`inline-block text-sm font-semibold px-6 py-2.5 rounded-full transition-all ${isRecommended ? 'bg-[#2c5fd9] text-white shadow-sm' : 'border border-[#dadce0] dark:border-[#46464f] text-[#2c5fd9] dark:text-[#adc6ff]'}`}
           >
             {buttonText}
@@ -73,7 +74,7 @@ const TierCard: React.FC<{
 
 export const RegistrationTiers = () => {
   return (
-    <section className="pb-20 bg-white dark:bg-grey-900 overflow-hidden">
+    <section id="registration-tiers" className="pb-20 bg-white dark:bg-grey-900 overflow-hidden">
       <div className="page-wrapper">
         <h2 className="text-4xl md:text-5xl font-bold text-[#1b1b21] dark:text-[#e2e2e9] mb-16 tracking-tight text-center">
           How do I register for WOW?
@@ -84,6 +85,7 @@ export const RegistrationTiers = () => {
             name="Basic"
             price="₹1,200"
             buttonText="Get started"
+            href="/register"
             features={[
               "15+ Hands-on Workshops",
               "72+ Talks",
@@ -102,6 +104,7 @@ export const RegistrationTiers = () => {
             name="WOW+"
             price="₹350*"
             buttonText="Get started"
+            href="/register?tier=wowplus"
             isRecommended
             pricingSubtext={
               <>
@@ -128,6 +131,7 @@ export const RegistrationTiers = () => {
           />
           <TierCard
             name="Group Pass"
+            href="/register?tier=group&promo=bettertogether"
             badge={
               <div className="inline-flex items-center gap-1.5 bg-[#e6f4ea] text-[#137333] dark:bg-[#137333]/20 dark:text-[#81c995] px-3 py-1 rounded-full">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

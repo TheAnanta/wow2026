@@ -70,20 +70,32 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   }
 
   const handleApplyPromo = async (code: string) => {
-    if (promos.find((p) => p.code === code)) {
+    const upperCode = code.toUpperCase();
+    if (promos.find((p) => p.code === upperCode)) {
       return { ok: false, error: 'That code is already applied.' };
     }
     try {
-      const result = await onApplyCoupon(code);
+      const result = await onApplyCoupon(upperCode);
       if (result.success) {
         const newPromo = {
-          code: code.toUpperCase(),
+          code: upperCode,
           amount: result.discount,
           label: 'Special Discount',
           detail: 'Coupon code applied successfully.'
         };
-        setPromos((p) => [...p, newPromo]);
-        showToast(`Applied ${code.toUpperCase()} · −₹${result.discount}`);
+        
+        let wasAdded = false;
+        setPromos((p) => {
+          if (p.find((existing) => existing.code === upperCode)) {
+            return p;
+          }
+          wasAdded = true;
+          return [...p, newPromo];
+        });
+
+        if (wasAdded) {
+          showToast(`Applied ${upperCode} · −₹${result.discount}`);
+        }
         return { ok: true };
       } else {
         return { ok: false, error: result.error || 'Invalid coupon' };

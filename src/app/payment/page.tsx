@@ -48,7 +48,7 @@ function PaymentPage() {
             setLastOrderDetails({ id: 'order_MOCK_GROUP_123', badgeName: 'WOW 2026 - Attendee' });
         }
         
-        if (searchParams.get('wowplus') === 'true') {
+        if (searchParams.get('wowplus') === 'true' || searchParams.get('tier') === 'wowplus') {
             setIsWOWPlus(true);
         }
     }, [searchParams]);
@@ -74,8 +74,22 @@ function PaymentPage() {
         const loadData = async () => {
             const tiersData = await fetchTicketTiers();
             setTiers(tiersData);
+
+            // Auto-apply promo code if provided in URL
+            const promo = searchParams.get('promo');
+            if (promo) {
+                try {
+                    const tier = tiersData.find(t => t.name.toLowerCase().includes('early') || t.name.toLowerCase().includes('arcade'));
+                    const result = await validateCoupon(promo.toUpperCase(), tier?.id);
+                    setCouponCode(promo.toUpperCase());
+                    setDiscount(result.discount);
+                } catch (err) {
+                    console.error("Auto-apply promo failed", err);
+                }
+            }
         };
         loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [profile, user, isLoading, router, tickets]);
 
     const handlePurchase = async (tierSearch: string, badgeName?: string) => {

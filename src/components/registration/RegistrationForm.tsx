@@ -87,7 +87,8 @@ export const RegistrationForm: React.FC = () => {
     // If user is already registered (has a profile) and not in 'update' mode, 
     // redirect them to the payment page.
     if (isLoggedIn && profile && searchParams.get('update') !== 'true') {
-      router.replace('/payment');
+      const currentParams = searchParams.toString();
+      router.replace(`/payment${currentParams ? `?${currentParams}` : ''}`);
     }
   }, [isLoggedIn, profile, searchParams, router]);
 
@@ -147,7 +148,8 @@ export const RegistrationForm: React.FC = () => {
           }
         }
 
-        router.push('/payment');
+        const currentParams = searchParams.toString();
+        router.push(`/payment${currentParams ? `?${currentParams}` : ''}`);
       } else {
         analyticsService.trackForm('registration', 'all', 'error', { message: result.error });
         setErrors({ submit: result.error || 'The user account type is not allowed.' });

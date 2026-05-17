@@ -18,6 +18,13 @@ export function Hero({ onRegisterClick }: HeroProps) {
 
   const handleCTAClick = () => {
     analyticsService.trackCTA(buttonText, 'Hero', 'click');
+    if (!isRegistered) {
+      const element = document.getElementById('registration-tiers');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
     router.push(buttonLink);
   };
 
