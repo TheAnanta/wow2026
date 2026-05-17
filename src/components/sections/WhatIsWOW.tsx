@@ -109,9 +109,13 @@ export const WhatIsWOW = () => {
   return (
     <section className="pt-20 md:pt-16 overflow-hidden">
       <div className="page-wrapper">
-        <h2 className="text-5xl md:text-7xl font-medium text-grey-900 dark:text-white mb-20 tracking-tighter text-center">
+        <h2 className="text-5xl md:text-7xl font-medium text-grey-900 dark:text-white mb-8 tracking-tighter text-center">
           What is WOW?
         </h2>
+
+        <p className="max-w-4xl mx-auto text-xl md:text-2xl text-grey-700 dark:text-grey-text text-center mb-16 leading-relaxed">
+          Brought to life by a massive network of 36 Google Developer Groups on Campus (GDGoCs), it is a high-octane, two-day festival (July 4–5) designed to be entirely interactive, immersive, and competitive.
+        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-x-8 md:gap-y-8">
           {items.map((item, index) => (

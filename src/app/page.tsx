@@ -14,6 +14,9 @@ import { useRouter } from 'next/navigation';
 import WhatToExpectSection from '@/components/sections/WhatToExpectSection';
 import EventMetricsSection from '@/components/sections/EventMetricsSection';
 import { WhatIsWOW } from '@/components/sections/WhatIsWOW';
+import { WhyAttendWOW } from '@/components/sections/WhyAttendWOW';
+import { WhoCanAttendWOW } from '@/components/sections/WhoCanAttendWOW';
+import { RegistrationTiers } from '@/components/sections/RegistrationTiers';
 import { useSearchParams } from 'next/navigation';
 import { Toast } from '@/components/ui/Toast';
 import { analyticsService } from '@/services/analytics';
@@ -66,6 +69,9 @@ function Home() {
           <CTACards /> */}
         {/* </div> */}
         <WhatIsWOW />
+        <WhyAttendWOW />
+        <WhoCanAttendWOW />
+        <RegistrationTiers />
         {/* <KeynotesSection /> */}
         <StackCardsSection />
         <div className='page-wrapper flex flex-col'>
