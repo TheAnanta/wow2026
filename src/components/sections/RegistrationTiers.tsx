@@ -74,7 +74,7 @@ const TierCard: React.FC<{
 
 export const RegistrationTiers = () => {
   return (
-    <section id="registration-tiers" className="pb-20 bg-white dark:bg-grey-900 overflow-hidden">
+    <section id="registration-tiers" className=" bg-white dark:bg-grey-900 overflow-hidden">
       <div className="page-wrapper">
         <h2 className="text-4xl md:text-5xl font-bold text-[#1b1b21] dark:text-[#e2e2e9] mb-16 tracking-tight text-center">
           How do I register for WOW?
@@ -108,7 +108,10 @@ export const RegistrationTiers = () => {
             isRecommended
             pricingSubtext={
               <>
-                *Pay ₹0-₹600 later based on your score. <a href="#" className="text-[#2c5fd9] font-medium hover:underline">Know more</a>
+                *Pay ₹0-₹600 later based on your score. <a href="#how-wow-plus-works" onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('how-wow-plus-works')?.scrollIntoView({ behavior: 'smooth' });
+                }} className="text-[#2c5fd9] font-medium hover:underline cursor-pointer">Know more</a>
               </>
             }
             features={[
