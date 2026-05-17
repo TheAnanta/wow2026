@@ -18,6 +18,7 @@ import { WhyAttendWOW } from '@/components/sections/WhyAttendWOW';
 import { WhoCanAttendWOW } from '@/components/sections/WhoCanAttendWOW';
 import { RegistrationTiers } from '@/components/sections/RegistrationTiers';
 import { HowWOWPlusWorks } from '@/components/sections/HowWOWPlusWorks';
+import GallerySection from '@/components/sections/GallerySection';
 import { useSearchParams } from 'next/navigation';
 import { Toast } from '@/components/ui/Toast';
 import { analyticsService } from '@/services/analytics';
@@ -76,6 +77,7 @@ function Home() {
         <HowWOWPlusWorks />
         {/* <KeynotesSection /> */}
         <StackCardsSection />
+        <GallerySection />
         <div className='page-wrapper flex flex-col'>
           <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
             <span className="font-medium text-left sm:s-h3 md:l-h3">

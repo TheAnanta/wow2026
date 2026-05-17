@@ -27,7 +27,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, border }) => {
             src={src}
             alt={`Gallery Image ${index + 1}`}
             loading="lazy"
-            className="object-cover w-full h-full max-h-72 shrink-0 grow"
+            className="object-cover w-full h-full"
           />
         </SwiperSlide>
       ))}
