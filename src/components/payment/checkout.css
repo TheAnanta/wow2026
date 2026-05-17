@@ -39,6 +39,10 @@
   --m-tier-bronze-container: #ffdbcc;
   --m-on-tier-bronze-container: #351000;
 
+  --m-tier-basic: #606368;
+  --m-tier-basic-container: #e8eaed;
+  --m-on-tier-basic-container: #202124;
+
   --m-surface: #fbf8ff;
   --m-surface-dim: #dbd9e0;
   --m-surface-bright: #fbf8ff;
@@ -115,6 +119,10 @@
     --m-tier-bronze: #ffb591;
     --m-tier-bronze-container: #6f2e0f;
     --m-on-tier-bronze-container: #ffdbcc;
+
+    --m-tier-basic: #bdc6dc;
+    --m-tier-basic-container: #303134;
+    --m-on-tier-basic-container: #e8eaed;
   }
 }
 
@@ -170,6 +178,10 @@
     --m-tier-bronze: #ffb591;
     --m-tier-bronze-container: #6f2e0f;
     --m-on-tier-bronze-container: #ffdbcc;
+
+    --m-tier-basic: #bdc6dc;
+    --m-tier-basic-container: #303134;
+    --m-on-tier-basic-container: #e8eaed;
 }
 
 /* M3 type scale — exact values from original */

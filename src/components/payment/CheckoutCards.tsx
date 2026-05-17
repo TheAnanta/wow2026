@@ -12,10 +12,11 @@ export const TIERS = [
   { id: 'gold', label: 'Gold', range: [121, 320], short: '121–320', color: '#F2A93B' },
   { id: 'silver', label: 'Silver', range: [321, 670], short: '321–670', color: '#B6B6C2' },
   { id: 'bronze', label: 'Bronze', range: [671, 1515], short: '671–1515', color: '#B07A3F' },
+  { id: 'basic', label: 'Basic', range: [1516, 3000], short: '1516–3000', color: '#8F8F9B' },
 ];
 
 export function tierForRank(rank: number) {
-  return TIERS.find((t) => rank >= t.range[0] && rank < t.range[1]) || TIERS[TIERS.length - 1];
+  return TIERS.find((t) => rank >= t.range[0] && rank <= t.range[1]) || TIERS[TIERS.length - 1];
 }
 
 export function payLaterRange(rank: number) {
@@ -26,6 +27,7 @@ export function payLaterRange(rank: number) {
     case 'gold': return { min: 200, max: 200, label: '₹200 later based on tier' };
     case 'silver': return { min: 300, max: 300, label: '₹300 later based on tier' };
     case 'bronze': return { min: 450, max: 450, label: '₹450 later based on tier' };
+    case 'basic': return { min: 600, max: 600, label: '₹600 later based on tier' };
     default: return { min: 0, max: 0, label: '₹0' };
   }
 }
@@ -202,7 +204,7 @@ interface RankCardProps {
 
 export const RankCard: React.FC<RankCardProps> = ({ rank, setRank, interactive, brand, disabled }) => {
   const tier = tierForRank(rank);
-  const max = 1515;
+  const max = 3000;
   const progress = (rank / max) * 100;
 
   if (disabled) {
@@ -251,7 +253,7 @@ export const RankCard: React.FC<RankCardProps> = ({ rank, setRank, interactive, 
           }}
         >
           <span className="w-2.5 h-2.5 rounded-full" style={{ background: `var(--m-tier-${tier.id}, var(--m-tier-gold))` }} />
-          <span className="t-label-l">If you're #{rank} · {tier.label} tier</span>
+          <span className="t-label-l">If you're #{rank} · {tier.label} tier (Pay ₹{payLaterRange(rank).min} later)</span>
         </div>
       </div>
 
@@ -301,7 +303,7 @@ export const RankCard: React.FC<RankCardProps> = ({ rank, setRank, interactive, 
       </div>
 
       {/* Tier chips */}
-      <div className="mt-4 grid grid-cols-5 gap-1.5">
+      <div className="mt-4 grid grid-cols-6 gap-1.5">
         {TIERS.map((t) => {
           const active = t.id === tier.id;
           return (

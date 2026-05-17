@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { RankCard } from '../payment/CheckoutCards';
+import '../payment/checkout.css';
 
 export const HowWOWPlusWorks = () => {
   const { tickets } = useAuth();
+  const [showCalculator, setShowCalculator] = useState(false);
+  const [rank, setRank] = useState(1500);
+
   const hasArcade = tickets?.some((t: any) =>
     (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
     (t.tier?.name || t.name || "").toLowerCase().includes("wow")
@@ -13,8 +18,8 @@ export const HowWOWPlusWorks = () => {
       title: "Pay ₹350 now",
       description: "Before 25th May",
       number: "1",
-      button: hasArcade 
-        ? { text: "Paid", link: "#", isPaid: true } 
+      button: hasArcade
+        ? { text: "Paid", link: "#", isPaid: true }
         : { text: "Pay now", link: "/register?tier=wowplus" }
     },
     {
@@ -33,6 +38,7 @@ export const HowWOWPlusWorks = () => {
       title: "Win a league",
       description: "18th June",
       number: "4",
+      button: { text: "Calculate Pay Later", onClick: () => setShowCalculator(true) }
     },
     {
       title: "Pay rest & get WOW pass",
@@ -85,6 +91,13 @@ export const HowWOWPlusWorks = () => {
                         <span className="inline-block text-[13px] font-bold px-5 py-2 bg-[#dadce0] dark:bg-[#46464f] text-[#767680] dark:text-[#9aa0a6] rounded-full cursor-not-allowed shadow-none border border-[#dadce0] dark:border-[#46464f]">
                           {step.button.text}
                         </span>
+                      ) : step.button.onClick ? (
+                        <button
+                          onClick={step.button.onClick}
+                          className="inline-block text-[13px] font-bold px-5 py-2 bg-[#2c5fd9] text-white rounded-full hover:bg-[#1a4bba] transition-colors shadow-sm cursor-pointer border-0"
+                        >
+                          {step.button.text}
+                        </button>
                       ) : (
                         <a href={step.button.link} className="inline-block text-[13px] font-bold px-5 py-2 bg-[#2c5fd9] text-white rounded-full hover:bg-[#1a4bba] transition-colors shadow-sm">
                           {step.button.text}
@@ -103,6 +116,37 @@ export const HowWOWPlusWorks = () => {
           </div>
         </div>
       </div>
+
+      {/* Rank Calculator Modal */}
+      {showCalculator && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-[2px] animate-fade-in cursor-pointer"
+          onClick={() => setShowCalculator(false)}
+        >
+          <div
+            className="checkout-root w-full max-w-[580px] cursor-default"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <RankCard
+              rank={rank}
+              setRank={setRank}
+              interactive={true}
+              brand="WOW"
+              disabled={false}
+            />
+          </div>
+        </div>
+      )}
+
+      <style jsx global>{`
+        .animate-fade-in {
+          animation: fadeIn 0.25s ease-out forwards;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </section>
   );
 };
