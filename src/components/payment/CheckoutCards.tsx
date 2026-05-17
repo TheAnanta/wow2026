@@ -82,7 +82,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
       <div className="text-right flex-none">
         <div className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>
-          {isWOWPlus ? `upto ₹${(800 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`}
+          {isWOWPlus ? `upto ₹${(950 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`}
         </div>
         <div className="t-body-s line-through" style={{ color: 'var(--m-on-surface-variant)' }}>₹{(pass.list * qty).toLocaleString('en-IN')}</div>
       </div>
@@ -91,7 +91,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
 
     {/* WOW+ Opt-out Option */}
     {!disabled && (
-      <div 
+      <div
         className="mt-1 mb-4 p-4 rounded-xl bg-[var(--m-surface-container-high)] cursor-pointer hover:bg-[var(--m-surface-container-highest)] transition-colors m-pressable select-none"
         onClick={(e) => {
           // If the click is not on the checkbox itself, trigger the toggle
@@ -175,14 +175,14 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
                 </div>
               </div>
             </span>
-            <span className="t-body-l tabular-nums" style={{ color: 'var(--m-on-surface-variant)' }}>upto ₹{(450 * qty).toLocaleString('en-IN')}</span>
+            <span className="t-body-l tabular-nums" style={{ color: 'var(--m-on-surface-variant)' }}>upto ₹{(600 * qty).toLocaleString('en-IN')}</span>
           </div>
 
           <hr className="my-1 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
 
           <div className="flex items-center justify-between">
             <span className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>Total</span>
-            <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>upto ₹{(800 * qty).toLocaleString('en-IN')}</span>
+            <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>upto ₹{(950 * qty).toLocaleString('en-IN')}</span>
           </div>
         </>
       )}

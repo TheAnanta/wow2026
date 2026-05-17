@@ -83,7 +83,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
           label: 'Special Discount',
           detail: 'Coupon code applied successfully.'
         };
-        
+
         let wasAdded = false;
         setPromos((p) => {
           if (p.find((existing) => existing.code === upperCode)) {
@@ -143,7 +143,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
             style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Back">
             <IconBack size={24} />
           </button>
-          
+
           <div className="flex-grow flex items-baseline">
             <span className="t-title-l tracking-tight" style={{ color: 'var(--m-on-surface)' }}>
               {"gdgoc".toLowerCase()}
@@ -171,9 +171,9 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
             ))}
           </div>
 
-          <button 
+          <button
             className="md:hidden m-pressable rounded-full flex items-center justify-center -mr-2"
-            style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} 
+            style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }}
             aria-label="Menu"
             onClick={() => setIsMobileMenuOpen(true)}
           >
@@ -226,21 +226,21 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
             {/* Left Column */}
             <div className="flex-1 flex flex-col gap-6">
               <div style={{ scrollSnapAlign: 'start' }}>
-                <OrderSummaryCard 
-                  pass={PASS} 
-                  sub={currentSubDiscount} 
-                  subtotal={subtotal} 
+                <OrderSummaryCard
+                  pass={PASS}
+                  sub={currentSubDiscount}
+                  subtotal={subtotal}
                   brand={brand}
                   qty={qty}
-                  userName={profile?.displayName} 
-                  userEmail={user?.email} 
+                  userName={profile?.displayName}
+                  userEmail={user?.email}
                   isWOWPlus={isWOWPlus}
                   onToggleWOWPlus={onToggleWOWPlus}
                   disabled={isBetterTogether}
                 />
               </div>
 
-{/* <div style={{ scrollSnapAlign: 'start' }}>
+              {/* <div style={{ scrollSnapAlign: 'start' }}>
   <RankCard rank={rank} setRank={setRank} interactive={true} brand={brand} disabled={isBetterTogether} />
 </div> */}
             </div>
@@ -401,7 +401,7 @@ function PayLaterDisclosure({ open, setOpen, payLater, rank, isWOWPlus }: any) {
         <span className="flex-1 text-left">
           {!isWOWPlus
             ? <>No pay-later — Standard pass is fully settled.</>
-            : <>you will need to pay 0-450 based on rank (decided on June 18)</>}
+            : <>you will need to pay 0-600 based on rank (decided on June 18)</>}
         </span>
         <IconInfo size={18} />
         <IconChevronDown size={18} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
@@ -412,7 +412,7 @@ function PayLaterDisclosure({ open, setOpen, payLater, rank, isWOWPlus }: any) {
           <div className="px-4 pb-3 t-body-m" style={{ color: 'var(--m-on-surface-variant)' }}>
             {!isWOWPlus ? (
               <p>
-                Since you've opted for the <b>Standard WOW Pass</b>, you pay the full amount upfront and 
+                Since you've opted for the <b>Standard WOW Pass</b>, you pay the full amount upfront and
                 owe nothing after the conference. The pay-later system only applies to the discounted WOW+ passes.
               </p>
             ) : (
