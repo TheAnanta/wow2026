@@ -223,7 +223,6 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
       stack: ['14574666-1892-4a0e-b305-44d6e3f66c56'],
       sessionCode: 'AUD-7',
       time: '11:40 AM',
-      speakerIds: ['100', '111']
     },
     {
       id: 'aud-8',
@@ -237,7 +236,6 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
       stack: ['14574666-1892-4a0e-b305-44d6e3f66c56'],
       sessionCode: 'AUD-8',
       time: '12:15 PM',
-      speakerIds: ['101', '102']
     },
     {
       id: 'aud-9',

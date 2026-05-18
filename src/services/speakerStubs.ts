@@ -45,11 +45,50 @@ const mockSpeakers: Speaker[] = [
   },
   {
     id: '104',
+    name: 'Krupa Galiya',
+    title: 'Google Developer Expert, AI',
+    pronouns: 'She/Her',
+    topics: ['AI', 'Workspace'],
+    isGDE: true,
+  },
+  {
+    id: '105',
+    name: 'Pawan Kumar',
+    title: 'Google Developer Expert, Flutter & AI',
+    pronouns: 'He/Him',
+    topics: ['AI', 'Flutter', 'Gemini'],
+    isGDE: true,
+  },
+  {
+    id: '106',
+    name: 'Vivek Yadav',
+    title: 'Google Developer Expert, Flutter',
+    pronouns: 'He/Him',
+    topics: ['Flutter'],
+    isGDE: true,
+  },
+  {
+    id: '107',
+    name: 'Bhavik Makhwana',
+    title: 'Google Developer Expert, Flutter & Dart',
+    pronouns: 'He/Him',
+    topics: ['Flutter', 'Dart'],
+    isGDE: true,
+  },
+  {
+    id: '108',
     name: 'Sampath Balivada',
     title: 'Software Engineer, PayPal',
     avatar: '/sampath-balivada.jpeg',
     pronouns: 'He/Him',
     topics: ['Cloud', 'Go']
+  },
+  {
+    id: '109',
+    name: 'Harsh Mer',
+    title: 'GDG Organizer',
+    pronouns: 'He/Him',
+    topics: ['AI', 'Opal']
   },
 ];
 
