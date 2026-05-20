@@ -41,6 +41,40 @@ function Home() {
     }
   }, [searchParams]);
 
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = decodeURIComponent(hash.replace('#', ''));
+        let retries = 0;
+        const maxRetries = 20; // Retry for up to 2 seconds to allow full render and hydration
+        
+        const scroll = () => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else if (retries < maxRetries) {
+            retries++;
+            setTimeout(scroll, 100);
+          }
+        };
+        
+        scroll();
+      }
+    };
+
+    // Run on initial mount with a small delay
+    const timeoutId = setTimeout(handleHashScroll, 300);
+
+    // Watch for hash changes on the window
+    window.addEventListener('hashchange', handleHashScroll);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('hashchange', handleHashScroll);
+    };
+  }, []);
+
+
   return (
     <div className="w-full min-h-screen text-grey-900 dark:text-grey-bg! overflow-x-hidden">
       <Header onRegisterClick={() => {
