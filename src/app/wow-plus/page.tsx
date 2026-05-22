@@ -8,6 +8,16 @@ import { analyticsService } from "@/services/analytics";
 
 const TIERS = [
     {
+        name: "Basic",
+        rank: "1516 - 3000",
+        price: "₹950",
+        ticketPrice: "₹600",
+        passPrice: "₹350",
+        image: "/images/basic-7ad033b3ac027995939993b7648507f536d7b089-3.png",
+        color: "#9aa0a6",
+        benefits: ["Workshops", "Games", "WOW Ticket"],
+    },
+    {
         name: "Bronze",
         rank: "671 - 1515",
         price: "₹800",
@@ -344,7 +354,7 @@ export default function WOWPlusPage() {
                                 {/* Other Tiers Seamless Strip */}
                                 <div className="border-2 border-grey-bg dark:border-white rounded-2xl overflow-hidden bg-white dark:bg-grey-900!">
                                     <div className="flex flex-col md:flex-row divide-y-2 md:divide-y-0 md:divide-x-2 divide-grey-bg dark:divide-white">
-                                        {TIERS.filter(t => t.name !== "Platinum").reverse().map((tier) => (
+                                        {TIERS.filter(t => t.name !== "Platinum" && t.name !== "Basic").reverse().map((tier) => (
                                             <div
                                                 key={tier.name}
                                                 className="flex-1 flex flex-col group hover:bg-grey-bg/40 dark:hover:bg-white/5 transition-colors duration-300"
@@ -390,6 +400,76 @@ export default function WOWPlusPage() {
                                         ))}
                                     </div>
                                 </div>
+
+                                {/* Basic Tier Standalone Card */}
+                                {TIERS.filter(t => t.name === "Basic").map((tier) => (
+                                    <div key={tier.name} className="relative h-auto min-h-[220px] mt-4">
+                                        <div className="relative bg-white dark:bg-grey! w-full h-full rounded-2xl border-2 border-grey dark:border-white z-10 overflow-hidden flex flex-col md:flex-row">
+                                            <div className="p-8 md:p-10 flex flex-col items-center justify-center text-center md:w-1/3 bg-grey-bg dark:bg-grey-900! border-b-2 md:border-b-0 md:border-r-2 border-grey dark:border-white">
+                                                <div className="w-36 h-36 mb-4 relative flex items-center justify-center">
+                                                    <img
+                                                        src={tier.image}
+                                                        alt={tier.name}
+                                                        className="w-full h-full object-contain"
+                                                    />
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <span className="text-4xl font-bold leading-none tracking-tighter! dark:text-white">
+                                                        {tier.price}
+                                                    </span>
+                                                    <span className="text-xs text-grey-500 dark:text-grey-400 uppercase font-black tracking-[0.2em] mt-2">Member Rate</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="p-8 md:p-10 flex-1 flex flex-col justify-between">
+                                                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+                                                    <div className="flex-1">
+                                                        <p className="uppercase font-black tracking-tight text-[10px] mb-4 border-2 border-grey dark:border-white w-max p-1 px-4 rounded-full">
+                                                            Standard Entry
+                                                        </p>
+                                                        <h3 className="font-bold text-3xl tracking-tight mb-4">{tier.name} League</h3>
+                                                        <p className="text-grey-600 dark:text-grey-400 text-sm max-w-[45ch] leading-relaxed">
+                                                            Kick off your experience with basic workshop access and regular event features, along with standard ticket entry.
+                                                        </p>
+
+                                                        <div className="mt-6 grid grid-cols-2 gap-4">
+                                                            <div className="flex flex-col">
+                                                                <span className="text-[10px] font-bold text-grey-500 uppercase tracking-widest">WOW Ticket</span>
+                                                                <span className="text-xl font-bold text-google-blue">{tier.ticketPrice}</span>
+                                                            </div>
+                                                            <div className="flex flex-col">
+                                                                <span className="text-[10px] font-bold text-grey-500 uppercase tracking-widest">WOW+ Add-on</span>
+                                                                <span className="text-xl font-bold text-google-blue">{tier.passPrice}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="lg:w-1/3">
+                                                        <h4 className="font-bold text-grey-900 dark:text-white mb-4 uppercase tracking-wider text-xs">Included Perks</h4>
+                                                        <div className="space-y-2">
+                                                            {tier.benefits.map((benefit) => (
+                                                                <div key={benefit} className="flex items-center gap-2 text-xs font-medium text-grey-700 dark:text-grey-300">
+                                                                    <svg className="w-4 h-4 text-google-blue" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                                                                    <span>{benefit}</span>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="mt-8 flex items-center justify-between border-t border-grey/20 dark:border-white/10 pt-6">
+                                                    <div className="flex items-baseline gap-2">
+                                                        <span className="text-sm font-bold text-grey-500 uppercase">Rank Needed:</span>
+                                                        <span className="text-xl font-black text-grey-900 dark:text-white">{tier.rank}</span>
+                                                    </div>
+                                                    <Link href="/payment?type=wow-plus" className="nav-cta-btn bg-grey-900 dark:bg-grey-bg dark:text-grey-900 px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform" onClick={() => analyticsService.trackCTA('Claim Basic', 'WOWPlusPage')}>
+                                                        Claim Now
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
                             {/* Standard Pricing Reference - Condensed */}

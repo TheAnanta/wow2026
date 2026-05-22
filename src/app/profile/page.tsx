@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuth } from "@/context/AuthContext";
+import { fetchUserBadges } from "@/services/registrationStubs";
 import { useEffect, useState } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
 import {
@@ -305,6 +306,38 @@ export default function ProfilePage() {
       setBadges(derivedBadges);
     }
   }, [tickets]);
+
+  useEffect(() => {
+    const loadDbBadges = async () => {
+      if (user) {
+        try {
+          const dbBadges = await fetchUserBadges();
+          if (dbBadges && dbBadges.length > 0) {
+            const mappedDbBadges = dbBadges.map((b: any) => ({
+              id: b.id || b.name.toLowerCase().replace(/\s+/g, '-'),
+              name: b.name,
+              description: b.description,
+              image: b.image_url || b.image,
+              link: b.link
+            }));
+
+            setBadges((prev) => {
+              const merged = [...prev];
+              for (const dbB of mappedDbBadges) {
+                if (!merged.some((m) => m.name.toLowerCase() === dbB.name.toLowerCase())) {
+                  merged.push(dbB);
+                }
+              }
+              return merged;
+            });
+          }
+        } catch (err) {
+          console.error("Error loading DB badges:", err);
+        }
+      }
+    };
+    loadDbBadges();
+  }, [user, tickets]);
 
   if (isLoading) {
     return (
