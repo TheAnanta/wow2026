@@ -146,7 +146,7 @@ export default function ArcadePage() {
             </h1>
             
             <div className="inline-block px-6 py-2 bg-[#dde6ff] dark:bg-[#1a3f8f] text-[#00164d] dark:text-[#dde6ff] rounded-full text-lg font-bold">
-              Starting May 18
+              Starting May 25
             </div>
 
             <p className="text-lg md:text-xl text-[#46464f] dark:text-[#c6c5d0] leading-relaxed">
