@@ -10,6 +10,38 @@ export default function ArcadePage() {
   const [showSplash, setShowSplash] = useState(true);
   const router = useRouter();
 
+  const [timeLeft, setTimeLeft] = useState({ hours: 54, minutes: 0, seconds: 0 });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const TARGET_DATE = new Date('2026-05-27T18:00:00+05:30').getTime();
+    
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const difference = TARGET_DATE - now;
+      
+      if (difference <= 0) {
+        return { hours: 0, minutes: 0, seconds: 0 };
+      }
+      
+      const totalSeconds = Math.floor(difference / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      
+      return { hours, minutes, seconds };
+    };
+
+    setTimeLeft(calculateTimeLeft());
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
@@ -145,9 +177,47 @@ export default function ArcadePage() {
               The Arcade is Coming.
             </h1>
             
-            <div className="inline-block px-6 py-2 bg-[#dde6ff] dark:bg-[#1a3f8f] text-[#00164d] dark:text-[#dde6ff] rounded-full text-lg font-bold">
-              Starting May 25
-            </div>
+            {isMounted ? (
+              <div className="flex gap-3 md:gap-4 justify-center items-center my-6">
+                {/* Hours */}
+                <div className="flex flex-col items-center p-3 md:p-4 min-w-[75px] md:min-w-[90px] bg-[#dde6ff] dark:bg-[#1a3f8f]/40 backdrop-blur-md rounded-2xl border border-[#c6c5d0]/30 dark:border-white/10 shadow-lg">
+                  <span className="text-2xl md:text-4xl font-extrabold text-[#00164d] dark:text-white font-mono tracking-wider">
+                    {String(timeLeft.hours).padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-[#00164d]/60 dark:text-[#dde6ff]/60 mt-1">
+                    Hours
+                  </span>
+                </div>
+                
+                <span className="text-2xl md:text-4xl font-extrabold text-[#2c5fd9] dark:text-[#a0c2ff] animate-pulse">:</span>
+
+                {/* Minutes */}
+                <div className="flex flex-col items-center p-3 md:p-4 min-w-[75px] md:min-w-[90px] bg-[#dde6ff] dark:bg-[#1a3f8f]/40 backdrop-blur-md rounded-2xl border border-[#c6c5d0]/30 dark:border-white/10 shadow-lg">
+                  <span className="text-2xl md:text-4xl font-extrabold text-[#00164d] dark:text-white font-mono tracking-wider">
+                    {String(timeLeft.minutes).padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-[#00164d]/60 dark:text-[#dde6ff]/60 mt-1">
+                    Mins
+                  </span>
+                </div>
+
+                <span className="text-2xl md:text-4xl font-extrabold text-[#2c5fd9] dark:text-[#a0c2ff] animate-pulse">:</span>
+
+                {/* Seconds */}
+                <div className="flex flex-col items-center p-3 md:p-4 min-w-[75px] md:min-w-[90px] bg-[#dde6ff] dark:bg-[#1a3f8f]/40 backdrop-blur-md rounded-2xl border border-[#c6c5d0]/30 dark:border-white/10 shadow-lg">
+                  <span className="text-2xl md:text-4xl font-extrabold text-[#2c5fd9] dark:text-[#a0c2ff] font-mono tracking-wider">
+                    {String(timeLeft.seconds).padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-[#00164d]/60 dark:text-[#dde6ff]/60 mt-1">
+                    Secs
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div className="inline-block px-6 py-2 bg-[#dde6ff] dark:bg-[#1a3f8f] text-[#00164d] dark:text-[#dde6ff] rounded-full text-lg font-bold">
+                Starting May 25
+              </div>
+            )}
 
             <p className="text-lg md:text-xl text-[#46464f] dark:text-[#c6c5d0] leading-relaxed">
               Prepare yourself for an immersive journey through the Google developer ecosystem. Your WOW+ Arcade pass unlocks exclusive challenges, badges, and rewards.
