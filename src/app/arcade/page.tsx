@@ -16,20 +16,20 @@ export default function ArcadePage() {
   useEffect(() => {
     setIsMounted(true);
     const TARGET_DATE = new Date('2026-05-27T18:00:00+05:30').getTime();
-    
+
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
       const difference = TARGET_DATE - now;
-      
+
       if (difference <= 0) {
         return { hours: 0, minutes: 0, seconds: 0 };
       }
-      
+
       const totalSeconds = Math.floor(difference / 1000);
       const hours = Math.floor(totalSeconds / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const seconds = totalSeconds % 60;
-      
+
       return { hours, minutes, seconds };
     };
 
@@ -50,14 +50,14 @@ export default function ArcadePage() {
   }, []);
 
   const hasArcadePass = tickets?.some((t: any) =>
-    (t.tier?.name || t.name || "").toLowerCase().includes("arcade") || 
+    (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
     (t.tier?.name || t.name || "").toLowerCase().includes("wow")
   );
 
   useEffect(() => {
     if (!isLoading && !hasArcadePass && !showSplash) {
-        // Only redirect after splash if they don't have it
-        // But better to check immediately
+      // Only redirect after splash if they don't have it
+      // But better to check immediately
     }
   }, [isLoading, hasArcadePass, showSplash]);
 
@@ -72,16 +72,16 @@ export default function ArcadePage() {
   if (!user || !hasArcadePass) {
     return (
       <div className="min-h-screen bg-[#fbf8ff] dark:bg-[#131318]">
-        <Header onRegisterClick={() => {}} />
+        <Header onRegisterClick={() => { }} />
         <div className="max-w-4xl mx-auto py-20 px-6 text-center">
           <div className="w-24 h-24 bg-[#ba1a1a]/10 text-[#ba1a1a] rounded-full flex items-center justify-center mx-auto mb-6">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
             </svg>
           </div>
           <h1 className="text-4xl font-bold tracking-tight mb-4 dark:text-white">Arcade Access Denied</h1>
           <p className="text-lg text-grey-600 dark:text-grey-400 mb-8">This area is reserved for WOW+ Arcade pass holders.</p>
-          <button 
+          <button
             onClick={() => router.push('/wow-plus')}
             className="px-8 py-3 bg-[#2c5fd9] text-white rounded-full font-bold hover:shadow-lg transition-all"
           >
@@ -96,7 +96,7 @@ export default function ArcadePage() {
     return (
       <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black overflow-hidden font-google-sans">
         <div className="relative flex flex-col items-center scale-75 md:scale-100">
-          
+
           {/* Now In Text (Fades in after juggle) */}
           <div className="absolute -top-16 opacity-0 animate-[fade-in_0.5s_ease-out_2s_forwards]">
             <span className="text-white/60 text-2xl font-medium tracking-tight">Now in</span>
@@ -158,16 +158,16 @@ export default function ArcadePage() {
 
   return (
     <div className="min-h-screen bg-[#fbf8ff] dark:bg-[#131318] transition-colors">
-      <Header onRegisterClick={() => {}} />
+      <Header onRegisterClick={() => { }} />
 
       <main className="max-w-5xl mx-auto px-6 py-20 md:py-32">
         <div className="flex flex-col items-center text-center">
           {/* Badge Placeholder */}
           <div className="relative mb-12 animate-in slide-in-from-bottom-8 duration-700">
             <div className="absolute inset-0 bg-[#2c5fd9]/20 blur-3xl rounded-full" />
-            <img 
-              src="/images/wow26-arcade-badge-registration.png" 
-              alt="Arcade Badge" 
+            <img
+              src="/images/wow26-arcade-badge-registration.png"
+              alt="Arcade Badge"
               className="relative w-48 h-48 md:w-64 md:h-64 object-contain drop-shadow-2xl"
             />
           </div>
@@ -176,7 +176,7 @@ export default function ArcadePage() {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#1b1b21] dark:text-[#e5e1e9]">
               The Arcade is Coming.
             </h1>
-            
+
             {isMounted ? (
               <div className="flex gap-3 md:gap-4 justify-center items-center my-6">
                 {/* Hours */}
@@ -188,7 +188,7 @@ export default function ArcadePage() {
                     Hours
                   </span>
                 </div>
-                
+
                 <span className="text-2xl md:text-4xl font-extrabold text-[#2c5fd9] dark:text-[#a0c2ff] animate-pulse">:</span>
 
                 {/* Minutes */}
@@ -215,7 +215,7 @@ export default function ArcadePage() {
               </div>
             ) : (
               <div className="inline-block px-6 py-2 bg-[#dde6ff] dark:bg-[#1a3f8f] text-[#00164d] dark:text-[#dde6ff] rounded-full text-lg font-bold">
-                Starting May 25
+                Starting May 30
               </div>
             )}
 

@@ -486,11 +486,11 @@ export default function WOWPlusPage() {
 
                                         <div className="flex flex-wrap justify-center gap-6 md:gap-12 shrink-0">
                                             <div className="flex flex-col items-center md:items-start">
-                                                <span className="text-[10px] font-bold text-grey-400 uppercase tracking-widest mb-1">Before May 25th</span>
+                                                <span className="text-[10px] font-bold text-grey-400 uppercase tracking-widest mb-1">Before June 7th</span>
                                                 <span className="text-3xl font-bold text-grey-900 dark:text-white">₹1200</span>
                                             </div>
                                             <div className="flex flex-col items-center md:items-start">
-                                                <span className="text-[10px] font-bold text-grey-400 uppercase tracking-widest mb-1">After May 25th</span>
+                                                <span className="text-[10px] font-bold text-grey-400 uppercase tracking-widest mb-1">After June 7th</span>
                                                 <span className="text-3xl font-bold text-grey-900 dark:text-white">₹2000</span>
                                             </div>
                                         </div>

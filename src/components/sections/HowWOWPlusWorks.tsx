@@ -16,7 +16,7 @@ export const HowWOWPlusWorks = () => {
   const steps = [
     {
       title: "Pay ₹350 now",
-      description: "Before 25th May",
+      description: "Before 7th June",
       number: "1",
       button: hasArcade
         ? { text: "Paid", link: "#", isPaid: true }
@@ -24,7 +24,7 @@ export const HowWOWPlusWorks = () => {
     },
     {
       title: "Attend online workshops\nand play games",
-      description: "May 18 - June 18",
+      description: "May 27 - June 18",
       number: "2",
       button: hasArcade ? { text: "Go to Arcade", link: "/arcade" } : undefined
     },

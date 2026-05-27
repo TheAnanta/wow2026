@@ -150,7 +150,7 @@ export default function RootLayout({
             <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
 
             {/* Banner */}
-            <AnnouncementBanner props={{ announcement: "WOW+ starts 14th May • Join now for up to 100% discounts & certificates for courses • Pass offer sale ends 25th May • Hurry, get your tickets now!" }} />
+            <AnnouncementBanner props={{ announcement: "Good things take time. We're waiting for the update from Play Store. WOW+ starts 30th May • Join now for up to 100% discounts & certificates for courses • Pass offer sale ends 7th June • Hurry, get your tickets now!" }} />
 
 
             {children}

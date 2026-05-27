@@ -215,7 +215,7 @@ export const WOWPlusAlert = ({ onConfirm }: { onConfirm?: () => void }) => {
                                     <li>· <b>Silver / Bronze:</b> partial discounts + course access</li>
                                 </ul>
                                 <p className="mt-2 t-body-s">
-                                    WOW+ enrolment ends <b style={{ color: 'var(--m-on-surface)' }}>May 25th</b>. After that, standard pricing applies.
+                                    WOW+ enrolment ends <b style={{ color: 'var(--m-on-surface)' }}>June 7th</b>. After that, standard pricing applies.
                                 </p>
                             </div>
                         </div>
