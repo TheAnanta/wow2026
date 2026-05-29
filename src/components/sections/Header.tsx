@@ -37,10 +37,18 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
     }
   };
 
+  const hasFullPass = tickets?.some((t: any) =>
+    (t.tier?.name || t.name || "").toLowerCase().includes("early bird") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("regular") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("attendee") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("group") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("ground")
+  );
+
   const hasArcade = tickets?.some((t: any) =>
     (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
     (t.tier?.name || t.name || "").toLowerCase().includes("wow")
-  );
+  ) || hasFullPass;
 
   const navLinks = [
     ...(hasArcade ? [{ label: 'Arcade', href: '/arcade' }] : []),

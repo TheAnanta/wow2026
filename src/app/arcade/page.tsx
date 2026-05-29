@@ -49,10 +49,18 @@ export default function ArcadePage() {
     return () => clearTimeout(timer);
   }, []);
 
+  const hasFullPass = tickets?.some((t: any) =>
+    (t.tier?.name || t.name || "").toLowerCase().includes("early bird") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("regular") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("attendee") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("group") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("ground")
+  );
+
   const hasArcadePass = tickets?.some((t: any) =>
     (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
     (t.tier?.name || t.name || "").toLowerCase().includes("wow")
-  );
+  ) || hasFullPass;
 
   useEffect(() => {
     if (!isLoading && !hasArcadePass && !showSplash) {

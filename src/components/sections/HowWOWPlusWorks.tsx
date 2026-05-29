@@ -8,44 +8,84 @@ export const HowWOWPlusWorks = () => {
   const [showCalculator, setShowCalculator] = useState(false);
   const [rank, setRank] = useState(1500);
 
+  const hasFullPass = tickets?.some((t: any) =>
+    (t.tier?.name || t.name || "").toLowerCase().includes("early bird") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("regular") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("attendee") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("group") ||
+    (t.tier?.name || t.name || "").toLowerCase().includes("ground")
+  );
+
   const hasArcade = tickets?.some((t: any) =>
     (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
     (t.tier?.name || t.name || "").toLowerCase().includes("wow")
-  );
+  ) || hasFullPass;
 
-  const steps = [
-    {
-      title: "Pay ₹350 now",
-      description: "Before 7th June",
-      number: "1",
-      button: hasArcade
-        ? { text: "Paid", link: "#", isPaid: true }
-        : { text: "Pay now", link: "/register?tier=wowplus" }
-    },
-    {
-      title: "Attend online workshops\nand play games",
-      description: "May 27 - June 18",
-      number: "2",
-      button: hasArcade ? { text: "Go to Arcade", link: "/arcade" } : undefined
-    },
-    {
-      title: "Score points",
-      description: "Every week",
-      number: "3",
-      button: hasArcade ? { text: "View profile", link: "/profile" } : undefined
-    },
-    {
-      title: "Win a league",
-      description: "18th June",
-      number: "4",
-      button: { text: "Calculate Pay Later", onClick: () => setShowCalculator(true) }
-    },
-    {
-      title: "Pay rest & get WOW pass",
-      description: "Before 25th June",
-      number: "5",
-    }
-  ];
+  const steps = hasFullPass
+    ? [
+      {
+        title: "Full Pass Active",
+        description: "Direct or Group Pass",
+        number: "1",
+        button: { text: "Confirmed", link: "#", isPaid: true }
+      },
+      {
+        title: "Attend workshops\nand play games",
+        description: "May 31 - June 18",
+        number: "2",
+        button: { text: "Go to Arcade", link: "/arcade" }
+      },
+      {
+        title: "Play for fun!",
+        description: "No leaderboard pressure",
+        number: "3",
+        button: { text: "View profile", link: "/profile" }
+      },
+      {
+        title: "Enjoy learning",
+        description: "Build skills at your own pace",
+        number: "4",
+      },
+      {
+        title: "Attend WOW 2026",
+        description: "See you at the main event!",
+        number: "5",
+      }
+    ]
+    : [
+      {
+        title: "Pay ₹350 now",
+        description: "Before 7th June",
+        number: "1",
+        button: hasArcade
+          ? { text: "Paid", link: "#", isPaid: true }
+          : { text: "Pay now", link: "/register?tier=wowplus" }
+      },
+      {
+        title: "Attend online workshops\nand play games",
+        description: "May 31 - June 18",
+        number: "2",
+        button: hasArcade ? { text: "Go to Arcade", link: "/arcade" } : undefined
+      },
+      {
+        title: "Score points",
+        description: "Every week",
+        number: "3",
+        button: hasArcade ? { text: "View profile", link: "/profile" } : undefined
+      },
+      {
+        title: "Win a league",
+        description: "18th June",
+        number: "4",
+        button: { text: "Calculate Pay Later", onClick: () => setShowCalculator(true) }
+      },
+      {
+        title: "Pay rest & get WOW pass",
+        description: "Before 25th June",
+        number: "5",
+      }
+    ];
+
   return (
     <section id="how-wow-plus-works" className="pb-20 md:pb-32 bg-white dark:bg-grey-900 overflow-hidden px-4">
       <div className="max-w-5xl mx-auto bg-white dark:bg-[#191c21] rounded-[24px] shadow-sm relative overflow-hidden"
@@ -59,9 +99,21 @@ export const HowWOWPlusWorks = () => {
         <div className="p-8 md:p-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1b1b21] dark:text-[#e2e2e9] tracking-tight">
-              {hasArcade ? "Welcome to WOW+" : "How does WOW+ work?"}
+              {hasFullPass ? "WOW+ Access for Pass Holders" : hasArcade ? "Welcome to WOW+" : "How does WOW+ work?"}
             </h2>
           </div>
+
+          {hasFullPass && (
+            <div className="mb-10 p-5 rounded-xl bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800/30 flex items-start gap-3">
+              <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div className="text-sm text-blue-800 dark:text-blue-200 leading-relaxed">
+                <span className="font-bold">Pass Holder Privilege: </span>
+                Since you already hold a confirmed <strong>Direct Pass</strong> or <strong>Group Pass</strong>, you get full access to attend the online workshops and play the Arcade games! <em>Note: Your scores will not be counted on the competitive leaderboard since you already secured your confirmed event entry.</em>
+              </div>
+            </div>
+          )}
 
           <div className="flex flex-col md:flex-row md:justify-between relative z-10">
             {/* Connecting line for desktop */}
