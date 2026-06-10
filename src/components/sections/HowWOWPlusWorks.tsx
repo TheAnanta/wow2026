@@ -55,7 +55,7 @@ export const HowWOWPlusWorks = () => {
     : [
       {
         title: "Pay ₹350 now",
-        description: "Before 7th June",
+        description: "Before 13th June",
         number: "1",
         button: hasArcade
           ? { text: "Paid", link: "#", isPaid: true }
