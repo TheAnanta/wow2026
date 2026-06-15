@@ -12,35 +12,35 @@ const TierCard: React.FC<{
   pricingSubtext?: React.ReactNode;
   badge?: React.ReactNode;
   href?: string;
-}> = ({ name, price, buttonText, features, isRecommended, pricingSubtext, badge, href = '#' }) => {
+  isDisabled?: boolean;
+}> = ({ name, price, buttonText, features, isRecommended, pricingSubtext, badge, href = '#', isDisabled }) => {
   return (
     <div
-      className="flex flex-col h-full bg-white dark:bg-[#191c21] rounded-[16px]"
+      className={`flex flex-col h-full bg-white dark:bg-[#191c21] rounded-[16px] transition-all ${isDisabled ? 'opacity-60 grayscale-[40%] contrast-75 cursor-not-allowed select-none' : ''}`}
       style={{
-        borderTop: isRecommended ? '3px solid #4285F4' : '1px solid #dadce0',
-        borderRight: isRecommended ? '3px solid #EA4335' : '1px solid #dadce0',
-        borderBottom: isRecommended ? '3px solid #FBBC04' : '1px solid #dadce0',
-        borderLeft: isRecommended ? '3px solid #34A853' : '1px solid #dadce0',
+        borderTop: isDisabled ? '1.5px solid #dadce0' : isRecommended ? '3px solid #4285F4' : '1px solid #dadce0',
+        borderRight: isDisabled ? '1.5px solid #dadce0' : isRecommended ? '3px solid #EA4335' : '1px solid #dadce0',
+        borderBottom: isDisabled ? '1.5px solid #dadce0' : isRecommended ? '3px solid #FBBC04' : '1px solid #dadce0',
+        borderLeft: isDisabled ? '1.5px solid #dadce0' : isRecommended ? '3px solid #34A853' : '1px solid #dadce0',
         overflow: 'hidden'
       }}
     >
       <div className="text-center">
-        {(isRecommended || badge) && (
-          <div className="pt-4 pb-2">
-            {isRecommended ? (
-              <span className="text-[14px] text-[#2c5fd9] dark:text-[#adc6ff]">
+        {((isRecommended && !isDisabled) || badge) && (
+          <div className="pt-4 pb-2 flex flex-col items-center gap-1.5">
+            {isRecommended && !isDisabled && (
+              <span className="text-[14px] text-[#2c5fd9] dark:text-[#adc6ff] font-semibold">
                 Recommended
               </span>
-            ) : (
-              badge
             )}
+            {badge}
           </div>
         )}
-        <div className={`${isRecommended || badge ? 'pb-4 pt-1' : 'py-8'} px-4`}>
+        <div className={`${(isRecommended && !isDisabled) || badge ? 'pb-4 pt-1' : 'py-8'} px-4`}>
           <p className="text-base text-[#1b1b21] dark:text-[#e2e2e9] mb-1">
             {name}
           </p>
-          <p className={`${isRecommended ? 'text-[28px]' : 'text-2xl'} font-bold text-[#1b1b21] dark:text-[#e2e2e9] mb-1`}>
+          <p className={`${isRecommended && !isDisabled ? 'text-[28px]' : 'text-2xl'} font-bold text-[#1b1b21] dark:text-[#e2e2e9] mb-1`}>
             {price}
           </p>
           {pricingSubtext && (
@@ -48,12 +48,20 @@ const TierCard: React.FC<{
               {pricingSubtext}
             </div>
           )}
-          <a
-            href={href}
-            className={`inline-block text-sm font-semibold px-6 py-2.5 rounded-full transition-all ${isRecommended ? 'bg-[#2c5fd9] text-white shadow-sm' : 'border border-[#dadce0] dark:border-[#46464f] text-[#2c5fd9] dark:text-[#adc6ff]'}`}
-          >
-            {buttonText}
-          </a>
+          {isDisabled ? (
+            <span
+              className="inline-block text-sm font-semibold px-6 py-2.5 rounded-full bg-grey-900/30 dark:bg-grey-bg/30 text-grey-600 dark:text-grey-300"
+            >
+              {buttonText}
+            </span>
+          ) : (
+            <a
+              href={href}
+              className={`inline-block text-sm font-semibold px-6 py-2.5 rounded-full transition-all ${isRecommended ? 'bg-[#2c5fd9] text-white shadow-sm' : 'border border-[#dadce0] dark:border-[#46464f] text-[#2c5fd9] dark:text-[#adc6ff]'}`}
+            >
+              {buttonText}
+            </a>
+          )}
         </div>
       </div>
 
@@ -91,14 +99,15 @@ export const RegistrationTiers = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
           <TierCard
-            name="Basic"
+            name="Indivual"
             price="₹1,200"
             buttonText="Get started"
             href={baseLink}
             features={[
-              "15+ Hands-on Workshops",
-              "72+ Talks",
-              <span key="hackathon" className="underline underline-offset-2">Hackathon</span>,
+              <span key="hackathon" className="underline underline-offset-2">20 Hour Hackathon</span>,
+              <span key="mentoring" className="underline underline-offset-2">1:1 Mentoring with Google Experts (GDEs)</span>,
+              "20+ Hands-on Workshops",
+              "72+ Talks (Tech/Non-Tech)",
               "AI Playgrounds",
               "Arcade Zone",
               "Lunch & Refreshments",
@@ -110,40 +119,9 @@ export const RegistrationTiers = () => {
             ]}
           />
           <TierCard
-            name="WOW+"
-            price="₹350*"
-            buttonText="Get started"
-            href={`${baseLink}?tier=wowplus`}
-            isRecommended
-            pricingSubtext={
-              <>
-                *Pay ₹0-₹600 later based on your score. <a href="#how-wow-plus-works" onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('how-wow-plus-works')?.scrollIntoView({ behavior: 'smooth' });
-                }} className="text-[#2c5fd9] font-medium hover:underline cursor-pointer">Know more</a>
-              </>
-            }
-            features={[
-              <span key="cert">140+ hr of <span className="underline underline-offset-2">online certification courses</span></span>,
-              "Access to leaderboards, badges & virtual games",
-              "Upto 100% refund on ticket",
-              <span key="priority-hackathon">Priority <span className="underline underline-offset-2">Hackathon</span> Entry</span>,
-              "1:1 Mentoring with GDEs",
-              "15+ Hands-on Workshops",
-              "72+ Talks",
-              "AI Playgrounds",
-              "Arcade Zone",
-              "Community Networking",
-              "Exclusive Premium Swag Kit",
-              <span key="career-zone"><span className="underline underline-offset-2">Career Zone</span> & Job Mentoring</span>,
-              <span key="startup" className="underline underline-offset-2">Startup Showcase</span>,
-              <span key="investors" className="underline underline-offset-2">Investors Meet</span>,
-              "Lunch & Refreshments",
-            ]}
-          />
-          <TierCard
-            name="Group Pass"
+            name="Group/Team Pass"
             href={`${baseLink}?tier=group&promo=bettertogether`}
+            isRecommended
             badge={
               <div className="inline-flex items-center gap-1.5 bg-[#e6f4ea] text-[#137333] dark:bg-[#137333]/20 dark:text-[#81c995] px-3 py-1 rounded-full">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -164,19 +142,31 @@ export const RegistrationTiers = () => {
             }
             buttonText="Get started"
             features={[
-              "Access for 5 People",
+              <span className="underline underline-offset-2" key="5x-individual">5x Individual Passes</span>,
               "Save ₹2000 on total",
-              "15+ Hands-on Workshops",
-              "72+ Talks",
-              <span key="hackathon" className="underline underline-offset-2">Hackathon</span>,
-              "AI Playgrounds",
-              "Arcade Zone",
-              "Lunch & Refreshments",
-              "Exclusive Premium Swag Kit",
-              <span key="career-zone"><span className="underline underline-offset-2">Career Zone</span> & Job Mentoring</span>,
-              <span key="startup" className="underline underline-offset-2">Startup Showcase</span>,
-              <span key="investors" className="underline underline-offset-2">Investors Meet</span>,
-              "Community Networking"
+              <span key="cert">140+ hr of <span className="underline underline-offset-2">online certification courses</span></span>,
+              "Access to leaderboards, badges & virtual games",
+              <span>+ Everything included in <span className="underline underline-offset-2">Individual</span></span>
+            ]}
+          />
+
+          <TierCard
+            name="WOW+"
+            price="₹350*"
+            buttonText="Sold Out"
+            href={`${baseLink}?tier=wowplus`}
+            isDisabled
+            pricingSubtext={
+              <>
+                *Pay ₹0-₹600 later based on your score.
+              </>
+            }
+            features={[
+              <span key="cert">140+ hr of <span className="underline underline-offset-2">online certification courses</span></span>,
+              "Access to leaderboards, badges & virtual games",
+              "Upto 100% refund on ticket",
+              <span key="priority-hackathon">Priority <span className="underline underline-offset-2">Hackathon</span> Entry</span>,
+              "+Everything included in Individual",
             ]}
           />
         </div>

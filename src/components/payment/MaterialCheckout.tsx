@@ -342,7 +342,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
         </button>
       </div>
 
-      {!isBetterTogether && (
+      {!isBetterTogether && isWOWPlus && (
         <PayLaterDisclosure
           open={payLaterOpen}
           setOpen={setPayLaterOpen}

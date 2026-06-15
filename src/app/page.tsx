@@ -17,7 +17,6 @@ import { WhatIsWOW } from '@/components/sections/WhatIsWOW';
 import { WhyAttendWOW } from '@/components/sections/WhyAttendWOW';
 import { WhoCanAttendWOW } from '@/components/sections/WhoCanAttendWOW';
 import { RegistrationTiers } from '@/components/sections/RegistrationTiers';
-import { HowWOWPlusWorks } from '@/components/sections/HowWOWPlusWorks';
 import GallerySection from '@/components/sections/GallerySection';
 import { useSearchParams } from 'next/navigation';
 import { Toast } from '@/components/ui/Toast';
@@ -78,7 +77,7 @@ function Home() {
   return (
     <div className="w-full min-h-screen text-grey-900 dark:text-grey-bg! overflow-x-hidden">
       <Header onRegisterClick={() => {
-        document.getElementById('registration-tiers')?.scrollIntoView({ behavior: 'smooth' });
+        router.push('/register');
       }} />
 
       <main>
@@ -99,20 +98,16 @@ function Home() {
         </Swiper> */}
 
         <Hero onRegisterClick={() => {
-          document.getElementById('registration-tiers')?.scrollIntoView({ behavior: 'smooth' });
+          router.push('/register');
         }} />
 
-        {/* <div className="page-wrapper flex flex-col"> */}
-        {/* <CountdownSection /> */}
-        {/* <WhatToExpectSection />
-          <EventMetricsSection />
-          <CTACards /> */}
-        {/* </div> */}
+        <div className="page-wrapper flex flex-col">
+          <CountdownSection />
+        </div>
         <WhatIsWOW />
         <WhyAttendWOW />
         <WhoCanAttendWOW />
         <RegistrationTiers />
-        <HowWOWPlusWorks />
         {/* <KeynotesSection /> */}
         <StackCardsSection />
         <GallerySection />

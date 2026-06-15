@@ -15,8 +15,8 @@
   --color-blue-link: #185abc;
 
   /* Typography */
-  --font-sans: "Google Sans", "Google Sans Text", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Google Sans Display", "Google Sans", sans-serif;
+  --font-sans: var(--font-google-sans), "Google Sans", "Google Sans Text", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-google-sans-display), "Google Sans Display", "Google Sans", sans-serif;
 
   /* Custom Breakpoints */
   --breakpoint-ml: 960px;

@@ -66,7 +66,7 @@ export const WhatIsWOW = () => {
     },
     {
       title: "Hackathon",
-      description: "A 12-hour high-stakes build-fest with a ₹2,00,000 prize pool starting on the evening of July 4th.",
+      description: "A 20-hour high-stakes build-fest with a ₹2,00,000 prize pool starting on the evening of July 4th.",
       image: "/images/wow-hackathon.png"
     },
     {

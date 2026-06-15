@@ -115,6 +115,8 @@ export const RegistrationForm: React.FC = () => {
     }
   };
 
+  const [showCheckoutDialog, setShowCheckoutDialog] = useState(false);
+
   const handleSubmit = async () => {
     const newErrors = validateProfile(data);
     if (Object.keys(newErrors).length !== 0) {
@@ -122,8 +124,12 @@ export const RegistrationForm: React.FC = () => {
       setErrors(newErrors);
       return;
     }
+    setShowCheckoutDialog(true);
+  };
 
-    analyticsService.trackCTA('Register', 'RegistrationForm', 'submit_start');
+  const handleConfirmRegistration = async (type: 'individual' | 'team') => {
+    setShowCheckoutDialog(false);
+    analyticsService.trackCTA(`Register_${type}`, 'RegistrationForm', 'submit_start');
     setIsSubmitting(true);
     try {
       // Attempt to get FCM token before submission
@@ -148,8 +154,11 @@ export const RegistrationForm: React.FC = () => {
           }
         }
 
-        const currentParams = searchParams.toString();
-        router.push(`/payment${currentParams ? `?${currentParams}` : ''}`);
+        if (type === 'team') {
+          router.push('/payment?promo=BETTERTOGETHER');
+        } else {
+          router.push('/payment');
+        }
       } else {
         analyticsService.trackForm('registration', 'all', 'error', { message: result.error });
         setErrors({ submit: result.error || 'The user account type is not allowed.' });
@@ -377,6 +386,84 @@ export const RegistrationForm: React.FC = () => {
           </div>
         </div>
       </div>
+      {showCheckoutDialog && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50 backdrop-blur-md animate-fade-in"
+        >
+          <div
+            className="bg-white dark:bg-[#1e2124] rounded-[28px] p-6 md:p-8 max-w-[500px] w-full shadow-2xl border border-grey-200 dark:border-grey-700"
+            style={{
+              animation: 'dialogIn 280ms cubic-bezier(.2,0,0,1) both',
+            }}
+          >
+            <h3 className="text-2xl font-bold tracking-tight text-grey-900 dark:text-white mb-2">
+              Select Registration Type
+            </h3>
+            <p className="text-sm text-grey-600 dark:text-grey-400 mb-6">
+              Choose how you would like to register for GDG WOW 2026.
+            </p>
+
+            <div className="flex flex-col gap-4 mb-6">
+              {/* Individual Option */}
+              <button
+                type="button"
+                onClick={() => handleConfirmRegistration('individual')}
+                className="flex items-start gap-4 p-4 rounded-2xl border-2 border-grey-200 dark:border-grey-700 hover:border-google-blue dark:hover:border-google-blue bg-grey-50 dark:bg-grey-900/50 hover:bg-google-blue/5 dark:hover:bg-google-blue/10 text-left transition-all group active:scale-[0.98]"
+              >
+                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-google-blue/10 text-google-blue group-hover:scale-110 transition-transform">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold text-lg text-grey-900 dark:text-white">Individual Pass</div>
+                  <div className="text-sm text-grey-600 dark:text-grey-400 mt-0.5">Early Bird ticket for 1 attendee.</div>
+                  <div className="text-xl font-bold text-google-blue mt-2">₹1,200</div>
+                </div>
+              </button>
+
+              {/* Team Option */}
+              <button
+                type="button"
+                onClick={() => handleConfirmRegistration('team')}
+                className="flex items-start gap-4 p-4 rounded-2xl border-2 border-google-green bg-google-green/5 dark:bg-google-green/10 hover:bg-google-green/10 dark:hover:bg-google-green/20 text-left transition-all relative overflow-hidden group active:scale-[0.98]"
+              >
+                {/* Popular Badge */}
+                <div className="absolute top-0 right-0 bg-google-green text-white text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-bl-xl">
+                  Save 33%
+                </div>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-google-green/20 text-google-green group-hover:scale-110 transition-transform">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold text-lg text-grey-900 dark:text-white">Group Pass (Team of 5)</div>
+                  <div className="text-sm text-grey-600 dark:text-grey-400 mt-0.5">Bring your squad. Details for other members collected later.</div>
+                  <div className="flex items-baseline gap-2 mt-2">
+                    <span className="text-xl font-bold text-google-green">₹4,000</span>
+                    <span className="text-sm line-through text-grey-500">₹6,000</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={() => setShowCheckoutDialog(false)}
+                className="px-6 py-2.5 rounded-full text-sm font-semibold text-grey-700 dark:text-grey-300 hover:bg-grey-100 dark:hover:bg-grey-800 transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style jsx global>{`
         .animate-fade-in {
@@ -385,6 +472,10 @@ export const RegistrationForm: React.FC = () => {
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
+        }
+        @keyframes dialogIn {
+          from { opacity: 0; transform: scale(0.95) translateY(12px); }
+          to { opacity: 1; transform: scale(1) translateY(0); }
         }
       `}</style>
     </div>

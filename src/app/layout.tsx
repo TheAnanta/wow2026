@@ -150,7 +150,7 @@ export default function RootLayout({
             <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
 
             {/* Banner */}
-            <AnnouncementBanner props={{ announcement: "WOW+ starts 30th May • Join now for up to 100% discounts & certificates for courses • 13th June is last date for WOW+ payments of 350 and sale ends 25th June • Hurry, get your tickets now!" }} />
+            <AnnouncementBanner props={{ announcement: "GDG WOW 2026 tickets are live! Grab your Individual pass for ₹1,200 or Group Pass for 5 just at ₹4,000 (Save ₹2,000!) • Book your spot now!" }} />
 
 
             {children}

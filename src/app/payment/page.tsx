@@ -7,7 +7,6 @@ import { GroupInviteModal } from "@/components/payment/GroupInviteModal";
 import { useAuth } from "@/context/AuthContext";
 import { fetchTicketTiers, initiateCheckout, verifyPayment, fetchMyTickets, validateCoupon } from "@/services/registrationStubs";
 import { analyticsService } from "@/services/analytics";
-import { WOWPlusAlert } from "@/components/WOWPlusAlert";
 
 function PaymentPage() {
     const startTimeRef = useRef(Date.now());
@@ -46,10 +45,6 @@ function PaymentPage() {
             searchParams.get('mockGroup') === 'true') {
             setShowGroupModal(true);
             setLastOrderDetails({ id: 'order_MOCK_GROUP_123', badgeName: 'WOW 2026 - Attendee' });
-        }
-        
-        if (searchParams.get('wowplus') === 'true' || searchParams.get('tier') === 'wowplus') {
-            setIsWOWPlus(true);
         }
     }, [searchParams]);
 
@@ -204,7 +199,7 @@ function PaymentPage() {
                 onToggleWOWPlus={() => setIsWOWPlus(!isWOWPlus)}
             />
 
-            <WOWPlusAlert onConfirm={() => setIsWOWPlus(true)} />
+
 
             {showGroupModal && lastOrderDetails && (
                 <GroupInviteModal 
