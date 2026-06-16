@@ -678,7 +678,7 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
     },
     {
       id: 'k4-7',
-      title: 'Exploring Google Checks',
+      title: 'From VM-Based Infrastructure to Kubernetes on GKE: Migration Journey and Lessons Learned',
       description: 'Join us for Exploring Google Checks at Kalinga 4.',
       thumbnail: '/images/io24-featured-keynote-developer.webp',
       tags: ['Other', 'Talk', 'Kalinga 4', '28 June 2025'],
@@ -987,8 +987,8 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
     },
     {
       id: 'k9-2',
-      title: 'Build applications fastly with no-code using FlutterFlow!',
-      description: 'Join us for Build applications fastly with no-code using FlutterFlow! at Kalinga 9.',
+      title: 'Next-Gen Flutter Engineering: Designing with AI and MCP in FlutterFlow',
+      description: '⁠ Winning a 12-hour hackathon requires shipping a functional MVP before the clock runs out. In this session, we will skip the manual layout boilerplate and explore how using a visual development environment accelerates your existing engineering workflow. We will dive into the FlutterFlow Designer to live-build a responsive web application from scratch, wire it up to live data, and look at how to leverage powerful AI features and the Model Context Protocol (MCP) to supercharge your development velocity. You will learn how to seamlessly inspect, extend with custom Dart code, and export clean Flutter architecture so your team can design, build, and deploy a winning project in record time. ⁠',
       thumbnail: '/images/io24-featured-keynote-developer.webp',
       tags: ['Mobile', 'Workshop', 'Kalinga 9', '28 June 2025'],
       topics: ['088d506d-5c55-4b15-9b95-0be49b939c2a'],
