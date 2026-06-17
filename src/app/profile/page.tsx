@@ -412,7 +412,7 @@ export default function ProfilePage() {
             </div>
 
             {/* Squad Management Section */}
-            {(isMockGroup || tickets.some((t: any) => t.order?.coupon_code === 'BETTERTOGETHER')) && (
+            {(isMockGroup || tickets.some((t: any) => t.order?.tier_id === 'clx_grouppass_006')) && (
               <div className="p-8 rounded-[32px] border-2 border-grey-900 dark:border-white/10 overflow-hidden relative group transition-colors"
                 style={{ background: 'var(--m-surface-container-low)' }}>
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -428,7 +428,7 @@ export default function ProfilePage() {
                   </div>
                   <button
                     onClick={() => {
-                      const groupTicket = tickets.find((t: any) => t.order?.coupon_code === 'BETTERTOGETHER');
+                      const groupTicket = tickets.find((t: any) => t.order?.tier_id === 'clx_grouppass_006');
                       setGroupOrderId(groupTicket?.order_id || 'order_MOCK_123');
                       setShowInviteModal(true);
                     }}

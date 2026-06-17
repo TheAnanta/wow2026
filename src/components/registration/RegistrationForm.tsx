@@ -134,7 +134,8 @@ export const RegistrationForm: React.FC = () => {
     try {
       // Attempt to get FCM token before submission
       const fcm_token = await requestFirebaseToken();
-      const result = await submitRegistration({ ...data, fcm_token: fcm_token || undefined });
+      const intended_tier_id = type === 'team' ? 'clx_grouppass_006' : 'clx_earlybird_002';
+      const result = await submitRegistration({ ...data, fcm_token: fcm_token || undefined, intended_tier_id });
       if (result.success) {
         const totalDuration = (Date.now() - formStartTimeRef.current) / 1000;
         analyticsService.trackTiming('registration_form', 'total_duration', totalDuration);
@@ -155,7 +156,7 @@ export const RegistrationForm: React.FC = () => {
         }
 
         if (type === 'team') {
-          router.push('/payment?promo=BETTERTOGETHER');
+          router.push('/payment?tier=group');
         } else {
           router.push('/payment');
         }

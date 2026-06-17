@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { analyticsService } from "@/services/analytics";
 import { useAuth } from "@/context/AuthContext";
+import { useEffect, useState } from "react";
 
 type FeatureItemProps = {
   label: string;
@@ -274,7 +274,8 @@ export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () 
   const hasTicket = tickets && tickets.length > 0;
 
   const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
-  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? '/payment' : '/register?update=true');
+  const isGroupPassIntent = profile?.intended_tier_id === 'clx_grouppass_006';
+  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? `/payment${isGroupPassIntent ? '?tier=group' : ''}` : '/register?update=true');
 
   const handleRegisterClick = onRegisterClick || (() => {
     analyticsService.trackCTA(buttonText, 'HeroSection', 'click');

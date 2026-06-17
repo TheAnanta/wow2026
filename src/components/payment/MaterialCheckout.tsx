@@ -27,6 +27,7 @@ interface MaterialCheckoutProps {
   onBack: () => void;
   isWOWPlus: boolean;
   onToggleWOWPlus: () => void;
+  initialIsGroupPass?: boolean;
 }
 
 const PASS = { price: 1200, list: 2000 };
@@ -53,10 +54,11 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   onApplyCoupon,
   onBack,
   isWOWPlus,
-  onToggleWOWPlus
+  onToggleWOWPlus,
+  initialIsGroupPass = false
 }) => {
-  const [rank, setRank] = useState(87);
   const [promos, setPromos] = useState<any[]>([]);
+  const [isGroupPass, setIsGroupPass] = useState(initialIsGroupPass);
   const [payLaterOpen, setPayLaterOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -113,14 +115,14 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
     }
   }
 
-  const isBetterTogether = promos.some(p => p.code === 'BETTERTOGETHER');
-  const qty = isBetterTogether ? 5 : 1;
-  const currentSubDiscount = (isBetterTogether || !isWOWPlus) ? 0 : SUB_DISCOUNT;
+  const qty = isGroupPass ? 5 : 1;
+  const currentSubDiscount = (isGroupPass || !isWOWPlus) ? 0 : SUB_DISCOUNT;
 
-  const subtotal = (PASS.price * qty) - currentSubDiscount;
+  const basePrice = isGroupPass ? 4000 : (PASS.price * qty);
+  const subtotal = basePrice - currentSubDiscount;
   const promoTotal = promos.reduce((a, p) => a + p.amount, 0);
-  const finalNow = Math.max(0, (PASS.price * qty) - currentSubDiscount - promoTotal);
-  const payLater = payLaterRange(rank);
+  const finalNow = Math.max(0, basePrice - currentSubDiscount - promoTotal);
+  const payLater = payLaterRange(87);
 
   // Track scroll for top-bar shadow
   useEffect(() => {
@@ -236,12 +238,13 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   userEmail={user?.email}
                   isWOWPlus={isWOWPlus}
                   onToggleWOWPlus={onToggleWOWPlus}
-                  disabled={isBetterTogether}
+                  disabled={isGroupPass}
+                  isGroupPass={isGroupPass}
                 />
               </div>
 
               {/* <div style={{ scrollSnapAlign: 'start' }}>
-  <RankCard rank={rank} setRank={setRank} interactive={true} brand={brand} disabled={isBetterTogether} />
+  <RankCard rank={rank} setRank={setRank} interactive={true} brand={brand} disabled={isGroupPass} />
 </div> */}
             </div>
 
@@ -253,6 +256,8 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   onRemove={removePromo}
                   onApply={handleApplyPromo}
                   brand={brand}
+                  isGroupPass={isGroupPass}
+                  setIsGroupPass={setIsGroupPass}
                 />
               </div>
 
@@ -279,12 +284,11 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                 <StickyBarContent
                   finalNow={finalNow}
                   isProcessing={isProcessing}
-                  onPurchase={() => onPurchase(isWOWPlus ? 'Arcade' : 'Early Bird', isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee')}
+                  onPurchase={() => onPurchase(isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002'), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee')}
                   payLaterOpen={payLaterOpen}
                   setPayLaterOpen={setPayLaterOpen}
                   payLater={payLater}
-                  rank={rank}
-                  isBetterTogether={isBetterTogether}
+                  isGroupPass={isGroupPass}
                   isWOWPlus={isWOWPlus}
                 />
               </div>
@@ -299,12 +303,11 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
         <StickyBarContent
           finalNow={finalNow}
           isProcessing={isProcessing}
-          onPurchase={() => onPurchase(isWOWPlus ? 'Arcade' : 'Early Bird', isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee')}
+          onPurchase={() => onPurchase(isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002'), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee')}
           payLaterOpen={payLaterOpen}
           setPayLaterOpen={setPayLaterOpen}
           payLater={payLater}
-          rank={rank}
-          isBetterTogether={isBetterTogether}
+          isGroupPass={isGroupPass}
           isWOWPlus={isWOWPlus}
         />
       </div>
@@ -326,7 +329,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
 
 // --- StickyBarContent — shared between mobile fixed bar and desktop section ---
 // Uses the exact same markup from Charan anna's original sticky bottom bar
-function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, setPayLaterOpen, payLater, rank, isBetterTogether, isWOWPlus }: any) {
+function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, setPayLaterOpen, payLater, rank, isGroupPass, isWOWPlus }: any) {
   return (
     <>
       {/* Additional Coupons link — refined to match M3 design system */}
@@ -342,7 +345,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
         </button>
       </div>
 
-      {!isBetterTogether && isWOWPlus && (
+      {!isGroupPass && isWOWPlus && (
         <PayLaterDisclosure
           open={payLaterOpen}
           setOpen={setPayLaterOpen}
@@ -355,7 +358,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
       <div className="px-4 pt-3 pb-2 flex items-center gap-3">
         <div className="flex-1 min-w-0">
           <div className="t-label-m" style={{ color: 'var(--m-on-surface-variant)' }}>
-            {isBetterTogether ? 'YOU PAY IN TOTAL' : 'YOU PAY NOW'}
+            {isGroupPass ? 'YOU PAY IN TOTAL' : 'YOU PAY NOW'}
           </div>
           <div className="t-headline-m tabular-nums" style={{ color: 'var(--m-on-surface)' }}>
             ₹{finalNow.toLocaleString('en-IN')}
@@ -376,7 +379,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
           }}
         >
           {isProcessing ? <Spinner /> : <IconLock size={18} />}
-          <span>{isProcessing ? 'Processing…' : (isBetterTogether ? 'Pay total' : 'Pay now')}</span>
+          <span>{isProcessing ? 'Processing…' : (isGroupPass ? 'Pay total' : 'Pay now')}</span>
         </button>
       </div>
     </>

@@ -16,6 +16,7 @@ export interface RegistrationData extends RegistrationProfile {
   marketingConsent: boolean;
   newsletterConsent: boolean;
   fcm_token?: string;
+  intended_tier_id?: string;
 }
 
 import { getBearerToken, auth } from './firebase';
@@ -67,7 +68,8 @@ export const submitRegistration = async (data: RegistrationData): Promise<{ succ
       city: data.cityTown || '',
       interests: data.interests || [],
       profile_url: user.photoURL || '',
-      fcm_token: data.fcm_token
+      fcm_token: data.fcm_token,
+      intended_tier_id: data.intended_tier_id || null,
     };
 
     console.log('Sending Registration to API:', apiPayload);

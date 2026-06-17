@@ -120,7 +120,7 @@ export const RegistrationTiers = () => {
           />
           <TierCard
             name="Group/Team Pass"
-            href={`${baseLink}?tier=group&promo=bettertogether`}
+            href={`${baseLink}?tier=group`}
             isRecommended
             badge={
               <div className="inline-flex items-center gap-1.5 bg-[#e6f4ea] text-[#137333] dark:bg-[#137333]/20 dark:text-[#81c995] px-3 py-1 rounded-full">

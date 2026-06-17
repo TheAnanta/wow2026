@@ -44,10 +44,11 @@ interface OrderSummaryCardProps {
   isWOWPlus?: boolean;
   onToggleWOWPlus?: () => void;
   disabled?: boolean;
+  isGroupPass?: boolean;
 }
 
 export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
-  pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled
+  pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled, isGroupPass
 }) => (
   <section
     className="rounded-2xl p-4"
@@ -84,9 +85,9 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
       <div className="text-right flex-none">
         <div className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>
-          {isWOWPlus ? `upto ₹${(950 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`}
+          {isGroupPass ? `₹4,000` : (isWOWPlus ? `upto ₹${(950 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`)}
         </div>
-        <div className="t-body-s line-through" style={{ color: 'var(--m-on-surface-variant)' }}>₹{(pass.list * qty).toLocaleString('en-IN')}</div>
+        {!isGroupPass && <div className="t-body-s line-through" style={{ color: 'var(--m-on-surface-variant)' }}>₹{(pass.list * qty).toLocaleString('en-IN')}</div>}
       </div>
     </div>
 
@@ -266,15 +267,16 @@ export const RankCard: React.FC<RankCardProps> = ({ rank, setRank, interactive, 
   );
 };
 
-// ---------- Promotions ----------
 interface PromotionsCardProps {
   promos: any[];
   onRemove: (code: string) => void;
   onApply: (code: string) => any;
   brand: string;
+  isGroupPass?: boolean;
+  setIsGroupPass?: (val: boolean) => void;
 }
 
-export const PromotionsCard: React.FC<PromotionsCardProps> = ({ promos, onRemove, onApply, brand }) => {
+export const PromotionsCard: React.FC<PromotionsCardProps> = ({ promos, onRemove, onApply, brand, isGroupPass, setIsGroupPass }) => {
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
   const [focused, setFocused] = useState(false);
@@ -345,36 +347,33 @@ export const PromotionsCard: React.FC<PromotionsCardProps> = ({ promos, onRemove
         <p className="mt-2 t-body-s" style={{ color: 'var(--m-error)' }}>{error}</p>
       )}
 
-      {/* Better Together Offer — moved below input */}
+      {/* Group Pass Offer — replaces Better Together coupon */}
       <div
-        className={`mt-4 mb-2 rounded-2xl p-4 flex items-start gap-4 transition-all ${promos.some(p => p.code === 'BETTERTOGETHER') ? 'cursor-default' : 'cursor-pointer m-pressable'}`}
+        className={`mt-4 mb-2 rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer m-pressable ${isGroupPass ? 'group-pass-active' : ''}`}
         style={{
-          background: 'var(--m-tertiary-container)',
-          color: 'var(--m-on-tertiary-container)'
+          background: isGroupPass ? 'var(--m-tertiary)' : 'var(--m-tertiary-container)',
+          color: isGroupPass ? '#fff' : 'var(--m-on-tertiary-container)'
         }}
         onClick={() => {
-          if (!promos.some(p => p.code === 'BETTERTOGETHER')) {
-            setCode('BETTERTOGETHER');
-            setTimeout(handleApply, 10);
-          }
+          if (setIsGroupPass) setIsGroupPass(!isGroupPass);
         }}
       >
         <div className="w-12 h-12 rounded-2xl flex-none flex items-center justify-center"
-          style={{ background: 'var(--m-tertiary)', color: '#fff' }}>
+          style={{ background: isGroupPass ? 'rgba(255,255,255,0.2)' : 'var(--m-tertiary)', color: '#fff' }}>
           <IconSparkle size={24} stroke={2} />
         </div>
         <div className="flex-1 min-w-0">
           <div className="t-title-m">Stronger as a team</div>
           <p className="t-body-s mt-1 opacity-90">
-            Bringing your squad? Use code <span className="font-mono font-bold" style={{ color: 'var(--m-tertiary)' }}>BETTERTOGETHER</span> for teams of 5+ to unlock an exclusive <b>₹2,000 discount</b>. Details for other members will be collected after payment.
+            Bringing your squad? Switch to the <span className="font-mono font-bold" style={{ color: isGroupPass ? '#fff' : 'var(--m-tertiary)' }}>GROUP PASS</span> for teams of 5+ to unlock an exclusive <b>discounted price of ₹4,000</b>. Details for other members will be collected after payment.
           </p>
-          <div className="t-label-s mt-2 font-bold flex items-center gap-1" style={{ color: 'var(--m-tertiary)' }}>
-            {promos.some(p => p.code === 'BETTERTOGETHER') ? (
+          <div className="t-label-s mt-2 font-bold flex items-center gap-1" style={{ color: isGroupPass ? '#fff' : 'var(--m-tertiary)' }}>
+            {isGroupPass ? (
               <span className="flex items-center gap-1.5">
-                <IconCheck size={16} stroke={3} /> Applied
+                <IconCheck size={16} stroke={3} /> Selected
               </span>
             ) : (
-              <>Tap to apply this offer <span className="text-lg">→</span></>
+              <>Tap to select Group Pass <span className="text-lg">→</span></>
             )}
           </div>
         </div>

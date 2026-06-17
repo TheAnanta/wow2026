@@ -87,14 +87,14 @@ function PaymentPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [profile, user, isLoading, router, tickets]);
 
-    const handlePurchase = async (tierSearch: string, badgeName?: string) => {
+    const handlePurchase = async (tierId: string, badgeName?: string) => {
         setIsProcessing(true);
         try {
-            const tier = tiers.find(t => t.name.toLowerCase().includes(tierSearch.toLowerCase()));
+            const tier = tiers.find(t => t.id === tierId);
             if (!tier) throw new Error('Ticket tier not found');
 
             const duration = (Date.now() - startTimeRef.current) / 1000;
-            analyticsService.trackCheckoutActivity('select_tier', tierSearch, 'initiated', duration);
+            analyticsService.trackCheckoutActivity('select_tier', tier.name, 'initiated', duration);
 
             const checkoutData = await initiateCheckout(tier.id, couponCode);
             
@@ -122,7 +122,7 @@ function PaymentPage() {
                             razorpay_payment_id: response.razorpay_payment_id,
                             razorpay_signature: response.razorpay_signature,
                         });
-                        if (couponCode === 'BETTERTOGETHER') {
+                        if (tierId === 'clx_grouppass_006') {
                             setLastOrderDetails({ id: response.razorpay_order_id, badgeName: badgeName || tier.name });
                             setShowGroupModal(true);
                         } else {
@@ -197,6 +197,10 @@ function PaymentPage() {
                 onBack={() => router.push('/register?update=true')}
                 isWOWPlus={isWOWPlus}
                 onToggleWOWPlus={() => setIsWOWPlus(!isWOWPlus)}
+                initialIsGroupPass={
+                  searchParams?.get('tier') === 'group' ||
+                  profile?.intended_tier_id === 'clx_grouppass_006'
+                }
             />
 
 
