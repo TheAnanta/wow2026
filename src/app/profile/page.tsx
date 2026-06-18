@@ -394,7 +394,9 @@ export default function ProfilePage() {
                   {tickets.map((t: any, i: number) => (
                     <div key={i} className="p-6 bg-[#e3e1e9] dark:bg-[#35343b] rounded-2xl border border-[#c6c5d0] dark:border-[#46464f] flex justify-between items-center group transition-colors shadow-sm">
                       <div>
-                        <h4 className="font-bold text-lg tracking-tight text-[#1b1b21] dark:text-[#e5e1e9]">{t.tier?.name || t.name || "Attendee Pass"}</h4>
+                        <h4 className="font-bold text-lg tracking-tight text-[#1b1b21] dark:text-[#e5e1e9]">
+                          {t.order?.tier_id === 'clx_grouppass_006' ? 'Group Pass' : (t.tier?.name || t.name || "Attendee Pass")}
+                        </h4>
                         <p className="text-xs uppercase font-black tracking-widest mt-1 text-[#46464f] dark:text-[#c6c5d0]">Order #{t.order?.gateway_order_id?.slice(-8) || "N/A"}</p>
                       </div>
                       <div className="flex items-center gap-3">

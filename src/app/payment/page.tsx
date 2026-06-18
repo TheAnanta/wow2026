@@ -117,13 +117,15 @@ function PaymentPage() {
                 handler: async (response: any) => {
                     setIsProcessing(true);
                     try {
-                        await verifyPayment({
+                        const verifiedData = await verifyPayment({
                             razorpay_order_id: response.razorpay_order_id,
                             razorpay_payment_id: response.razorpay_payment_id,
                             razorpay_signature: response.razorpay_signature,
                         });
                         if (tierId === 'clx_grouppass_006') {
-                            setLastOrderDetails({ id: response.razorpay_order_id, badgeName: badgeName || tier.name });
+                            // Use the internal order id (cuid) returned from /verify, not the Razorpay gateway id
+                            const internalOrderId = verifiedData?.order?.id || response.razorpay_order_id;
+                            setLastOrderDetails({ id: internalOrderId, badgeName: badgeName || tier.name });
                             setShowGroupModal(true);
                         } else {
                             setEarnedBadge(badgeName || tier.name);
