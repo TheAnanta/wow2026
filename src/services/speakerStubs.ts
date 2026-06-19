@@ -17,6 +17,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Payments',
     pronouns: 'She/Her',
     topics: ['Payments', 'Wallet'],
+    avatar: 'namrata_more.jpg',
     isGDE: true,
   },
   {
@@ -25,6 +26,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Cloud',
     pronouns: 'He/Him',
     topics: ['Cloud'],
+    avatar: 'sathish_vj.png',
     isGDE: true,
   },
   {
@@ -33,6 +35,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Firebase',
     pronouns: 'He/Him',
     topics: ['Firebase', 'Cloud'],
+    avatar: 'vrijraj.jpg',
     isGDE: true,
   },
   {
@@ -41,6 +44,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Web',
     pronouns: 'He/Him',
     topics: ['Web', 'DevOps', 'Chrome', 'AI'],
+    avatar: 'ashok.jpg',
     isGDE: true,
   },
   {
@@ -49,6 +53,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, AI',
     pronouns: 'She/Her',
     topics: ['AI', 'Workspace'],
+    avatar: 'krupa.jpg',
     isGDE: true,
   },
   {
@@ -57,6 +62,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Flutter & AI',
     pronouns: 'He/Him',
     topics: ['AI', 'Flutter', 'Gemini'],
+    avatar: 'pawan.jpeg',
     isGDE: true,
   },
   {
@@ -65,6 +71,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Flutter',
     pronouns: 'He/Him',
     topics: ['Flutter'],
+    avatar: 'vivek.png',
     isGDE: true,
   },
   {
@@ -73,6 +80,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Flutter & Dart',
     pronouns: 'He/Him',
     topics: ['Flutter', 'Dart'],
+    avatar: 'bhavik.jpg',
     isGDE: true,
   },
   {
@@ -88,15 +96,8 @@ const mockSpeakers: Speaker[] = [
     name: 'Harsh Mer',
     title: 'GDG Organizer',
     pronouns: 'He/Him',
+    avatar: 'harsh_me.jpeg',
     topics: ['AI', 'Opal']
-  },
-  {
-    id: '110',
-    name: 'Shweta Bhatt',
-    title: 'Google Developer Expert, Android',
-    pronouns: 'She/Her',
-    topics: ['Android', 'Algorithms'],
-    isGDE: true,
   },
   {
     id: '111',
@@ -104,6 +105,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, AI',
     pronouns: 'He/Him',
     topics: ['AI', 'ADK', 'Agents'],
+    avatar: 'trj.jpg',
     isGDE: true,
   },
   {
@@ -112,6 +114,7 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Web',
     pronouns: 'She/Her',
     topics: ['Web', 'Angular'],
+    avatar: 'srashti.jpeg',
     isGDE: true,
   },
   {
@@ -120,54 +123,25 @@ const mockSpeakers: Speaker[] = [
     title: 'Google Developer Expert, Cloud',
     pronouns: 'He/Him',
     topics: ['Cloud', 'Kubernetes', 'GKE'],
+    avatar: 'saurabh.jpeg',
     isGDE: true,
   },
   {
     id: '114',
-    name: 'Abhishek Doshi',
-    title: 'Google Developer Expert, Flutter & Dart',
-    pronouns: 'He/Him',
-    topics: ['Flutter', 'Dart'],
-    isGDE: true,
-  },
-  {
-    id: '115',
-    name: 'Aryan Irani',
-    title: 'Google Developer Expert, Cloud & Data Analytics',
-    pronouns: 'He/Him',
-    topics: ['Cloud', 'Data', 'Looker'],
-    isGDE: true,
-  },
-  {
-    id: '116',
     name: 'Rivu Chakraborty',
     title: 'Google Developer Expert, Android',
     pronouns: 'He/Him',
     topics: ['Android'],
+    avatar: 'rivu.png',
     isGDE: true,
   },
   {
-    id: '117',
-    name: 'Monika Jethani',
-    title: 'Google Developer Expert, Android',
-    pronouns: 'She/Her',
-    topics: ['AI', 'Stitch'],
-    isGDE: true,
-  },
-  {
-    id: '118',
+    id: '116',
     name: 'Belal Khan',
     title: 'Google Developer Expert, Android',
     pronouns: 'He/Him',
     topics: ['Android', 'AI', 'ML'],
-    isGDE: true,
-  },
-  {
-    id: '119',
-    name: 'Bhavesh Bhatt',
-    title: 'Google Developer Expert, AI & ML',
-    pronouns: 'He/Him',
-    topics: ['AI', 'Jules'],
+    avatar: 'belal.jpeg',
     isGDE: true,
   },
 ];

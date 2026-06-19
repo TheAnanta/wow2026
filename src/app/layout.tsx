@@ -129,6 +129,7 @@ import { AuthProvider } from "../context/AuthContext";
 import { AnalyticsProvider } from "../components/AnalyticsProvider";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import { Footer } from "@/components/sections/Footer";
+import PageTransition from "@/components/PageTransition";
 
 export default function RootLayout({
   children,
@@ -148,6 +149,9 @@ export default function RootLayout({
         <AuthProvider>
           <AnalyticsProvider>
             <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
+
+            {/* Page transition animation stripes */}
+            <PageTransition />
 
             {/* Banner */}
             <AnnouncementBanner props={{ announcement: "GDG WOW 2026 tickets are live! Grab your Individual pass for ₹1,200 or Group Pass for 5 just at ₹4,000 (Save ₹2,000!) • Book your spot now!" }} />

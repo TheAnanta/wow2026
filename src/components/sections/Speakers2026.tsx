@@ -28,7 +28,7 @@ const SpeakerCard = ({ speaker, index }: { speaker: Speaker; index: number }) =>
               alt={speaker.name}
               loading="lazy"
               className="object-cover w-full h-full transition-all duration-500 scale-100 grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105"
-              src={avatar}
+              src={'/images/speakers/' + avatar}
             />
           ) : (
             <div
