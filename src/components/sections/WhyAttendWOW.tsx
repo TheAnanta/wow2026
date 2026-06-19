@@ -18,7 +18,6 @@ const reasons = [
   { text: "Google Gemini Cricket Arcade" },
   { text: "72+ talks" },
   { text: "15+ workshops" },
-  { text: "Job opportunities" },
   { text: "Be ready with Career Dreamer" },
   { text: "Generative AI upskilling" },
   { text: "Building startups from scratch" },
@@ -100,15 +99,21 @@ export const WhyAttendWOW = () => {
         </div>
 
         {/* Thick Border Chip Cloud (Reference Style) */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-5 max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-5 max-w-6xl mx-auto">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="px-8 py-3 rounded-full bg-white dark:bg-white text-grey-900 border-[3px] border-grey-900 dark:border-grey-900 shadow-none hover:bg-grey-50 transition-colors cursor-default"
+              className="px-4 py-2 md:px-8 md:py-3 rounded-full bg-white dark:bg-white text-grey-900 border-2 md:border-[3px] border-grey-900 dark:border-grey-900 shadow-none hover:bg-grey-50 transition-colors cursor-default"
             >
-              <span className="text-lg md:text-xl font-bold tracking-tight">{reason.text}</span>
+              <span className="text-sm sm:text-base md:text-xl font-bold tracking-tight">{reason.text}</span>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-8 md:mt-10">
+          <span className="text-lg md:text-2xl font-bold text-grey-900 dark:text-white">
+            and many more...
+          </span>
         </div>
 
         <p className="text-center text-grey-500 dark:text-grey-text mt-20 text-sm italic">
