@@ -18,6 +18,9 @@ import { WhyAttendWOW } from '@/components/sections/WhyAttendWOW';
 import { WhoCanAttendWOW } from '@/components/sections/WhoCanAttendWOW';
 import { RegistrationTiers } from '@/components/sections/RegistrationTiers';
 import GallerySection from '@/components/sections/GallerySection';
+import { HistorySection } from '@/components/sections/HistorySection';
+import { ScheduleSection } from '@/components/sections/ScheduleSection';
+import { Speakers2026 } from '@/components/sections/Speakers2026';
 import { useSearchParams } from 'next/navigation';
 import { Toast } from '@/components/ui/Toast';
 import { analyticsService } from '@/services/analytics';
@@ -105,11 +108,18 @@ function Home() {
           <CountdownSection />
         </div>
         <WhatIsWOW />
+
+
         <WhyAttendWOW />
         {/* <WhoCanAttendWOW /> */}
         <RegistrationTiers />
-        {/* <KeynotesSection /> */}
-        <StackCardsSection />
+        {/* <StackCardsSection /> */}
+        {/* <div className="page-wrapper py-0! my-0! flex flex-col">
+          
+        </div> */}
+        <ScheduleSection />
+        <Speakers2026 />
+        <HistorySection />
         <GallerySection />
         <div className='page-wrapper flex flex-col'>
           <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
