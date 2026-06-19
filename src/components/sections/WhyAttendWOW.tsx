@@ -10,28 +10,19 @@ const CARD_GRADIENTS = [
 ];
 
 const reasons = [
-  { text: "Chance to Win Upto 2L in cash prize*" },
-  { text: "Meet 36+ Google Experts" },
-  { text: "1-1 Mentoring sessions" },
-  { text: "Certificates" },
+  { text: "Upto 2L in cash prize*" },
+  // { text: "Meet 36+ Google Experts" },
+  { text: "Certificates for all" },
   { text: "Learn AICTE approved courses" },
-  { text: "Get funding for your ideas" },
   { text: "I Am Remarkable workshop" },
-  { text: "South India's Biggest Student Google event" },
-  { text: "Access to Google Gemini Cricket Arcade" },
+  { text: "Google Gemini Cricket Arcade" },
   { text: "72+ talks" },
   { text: "15+ workshops" },
-  { text: "New experiences" },
-  { text: "Scoreboards" },
-  { text: "Exposure to industry skillset" },
   { text: "Job opportunities" },
   { text: "Be ready with Career Dreamer" },
-  { text: "Marketing bootcamps" },
   { text: "Generative AI upskilling" },
   { text: "Building startups from scratch" },
-  { text: "Biggest student hackathon with students all over India" },
-  { text: "Many picturesque opportunities" },
-  { text: "Upskill in every leading technology" },
+  { text: "Get funding for your ideas" },
 ];
 
 const featuredReasons = [
@@ -41,19 +32,19 @@ const featuredReasons = [
     image: "https://cdn.prod.website-files.com/5fb3c15a6d283576bfb75ffa/661569422c51ab945dc3ae09_blog%20post%20images-2.png"
   },
   {
-    title: "Industry Insights",
-    description: "Gain first-hand knowledge on the latest in AI, Gemini, and Cloud directly from industry leaders.",
-    image: "https://img-cdn.inc.com/image/upload/f_webp,q_auto,c_fit/vip/2025/05/google_io_personalized_context.jpg"
-  },
-  {
     title: "Professional Opportunities",
     description: "Skip the traditional application process by networking directly with recruiters at the Career Zone.",
     image: "https://www.gstatic.com/marketing-cms/assets/images/cc/14/f49c99284b6aa4891078c85aa934/osvwtiuoqee-wgntfgmoce5klrr-zhtg66hkrmwueniyb0aazrbr5irgimdpez1g-jpuqcb2pmjhiq0hwcncvztbnmdcvdxbq9-w9w3fsu5ja-qdmho.webp=n-w543-h422-fcrop64=1,000004a8fffffb58-rw"
   },
   {
-    title: "Ultimate Tech Vibes",
-    description: "Experience the energy of a 30-hour non-stop festival filled with limited-edition swags and pure innovation.",
-    image: "https://www.twoeighteen.com/wp-content/uploads/google-xi-hero.jpg"
+    title: "Food",
+    description: "Fuel your innovation with a variety of gourmet lunch options, snacks, and unlimited coffee.",
+    image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80&w=1000"
+  },
+  {
+    title: "Swags",
+    description: "Take home exclusive GDG WOW 2026 merchandise, limited-edition tech accessories, and premium event kits.",
+    image: "https://fangledgifting.com/cdn/shop/files/WhatsApp_Image_2024-08-09_at_17.41.00.jpg?v=1723206432"
   }
 ];
 

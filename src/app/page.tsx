@@ -47,7 +47,7 @@ function Home() {
         const id = decodeURIComponent(hash.replace('#', ''));
         let retries = 0;
         const maxRetries = 20; // Retry for up to 2 seconds to allow full render and hydration
-        
+
         const scroll = () => {
           const element = document.getElementById(id);
           if (element) {
@@ -57,7 +57,7 @@ function Home() {
             setTimeout(scroll, 100);
           }
         };
-        
+
         scroll();
       }
     };
@@ -106,7 +106,7 @@ function Home() {
         </div>
         <WhatIsWOW />
         <WhyAttendWOW />
-        <WhoCanAttendWOW />
+        {/* <WhoCanAttendWOW /> */}
         <RegistrationTiers />
         {/* <KeynotesSection /> */}
         <StackCardsSection />

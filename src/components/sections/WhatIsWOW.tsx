@@ -60,50 +60,36 @@ const WOWCard: React.FC<WOWCardProps> = ({ title, description, image, className,
 export const WhatIsWOW = () => {
   const items = [
     {
-      title: "Conferences",
+      title: "Talks, Workshops & Hands-on",
       description: "High-impact technical sessions and keynotes delivered by 50+ Google Developer Experts (GDEs).",
-      image: "/images/wow-conference.png"
+      // image: "/images/wow-conference.png"
+      image: "https://img-cdn.inc.com/image/upload/f_webp,q_auto,c_fit/vip/2025/05/google_io_personalized_context.jpg"
     },
     {
-      title: "Hackathon",
-      description: "A 20-hour high-stakes build-fest with a ₹2,00,000 prize pool starting on the evening of July 4th.",
+      title: "National 20H Hackathon",
+      description: "A 20-hour high-stakes inter-college build-fest with a ₹2,00,000 prize pool starting on the evening of July 4th.",
       image: "/images/wow-hackathon.png"
     },
     {
-      title: "Career Zone",
+      title: "Job & Internship Opportunities",
       description: "A dedicated space featuring 20+ job stalls and 1:1 career mentoring opportunities.",
       image: "/images/wow-career.png"
     },
     {
-      title: "Arcade Zone",
-      description: "Interactive futuristic gaming zones and exclusive Pixel 9 photo booths for all attendees.",
-      image: "/images/wow-arcade.png"
-    },
-    {
-      title: "Startup Showcase",
+      title: "Startup Showcase & Investor Meet",
       description: "Pitch your ideas, explore innovative solutions from emerging startups, and connect with potential investors.",
       image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=1000"
     },
     {
-      title: "Google Experts",
+      title: "Mentoring from Google Experts",
       description: "Meet and learn from Google engineers and product leaders directly in specialized mentoring sessions.",
       image: "https://miro.medium.com/v2/resize:fit:1400/1*C1c-gLXa6o1fvbhGIeiovg.jpeg"
     },
     {
-      title: "Workshops",
-      description: "Deep-dive into the latest Google technologies with guided, practical coding sessions led by industry pros.",
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1000"
+      title: "Arcade & Experience Zone",
+      description: "Interactive futuristic gaming zones and exclusive Pixel 9 photo booths for all attendees.",
+      image: "/images/wow-arcade.png"
     },
-    {
-      title: "Food",
-      description: "Fuel your innovation with a variety of gourmet lunch options, snacks, and unlimited coffee.",
-      image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80&w=1000"
-    },
-    {
-      title: "Swags",
-      description: "Take home exclusive GDG WOW 2026 merchandise, limited-edition tech accessories, and premium event kits.",
-      image: "https://fangledgifting.com/cdn/shop/files/WhatsApp_Image_2024-08-09_at_17.41.00.jpg?v=1723206432"
-    }
   ];
 
   return (
