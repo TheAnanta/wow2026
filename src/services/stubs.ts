@@ -422,6 +422,19 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
       sessionCode: 'K1-4',
       time: '02:30 PM'
     },
+    {
+      id: 'k1-10',
+      title: 'The Agentic Data Cloud Blueprint : Moving from System of Intelligence to Systems of Action',
+      description: 'Are you still waking up to 3:00 AM alerts because a rogue query spiked latency? It’s time to move beyond the "System of Intelligence" - where dashboards just sit there waiting for a human to interpret them - and enter the era of the System of Action.\n\nIn this session, we’ll go under the hood of Project Auto-Throttle, a blueprint for the Agentic Data Cloud that turns passive data repositories into a dynamic reasoning engine. We’ll explore how cloud services such as BigQuery, Knowledge Catalog, Gemini Enterprise Agent Platform, and Agent Evaluation can work together to detect issues, reason about root causes, and orchestrate intelligent remediation to build an autonomous remediation loop that perceives, reasons, and acts in milliseconds.',
+      thumbnail: '/images/io24-featured-keynote-developer.webp',
+      tags: ['Cloud', 'Talk', 'Kalinga 1', '28 June 2025'],
+      topics: ['ad532883-dda3-4066-aa6f-1f858968915d'],
+      level: ['e351b55e-b8ab-4b3c-aff9-cee0d294ea29'],
+      type: ['type-talk'],
+      stack: ['622b18d9-a6c2-4d31-b506-a2d58e034186'],
+      sessionCode: 'K1-10',
+      time: '03:00 PM'
+    },
     // --- Day 2 Kalinga 1 ---
     {
       id: 'k1-7',
