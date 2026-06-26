@@ -67,7 +67,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
       <div className="flex-1 min-w-0">
         <div className="t-body-l font-semibold truncate" style={{ color: 'var(--m-on-surface)' }}>
-          {isWOWPlus ? `${brand} pass with ${brand}+` : `${brand} pass`}
+          {isWOWPlus ? `${brand} group pass with ${brand}+` : `${brand} group pass`}
         </div>
         <div className="t-body-s" style={{ color: 'var(--m-on-surface-variant)' }}>
           {userName || 'User'} · {userEmail || 'email@example.com'}
@@ -347,28 +347,7 @@ export const PromotionsCard: React.FC<PromotionsCardProps> = ({ promos, onRemove
         <p className="mt-2 t-body-s" style={{ color: 'var(--m-error)' }}>{error}</p>
       )}
 
-      {/* Group Pass Offer */}
-      <div
-        className="mt-4 mb-2 rounded-2xl p-4 flex items-start gap-4 transition-all group-pass-active"
-        style={{
-          background: 'var(--m-tertiary)',
-          color: '#fff'
-        }}
-      >
-        <div className="w-12 h-12 rounded-2xl flex-none flex items-center justify-center"
-          style={{ background: 'rgba(255,255,255,0.2)', color: '#fff' }}>
-          <IconSparkle size={24} stroke={2} />
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="t-title-m">Stronger as a team</div>
-          <p className="t-body-s mt-1 opacity-90">
-            Individual passes are sold out. We now only have <span className="font-mono font-bold" style={{ color: '#fff' }}>GROUP PASSES</span> (for teams of 5 attendees) at an exclusive price of <b>₹4,000</b>. Details for other members will be collected after payment.
-          </p>
-          <div className="t-label-s mt-2 font-bold flex items-center gap-1.5" style={{ color: '#fff' }}>
-            <IconCheck size={16} stroke={3} /> Group Pass Active
-          </div>
-        </div>
-      </div>
+
 
       {/* Applied promos list */}
       <div className="mt-3 flex flex-col gap-2">
