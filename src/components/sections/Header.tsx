@@ -57,6 +57,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegisterClick, className }) =>
     { label: 'Team', href: '/team' },
     { label: 'Community', href: '/community' },
     { label: 'About', href: '/about' },
+    { label: 'Sponsor Us', href: '/sponsorship-deck' },
   ];
 
   return (

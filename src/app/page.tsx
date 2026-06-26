@@ -114,6 +114,30 @@ function Home() {
         {/* <WhoCanAttendWOW /> */}
         {/* <RegistrationTiers /> */}
         {/* <StackCardsSection /> */}
+        
+        <div className="page-wrapper flex flex-col py-10 md:py-16">
+          <div className="relative flex flex-col bg-grey-bg dark:bg-grey! border md:border-2 border-grey dark:border-white rounded-[16px] overflow-hidden lg:flex-row min-h-[280px]">
+            <div className="relative z-10 flex flex-col items-start p-6 ml:p-10 lg:w-3/5">
+              <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4">
+                Sponsor WOW 2026
+              </span>
+              <p className="text-grey dark:text-white mb-4 text-md:mb-6 sm:s-h6 md:l-h6 max-w-[85%]">
+                Partner with us to reach 3,000+ developers, showcase your technology, and connect with South India&apos;s sharpest student talent.
+              </p>
+              <a
+                href="/sponsorship-deck"
+                className="cta-secondary"
+                onClick={() => analyticsService.trackNavigation('Sponsor WOW 2026', 'Homepage Sponsor CTA', '/sponsorship-deck')}
+              >
+                View Sponsorship Deck
+              </a>
+            </div>
+            <div className="absolute bottom-0 right-0 max-w-[35%] rounded-br-[16px] pointer-events-none hidden lg:block">
+              <img src="/images/io__-connect.svg" className="inline-block dark:hidden" role="img" aria-hidden="true" width="220" height="240" alt="" loading="lazy" />
+              <img src="/images/io__-connect-dark.svg" className="hidden dark:inline-block" role="img" aria-hidden="true" width="220" height="240" alt="" loading="lazy" />
+            </div>
+          </div>
+        </div>
         {/* <div className="page-wrapper py-0! my-0! flex flex-col">
           
         </div> */}
