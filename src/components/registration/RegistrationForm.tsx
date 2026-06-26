@@ -124,7 +124,8 @@ export const RegistrationForm: React.FC = () => {
       setErrors(newErrors);
       return;
     }
-    setShowCheckoutDialog(true);
+    // Since basic/individual passes are sold out, register as team directly
+    handleConfirmRegistration('team');
   };
 
   const handleConfirmRegistration = async (type: 'individual' | 'team') => {
