@@ -134,7 +134,7 @@ export default function WOWPlusPage() {
                                 The WOW+ Add-on
                             </h1>
                             <div className="font-medium sm:s-h6 md:l-h6 mb-4">
-                                <p>Play arcade challenges, win exclusive rewards, and unlock massive discounts on your WOW pass.</p>
+                                <p>Play arcade challenges, win exclusive rewards, and unlock massive discounts on your WOW pass. <strong className="text-google-red block mt-2">Note: The Arcade closes by 11:59 PM, 27th June 2026!</strong></p>
                             </div>
                         </div>
                         <div className="flex justify-end items-end w-full md:w-3/5 !justify-start xl:!justify-end xl:pr-5">

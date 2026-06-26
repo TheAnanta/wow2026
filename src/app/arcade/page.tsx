@@ -138,10 +138,15 @@ export default function ArcadePage() {
       <main className="max-w-5xl mx-auto px-6 py-20 md:py-32">
         <div className="flex flex-col items-center text-center">
           
-          {/* Pulsing Live Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 font-semibold text-sm tracking-wide mb-8 animate-pulse border border-green-500/20">
-            <span className="size-2 rounded-full bg-green-500"></span>
-            LIVE NOW
+          {/* Pulsing Live Badge & Closing Time warning */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 font-semibold text-sm tracking-wide border border-green-500/20">
+              <span className="size-2 rounded-full bg-green-500 animate-pulse"></span>
+              LIVE NOW
+            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ea4335]/10 text-[#ea4335] font-semibold text-sm tracking-wide border border-[#ea4335]/20">
+              ⏰ CLOSES BY 11:59 PM, 27TH JUNE 2026
+            </div>
           </div>
 
           {/* Badge Placeholder */}
