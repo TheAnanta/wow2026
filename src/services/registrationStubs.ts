@@ -203,7 +203,7 @@ export const validateCoupon = async (code: string, tierId?: string) => {
   }
 };
 
-export const initiateCheckout = async (tierId: string, couponCode?: string) => {
+export const initiateCheckout = async (tierId: string, couponCode?: string, isSettlement?: boolean) => {
   const token = await getBearerToken();
   if (!token) throw new Error('Unauthenticated');
 
@@ -213,7 +213,7 @@ export const initiateCheckout = async (tierId: string, couponCode?: string) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     },
-    body: JSON.stringify({ tier_id: tierId, coupon_code: couponCode })
+    body: JSON.stringify({ tier_id: tierId, coupon_code: couponCode, is_settlement: isSettlement })
   });
 
   const result = await response.json();

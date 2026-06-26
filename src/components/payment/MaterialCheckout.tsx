@@ -16,7 +16,7 @@ import {
 
 interface MaterialCheckoutProps {
   tiers: any[];
-  onPurchase: (tierName: string, badgeName?: string) => void;
+  onPurchase: (tierName: string, badgeName?: string, isSettlement?: boolean) => void;
   isProcessing: boolean;
   profile: any;
   user: any;
@@ -28,6 +28,9 @@ interface MaterialCheckoutProps {
   isWOWPlus: boolean;
   onToggleWOWPlus: () => void;
   initialIsGroupPass?: boolean;
+  isSettlement?: boolean;
+  settlementPrice?: number;
+  remainingPrice?: number;
 }
 
 const PASS = { price: 1200, list: 2000 };
@@ -55,16 +58,19 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   onBack,
   isWOWPlus,
   onToggleWOWPlus,
-  initialIsGroupPass = false
+  initialIsGroupPass = false,
+  isSettlement = false,
+  settlementPrice = 0,
+  remainingPrice = 0
 }) => {
   const [promos, setPromos] = useState<any[]>([]);
-  const [isGroupPass, setIsGroupPass] = useState(initialIsGroupPass);
+  const [isGroupPass, setIsGroupPass] = useState(isSettlement ? false : initialIsGroupPass);
   const [payLaterOpen, setPayLaterOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    setIsGroupPass(initialIsGroupPass);
-  }, [initialIsGroupPass]);
+    setIsGroupPass(isSettlement ? false : initialIsGroupPass);
+  }, [initialIsGroupPass, isSettlement]);
   const [toast, setToast] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -119,13 +125,13 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
     }
   }
 
-  const qty = isGroupPass ? 5 : 1;
-  const currentSubDiscount = (isGroupPass || !isWOWPlus) ? 0 : SUB_DISCOUNT;
+  const qty = isSettlement ? 1 : (isGroupPass ? 5 : 1);
+  const currentSubDiscount = (isSettlement || isGroupPass || !isWOWPlus) ? 0 : SUB_DISCOUNT;
 
-  const basePrice = isGroupPass ? 4000 : (PASS.price * qty);
-  const subtotal = basePrice - currentSubDiscount;
+  const basePrice = isSettlement ? remainingPrice : (isGroupPass ? 4000 : (PASS.price * qty));
+  const subtotal = isSettlement ? remainingPrice : (basePrice - currentSubDiscount);
   const promoTotal = promos.reduce((a, p) => a + p.amount, 0);
-  const finalNow = Math.max(0, basePrice - currentSubDiscount - promoTotal);
+  const finalNow = isSettlement ? settlementPrice : Math.max(0, basePrice - currentSubDiscount - promoTotal);
   const payLater = payLaterRange(87);
 
   // Track scroll for top-bar shadow
@@ -242,8 +248,11 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   userEmail={user?.email}
                   isWOWPlus={isWOWPlus}
                   onToggleWOWPlus={onToggleWOWPlus}
-                  disabled={isGroupPass}
+                  disabled={isGroupPass || isSettlement}
                   isGroupPass={isGroupPass}
+                  isSettlement={isSettlement}
+                  settlementPrice={settlementPrice}
+                  remainingPrice={remainingPrice}
                 />
               </div>
 
@@ -254,16 +263,18 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
 
             {/* Right Column */}
             <div className="flex-1 md:max-w-[420px] flex flex-col gap-6">
-              <div style={{ scrollSnapAlign: 'start' }}>
-                <PromotionsCard
-                  promos={promos}
-                  onRemove={removePromo}
-                  onApply={handleApplyPromo}
-                  brand={brand}
-                  isGroupPass={isGroupPass}
-                  setIsGroupPass={setIsGroupPass}
-                />
-              </div>
+              {!isSettlement && (
+                <div style={{ scrollSnapAlign: 'start' }}>
+                  <PromotionsCard
+                    promos={promos}
+                    onRemove={removePromo}
+                    onApply={handleApplyPromo}
+                    brand={brand}
+                    isGroupPass={isGroupPass}
+                    setIsGroupPass={setIsGroupPass}
+                  />
+                </div>
+              )}
 
               {/* Trust footer — exact from original */}
               <div className="rounded-2xl p-4 flex items-start gap-3"
@@ -288,12 +299,14 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                 <StickyBarContent
                   finalNow={finalNow}
                   isProcessing={isProcessing}
-                  onPurchase={() => onPurchase(isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002'), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee')}
+                  onPurchase={() => onPurchase(isSettlement ? 'clx_earlybird_002' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002')), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee', isSettlement)}
                   payLaterOpen={payLaterOpen}
                   setPayLaterOpen={setPayLaterOpen}
                   payLater={payLater}
                   isGroupPass={isGroupPass}
                   isWOWPlus={isWOWPlus}
+                  isSettlement={isSettlement}
+                  settlementPrice={settlementPrice}
                 />
               </div>
             </div>
@@ -307,12 +320,14 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
         <StickyBarContent
           finalNow={finalNow}
           isProcessing={isProcessing}
-          onPurchase={() => onPurchase(isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002'), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee')}
+          onPurchase={() => onPurchase(isSettlement ? 'clx_earlybird_002' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002')), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee', isSettlement)}
           payLaterOpen={payLaterOpen}
           setPayLaterOpen={setPayLaterOpen}
           payLater={payLater}
           isGroupPass={isGroupPass}
           isWOWPlus={isWOWPlus}
+          isSettlement={isSettlement}
+          settlementPrice={settlementPrice}
         />
       </div>
 
@@ -333,23 +348,25 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
 
 // --- StickyBarContent — shared between mobile fixed bar and desktop section ---
 // Uses the exact same markup from Charan anna's original sticky bottom bar
-function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, setPayLaterOpen, payLater, rank, isGroupPass, isWOWPlus }: any) {
+function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, setPayLaterOpen, payLater, rank, isGroupPass, isWOWPlus, isSettlement, settlementPrice }: any) {
   return (
     <>
       {/* Additional Coupons link — refined to match M3 design system */}
-      <div className="px-4 pt-3 md:hidden">
-        <button
-          onClick={() => document.getElementById('promotions-section')?.scrollIntoView({ behavior: 'smooth' })}
-          className="m-pressable flex items-center gap-2 t-label-l py-2 px-3 rounded-xl transition-all"
-          style={{ background: 'var(--m-primary-container)', color: 'var(--m-on-primary-container)' }}
-        >
-          <IconTag size={18} stroke={2.5} />
-          <span className="flex-1 text-left text-[13px]">Great news! Additional coupons available</span>
-          <span className="opacity-60 text-[18px]">→</span>
-        </button>
-      </div>
+      {!isSettlement && (
+        <div className="px-4 pt-3 md:hidden">
+          <button
+            onClick={() => document.getElementById('promotions-section')?.scrollIntoView({ behavior: 'smooth' })}
+            className="m-pressable flex items-center gap-2 t-label-l py-2 px-3 rounded-xl transition-all"
+            style={{ background: 'var(--m-primary-container)', color: 'var(--m-on-primary-container)' }}
+          >
+            <IconTag size={18} stroke={2.5} />
+            <span className="flex-1 text-left text-[13px]">Great news! Additional coupons available</span>
+            <span className="opacity-60 text-[18px]">→</span>
+          </button>
+        </div>
+      )}
 
-      {!isGroupPass && isWOWPlus && (
+      {!isGroupPass && isWOWPlus && !isSettlement && (
         <PayLaterDisclosure
           open={payLaterOpen}
           setOpen={setPayLaterOpen}
@@ -362,10 +379,10 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
       <div className="px-4 pt-3 pb-2 flex items-center gap-3">
         <div className="flex-1 min-w-0">
           <div className="t-label-m" style={{ color: 'var(--m-on-surface-variant)' }}>
-            {isGroupPass ? 'YOU PAY IN TOTAL' : 'YOU PAY NOW'}
+            {isSettlement ? 'YOU PAY FOR SETTLEMENT' : (isGroupPass ? 'YOU PAY IN TOTAL' : 'YOU PAY NOW')}
           </div>
           <div className="t-headline-m tabular-nums" style={{ color: 'var(--m-on-surface)' }}>
-            ₹{finalNow.toLocaleString('en-IN')}
+            ₹{(isSettlement ? settlementPrice : finalNow).toLocaleString('en-IN')}
           </div>
         </div>
         <button
@@ -383,7 +400,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
           }}
         >
           {isProcessing ? <Spinner /> : <IconLock size={18} />}
-          <span>{isProcessing ? 'Processing…' : (isGroupPass ? 'Pay total' : 'Pay now')}</span>
+          <span>{isProcessing ? 'Processing…' : (isSettlement ? 'Settle payment' : (isGroupPass ? 'Pay total' : 'Pay now'))}</span>
         </button>
       </div>
     </>

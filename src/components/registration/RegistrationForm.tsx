@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { RegistrationData, validateProfile, submitRegistration } from '../../services/registrationStubs';
+import { RegistrationData, validateProfile, submitRegistration, initiateCheckout } from '../../services/registrationStubs';
 import { applyReferralCode } from '../../services/registrationStubs';
 import { requestFirebaseToken } from '../../services/fcm';
 import { analyticsService } from '../../services/analytics';

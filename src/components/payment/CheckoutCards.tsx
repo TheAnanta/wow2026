@@ -45,18 +45,22 @@ interface OrderSummaryCardProps {
   onToggleWOWPlus?: () => void;
   disabled?: boolean;
   isGroupPass?: boolean;
+  isSettlement?: boolean;
+  settlementPrice?: number;
+  remainingPrice?: number;
 }
 
 export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
-  pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled, isGroupPass
+  pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled, isGroupPass,
+  isSettlement, settlementPrice, remainingPrice
 }) => (
   <section
     className="rounded-2xl p-4"
     style={{ background: 'var(--m-surface-container-low)' }}
   >
     <header className="flex items-center justify-between mb-3">
-      <h2 className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>Order summary</h2>
-      <span className="t-label-m" style={{ color: 'var(--m-on-surface-variant)' }}>{qty} items</span>
+      <h2 className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>{isSettlement ? 'Settlement details' : 'Order summary'}</h2>
+      <span className="t-label-m" style={{ color: 'var(--m-on-surface-variant)' }}>{isSettlement ? '1 item' : `${qty} items`}</span>
     </header>
 
     {/* Pass line item */}
@@ -67,14 +71,14 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
       <div className="flex-1 min-w-0">
         <div className="t-body-l font-semibold truncate" style={{ color: 'var(--m-on-surface)' }}>
-          {isWOWPlus ? `${brand} group pass with ${brand}+` : `${brand} group pass`}
+          {isSettlement ? `${brand} pass - Final Settlement` : (isWOWPlus ? `${brand} group pass with ${brand}+` : `${brand} group pass`)}
         </div>
         <div className="t-body-s" style={{ color: 'var(--m-on-surface-variant)' }}>
           {userName || 'User'} · {userEmail || 'email@example.com'}
         </div>
         <div className="t-body-s mt-0.5" style={{ color: 'var(--m-on-surface-variant)' }}>
-          Qty {qty} · General admission
-          {qty > 1 && (
+          {isSettlement ? 'Arcade pre-book settlement' : `Qty ${qty} · General admission`}
+          {qty > 1 && !isSettlement && (
             <div className="mt-1 flex items-center gap-1.5 py-1 px-2 rounded-lg"
               style={{ background: 'var(--m-surface-container-high)', width: 'fit-content' }}>
               <IconInfo size={14} />
@@ -85,9 +89,9 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
       <div className="text-right flex-none">
         <div className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>
-          {isGroupPass ? `₹4,000` : (isWOWPlus ? `upto ₹${(950 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`)}
+          {isSettlement ? `₹${remainingPrice}` : (isGroupPass ? `₹4,000` : (isWOWPlus ? `upto ₹${(950 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`))}
         </div>
-        {!isGroupPass && <div className="t-body-s line-through" style={{ color: 'var(--m-on-surface-variant)' }}>₹{(pass.list * qty).toLocaleString('en-IN')}</div>}
+        {!isGroupPass && !isSettlement && <div className="t-body-s line-through" style={{ color: 'var(--m-on-surface-variant)' }}>₹{(pass.list * qty).toLocaleString('en-IN')}</div>}
       </div>
     </div>
 
@@ -97,31 +101,47 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
     <div className="mt-4 pt-3 flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <span className="t-body-l" style={{ color: 'var(--m-on-surface-variant)' }}>Subtotal</span>
-        <span className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>₹{subtotal.toLocaleString('en-IN')}</span>
+        <span className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>₹{isSettlement ? remainingPrice : subtotal.toLocaleString('en-IN')}</span>
       </div>
 
-      {isWOWPlus && (
+      {isSettlement ? (
         <>
           <div className="flex items-center justify-between">
-            <span className="t-body-m flex items-center gap-1.5" style={{ color: 'var(--m-on-surface-variant)' }}>
-              Pay later (18th June, based on points)
-              <div className="group relative flex items-center">
-                <IconInfo size={14} className="cursor-help opacity-70 hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-[#1b1b21] text-white text-[11px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20">
-                  Score points on arcade and workshops
-                </div>
-              </div>
-            </span>
-            <span className="t-body-l tabular-nums" style={{ color: 'var(--m-on-surface-variant)' }}>upto ₹{(600 * qty).toLocaleString('en-IN')}</span>
+            <span className="t-body-m" style={{ color: 'var(--m-on-surface-variant)' }}>Taxes</span>
+            <span className="t-body-l" style={{ color: 'var(--m-on-surface)' }}>₹30</span>
           </div>
 
           <hr className="my-1 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
 
           <div className="flex items-center justify-between">
-            <span className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>Total</span>
-            <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>upto ₹{(950 * qty).toLocaleString('en-IN')}</span>
+            <span className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>Total Payment</span>
+            <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>₹{settlementPrice}</span>
           </div>
         </>
+      ) : (
+        isWOWPlus && (
+          <>
+            <div className="flex items-center justify-between">
+              <span className="t-body-m flex items-center gap-1.5" style={{ color: 'var(--m-on-surface-variant)' }}>
+                Pay later (18th June, based on points)
+                <div className="group relative flex items-center">
+                  <IconInfo size={14} className="cursor-help opacity-70 hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-[#1b1b21] text-white text-[11px] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20">
+                    Score points on arcade and workshops
+                  </div>
+                </div>
+              </span>
+              <span className="t-body-l tabular-nums" style={{ color: 'var(--m-on-surface-variant)' }}>upto ₹{(600 * qty).toLocaleString('en-IN')}</span>
+            </div>
+
+            <hr className="my-1 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
+
+            <div className="flex items-center justify-between">
+              <span className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>Total</span>
+              <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>upto ₹{(950 * qty).toLocaleString('en-IN')}</span>
+            </div>
+          </>
+        )
       )}
     </div>
 

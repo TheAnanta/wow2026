@@ -14,6 +14,32 @@ function PaymentPage() {
     const router = useRouter();
     const { user, profile, tickets, isUnregistered, isLoading } = useAuth();
 
+    const hasFullPass = tickets?.some((t: any) =>
+        (t.tier?.name || t.name || "").toLowerCase().includes("early bird") ||
+        (t.tier?.name || t.name || "").toLowerCase().includes("regular") ||
+        (t.tier?.name || t.name || "").toLowerCase().includes("attendee") ||
+        (t.tier?.name || t.name || "").toLowerCase().includes("group") ||
+        (t.tier?.name || t.name || "").toLowerCase().includes("ground")
+    );
+
+    const hasArcade = tickets?.some((t: any) =>
+        (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
+        (t.tier?.name || t.name || "").toLowerCase().includes("wow")
+    );
+
+    const isSettlement = hasArcade && !hasFullPass;
+
+    const league = (profile?.league || "BASIC").toUpperCase();
+    let remainingPrice = 600;
+    if (league === "PLATINUM") remainingPrice = 0;
+    else if (league === "DIAMOND") remainingPrice = 50;
+    else if (league === "GOLD") remainingPrice = 200;
+    else if (league === "SILVER") remainingPrice = 300;
+    else if (league === "BRONZE") remainingPrice = 470;
+    else if (league === "BASIC") remainingPrice = 600;
+
+    const settlementPrice = remainingPrice + 30;
+
     const [tiers, setTiers] = useState<any[]>([]);
     const [isProcessing, setIsProcessing] = useState(false);
     const [earnedBadge, setEarnedBadge] = useState<string | null>(() => {
@@ -61,7 +87,7 @@ function PaymentPage() {
             return;
         }
 
-        if (tickets && tickets.length > 0) {
+        if (hasFullPass) {
             router.push('/?message=already_has_ticket');
             return;
         }
@@ -87,7 +113,7 @@ function PaymentPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [profile, user, isLoading, router, tickets]);
 
-    const handlePurchase = async (tierId: string, badgeName?: string) => {
+    const handlePurchase = async (tierId: string, badgeName?: string, isSettlementParam?: boolean) => {
         setIsProcessing(true);
         try {
             const tier = tiers.find(t => t.id === tierId);
@@ -96,7 +122,7 @@ function PaymentPage() {
             const duration = (Date.now() - startTimeRef.current) / 1000;
             analyticsService.trackCheckoutActivity('select_tier', tier.name, 'initiated', duration);
 
-            const checkoutData = await initiateCheckout(tier.id, couponCode);
+            const checkoutData = await initiateCheckout(tier.id, couponCode, isSettlementParam);
             
             if (checkoutData.is_free) {
                 // 🚀 ZERO-AMOUNT BYPASS: Skip Razorpay
@@ -203,6 +229,9 @@ function PaymentPage() {
                   searchParams?.get('tier') === 'group' ||
                   profile?.intended_tier_id === 'clx_grouppass_006'
                 }
+                isSettlement={isSettlement}
+                settlementPrice={settlementPrice}
+                remainingPrice={remainingPrice}
             />
 
 
