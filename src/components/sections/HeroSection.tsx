@@ -265,21 +265,46 @@ function HeroCard({ onRegisterClick, onSpeakerClick, countdown, buttonText }: {
 }
 
 
+import { signInWithGoogle } from "@/services/firebase";
+
 export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () => void }) {
   const router = useRouter();
   const countdown = useHeroCountdownText();
-  const { profile, isLoggedIn, isUnregistered, tickets } = useAuth();
+  const { profile, isLoggedIn, isUnregistered, tickets, coupons } = useAuth();
 
   const isRegistered = isLoggedIn && !isUnregistered && !!profile;
   const hasTicket = tickets && tickets.length > 0;
+  const hasCoupon = coupons && coupons.length > 0;
+  const couponCode = hasCoupon ? coupons[0].code : null;
 
   const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
-  const isGroupPassIntent = profile?.intended_tier_id === 'clx_grouppass_006';
-  const buttonLink = !isRegistered ? '/register' : (!hasTicket ? `/payment${isGroupPassIntent ? '?tier=group' : ''}` : '/register?update=true');
 
-  const handleRegisterClick = onRegisterClick || (() => {
+  let buttonLink = '/register';
+  if (isRegistered) {
+    if (!hasTicket) {
+      if (hasCoupon && couponCode) {
+        buttonLink = `/payment?promo=${couponCode}`;
+      } else {
+        const isGroupPassIntent = profile?.intended_tier_id === 'clx_grouppass_006';
+        buttonLink = `/payment${isGroupPassIntent ? '?tier=group' : ''}`;
+      }
+    } else {
+      buttonLink = '/register?update=true';
+    }
+  }
+
+  const handleRegisterClick = onRegisterClick || (async () => {
     analyticsService.trackCTA(buttonText, 'HeroSection', 'click');
-    router.push(buttonLink);
+    if (!isLoggedIn) {
+      try {
+        await signInWithGoogle();
+        router.push('/register');
+      } catch (err) {
+        console.error('Sign in failed:', err);
+      }
+    } else {
+      router.push(buttonLink);
+    }
   });
 
   const handleSpeakerClick = () => {

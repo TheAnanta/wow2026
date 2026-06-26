@@ -376,3 +376,25 @@ export const fetchUserBadges = async (): Promise<any[]> => {
   }
 };
 
+export const fetchMyCoupons = async (): Promise<any[]> => {
+  try {
+    const token = await getBearerToken();
+    if (!token) return [];
+
+    const response = await fetch(`${API_BASE_URL}/commerce/my-coupons`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    if (!response.ok) return [];
+    const result = await response.json();
+    return result.data || [];
+  } catch (err) {
+    console.error('Fetch My Coupons Error:', err);
+    return [];
+  }
+};
+
+

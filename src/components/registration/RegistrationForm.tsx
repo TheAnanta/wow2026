@@ -54,7 +54,8 @@ export const RegistrationForm: React.FC = () => {
     newsletterConsent: false,
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const { user, profile, isLoggedIn, isLoading: isAuthLoading, refreshProfile } = useAuth();
+  const { user, profile, isLoggedIn, isLoading: isAuthLoading, refreshProfile, coupons, refreshTickets } = useAuth();
+  const hasCoupon = coupons && coupons.length > 0;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorType, setErrorType] = useState<'signin' | 'account' | 'general' | null>(null);
   const [referralCode, setReferralCode] = useState(() => {
@@ -124,8 +125,12 @@ export const RegistrationForm: React.FC = () => {
       setErrors(newErrors);
       return;
     }
-    // Since basic/individual passes are sold out, register as team directly
-    handleConfirmRegistration('team');
+    // If they have a coupon, register as individual (to get the early bird ticket 1200 tier)
+    if (hasCoupon) {
+      handleConfirmRegistration('individual');
+    } else {
+      handleConfirmRegistration('team');
+    }
   };
 
   const handleConfirmRegistration = async (type: 'individual' | 'team') => {
@@ -159,7 +164,20 @@ export const RegistrationForm: React.FC = () => {
         if (type === 'team') {
           router.push('/payment?tier=group');
         } else {
-          router.push('/payment');
+          if (hasCoupon && coupons[0]?.code) {
+            try {
+              const checkoutData = await initiateCheckout('clx_earlybird_002', coupons[0].code);
+              if (checkoutData.data?.is_free || checkoutData.is_free) {
+                await refreshTickets();
+                router.push('/profile?success=true');
+                return;
+              }
+            } catch (checkoutErr) {
+              console.error('Failed auto-checkout with coupon:', checkoutErr);
+            }
+          }
+          const couponParam = coupons[0]?.code ? `?promo=${coupons[0].code}` : '';
+          router.push(`/payment${couponParam}`);
         }
       } else {
         analyticsService.trackForm('registration', 'all', 'error', { message: result.error });

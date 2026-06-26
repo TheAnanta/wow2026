@@ -3,7 +3,7 @@
 
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { auth } from '../services/firebase';
-import { fetchCurrentUser, fetchMyTickets, patchFCMToken } from '../services/registrationStubs';
+import { fetchCurrentUser, fetchMyTickets, patchFCMToken, fetchMyCoupons } from '../services/registrationStubs';
 import { requestFirebaseToken } from '../services/fcm';
 import { User } from 'firebase/auth';
 
@@ -11,6 +11,7 @@ interface AuthContextType {
   user: User | null;
   profile: any | null;
   tickets: any[];
+  coupons: any[];
   isLoggedIn: boolean;
   isUnregistered: boolean;
   isLoading: boolean;
@@ -25,6 +26,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<any | null>(null);
   const [tickets, setTickets] = useState<any[]>([]);
+  const [coupons, setCoupons] = useState<any[]>([]);
   const [isUnregistered, setIsUnregistered] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<any | null>(null);
@@ -32,6 +34,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const fetchTickets = useCallback(async () => {
     const userTickets = await fetchMyTickets();
     setTickets(userTickets);
+  }, []);
+
+  const fetchCoupons = useCallback(async () => {
+    const userCoupons = await fetchMyCoupons();
+    setCoupons(userCoupons);
   }, []);
 
   const fetchProfile = useCallback(async () => {
@@ -63,8 +70,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setUser(currentUser);
       if (currentUser) {
         await fetchProfile();
+        await fetchCoupons();
       } else {
         setProfile(null);
+        setCoupons([]);
         setIsUnregistered(false);
         setIsLoading(false);
       }
@@ -72,6 +81,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const handleRegisterSuccess = async () => {
       await fetchProfile();
+      await fetchCoupons();
     };
 
     window.addEventListener('registrationSuccess', handleRegisterSuccess);
@@ -80,7 +90,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       unsubscribe();
       window.removeEventListener('registrationSuccess', handleRegisterSuccess);
     };
-  }, [fetchProfile]);
+  }, [fetchProfile, fetchCoupons]);
 
   // Sync FCM Token
   useEffect(() => {
@@ -103,6 +113,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         user, 
         profile, 
         tickets,
+        coupons,
         isLoggedIn: !!user, 
         isUnregistered, 
         isLoading, 

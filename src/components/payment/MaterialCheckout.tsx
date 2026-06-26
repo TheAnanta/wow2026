@@ -58,9 +58,13 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   initialIsGroupPass = false
 }) => {
   const [promos, setPromos] = useState<any[]>([]);
-  const [isGroupPass, setIsGroupPass] = useState(true);
+  const [isGroupPass, setIsGroupPass] = useState(initialIsGroupPass);
   const [payLaterOpen, setPayLaterOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    setIsGroupPass(initialIsGroupPass);
+  }, [initialIsGroupPass]);
   const [toast, setToast] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
