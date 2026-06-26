@@ -154,7 +154,7 @@ export default function RootLayout({
             <PageTransition />
 
             {/* Banner */}
-            <AnnouncementBanner props={{ announcement: "Only 75 group passes left! Group Pass for 5 just at ₹4,000 (Save ₹2,000!) • Book your spot now!" }} />
+            <AnnouncementBanner props={{ announcement: "Only 50 group passes left! Group Pass for 5 just at ₹4,000 (Save ₹2,000!) • Book your spot now!" }} />
 
 
             {children}
