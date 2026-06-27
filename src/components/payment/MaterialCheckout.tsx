@@ -16,7 +16,7 @@ import {
 
 interface MaterialCheckoutProps {
   tiers: any[];
-  onPurchase: (tierName: string, badgeName?: string, isSettlement?: boolean) => void;
+  onPurchase: (tierName: string, badgeName?: string, isSettlement?: boolean, hasTshirt?: boolean) => void;
   isProcessing: boolean;
   profile: any;
   user: any;
@@ -113,8 +113,8 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
           <p className="t-body-l opacity-80 leading-relaxed">
             Final settlement will open at 12:01 AM, 28th June 2026 once the leaderboard is finalized and the promotion-demotion reset runs. Please check back then.
           </p>
-          <button 
-            onClick={onBack} 
+          <button
+            onClick={onBack}
             className="mt-8 px-8 py-3 rounded-full font-bold transition-all bg-[var(--m-primary)] text-[var(--m-on-primary)] hover:brightness-110 shadow-lg"
           >
             Go Back
@@ -319,32 +319,52 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
               </div>
 
               {isSettlement && (
-                <div 
-                  className="rounded-2xl p-4 flex items-start gap-3 border transition-all cursor-pointer select-none text-left"
-                  style={{ 
+                <div
+                  className="rounded-2xl p-4 flex flex-col gap-3 border transition-all cursor-pointer select-none text-left"
+                  style={{
                     background: 'var(--m-surface-container-low)',
                     borderColor: hasTshirt ? 'var(--m-primary)' : 'var(--m-outline-variant)'
                   }}
                   onClick={() => setHasTshirt(!hasTshirt)}
                 >
-                  <input
-                    type="checkbox"
-                    checked={hasTshirt}
-                    onChange={(e) => setHasTshirt(e.target.checked)}
-                    className="mt-1 h-5 w-5 cursor-pointer rounded accent-[var(--m-primary)]"
-                    onClick={(e) => e.stopPropagation()}
-                  />
-                  <div className="flex-1 min-w-0">
-                    <div className="t-title-m font-semibold" style={{ color: 'var(--m-on-surface)' }}>
-                      Anniversary Add-on
-                    </div>
-                    <div className="t-body-m mt-1" style={{ color: 'var(--m-on-surface-variant)', lineHeight: '1.4' }}>
-                      Celebrating 20 years of Google Developers - The Exclusive Google Developers 20th Anniversary T-shirt. Google was impressed with your effort in the arcade and is giving this pre-booking discount of ₹250 instead of the standard ₹600!
-                    </div>
+                  <div className="flex flex-wrap gap-2">
+                    <span
+                      className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider"
+                      style={{ background: 'var(--m-primary-container)', color: 'var(--m-on-primary-container)' }}
+                    >
+                      Prebook discount
+                    </span>
+                    <span
+                      className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider"
+                      style={{ background: 'rgba(249, 168, 37, 0.15)', color: '#f9a825' }}
+                    >
+                      Exclusive 20 Year Anniversary - Limited
+                    </span>
                   </div>
-                  <div className="text-right flex-none pl-2">
-                    <div className="t-title-m font-bold" style={{ color: 'var(--m-primary)' }}>
-                      +₹250
+
+                  <div className="flex items-start gap-3 w-full">
+                    <input
+                      type="checkbox"
+                      checked={hasTshirt}
+                      onChange={(e) => setHasTshirt(e.target.checked)}
+                      className="mt-1 h-5 w-5 cursor-pointer rounded accent-[var(--m-primary)]"
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                    <div className="flex-1 min-w-0">
+                      <div className="t-title-m font-semibold" style={{ color: 'var(--m-on-surface)' }}>
+                        Anniversary Add-on
+                      </div>
+                      <div className="t-body-m mt-1" style={{ color: 'var(--m-on-surface-variant)', lineHeight: '1.4' }}>
+                        Celebrating 20 years of Google Developers - The Exclusive Google Developers 20th Anniversary T-shirt. Google was impressed with your effort in the arcade and is giving this special pre-booking discount!
+                      </div>
+                    </div>
+                    <div className="text-right flex-none pl-2">
+                      <div className="text-xs line-through opacity-60" style={{ color: 'var(--m-on-surface-variant)' }}>
+                        ₹600
+                      </div>
+                      <div className="t-title-m font-bold" style={{ color: 'var(--m-primary)' }}>
+                        +₹250
+                      </div>
                     </div>
                   </div>
                 </div>

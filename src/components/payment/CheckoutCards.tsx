@@ -32,7 +32,7 @@ export function payLaterRange(rank: number) {
   }
 }
 
-// --------interface OrderSummaryCardProps {
+interface OrderSummaryCardProps {
   pass: { price: number; list: number };
   sub: number;
   subtotal: number;
@@ -130,7 +130,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       <div className="flex items-center justify-between">
         <span className="t-body-l" style={{ color: 'var(--m-on-surface-variant)' }}>Subtotal</span>
         <span className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>
-          ₹{isSettlement ? (remainingPrice + (hasTshirt ? 250 : 0)) : subtotal.toLocaleString('en-IN')}
+          ₹{isSettlement ? ((remainingPrice ?? 0) + (hasTshirt ? 250 : 0)) : subtotal.toLocaleString('en-IN')}
         </span>
       </div>
 
@@ -146,7 +146,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
           <div className="flex items-center justify-between">
             <span className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>Total Payment</span>
             <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>
-              ₹{(settlementPrice + (hasTshirt ? 250 : 0))}
+              ₹{((settlementPrice ?? 0) + (hasTshirt ? 250 : 0))}
             </span>
           </div>
         </>
