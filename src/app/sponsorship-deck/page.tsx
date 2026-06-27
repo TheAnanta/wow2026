@@ -17,7 +17,7 @@ export default function SponsorshipDeck() {
     const tiers = [
         {
             name: "Diamond",
-            price: "₹1,20,000",
+            price: "₹1,00,000",
             recommended: false,
             benefits: [
                 "15 min stage time",
@@ -34,7 +34,7 @@ export default function SponsorshipDeck() {
         },
         {
             name: "Platinum",
-            price: "₹70,000",
+            price: "₹60,000",
             recommended: true,
             benefits: [
                 "10 min stage time",
@@ -51,7 +51,7 @@ export default function SponsorshipDeck() {
         },
         {
             name: "Gold",
-            price: "₹40,000",
+            price: "₹30,000",
             recommended: false,
             benefits: [
                 "5 min stage time",

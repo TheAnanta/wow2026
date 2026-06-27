@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WoW 2026 Leaderboard Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --m-primary: #2c5fd9;
+            --m-on-primary: #ffffff;
+            --m-surface: #fbf8ff;
+            --m-surface-container: #efedf4;
+            --m-on-surface: #1b1b21;
+            --m-on-surface-variant: #46464f;
+            --m-outline-variant: #c6c5d0;
+            --m-green: #156c3a;
+            --m-green-bg: rgba(21, 108, 58, 0.1);
+            --m-red: #b3261e;
+            --m-red-bg: rgba(179, 38, 30, 0.1);
+            --m-card-bg: #ffffff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --m-primary: #adc6ff;
+                --m-on-primary: #002e69;
+                --m-surface: #111318;
+                --m-surface-container: #1e2025;
+                --m-on-surface: #e2e2e9;
+                --m-on-surface-variant: #c6c6d0;
+                --m-outline-variant: #46464f;
+                --m-green: #8be0a6;
+                --m-green-bg: rgba(139, 224, 166, 0.2);
+                --m-red: #ffb4ab;
+                --m-red-bg: rgba(255, 180, 171, 0.2);
+                --m-card-bg: #191c21;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Google Sans', sans-serif;
+            background-color: var(--m-surface);
+            color: var(--m-on-surface);
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-h: 100vh;
+        }
+
+        header {
+            width: 100%;
+            max-width: 800px;
+            padding: 24px 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin: 0 0 8px 0;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--m-on-surface-variant);
+            margin: 0 0 24px 0;
+        }
+
+        .tabs-container {
+            width: 100%;
+            max-width: 800px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 4px 16px 16px;
+            box-sizing: border-box;
+            display: flex;
+            gap: 8px;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .tabs-container::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        .tab-btn {
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 10px 24px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            background-color: var(--m-surface-container);
+            color: var(--m-on-surface);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .tab-btn:hover {
+            opacity: 0.9;
+        }
+
+        .tab-btn.active {
+            background-color: var(--m-primary);
+            color: var(--m-on-primary);
+            box-shadow: 0 4px 12px rgba(44, 95, 217, 0.25);
+            transform: scale(1.05);
+        }
+
+        main {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 16px 40px;
+            box-sizing: border-box;
+        }
+
+        .showcase-card {
+            background-color: var(--m-card-bg);
+            border: 1px solid var(--m-outline-variant);
+            border-radius: 28px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            margin-bottom: 24px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .league-badge {
+            width: 128px;
+            height: 128px;
+            object-fit: contain;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
+        }
+
+        .league-title {
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin: 0 0 4px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .league-info {
+            font-size: 0.9rem;
+            color: var(--m-on-surface-variant);
+            margin: 0;
+        }
+
+        .zone-banner {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-top: 12px;
+            display: inline-block;
+        }
+
+        .zone-banner.promo {
+            background-color: var(--m-green-bg);
+            color: var(--m-green);
+        }
+
+        .leaderboard-container {
+            background-color: var(--m-card-bg);
+            border: 1px solid var(--m-outline-variant);
+            border-radius: 28px;
+            padding: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .loader-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 64px 0;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--m-primary);
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+
+        .error-message {
+            text-align: center;
+            color: var(--m-red);
+            padding: 48px 16px;
+        }
+
+        .error-message h3 {
+            margin: 0 0 8px 0;
+        }
+
+        .entry-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .entry-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-radius: 16px;
+            background-color: var(--m-surface-container);
+            border: 1px solid transparent;
+            transition: all 0.2s ease-out;
+        }
+
+        .entry-row:hover {
+            border-color: var(--m-outline-variant);
+        }
+
+        .entry-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .entry-rank {
+            width: 36px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+
+        .avatar-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(44, 95, 217, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--m-primary);
+            font-size: 1.1rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .entry-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .entry-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .entry-meta {
+            font-size: 0.75rem;
+            color: var(--m-on-surface-variant);
+            margin: 2px 0 0 0;
+        }
+
+        .entry-score {
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--m-primary);
+        }
+
+        .zone-divider {
+            padding: 12px 16px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin: 12px 0;
+            text-transform: uppercase;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .zone-divider.promotion {
+            background-color: var(--m-green-bg);
+            color: var(--m-green);
+            border: 1px dashed var(--m-green);
+        }
+
+        .zone-divider.demotion {
+            background-color: var(--m-red-bg);
+            color: var(--m-red);
+            border: 1px dashed var(--m-red);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>WOW Leaderboards</h1>
+        <p class="subtitle">Live player stats duplicate from all leagues</p>
+    </header>
+
+    <div class="tabs-container" id="tabs">
+        <!-- Generated by JavaScript -->
+    </div>
+
+    <main>
+        <div class="showcase-card" id="showcase">
+            <!-- Showcase Content -->
+        </div>
+
+        <div class="leaderboard-container" id="leaderboard-content">
+            <!-- Leaderboard Items -->
+        </div>
+    </main>
+
+    <script>
+        const LEAGUES = [
+            { id: "BASIC", name: "Basic", badge: "../public/images/basic-7ad033b3ac027995939993b7648507f536d7b089-3.png" },
+            { id: "BRONZE", name: "Bronze", badge: "../public/images/bronze-7ad033b3ac027995939993b7648507f536d7b089.png" },
+            { id: "SILVER", name: "Silver", badge: "../public/images/silver_sm-64ca96b9e4cf1fc255fbe8e81fba4577965e8311.png" },
+            { id: "GOLD", name: "Gold", badge: "../public/images/gold_sm-a4a1073053c6007a0017602901287f7f6f292b35.png" },
+            { id: "DIAMOND", name: "Diamond", badge: "../public/images/diamond_sm-6bb229d2803807410116694fb0aed7f6f43aa63a.png" },
+            { id: "PLATINUM", name: "Platinum", badge: "../public/images/platinum_sm-a4a1073053c6007a0017602901287f7f6f292b35.png" }
+        ];
+
+        let selectedLeague = "PLATINUM";
+
+        function renderTabs() {
+            const tabsDiv = document.getElementById("tabs");
+            tabsDiv.innerHTML = LEAGUES.map(league => `
+                <button class="tab-btn ${league.id === selectedLeague ? 'active' : ''}" onclick="selectLeague('${league.id}')">
+                    ${league.name}
+                </button>
+            `).join("");
+        }
+
+        async function fetchLeaderboard() {
+            const showcase = document.getElementById("showcase");
+            const content = document.getElementById("leaderboard-content");
+            const leagueObj = LEAGUES.find(l => l.id === selectedLeague);
+
+            content.innerHTML = `
+                <div class="loader-wrap">
+                    <div class="spinner"></div>
+                    <div class="loader-text">Fetching live data...</div>
+                </div>
+            `;
+
+            try {
+                const res = await fetch(
+                    `https://now-in-google-backend-1010379975924.asia-south1.run.app/nowingoogle-backend/api/gamification/api/internal/leaderboard?league=${selectedLeague}&cohortId=0`,
+                    {
+                        headers: {
+                            "X-Internal-Secret": "c765b3011072ec6476a46a4899cd057a1da172b5fae7caef261fe322440d3358"
+                        }
+                    }
+                );
+
+                if (!res.ok) {
+                    throw new Error("Unable to fetch data from API endpoint");
+                }
+
+                const json = await res.json();
+                if (!json.status || !json.data) {
+                    throw new Error(json.message || "Invalid API response");
+                }
+
+                const leaderboard = json.data.leaderboard || [];
+                const promotionLimit = json.data.promotion_limit || 0;
+                const demotionLimit = json.data.demotion_limit || 99999;
+                const totalCount = json.data.total_count || 0;
+
+                const leagueIndex = LEAGUES.findIndex(l => l.id === selectedLeague);
+                const leagueAbove = leagueIndex < LEAGUES.length - 1 ? LEAGUES[leagueIndex + 1].name : null;
+                const leagueBelow = leagueIndex > 0 ? LEAGUES[leagueIndex - 1].name : null;
+
+                // Render Showcase Card
+                let bannerHtml = "";
+                if (promotionLimit > 0 && leagueAbove) {
+                    bannerHtml = `<span class="zone-banner promo">Top ${promotionLimit} advance to ${leagueAbove} League</span>`;
+                }
+
+                showcase.innerHTML = `
+                    <img src="${leagueObj.badge}" alt="${leagueObj.name}" class="league-badge">
+                    <h2 class="league-title">${leagueObj.name} League</h2>
+                    <p class="league-info">${totalCount} Active Players</p>
+                    ${bannerHtml}
+                `;
+
+                // Render List
+                if (leaderboard.length === 0) {
+                    content.innerHTML = `
+                        <div style="text-align: center; padding: 48px; opacity: 0.6;">
+                            <strong>No entries in this league</strong>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let listHtml = '<div class="entry-list">';
+                leaderboard.forEach((entry, idx) => {
+                    // Render Promotion zone line
+                    if (promotionLimit > 0 && idx === promotionLimit) {
+                        listHtml += `
+                            <div class="zone-divider promotion">
+                                ↑ Promotion Zone (Target: ${leagueAbove}) ↑
+                            </div>
+                        `;
+                    }
+
+                    // Render Demotion zone line
+                    if (demotionLimit < 99999 && entry.rank === demotionLimit) {
+                        listHtml += `
+                            <div class="zone-divider demotion">
+                                ↓ Demotion Zone (Target: ${leagueBelow}) ↓
+                            </div>
+                        `;
+                    }
+
+                    const isBot = entry.user_id && entry.user_id.includes("BOT_");
+                    const avatarUrl = isBot
+                        ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVw_T5Y6xcucl2kgL7YBWk6jrLxAW2VOw_-0-6darzm1R5s4doOEt3GXg&s=10"
+                        : entry.avatarUrl;
+
+                    const fallbackLetter = entry.name ? entry.name[0].toUpperCase() : "?";
+                    const avatarHtml = avatarUrl
+                        ? `<img src="${avatarUrl}" alt="${entry.name}">`
+                        : `<span>${fallbackLetter}</span>`;
+
+                    listHtml += `
+                        <div class="entry-row">
+                            <div class="entry-left">
+                                <span class="entry-rank">#${entry.rank}</span>
+                                <div class="avatar-circle">
+                                    ${avatarHtml}
+                                </div>
+                                <div class="entry-info">
+                                    <h4 class="entry-name">${entry.name || 'Anonymous Player'}</h4>
+                                    <p class="entry-meta">@${entry.username || 'username'} · ${entry.role || 'Attendee'}</p>
+                                </div>
+                            </div>
+                            <span class="entry-score">${entry.score} pts</span>
+                        </div>
+                    `;
+                });
+                listHtml += '</div>';
+                content.innerHTML = listHtml;
+
+            } catch (err) {
+                content.innerHTML = `
+                    <div class="error-message">
+                        <h3>Error fetching leaderboard</h3>
+                        <p>${err.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function selectLeague(leagueId) {
+            selectedLeague = leagueId;
+            renderTabs();
+            fetchLeaderboard();
+        }
+
+        // Init
+        renderTabs();
+        fetchLeaderboard();
+    </script>
+</body>
+
+</html>
