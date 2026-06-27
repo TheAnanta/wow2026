@@ -391,19 +391,40 @@ export default function ProfilePage() {
               <h2 className="text-2xl font-bold tracking-tight mb-6 text-[#1b1b21] dark:text-[#e5e1e9]">Your Tickets</h2>
               {tickets.length > 0 ? (
                 <div className="grid gap-4">
-                  {tickets.map((t: any, i: number) => (
-                    <div key={i} className="p-6 bg-[#e3e1e9] dark:bg-[#35343b] rounded-2xl border border-[#c6c5d0] dark:border-[#46464f] flex justify-between items-center group transition-colors shadow-sm">
-                      <div>
-                        <h4 className="font-bold text-lg tracking-tight text-[#1b1b21] dark:text-[#e5e1e9]">
-                          {t.order?.tier_id === 'clx_grouppass_006' ? 'Group Pass' : (t.tier?.name || t.name || "Attendee Pass")}
-                        </h4>
-                        <p className="text-xs uppercase font-black tracking-widest mt-1 text-[#46464f] dark:text-[#c6c5d0]">Order #{t.order?.gateway_order_id?.slice(-8) || "N/A"}</p>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs font-bold px-4 py-2 rounded-full shadow-sm transition-colors bg-[#a7f3c8] dark:bg-[#005225] text-[#002111] dark:text-[#a7f3c8]">CONFIRMED</span>
-                      </div>
-                    </div>
-                  ))}
+                  {(() => {
+                    const hasFullPass = tickets.some((t: any) =>
+                      (t.tier?.name || t.name || "").toLowerCase().includes("early bird") ||
+                      (t.tier?.name || t.name || "").toLowerCase().includes("regular") ||
+                      (t.tier?.name || t.name || "").toLowerCase().includes("attendee") ||
+                      (t.tier?.name || t.name || "").toLowerCase().includes("group") ||
+                      (t.tier?.name || t.name || "").toLowerCase().includes("ground")
+                    );
+
+                    return tickets.map((t: any, i: number) => {
+                      const isArcade = t.tier_id === "clx_arcade_001" || 
+                        (t.tier?.name || t.name || "").toLowerCase().includes("arcade") || 
+                        (t.tier?.name || t.name || "").toLowerCase().includes("wow");
+
+                      return (
+                        <div key={i} className="p-6 bg-[#e3e1e9] dark:bg-[#35343b] rounded-2xl border border-[#c6c5d0] dark:border-[#46464f] flex justify-between items-center group transition-colors shadow-sm">
+                          <div>
+                            <h4 className="font-bold text-lg tracking-tight text-[#1b1b21] dark:text-[#e5e1e9]">
+                              {t.order?.tier_id === 'clx_grouppass_006' ? 'Group Pass' : (t.tier?.name || t.name || "Attendee Pass")}
+                            </h4>
+                            <p className="text-xs uppercase font-black tracking-widest mt-1 text-[#46464f] dark:text-[#c6c5d0]">Order #{t.order?.gateway_order_id?.slice(-8) || "N/A"}</p>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            {isArcade && !hasFullPass && (
+                              <a href="/payment" className="text-xs font-bold px-4 py-2 rounded-full shadow-sm transition-all bg-google-blue text-white hover:brightness-110">
+                                Final Settlement &rarr;
+                              </a>
+                            )}
+                            <span className="text-xs font-bold px-4 py-2 rounded-full shadow-sm transition-colors bg-[#a7f3c8] dark:bg-[#005225] text-[#002111] dark:text-[#a7f3c8]">CONFIRMED</span>
+                          </div>
+                        </div>
+                      );
+                    });
+                  })()}
                 </div>
               ) : (
                 <div className="text-center py-12 border-2 border-dashed border-grey-bg dark:border-white/10 rounded-2xl">

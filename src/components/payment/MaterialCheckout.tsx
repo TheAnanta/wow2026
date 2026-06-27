@@ -76,6 +76,11 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   const scrollRef = useRef<HTMLDivElement>(null);
   const brand = "WOW";
 
+  const [isSettlementOpen, setIsSettlementOpen] = useState(false);
+  useEffect(() => {
+    setIsSettlementOpen(Date.now() >= new Date("2026-06-28T00:01:00+05:30").getTime());
+  }, []);
+
   function showToast(msg: string) {
     setToast(msg);
     setTimeout(() => setToast(null), 2400);
@@ -232,6 +237,18 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
           </p>
         </div>
 
+        {isSettlement && !isSettlementOpen && (
+          <div className="mx-4 mt-3 p-4 rounded-2xl flex items-start gap-3 border border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-200 max-w-[1200px] md:mx-auto">
+            <IconInfo size={22} className="flex-none text-amber-600 mt-0.5" />
+            <div>
+              <div className="t-title-s font-semibold">Settlement opens soon</div>
+              <div className="t-body-s mt-1 opacity-90">
+                Final settlement will open at 12:01 AM, 28th June 2026 once the leaderboard is finalized and the promotion-demotion reset runs. Please check back then.
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Two-column grid on desktop, single column on mobile */}
         <div className="px-4 pb-52 md:pb-8 max-w-[1200px] mx-auto" style={{ paddingTop: 8 }}>
           <div className="flex flex-col md:flex-row gap-6">
@@ -307,6 +324,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   isWOWPlus={isWOWPlus}
                   isSettlement={isSettlement}
                   settlementPrice={settlementPrice}
+                  isSettlementOpen={isSettlementOpen}
                 />
               </div>
             </div>
@@ -328,6 +346,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
           isWOWPlus={isWOWPlus}
           isSettlement={isSettlement}
           settlementPrice={settlementPrice}
+          isSettlementOpen={isSettlementOpen}
         />
       </div>
 
@@ -348,7 +367,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
 
 // --- StickyBarContent — shared between mobile fixed bar and desktop section ---
 // Uses the exact same markup from Charan anna's original sticky bottom bar
-function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, setPayLaterOpen, payLater, rank, isGroupPass, isWOWPlus, isSettlement, settlementPrice }: any) {
+function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, setPayLaterOpen, payLater, rank, isGroupPass, isWOWPlus, isSettlement, settlementPrice, isSettlementOpen }: any) {
   return (
     <>
       {/* Additional Coupons link — refined to match M3 design system */}
@@ -387,20 +406,20 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
         </div>
         <button
           onClick={onPurchase}
-          disabled={isProcessing}
+          disabled={isProcessing || (isSettlement && !isSettlementOpen)}
           className="m-cta inline-flex items-center justify-center gap-2 rounded-full t-label-l"
           style={{
             height: 56,
             paddingLeft: 28, paddingRight: 28,
-            background: 'var(--m-primary)',
-            color: 'var(--m-on-primary)',
+            background: (isSettlement && !isSettlementOpen) ? 'var(--m-outline-variant)' : 'var(--m-primary)',
+            color: (isSettlement && !isSettlementOpen) ? 'var(--m-on-surface-variant)' : 'var(--m-on-primary)',
             fontSize: 16,
             minWidth: 140,
-            boxShadow: '0 1px 2px rgba(0,0,0,0.1), 0 4px 12px rgba(44,95,217,0.25)',
+            boxShadow: (isSettlement && !isSettlementOpen) ? 'none' : '0 1px 2px rgba(0,0,0,0.1), 0 4px 12px rgba(44,95,217,0.25)',
           }}
         >
           {isProcessing ? <Spinner /> : <IconLock size={18} />}
-          <span>{isProcessing ? 'Processing…' : (isSettlement ? 'Settle payment' : (isGroupPass ? 'Pay total' : 'Pay now'))}</span>
+          <span>{isProcessing ? 'Processing…' : ((isSettlement && !isSettlementOpen) ? 'Locked' : (isSettlement ? 'Settle payment' : (isGroupPass ? 'Pay total' : 'Pay now')))}</span>
         </button>
       </div>
     </>
