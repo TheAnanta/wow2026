@@ -48,11 +48,12 @@ interface OrderSummaryCardProps {
   isSettlement?: boolean;
   settlementPrice?: number;
   remainingPrice?: number;
+  league?: string;
 }
 
 export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
   pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled, isGroupPass,
-  isSettlement, settlementPrice, remainingPrice
+  isSettlement, settlementPrice, remainingPrice, league
 }) => (
   <section
     className="rounded-2xl p-4"
@@ -77,7 +78,7 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
           {userName || 'User'} · {userEmail || 'email@example.com'}
         </div>
         <div className="t-body-s mt-0.5" style={{ color: 'var(--m-on-surface-variant)' }}>
-          {isSettlement ? 'Arcade pre-book settlement' : `Qty ${qty} · General admission`}
+          {isSettlement ? `Arcade pre-book settlement (${league || 'BASIC'} League)` : `Qty ${qty} · General admission`}
           {qty > 1 && !isSettlement && (
             <div className="mt-1 flex items-center gap-1.5 py-1 px-2 rounded-lg"
               style={{ background: 'var(--m-surface-container-high)', width: 'fit-content' }}>

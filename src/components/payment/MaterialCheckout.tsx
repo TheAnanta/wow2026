@@ -81,6 +81,48 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
     setIsSettlementOpen(Date.now() >= new Date("2026-06-28T00:01:00+05:30").getTime());
   }, []);
 
+  if (isSettlement && !isSettlementOpen) {
+    return (
+      <div className="flex flex-col min-h-screen" style={{ backgroundColor: 'var(--m-surface-container-lowest)', color: 'var(--m-on-surface)' }}>
+        <header
+          className="flex items-center transition-shadow sticky top-0 z-10 border-b"
+          style={{ height: 56, background: 'var(--m-surface)', borderColor: 'var(--m-outline-variant)' }}
+        >
+          <div className="flex-1 flex items-center gap-2 px-4 max-w-[1200px] mx-auto w-full">
+            <button onClick={onBack} className="m-pressable rounded-full flex items-center justify-center -ml-2"
+              style={{ width: 48, height: 48, color: 'var(--m-on-surface)' }} aria-label="Back">
+              <IconBack size={24} />
+            </button>
+            <div className="flex-grow flex items-baseline">
+              <span className="t-title-l tracking-tight" style={{ color: 'var(--m-on-surface)' }}>
+                {"gdgoc".toLowerCase()}
+              </span>
+              <span className="t-title-l font-extrabold mr-3" style={{ color: 'var(--m-primary)' }}>
+                wow
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div className="flex-grow flex flex-col items-center justify-center p-6 text-center max-w-[600px] mx-auto">
+          <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-amber-500/10 text-amber-600 dark:text-amber-400">
+            <IconLock size={32} />
+          </div>
+          <h1 className="t-headline-m font-bold tracking-tight mb-3">Settlement opens soon</h1>
+          <p className="t-body-l opacity-80 leading-relaxed">
+            Final settlement will open at 12:01 AM, 28th June 2026 once the leaderboard is finalized and the promotion-demotion reset runs. Please check back then.
+          </p>
+          <button 
+            onClick={onBack} 
+            className="mt-8 px-8 py-3 rounded-full font-bold transition-all bg-[var(--m-primary)] text-[var(--m-on-primary)] hover:brightness-110 shadow-lg"
+          >
+            Go Back
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   function showToast(msg: string) {
     setToast(msg);
     setTimeout(() => setToast(null), 2400);
@@ -270,6 +312,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   isSettlement={isSettlement}
                   settlementPrice={settlementPrice}
                   remainingPrice={remainingPrice}
+                  league={profile?.league}
                 />
               </div>
 
