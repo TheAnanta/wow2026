@@ -113,7 +113,7 @@ function PaymentPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [profile, user, isLoading, router, tickets]);
 
-    const handlePurchase = async (tierId: string, badgeName?: string, isSettlementParam?: boolean) => {
+    const handlePurchase = async (tierId: string, badgeName?: string, isSettlementParam?: boolean, hasTshirtParam?: boolean) => {
         setIsProcessing(true);
         try {
             const tier = tiers.find(t => t.id === tierId);
@@ -122,7 +122,7 @@ function PaymentPage() {
             const duration = (Date.now() - startTimeRef.current) / 1000;
             analyticsService.trackCheckoutActivity('select_tier', tier.name, 'initiated', duration);
 
-            const checkoutData = await initiateCheckout(tier.id, couponCode, isSettlementParam);
+            const checkoutData = await initiateCheckout(tier.id, couponCode, isSettlementParam, hasTshirtParam);
             
             if (checkoutData.is_free) {
                 // 🚀 ZERO-AMOUNT BYPASS: Skip Razorpay

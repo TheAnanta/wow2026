@@ -32,8 +32,7 @@ export function payLaterRange(rank: number) {
   }
 }
 
-// ---------- Order summary ----------
-interface OrderSummaryCardProps {
+// --------interface OrderSummaryCardProps {
   pass: { price: number; list: number };
   sub: number;
   subtotal: number;
@@ -49,11 +48,12 @@ interface OrderSummaryCardProps {
   settlementPrice?: number;
   remainingPrice?: number;
   league?: string;
+  hasTshirt?: boolean;
 }
 
 export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
   pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled, isGroupPass,
-  isSettlement, settlementPrice, remainingPrice, league
+  isSettlement, settlementPrice, remainingPrice, league, hasTshirt
 }) => (
   <section
     className="rounded-2xl p-4"
@@ -61,7 +61,9 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
   >
     <header className="flex items-center justify-between mb-3">
       <h2 className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>{isSettlement ? 'Settlement details' : 'Order summary'}</h2>
-      <span className="t-label-m" style={{ color: 'var(--m-on-surface-variant)' }}>{isSettlement ? '1 item' : `${qty} items`}</span>
+      <span className="t-label-m" style={{ color: 'var(--m-on-surface-variant)' }}>
+        {isSettlement ? (hasTshirt ? '2 items' : '1 item') : `${qty} items`}
+      </span>
     </header>
 
     {/* Pass line item */}
@@ -96,13 +98,40 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
     </div>
 
+    {/* T-shirt Add-on line item */}
+    {isSettlement && hasTshirt && (
+      <>
+        <hr className="my-2 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
+        <div className="flex items-start gap-3 py-2">
+          <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-none"
+            style={{ background: 'var(--m-primary-container)', color: 'var(--m-on-primary-container)' }}>
+            <IconSparkle size={22} stroke={2} />
+          </div>
+          <div className="flex-grow min-w-0">
+            <div className="t-body-l font-semibold truncate" style={{ color: 'var(--m-on-surface)' }}>
+              Google Developers 20th Anniversary T-shirt
+            </div>
+            <div className="t-body-s" style={{ color: 'var(--m-on-surface-variant)' }}>
+              Add-on · Anniversary Special Edition
+            </div>
+          </div>
+          <div className="text-right flex-none">
+            <div className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>
+              ₹250
+            </div>
+          </div>
+        </div>
+      </>
+    )}
 
     <hr className="my-4 border-0 h-px" style={{ background: 'var(--m-outline-variant)' }} />
 
     <div className="mt-4 pt-3 flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <span className="t-body-l" style={{ color: 'var(--m-on-surface-variant)' }}>Subtotal</span>
-        <span className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>₹{isSettlement ? remainingPrice : subtotal.toLocaleString('en-IN')}</span>
+        <span className="t-title-l" style={{ color: 'var(--m-on-surface)' }}>
+          ₹{isSettlement ? (remainingPrice + (hasTshirt ? 250 : 0)) : subtotal.toLocaleString('en-IN')}
+        </span>
       </div>
 
       {isSettlement ? (
@@ -116,7 +145,9 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
 
           <div className="flex items-center justify-between">
             <span className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>Total Payment</span>
-            <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>₹{settlementPrice}</span>
+            <span className="t-title-l tabular-nums" style={{ color: 'var(--m-primary)' }}>
+              ₹{(settlementPrice + (hasTshirt ? 250 : 0))}
+            </span>
           </div>
         </>
       ) : (

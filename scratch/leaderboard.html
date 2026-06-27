@@ -7,7 +7,8 @@
     <title>WoW 2026 Leaderboard Viewer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --m-primary: #2c5fd9;
@@ -300,7 +301,7 @@
 
         .zone-divider {
             padding: 12px 16px;
-            border-radius: 16px;
+            border-radius: 12px;
             text-align: center;
             font-size: 0.75rem;
             font-weight: 700;
@@ -313,13 +314,16 @@
         .zone-divider.promotion {
             background-color: var(--m-green-bg);
             color: var(--m-green);
-            border: 1px dashed var(--m-green);
         }
 
         .zone-divider.demotion {
             background-color: var(--m-red-bg);
             color: var(--m-red);
-            border: 1px dashed var(--m-red);
+        }
+
+        .zone-divider.safe {
+            background-color: rgba(44, 95, 217, 0.08);
+            color: var(--m-primary);
         }
 
         @keyframes spin {
@@ -451,24 +455,47 @@
                     return;
                 }
 
+                // Calculate human counts based on global rank fields
+                const humansInPromotion = promotionLimit > 0
+                    ? leaderboard.filter(e => !(e.user_id && e.user_id.includes("BOT_")) && e.rank <= promotionLimit).length
+                    : 0;
+
+                const humansInDemotion = demotionLimit < 99999
+                    ? leaderboard.filter(e => !(e.user_id && e.user_id.includes("BOT_")) && e.rank >= demotionLimit).length
+                    : 0;
+
+                const humansInSafeZone = leaderboard.filter(e => 
+                    !(e.user_id && e.user_id.includes("BOT_")) && 
+                    e.rank > promotionLimit && 
+                    e.rank < demotionLimit
+                ).length;
+
+                let promotionDividerRendered = false;
+                let demotionDividerRendered = false;
+
                 let listHtml = '<div class="entry-list">';
                 leaderboard.forEach((entry, idx) => {
                     // Render Promotion zone line
-                    if (promotionLimit > 0 && idx === promotionLimit) {
+                    if (promotionLimit > 0 && !promotionDividerRendered && entry.rank > promotionLimit) {
                         listHtml += `
                             <div class="zone-divider promotion">
-                                ↑ Promotion Zone (Target: ${leagueAbove}) ↑
+                                ↑ Promotion Zone (Target: ${leagueAbove} | ${humansInPromotion} humans) ↑
                             </div>
                         `;
+                        promotionDividerRendered = true;
                     }
 
-                    // Render Demotion zone line
-                    if (demotionLimit < 99999 && entry.rank === demotionLimit) {
+                    // Render Safe Zone & Demotion zone line
+                    if (demotionLimit < 99999 && !demotionDividerRendered && entry.rank >= demotionLimit) {
                         listHtml += `
+                            <div class="zone-divider safe">
+                                — Safe Zone (${humansInSafeZone} humans) —
+                            </div>
                             <div class="zone-divider demotion">
-                                ↓ Demotion Zone (Target: ${leagueBelow}) ↓
+                                ↓ Demotion Zone (Target: ${leagueBelow} | ${humansInDemotion} humans) ↓
                             </div>
                         `;
+                        demotionDividerRendered = true;
                     }
 
                     const isBot = entry.user_id && entry.user_id.includes("BOT_");

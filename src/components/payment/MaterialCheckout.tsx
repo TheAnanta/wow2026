@@ -64,6 +64,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   remainingPrice = 0
 }) => {
   const [promos, setPromos] = useState<any[]>([]);
+  const [hasTshirt, setHasTshirt] = useState(false);
   const [isGroupPass, setIsGroupPass] = useState(isSettlement ? false : initialIsGroupPass);
   const [payLaterOpen, setPayLaterOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -178,7 +179,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   const basePrice = isSettlement ? remainingPrice : (isGroupPass ? 4000 : (PASS.price * qty));
   const subtotal = isSettlement ? remainingPrice : (basePrice - currentSubDiscount);
   const promoTotal = promos.reduce((a, p) => a + p.amount, 0);
-  const finalNow = isSettlement ? settlementPrice : Math.max(0, basePrice - currentSubDiscount - promoTotal);
+  const finalNow = isSettlement ? (settlementPrice + (hasTshirt ? 250 : 0)) : Math.max(0, basePrice - currentSubDiscount - promoTotal);
   const payLater = payLaterRange(87);
 
   // Track scroll for top-bar shadow
@@ -313,8 +314,41 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   settlementPrice={settlementPrice}
                   remainingPrice={remainingPrice}
                   league={profile?.league}
+                  hasTshirt={hasTshirt}
                 />
               </div>
+
+              {isSettlement && (
+                <div 
+                  className="rounded-2xl p-4 flex items-start gap-3 border transition-all cursor-pointer select-none text-left"
+                  style={{ 
+                    background: 'var(--m-surface-container-low)',
+                    borderColor: hasTshirt ? 'var(--m-primary)' : 'var(--m-outline-variant)'
+                  }}
+                  onClick={() => setHasTshirt(!hasTshirt)}
+                >
+                  <input
+                    type="checkbox"
+                    checked={hasTshirt}
+                    onChange={(e) => setHasTshirt(e.target.checked)}
+                    className="mt-1 h-5 w-5 cursor-pointer rounded accent-[var(--m-primary)]"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="t-title-m font-semibold" style={{ color: 'var(--m-on-surface)' }}>
+                      Anniversary Add-on
+                    </div>
+                    <div className="t-body-m mt-1" style={{ color: 'var(--m-on-surface-variant)', lineHeight: '1.4' }}>
+                      Celebrating 20 years of Google Developers - The Exclusive Google Developers 20th Anniversary T-shirt. Google was impressed with your effort in the arcade and is giving this pre-booking discount of ₹250 instead of the standard ₹600!
+                    </div>
+                  </div>
+                  <div className="text-right flex-none pl-2">
+                    <div className="t-title-m font-bold" style={{ color: 'var(--m-primary)' }}>
+                      +₹250
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* <div style={{ scrollSnapAlign: 'start' }}>
   <RankCard rank={rank} setRank={setRank} interactive={true} brand={brand} disabled={isGroupPass} />
@@ -359,7 +393,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                 <StickyBarContent
                   finalNow={finalNow}
                   isProcessing={isProcessing}
-                  onPurchase={() => onPurchase(isSettlement ? 'clx_earlybird_002' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002')), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee', isSettlement)}
+                  onPurchase={() => onPurchase(isSettlement ? 'clx_earlybird_002' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002')), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee', isSettlement, hasTshirt)}
                   payLaterOpen={payLaterOpen}
                   setPayLaterOpen={setPayLaterOpen}
                   payLater={payLater}
@@ -381,7 +415,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
         <StickyBarContent
           finalNow={finalNow}
           isProcessing={isProcessing}
-          onPurchase={() => onPurchase(isSettlement ? 'clx_earlybird_002' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002')), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee', isSettlement)}
+          onPurchase={() => onPurchase(isSettlement ? 'clx_earlybird_002' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002')), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee', isSettlement, hasTshirt)}
           payLaterOpen={payLaterOpen}
           setPayLaterOpen={setPayLaterOpen}
           payLater={payLater}
@@ -444,7 +478,7 @@ function StickyBarContent({ finalNow, isProcessing, onPurchase, payLaterOpen, se
             {isSettlement ? 'YOU PAY FOR SETTLEMENT' : (isGroupPass ? 'YOU PAY IN TOTAL' : 'YOU PAY NOW')}
           </div>
           <div className="t-headline-m tabular-nums" style={{ color: 'var(--m-on-surface)' }}>
-            ₹{(isSettlement ? settlementPrice : finalNow).toLocaleString('en-IN')}
+            ₹{finalNow.toLocaleString('en-IN')}
           </div>
         </div>
         <button
