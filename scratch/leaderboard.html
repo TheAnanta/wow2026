@@ -354,7 +354,7 @@
 
     <header>
         <h1>WOW Leaderboards</h1>
-        <p class="subtitle">Live player stats duplicate from all leagues</p>
+        <p class="subtitle">Final standings for all leagues</p>
     </header>
 
     <div class="tabs-container" id="tabs">
@@ -423,26 +423,20 @@
                     throw new Error(json.message || "Invalid API response");
                 }
 
-                const leaderboard = json.data.leaderboard || [];
+                const leaderboard = (json.data.leaderboard || []).filter(e => !(e.user_id && e.user_id.includes("BOT_")));
                 const promotionLimit = json.data.promotion_limit || 0;
                 const demotionLimit = json.data.demotion_limit || 99999;
-                const totalCount = json.data.total_count || 0;
+                const totalCount = leaderboard.length;
 
                 const leagueIndex = LEAGUES.findIndex(l => l.id === selectedLeague);
                 const leagueAbove = leagueIndex < LEAGUES.length - 1 ? LEAGUES[leagueIndex + 1].name : null;
                 const leagueBelow = leagueIndex > 0 ? LEAGUES[leagueIndex - 1].name : null;
 
                 // Render Showcase Card
-                let bannerHtml = "";
-                if (promotionLimit > 0 && leagueAbove) {
-                    bannerHtml = `<span class="zone-banner promo">Top ${promotionLimit} advance to ${leagueAbove} League</span>`;
-                }
-
                 showcase.innerHTML = `
                     <img src="${leagueObj.badge}" alt="${leagueObj.name}" class="league-badge">
                     <h2 class="league-title">${leagueObj.name} League</h2>
-                    <p class="league-info">${totalCount} Active Players</p>
-                    ${bannerHtml}
+                    <p class="league-info">${totalCount} Final Players</p>
                 `;
 
                 // Render List
@@ -455,63 +449,17 @@
                     return;
                 }
 
-                // Calculate human counts based on global rank fields
-                const humansInPromotion = promotionLimit > 0
-                    ? leaderboard.filter(e => !(e.user_id && e.user_id.includes("BOT_")) && e.rank <= promotionLimit).length
-                    : 0;
-
-                const humansInDemotion = demotionLimit < 99999
-                    ? leaderboard.filter(e => !(e.user_id && e.user_id.includes("BOT_")) && e.rank >= demotionLimit).length
-                    : 0;
-
-                const humansInSafeZone = leaderboard.filter(e => 
-                    !(e.user_id && e.user_id.includes("BOT_")) && 
-                    e.rank > promotionLimit && 
-                    e.rank < demotionLimit
-                ).length;
-
-                let promotionDividerRendered = false;
-                let demotionDividerRendered = false;
-
                 let listHtml = '<div class="entry-list">';
                 leaderboard.forEach((entry, idx) => {
-                    // Render Promotion zone line
-                    if (promotionLimit > 0 && !promotionDividerRendered && entry.rank > promotionLimit) {
-                        listHtml += `
-                            <div class="zone-divider promotion">
-                                ↑ Promotion Zone (Target: ${leagueAbove} | ${humansInPromotion} humans) ↑
-                            </div>
-                        `;
-                        promotionDividerRendered = true;
-                    }
-
-                    // Render Safe Zone & Demotion zone line
-                    if (demotionLimit < 99999 && !demotionDividerRendered && entry.rank >= demotionLimit) {
-                        listHtml += `
-                            <div class="zone-divider safe">
-                                — Safe Zone (${humansInSafeZone} humans) —
-                            </div>
-                            <div class="zone-divider demotion">
-                                ↓ Demotion Zone (Target: ${leagueBelow} | ${humansInDemotion} humans) ↓
-                            </div>
-                        `;
-                        demotionDividerRendered = true;
-                    }
-
-                    const isBot = entry.user_id && entry.user_id.includes("BOT_");
-                    const avatarUrl = isBot
-                        ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVw_T5Y6xcucl2kgL7YBWk6jrLxAW2VOw_-0-6darzm1R5s4doOEt3GXg&s=10"
-                        : entry.avatarUrl;
-
                     const fallbackLetter = entry.name ? entry.name[0].toUpperCase() : "?";
-                    const avatarHtml = avatarUrl
-                        ? `<img src="${avatarUrl}" alt="${entry.name}">`
+                    const avatarHtml = entry.avatarUrl
+                        ? `<img src="${entry.avatarUrl}" alt="${entry.name}">`
                         : `<span>${fallbackLetter}</span>`;
 
                     listHtml += `
                         <div class="entry-row">
                             <div class="entry-left">
-                                <span class="entry-rank">#${entry.rank}</span>
+                                <span class="entry-rank">#${idx + 1}</span>
                                 <div class="avatar-circle">
                                     ${avatarHtml}
                                 </div>

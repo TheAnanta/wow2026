@@ -130,6 +130,7 @@ import { AnalyticsProvider } from "../components/AnalyticsProvider";
 import AnnouncementBanner from "@/components/AnnouncementBanner";
 import { Footer } from "@/components/sections/Footer";
 import PageTransition from "@/components/PageTransition";
+import { SettlementAlert } from "@/components/SettlementAlert";
 
 export default function RootLayout({
   children,
@@ -156,6 +157,7 @@ export default function RootLayout({
             {/* Banner */}
             <AnnouncementBanner props={{ announcement: "Only 40 group passes left! Group Pass for 5 just at ₹4,000 (Save ₹2,000!) • Arcade closes by 11:59PM, 27th June 2026! • Book your spot now!" }} />
 
+            <SettlementAlert />
 
             {children}
 
