@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { analyticsService } from '../../services/analytics';
 import {
   IconMenu, IconBack, IconInfo, IconChevronDown, IconLock, IconShield, IconCheck,
-  IconTag
+  IconTag, IconPartyPopper
 } from './Icons';
 import {
   OrderSummaryCard, RankCard, PromotionsCard, payLaterRange, tierForRank
@@ -80,6 +80,15 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   const [isSettlementOpen, setIsSettlementOpen] = useState(false);
   useEffect(() => {
     setIsSettlementOpen(Date.now() >= new Date("2026-06-28T00:01:00+05:30").getTime());
+  }, []);
+
+  // Track scroll for top-bar shadow
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const onScroll = () => setScrolled(el.scrollTop > 4);
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
   }, []);
 
   if (isSettlement && !isSettlementOpen) {
@@ -181,15 +190,6 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   const promoTotal = promos.reduce((a, p) => a + p.amount, 0);
   const finalNow = isSettlement ? (settlementPrice + (hasTshirt ? 250 : 0)) : Math.max(0, basePrice - currentSubDiscount - promoTotal);
   const payLater = payLaterRange(87);
-
-  // Track scroll for top-bar shadow
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const onScroll = () => setScrolled(el.scrollTop > 4);
-    el.addEventListener('scroll', onScroll, { passive: true });
-    return () => el.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <div className="checkout-root min-h-screen flex flex-col" style={{ background: 'var(--m-surface)' }}>
@@ -320,23 +320,21 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
 
               {isSettlement && (
                 <div
-                  className="rounded-2xl p-4 flex flex-col gap-3 border transition-all cursor-pointer select-none text-left"
+                  className="rounded-2xl p-4 flex flex-col gap-3 transition-all cursor-pointer select-none text-left"
                   style={{
-                    background: 'var(--m-surface-container-low)',
-                    borderColor: hasTshirt ? 'var(--m-primary)' : 'var(--m-outline-variant)'
+                    background: 'var(--m-surface-container-low)'
                   }}
                   onClick={() => setHasTshirt(!hasTshirt)}
                 >
                   <div className="flex flex-wrap gap-2">
                     <span
-                      className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider"
-                      style={{ background: 'var(--m-primary-container)', color: 'var(--m-on-primary-container)' }}
+                      className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[var(--m-primary-container)] text-[var(--m-on-primary-container)] inline-flex items-center gap-1"
                     >
+                      <IconTag size={10} stroke={2.5} />
                       Prebook discount
                     </span>
-                    <span
-                      className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider"
-                      style={{ background: 'rgba(249, 168, 37, 0.15)', color: '#f9a825' }}
+                    <span 
+                      className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-800 dark:text-amber-400"
                     >
                       Exclusive 20 Year Anniversary - Limited
                     </span>
@@ -351,11 +349,18 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                       onClick={(e) => e.stopPropagation()}
                     />
                     <div className="flex-1 min-w-0">
-                      <div className="t-title-m font-semibold" style={{ color: 'var(--m-on-surface)' }}>
-                        Anniversary Add-on
+                      <div className="t-title-m font-semibold flex items-center gap-2" style={{ color: 'var(--m-on-surface)' }}>
+                        <IconPartyPopper size={20} className="text-[var(--m-primary)] dark:text-amber-500 flex-shrink-0" />
+                        <span>Google Developers 20th Anniversary T-Shirt</span>
                       </div>
-                      <div className="t-body-m mt-1" style={{ color: 'var(--m-on-surface-variant)', lineHeight: '1.4' }}>
-                        Celebrating 20 years of Google Developers - The Exclusive Google Developers 20th Anniversary T-shirt. Google was impressed with your effort in the arcade and is giving this special pre-booking discount!
+                      <div className="t-body-m mt-1.5" style={{ color: 'var(--m-on-surface-variant)', lineHeight: '1.4' }}>
+                        Celebrate 20 years of Google Developers! Grab this exclusive, limited-edition anniversary T-shirt as a special pre-book reward.
+                      </div>
+                      <div className="mt-2.5 text-[11px] py-2 px-3 rounded-xl bg-[var(--m-primary)] dark:bg-blue-400/20 text-[var(--m-on-primary,white)] dark:text-blue-200 leading-normal flex items-start gap-2">
+                        <span className="text-amber-300 dark:text-blue-300">✨</span>
+                        <span>
+                          <strong>Arcade Special:</strong> Google was impressed with your arcade performance! Your pre-booking discount has been applied.
+                        </span>
                       </div>
                     </div>
                     <div className="text-right flex-none pl-2">
