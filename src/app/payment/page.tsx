@@ -87,7 +87,8 @@ function PaymentPage() {
             return;
         }
 
-        if (hasFullPass) {
+        const prebookParam = searchParams.get('prebookTshirt') === 'true';
+        if (hasFullPass && !prebookParam) {
             router.push('/?message=already_has_ticket');
             return;
         }
@@ -232,6 +233,8 @@ function PaymentPage() {
                 isSettlement={isSettlement}
                 settlementPrice={settlementPrice}
                 remainingPrice={remainingPrice}
+                hasFullPass={hasFullPass}
+                prebookTshirt={searchParams?.get('prebookTshirt') === 'true'}
             />
 
 

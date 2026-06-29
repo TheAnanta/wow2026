@@ -31,6 +31,8 @@ interface MaterialCheckoutProps {
   isSettlement?: boolean;
   settlementPrice?: number;
   remainingPrice?: number;
+  hasFullPass?: boolean;
+  prebookTshirt?: boolean;
 }
 
 const PASS = { price: 1200, list: 2000 };
@@ -61,18 +63,27 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   initialIsGroupPass = false,
   isSettlement = false,
   settlementPrice = 0,
-  remainingPrice = 0
+  remainingPrice = 0,
+  hasFullPass = false,
+  prebookTshirt = false
 }) => {
   const [promos, setPromos] = useState<any[]>([]);
-  const [hasTshirt, setHasTshirt] = useState(false);
+  const [hasTshirt, setHasTshirt] = useState(prebookTshirt);
   const [isGroupPass, setIsGroupPass] = useState(isSettlement ? false : initialIsGroupPass);
   const [payLaterOpen, setPayLaterOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    if (prebookTshirt) {
+      setHasTshirt(true);
+    }
+  }, [prebookTshirt]);
+
+  useEffect(() => {
     setIsGroupPass(isSettlement ? false : initialIsGroupPass);
   }, [initialIsGroupPass, isSettlement]);
   const [toast, setToast] = useState<string | null>(null);
+  const [isTshirtDialogOpen, setIsTshirtDialogOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const brand = "WOW";
@@ -185,10 +196,14 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   const qty = isSettlement ? 1 : (isGroupPass ? 5 : 1);
   const currentSubDiscount = (isSettlement || isGroupPass || !isWOWPlus) ? 0 : SUB_DISCOUNT;
 
-  const basePrice = isSettlement ? remainingPrice : (isGroupPass ? 4000 : (PASS.price * qty));
+  const basePrice = hasFullPass && prebookTshirt
+    ? 0
+    : (isSettlement ? remainingPrice : (isGroupPass ? 4000 : (PASS.price * qty)));
   const subtotal = isSettlement ? remainingPrice : (basePrice - currentSubDiscount);
   const promoTotal = promos.reduce((a, p) => a + p.amount, 0);
-  const finalNow = isSettlement ? (settlementPrice + (hasTshirt ? 250 : 0)) : Math.max(0, basePrice - currentSubDiscount - promoTotal);
+  const finalNow = isSettlement
+    ? (settlementPrice + (hasTshirt ? 250 : 0))
+    : (Math.max(0, basePrice - currentSubDiscount - promoTotal) + (hasTshirt ? 300 : 0));
   const payLater = payLaterRange(87);
 
   return (
@@ -318,7 +333,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                 />
               </div>
 
-              {isSettlement && (
+              {(isSettlement || prebookTshirt) && (
                 <div
                   className="rounded-2xl p-4 flex flex-col gap-3 transition-all cursor-pointer select-none text-left"
                   style={{
@@ -333,42 +348,69 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                       <IconTag size={10} stroke={2.5} />
                       Prebook discount
                     </span>
-                    <span 
+                    <span
                       className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-800 dark:text-amber-400"
                     >
                       Exclusive 20 Year Anniversary - Limited
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-3 w-full">
-                    <input
-                      type="checkbox"
-                      checked={hasTshirt}
-                      onChange={(e) => setHasTshirt(e.target.checked)}
-                      className="mt-1 h-5 w-5 cursor-pointer rounded accent-[var(--m-primary)]"
-                      onClick={(e) => e.stopPropagation()}
-                    />
-                    <div className="flex-1 min-w-0">
-                      <div className="t-title-m font-semibold flex items-center gap-2" style={{ color: 'var(--m-on-surface)' }}>
-                        <IconPartyPopper size={20} className="text-[var(--m-primary)] dark:text-amber-500 flex-shrink-0" />
-                        <span>Google Developers 20th Anniversary T-Shirt</span>
-                      </div>
-                      <div className="t-body-m mt-1.5" style={{ color: 'var(--m-on-surface-variant)', lineHeight: '1.4' }}>
-                        Celebrate 20 years of Google Developers! Grab this exclusive, limited-edition anniversary T-shirt as a special pre-book reward.
-                      </div>
-                      <div className="mt-2.5 text-[11px] py-2 px-3 rounded-xl bg-[var(--m-primary)] dark:bg-blue-400/20 text-[var(--m-on-primary,white)] dark:text-blue-200 leading-normal flex items-start gap-2">
-                        <span className="text-amber-300 dark:text-blue-300">✨</span>
-                        <span>
-                          <strong>Arcade Special:</strong> Google was impressed with your arcade performance! Your pre-booking discount has been applied.
-                        </span>
+                  <div className="flex flex-col sm:flex-row gap-4 w-full">
+                    <div className="flex items-start gap-3 flex-1">
+                      <input
+                        type="checkbox"
+                        checked={hasTshirt}
+                        onChange={(e) => setHasTshirt(e.target.checked)}
+                        className="mt-1 h-5 w-5 cursor-pointer rounded accent-[var(--m-primary)]"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="t-title-m font-semibold flex items-center gap-2" style={{ color: 'var(--m-on-surface)' }}>
+                          <IconPartyPopper size={20} className="text-[var(--m-primary)] dark:text-amber-500 flex-shrink-0" />
+                          <span>Google Developers 20th Anniversary T-Shirt</span>
+                        </div>
+                        <div className="t-body-m mt-1.5" style={{ color: 'var(--m-on-surface-variant)', lineHeight: '1.4' }}>
+                          Celebrate 20 years of Google Developers! Grab this exclusive, limited-edition anniversary T-shirt as a special pre-book reward.
+                        </div>
+                        {isSettlement ? (
+                          <div className="mt-2.5 text-[11px] py-2 px-3 rounded-xl bg-[var(--m-primary)] dark:bg-blue-400/20 text-[var(--m-on-primary,white)] dark:text-blue-200 leading-normal flex items-start gap-2">
+                            <span className="text-amber-300 dark:text-blue-300">✨</span>
+                            <span>
+                              <strong>Arcade Special:</strong> Google was impressed with your arcade performance! Your pre-booking discount has been applied.
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="mt-2.5 text-[11px] py-2 px-3 rounded-xl bg-amber-500/10 text-amber-800 dark:text-amber-300 leading-normal flex items-start gap-2">
+                            <span className="text-amber-500 dark:text-amber-300">✨</span>
+                            <span>
+                              <strong>Special Pre-book Offer:</strong> Exclusive anniversary discount applied.
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
-                    <div className="text-right flex-none pl-2">
-                      <div className="text-xs line-through opacity-60" style={{ color: 'var(--m-on-surface-variant)' }}>
-                        ₹600
+                    <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 flex-shrink-0">
+                      <div
+                        className="w-16 h-16 rounded-xl overflow-hidden bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center p-1 cursor-zoom-in hover:scale-105 active:scale-95 transition-transform duration-200"
+                        title="Click to zoom image"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setIsTshirtDialogOpen(true);
+                        }}
+                      >
+                        <img
+                          src="/images/tshirt-wow-26.png"
+                          alt="WOW 2026 T-Shirt"
+                          className="w-full h-full object-contain"
+                        />
                       </div>
-                      <div className="t-title-m font-bold" style={{ color: 'var(--m-primary)' }}>
-                        +₹250
+                      <div className="text-right">
+                        <div className="text-xs line-through opacity-60" style={{ color: 'var(--m-on-surface-variant)' }}>
+                          ₹600
+                        </div>
+                        <div className="t-title-m font-bold" style={{ color: 'var(--m-primary)' }}>
+                          +{isSettlement ? '₹250' : '₹300'}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -460,6 +502,53 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
             style={{ background: '#1b1b21', color: '#fff', boxShadow: '0 8px 20px rgba(0,0,0,0.3)' }}>
             <IconCheck size={16} stroke={2.4} />
             {toast}
+          </div>
+        </div>
+      )}
+
+      {/* T-Shirt Zoom Dialog */}
+      {isTshirtDialogOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-fade-in"
+          onClick={() => setIsTshirtDialogOpen(false)}
+        >
+          <div
+            className="relative max-w-lg w-full bg-white dark:bg-zinc-900 rounded-3xl p-6 flex flex-col items-center shadow-2xl animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              boxShadow: '0 24px 48px -12px rgba(0, 0, 0, 0.4)',
+              border: '1px solid var(--m-outline-variant)'
+            }}
+          >
+            <button
+              className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white rounded-full p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+              onClick={() => setIsTshirtDialogOpen(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="text-center mb-5">
+              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-800 dark:text-amber-400">
+                Exclusive Pre-Book Reward
+              </span>
+              <h3 className="t-title-l font-bold mt-2 mb-8" style={{ color: 'var(--m-on-surface)' }}>
+                Google Developers 20th Anniversary T-Shirt
+              </h3>
+            </div>
+
+            <div className="w-full aspect-square max-h-[50vh] flex items-center justify-center bg-zinc-50 dark:bg-zinc-950 rounded-2xl p-4 border border-zinc-200 dark:border-zinc-800">
+              <img
+                src="/images/tshirt-wow-26.png"
+                alt="Google Developers 20th Anniversary T-Shirt"
+                className="max-w-full max-h-full object-contain select-none"
+              />
+            </div>
+
+            <p className="t-body-m text-center mt-5" style={{ color: 'var(--m-on-surface-variant)', lineHeight: '1.5' }}>
+              Celebrate 20 years of Google Developers! Grab this exclusive, limited-edition anniversary T-shirt as a special pre-book reward.
+            </p>
           </div>
         </div>
       )}

@@ -114,7 +114,7 @@ function Home() {
         {/* <WhoCanAttendWOW /> */}
         {/* <RegistrationTiers /> */}
         {/* <StackCardsSection /> */}
-        
+
         <div className="page-wrapper flex flex-col py-10 md:py-16">
           <div className="relative flex flex-col bg-grey-bg dark:bg-grey! border md:border-2 border-grey dark:border-white rounded-[16px] overflow-hidden lg:flex-row min-h-[280px]">
             <div className="relative z-10 flex flex-col items-start p-6 ml:p-10 lg:w-3/5">
@@ -135,6 +135,57 @@ function Home() {
             <div className="absolute bottom-0 right-0 max-w-[35%] rounded-br-[16px] pointer-events-none hidden lg:block">
               <img src="/images/io__-connect.svg" className="inline-block dark:hidden" role="img" aria-hidden="true" width="220" height="240" alt="" loading="lazy" />
               <img src="/images/io__-connect-dark.svg" className="hidden dark:inline-block" role="img" aria-hidden="true" width="220" height="240" alt="" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div className="page-wrapper flex flex-col py-0 md:py-0 mb-10 md:mb-16">
+          <div className="relative flex flex-col bg-grey-bg dark:bg-grey! border md:border-2 border-grey dark:border-white rounded-[16px] lg:flex-row min-h-[280px]">
+            <div className="relative z-10 flex flex-col items-start p-6 ml:p-10 lg:w-3/5">
+              <span className="text-grey dark:text-white mb-3 text-md:mb-4 sm:l-h5 md:l-h4 tracking-tighter! md:max-w-[600px]">
+                Google Developers 20th Anniversary T-Shirt
+              </span>
+              <p className="text-grey dark:text-white mb-3 text-md:mb-4 sm:s-h6 md:l-h6 max-w-[85%] tracking-tighter">
+                Celebrate 20 years of Google Developers! Grab this exclusive, limited-edition anniversary T-shirt as a special pre-book reward.
+              </p>
+              <div className="flex items-baseline gap-2 mb-4 text-grey dark:text-white">
+                <span className="text-2xl md:text-3xl font-bold tracking-tighter">₹300</span>
+                <span className="text-sm md:text-base line-through opacity-60 tracking-tighter">₹600</span>
+                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-700/80 text-white">50% OFF</span>
+              </div>
+              <a
+                href="/payment?prebookTshirt=true"
+                className="cta-primary tracking-tighter!"
+                onClick={() => analyticsService.trackNavigation('Google Developers 20th Anniversary T-Shirt', 'Homepage Tshirt Prebook CTA', '/payment?prebookTshirt=true')}
+              >
+                Pre-Book Now
+              </a>
+            </div>
+            <div className="absolute bottom-0 right-0 max-w-[40%] md:max-w-[35%] pointer-events-none">
+
+              <img
+                src="https://io.google/2024/app/images/io24-join-community-cta.svg"
+                className="hidden md:block object-cover lg:object-contain object-left lg:object-right dark:hidden mr-[-2px] absolute bottom-0"
+                alt=""
+                loading="lazy"
+                width="437"
+                height="270"
+              />
+              <img
+                src="https://io.google/2024/app/images/io24-join-community-cta-dark.svg"
+                className="hidden dark:md:block object-cover lg:object-contain object-left lg:object-right mr-[-2px] absolute bottom-0"
+                alt=""
+                loading="lazy"
+                width="437"
+                height="270"
+              />
+              <img
+                src="/images/tshirt-wow-26.png"
+                className="translate-x-8 translate-y-18 md:translate-y-24 md:-translate-x-32 w-80 h-auto object-contain transform hover:scale-140 transition-transform duration-300 drop-shadow-xl pointer-events-auto"
+                alt="Google Developers 20th Anniversary T-Shirt"
+                loading="lazy"
+              />
+
             </div>
           </div>
         </div>
