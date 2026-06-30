@@ -392,18 +392,25 @@ export default function ProfilePage() {
               {tickets.length > 0 ? (
                 <div className="grid gap-4">
                   {(() => {
-                    const hasFullPass = tickets.some((t: any) =>
+                    const hasFullPass = tickets?.some((t: any) =>
+                      t.tier_id === 'clx_earlybird_002' ||
+                      t.tier_id === 'clx_grouppass_006' ||
+                      t.tier_id === 'clx_online_007' ||
                       (t.tier?.name || t.name || "").toLowerCase().includes("early bird") ||
                       (t.tier?.name || t.name || "").toLowerCase().includes("regular") ||
                       (t.tier?.name || t.name || "").toLowerCase().includes("attendee") ||
                       (t.tier?.name || t.name || "").toLowerCase().includes("group") ||
-                      (t.tier?.name || t.name || "").toLowerCase().includes("ground")
+                      (t.tier?.name || t.name || "").toLowerCase().includes("ground") ||
+                      (t.tier?.name || t.name || "").toLowerCase().includes("event pass")
                     );
 
+
                     return tickets.map((t: any, i: number) => {
-                      const isArcade = t.tier_id === "clx_arcade_001" || 
-                        (t.tier?.name || t.name || "").toLowerCase().includes("arcade") || 
-                        (t.tier?.name || t.name || "").toLowerCase().includes("wow");
+
+                      const isArcade = tickets?.some((t: any) =>
+                        t.tier_id === 'clx_arcade_001' ||
+                        (t.tier?.name || t.name || "").toLowerCase().includes("arcade")
+                      );
 
                       return (
                         <div key={i} className="p-6 bg-[#e3e1e9] dark:bg-[#35343b] rounded-2xl border border-[#c6c5d0] dark:border-[#46464f] flex justify-between items-center group transition-colors shadow-sm">
