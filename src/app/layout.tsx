@@ -155,7 +155,7 @@ export default function RootLayout({
             <PageTransition />
 
             {/* Banner */}
-            <AnnouncementBanner props={{ announcement: "Only 10 group passes left! Group Pass for 5 just at ₹4,000 (Save ₹2,000!) • Arcade closed • Complete settlement by 11:59PM, 27th June 2026!" }} />
+            <AnnouncementBanner props={{ announcement: "Arcade closed • Complete settlement by 11:59PM, 30th June 2026! • New virtual pass available - limited 200 passes only • Purchase now and join the crew from the comfort of your home!!!" }} />
 
             <SettlementAlert />
 

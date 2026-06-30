@@ -101,7 +101,8 @@ export const RegistrationTiers = () => {
           <TierCard
             name="Indivual"
             price="₹1,200"
-            buttonText="Get started"
+            buttonText="Sold Out"
+            isDisabled
             href={baseLink}
             features={[
               <span key="hackathon" className="underline underline-offset-2">20 Hour Hackathon</span>,
@@ -121,7 +122,6 @@ export const RegistrationTiers = () => {
           <TierCard
             name="Group/Team Pass"
             href={`${baseLink}?tier=group`}
-            isRecommended
             badge={
               <div className="inline-flex items-center gap-1.5 bg-[#e6f4ea] text-[#137333] dark:bg-[#137333]/20 dark:text-[#81c995] px-3 py-1 rounded-full">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -140,7 +140,8 @@ export const RegistrationTiers = () => {
             pricingSubtext={
               <span className="text-[#137333] dark:text-[#81c995]">Save 33% with Group Pass.</span>
             }
-            buttonText="Get started"
+            buttonText="Sold Out"
+            isDisabled
             features={[
               <span className="underline underline-offset-2" key="5x-individual">5x Individual Passes</span>,
               "Save ₹2000 on total",
@@ -151,22 +152,21 @@ export const RegistrationTiers = () => {
           />
 
           <TierCard
-            name="WOW+"
-            price="₹350*"
-            buttonText="Sold Out"
-            href={`${baseLink}?tier=wowplus`}
-            isDisabled
+            name="Online Pass"
+            price="₹350"
+            buttonText="Get started"
+            href={`${baseLink}?tier=online`}
+            isRecommended
             pricingSubtext={
               <>
-                *Pay ₹0-₹600 later based on your score.
+                Virtual access to conference & hackathon.
               </>
             }
             features={[
-              <span key="cert">140+ hr of <span className="underline underline-offset-2">online certification courses</span></span>,
+              <span key="hack-virtual" className="underline underline-offset-2">20 Hour Hackathon (Virtual)</span>,
               "Access to leaderboards, badges & virtual games",
-              "Upto 100% refund on ticket",
-              <span key="priority-hackathon">Priority <span className="underline underline-offset-2">Hackathon</span> Entry</span>,
-              "+Everything included in Individual",
+              "72+ Talks & Workshops (Virtual live stream)",
+              "Digital Swag & Certificate",
             ]}
           />
         </div>

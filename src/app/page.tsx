@@ -16,7 +16,7 @@ import EventMetricsSection from '@/components/sections/EventMetricsSection';
 import { WhatIsWOW } from '@/components/sections/WhatIsWOW';
 import { WhyAttendWOW } from '@/components/sections/WhyAttendWOW';
 import { WhoCanAttendWOW } from '@/components/sections/WhoCanAttendWOW';
-// import { RegistrationTiers } from '@/components/sections/RegistrationTiers';
+import { RegistrationTiers } from '@/components/sections/RegistrationTiers';
 import GallerySection from '@/components/sections/GallerySection';
 import { HistorySection } from '@/components/sections/HistorySection';
 import { ScheduleSection } from '@/components/sections/ScheduleSection';
@@ -112,7 +112,7 @@ function Home() {
 
         <WhyAttendWOW />
         {/* <WhoCanAttendWOW /> */}
-        {/* <RegistrationTiers /> */}
+        <RegistrationTiers />
         {/* <StackCardsSection /> */}
 
         <div className="page-wrapper flex flex-col py-10 md:py-16">

@@ -49,11 +49,12 @@ interface OrderSummaryCardProps {
   remainingPrice?: number;
   league?: string;
   hasTshirt?: boolean;
+  isOnline?: boolean;
 }
 
 export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
   pass, sub, subtotal, brand, qty, userName, userEmail, isWOWPlus, onToggleWOWPlus, disabled, isGroupPass,
-  isSettlement, settlementPrice, remainingPrice, league, hasTshirt
+  isSettlement, settlementPrice, remainingPrice, league, hasTshirt, isOnline
 }) => (
   <section
     className="rounded-2xl p-4"
@@ -74,13 +75,13 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
       <div className="flex-1 min-w-0">
         <div className="t-body-l font-semibold truncate" style={{ color: 'var(--m-on-surface)' }}>
-          {isSettlement ? `${brand} pass - Final Settlement` : (isWOWPlus ? `${brand} group pass with ${brand}+` : `${brand} group pass`)}
+          {isSettlement ? `${brand} pass - Final Settlement` : (isOnline ? `${brand} Online Pass (Virtual Pass)` : (isWOWPlus ? `${brand} group pass with ${brand}+` : `${brand} group pass`))}
         </div>
         <div className="t-body-s" style={{ color: 'var(--m-on-surface-variant)' }}>
           {userName || 'User'} · {userEmail || 'email@example.com'}
         </div>
         <div className="t-body-s mt-0.5" style={{ color: 'var(--m-on-surface-variant)' }}>
-          {isSettlement ? `Arcade pre-book settlement (${league || 'BASIC'} League)` : `Qty ${qty} · General admission`}
+          {isSettlement ? `Arcade pre-book settlement (${league || 'BASIC'} League)` : (isOnline ? `Qty ${qty} · Virtual Pass` : `Qty ${qty} · General admission`)}
           {qty > 1 && !isSettlement && (
             <div className="mt-1 flex items-center gap-1.5 py-1 px-2 rounded-lg"
               style={{ background: 'var(--m-surface-container-high)', width: 'fit-content' }}>
@@ -92,9 +93,9 @@ export const OrderSummaryCard: React.FC<OrderSummaryCardProps> = ({
       </div>
       <div className="text-right flex-none">
         <div className="t-title-m" style={{ color: 'var(--m-on-surface)' }}>
-          {isSettlement ? `₹${remainingPrice}` : (isGroupPass ? `₹4,000` : (isWOWPlus ? `upto ₹${(950 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`))}
+          {isSettlement ? `₹${remainingPrice}` : (isOnline ? `₹350` : (isGroupPass ? `₹4,000` : (isWOWPlus ? `upto ₹${(950 * qty).toLocaleString('en-IN')}` : `₹${(pass.price * qty).toLocaleString('en-IN')}`)))}
         </div>
-        {!isGroupPass && !isSettlement && <div className="t-body-s line-through" style={{ color: 'var(--m-on-surface-variant)' }}>₹{(pass.list * qty).toLocaleString('en-IN')}</div>}
+        {!isGroupPass && !isSettlement && !isOnline && <div className="t-body-s line-through" style={{ color: 'var(--m-on-surface-variant)' }}>₹{(pass.list * qty).toLocaleString('en-IN')}</div>}
       </div>
     </div>
 

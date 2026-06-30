@@ -126,7 +126,8 @@ export const RegistrationForm: React.FC = () => {
       return;
     }
     // If they have a coupon, register as individual (to get the early bird ticket 1200 tier)
-    if (hasCoupon) {
+    const isOnlineOrWOWPlus = searchParams.get('tier') === 'online' || searchParams.get('tier') === 'wowplus';
+    if (hasCoupon || isOnlineOrWOWPlus) {
       handleConfirmRegistration('individual');
     } else {
       handleConfirmRegistration('team');
@@ -140,7 +141,8 @@ export const RegistrationForm: React.FC = () => {
     try {
       // Attempt to get FCM token before submission
       const fcm_token = await requestFirebaseToken();
-      const intended_tier_id = type === 'team' ? 'clx_grouppass_006' : 'clx_earlybird_002';
+      const isOnlineOrWOWPlus = searchParams.get('tier') === 'online' || searchParams.get('tier') === 'wowplus';
+      const intended_tier_id = type === 'team' ? 'clx_grouppass_006' : (isOnlineOrWOWPlus ? 'clx_online_007' : 'clx_earlybird_002');
       const result = await submitRegistration({ ...data, fcm_token: fcm_token || undefined, intended_tier_id });
       if (result.success) {
         const totalDuration = (Date.now() - formStartTimeRef.current) / 1000;

@@ -235,6 +235,10 @@ function PaymentPage() {
                 remainingPrice={remainingPrice}
                 hasFullPass={hasFullPass}
                 prebookTshirt={searchParams?.get('prebookTshirt') === 'true'}
+                isOnline={
+                  searchParams?.get('tier') === 'online' ||
+                  profile?.intended_tier_id === 'clx_online_007'
+                }
             />
 
 

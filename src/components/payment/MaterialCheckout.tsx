@@ -33,6 +33,7 @@ interface MaterialCheckoutProps {
   remainingPrice?: number;
   hasFullPass?: boolean;
   prebookTshirt?: boolean;
+  isOnline?: boolean;
 }
 
 const PASS = { price: 1200, list: 2000 };
@@ -65,11 +66,12 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   settlementPrice = 0,
   remainingPrice = 0,
   hasFullPass = false,
-  prebookTshirt = false
+  prebookTshirt = false,
+  isOnline = false
 }) => {
   const [promos, setPromos] = useState<any[]>([]);
   const [hasTshirt, setHasTshirt] = useState(prebookTshirt);
-  const [isGroupPass, setIsGroupPass] = useState(isSettlement ? false : initialIsGroupPass);
+  const [isGroupPass, setIsGroupPass] = useState(isSettlement || isOnline ? false : initialIsGroupPass);
   const [payLaterOpen, setPayLaterOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -80,8 +82,8 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
   }, [prebookTshirt]);
 
   useEffect(() => {
-    setIsGroupPass(isSettlement ? false : initialIsGroupPass);
-  }, [initialIsGroupPass, isSettlement]);
+    setIsGroupPass(isSettlement || isOnline ? false : initialIsGroupPass);
+  }, [initialIsGroupPass, isSettlement, isOnline]);
   const [toast, setToast] = useState<string | null>(null);
   const [isTshirtDialogOpen, setIsTshirtDialogOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -193,12 +195,12 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
     }
   }
 
-  const qty = isSettlement ? 1 : (isGroupPass ? 5 : 1);
-  const currentSubDiscount = (isSettlement || isGroupPass || !isWOWPlus) ? 0 : SUB_DISCOUNT;
+  const qty = (isSettlement || isOnline) ? 1 : (isGroupPass ? 5 : 1);
+  const currentSubDiscount = (isSettlement || isGroupPass || !isWOWPlus || isOnline) ? 0 : SUB_DISCOUNT;
 
   const basePrice = hasFullPass && prebookTshirt
     ? 0
-    : (isSettlement ? remainingPrice : (isGroupPass ? 4000 : (PASS.price * qty)));
+    : (isSettlement ? remainingPrice : (isOnline ? 350 : (isGroupPass ? 4000 : (PASS.price * qty))));
   const subtotal = isSettlement ? remainingPrice : (basePrice - currentSubDiscount);
   const promoTotal = promos.reduce((a, p) => a + p.amount, 0);
   const finalNow = isSettlement
@@ -330,6 +332,7 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                   remainingPrice={remainingPrice}
                   league={profile?.league}
                   hasTshirt={hasTshirt}
+                  isOnline={isOnline}
                 />
               </div>
 
@@ -460,7 +463,12 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
                 <StickyBarContent
                   finalNow={finalNow}
                   isProcessing={isProcessing}
-                  onPurchase={() => onPurchase(isSettlement ? 'clx_earlybird_002' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002')), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee', isSettlement, hasTshirt)}
+                  onPurchase={() => onPurchase(
+                    isSettlement ? 'clx_earlybird_002' : (isOnline ? 'clx_online_007' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002'))),
+                    isOnline ? 'WOW 2026 - Online Attendee' : (isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee'),
+                    isSettlement,
+                    hasTshirt
+                  )}
                   payLaterOpen={payLaterOpen}
                   setPayLaterOpen={setPayLaterOpen}
                   payLater={payLater}
@@ -482,7 +490,12 @@ export const MaterialCheckout: React.FC<MaterialCheckoutProps> = ({
         <StickyBarContent
           finalNow={finalNow}
           isProcessing={isProcessing}
-          onPurchase={() => onPurchase(isSettlement ? 'clx_earlybird_002' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002')), isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee', isSettlement, hasTshirt)}
+          onPurchase={() => onPurchase(
+            isSettlement ? 'clx_earlybird_002' : (isOnline ? 'clx_online_007' : (isGroupPass ? 'clx_grouppass_006' : (isWOWPlus ? 'clx_arcade_001' : 'clx_earlybird_002'))),
+            isOnline ? 'WOW 2026 - Online Attendee' : (isWOWPlus ? 'Arcade Insider - Explorer' : 'WOW 2026 - Attendee'),
+            isSettlement,
+            hasTshirt
+          )}
           payLaterOpen={payLaterOpen}
           setPayLaterOpen={setPayLaterOpen}
           payLater={payLater}
