@@ -84,12 +84,22 @@ export const RegistrationForm: React.FC = () => {
     }
   }, [profile, user]);
 
+  const [showGroupPassSoldOutDialog, setShowGroupPassSoldOutDialog] = useState(false);
+
   useEffect(() => {
     // If user is already registered (has a profile) and not in 'update' mode, 
     // redirect them to the payment page.
     if (isLoggedIn && profile && searchParams.get('update') !== 'true') {
-      const currentParams = searchParams.toString();
-      router.replace(`/payment${currentParams ? `?${currentParams}` : ''}`);
+      const hasOnline = searchParams.get('tier') === 'online';
+      const hasPromo = !!searchParams.get('promo');
+      const hasPrebook = !!searchParams.get('prebookTshirt');
+      
+      if (hasOnline || hasPromo || hasPrebook) {
+        const currentParams = searchParams.toString();
+        router.replace(`/payment${currentParams ? `?${currentParams}` : ''}`);
+      } else {
+        setShowGroupPassSoldOutDialog(true);
+      }
     }
   }, [isLoggedIn, profile, searchParams, router]);
 
@@ -164,7 +174,7 @@ export const RegistrationForm: React.FC = () => {
         }
 
         if (type === 'team') {
-          router.push('/payment?tier=group');
+          setShowGroupPassSoldOutDialog(true);
         } else {
           if (hasCoupon && coupons[0]?.code) {
             try {
@@ -481,6 +491,61 @@ export const RegistrationForm: React.FC = () => {
                 className="px-6 py-2.5 rounded-full text-sm font-semibold text-grey-700 dark:text-grey-300 hover:bg-grey-100 dark:hover:bg-grey-800 transition-colors"
               >
                 Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showGroupPassSoldOutDialog && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+          style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)' }}
+        >
+          <div
+            className="rounded-[28px] w-full max-w-[440px] overflow-hidden p-6"
+            style={{
+              background: 'var(--m-surface-container-high, #fff)',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
+              fontFamily: "'Manrope', system-ui, sans-serif",
+              animation: 'dialogIn 280ms cubic-bezier(.2,0,0,1) both',
+            }}
+          >
+            <div className="text-center flex flex-col items-center">
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-grey-900 dark:text-white mb-2">Group passes sold out</h3>
+              <p className="text-sm text-grey-700 dark:text-grey-300 leading-relaxed mb-6">
+                Group passes are out of stock. You can purchase the Online Pass (Virtual Pass) to join the conference and hackathon online.
+              </p>
+            </div>
+            <div className="flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowGroupPassSoldOutDialog(false);
+                  router.push('/');
+                }}
+                className="px-5 py-2.5 rounded-full text-sm font-semibold text-grey-700 dark:text-grey-300 hover:bg-grey-100 dark:hover:bg-grey-800 transition-colors"
+              >
+                Back to Home
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowGroupPassSoldOutDialog(false);
+                  router.push('/payment?tier=online');
+                }}
+                className="px-5 py-2.5 rounded-full text-sm font-semibold bg-[#2c5fd9] text-white hover:brightness-110 shadow-sm transition-all"
+              >
+                Get Virtual Pass
               </button>
             </div>
           </div>

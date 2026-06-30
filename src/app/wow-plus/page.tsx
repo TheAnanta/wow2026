@@ -333,8 +333,8 @@ export default function WOWPlusPage() {
                                                         <span className="text-sm font-bold text-grey-500 uppercase">Rank Needed:</span>
                                                         <span className="text-xl font-black text-grey-900 dark:text-white">0 - 20</span>
                                                     </div>
-                                                    <Link href="/payment?type=wow-plus" className="nav-cta-btn bg-grey-900! dark:bg-grey-bg! dark:text-grey-900! px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform" onClick={() => analyticsService.trackCTA('Claim Platinum', 'WOWPlusPage')}>
-                                                        Claim Now
+                                                    <Link href='/' className="nav-cta-btn bg-grey-900! dark:bg-grey-bg! dark:text-grey-900! px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform" onClick={() => analyticsService.trackCTA('Claim Platinum', 'WOWPlusPage')}>
+                                                        Sold out
                                                     </Link>
                                                 </div>
                                             </div>
@@ -462,9 +462,6 @@ export default function WOWPlusPage() {
                                                         <span className="text-sm font-bold text-grey-500 uppercase">Rank Needed:</span>
                                                         <span className="text-xl font-black text-grey-900 dark:text-white">{tier.rank}</span>
                                                     </div>
-                                                    <Link href="/payment?type=wow-plus" className="nav-cta-btn bg-grey-900 dark:bg-grey-bg dark:text-grey-900 px-8 py-3 rounded-full text-white font-bold text-sm hover:scale-105 transition-transform" onClick={() => analyticsService.trackCTA('Claim Basic', 'WOWPlusPage')}>
-                                                        Claim Now
-                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -504,9 +501,6 @@ export default function WOWPlusPage() {
                                                     <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#fff"></path>
                                                 </svg>
                                             </div>
-                                            <Link href="/payment" className="text-xs font-bold border-b-2 py-1 hover:opacity-70 transition-opacity" onClick={() => analyticsService.trackCTA('Purchase Ticket', 'WOWPlusPage_PricingRef')}>
-                                                Purchase Ticket
-                                            </Link>
                                         </div>
                                     </div>
                                 </div>

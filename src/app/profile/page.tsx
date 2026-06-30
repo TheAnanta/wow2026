@@ -66,7 +66,7 @@ function BadgeGrid({ badges }: { badges: any[] }) {
         ) : (
           <div className="text-center py-12 border-2 border-dashed border-grey-bg dark:border-white/10 rounded-2xl">
             <p className="text-grey-500 mb-4">No badges earned yet.</p>
-            <a href="/payment" className="text-google-blue font-bold hover:underline">Get your first badge &rarr;</a>
+            <a href="/payment?tier=online" className="text-google-blue font-bold hover:underline">Get your first badge &rarr;</a>
           </div>
         )}
       </div>
@@ -437,7 +437,7 @@ export default function ProfilePage() {
               ) : (
                 <div className="text-center py-12 border-2 border-dashed border-grey-bg dark:border-white/10 rounded-2xl">
                   <p className="text-grey-500 mb-4">No tickets purchased yet.</p>
-                  <a href="/payment" className="text-google-blue font-bold hover:underline">Browse Tickets &rarr;</a>
+                  <a href="/payment?tier=online" className="text-google-blue font-bold hover:underline">Browse Tickets &rarr;</a>
                 </div>
               )}
             </div>

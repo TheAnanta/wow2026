@@ -285,9 +285,7 @@ export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () 
       if (hasCoupon && couponCode) {
         buttonLink = `/payment?promo=${couponCode}`;
       } else {
-        const isGroupPassIntent = profile?.intended_tier_id === 'clx_grouppass_006';
-        const isOnlineIntent = profile?.intended_tier_id === 'clx_online_007';
-        buttonLink = `/payment${isGroupPassIntent ? '?tier=group' : (isOnlineIntent ? '?tier=online' : '?tier=online')}`;
+        buttonLink = '/payment?tier=online';
       }
     } else {
       buttonLink = '/register?update=true';
