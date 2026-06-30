@@ -15,16 +15,20 @@ function PaymentPage() {
     const { user, profile, tickets, isUnregistered, isLoading } = useAuth();
 
     const hasFullPass = tickets?.some((t: any) =>
+        t.tier_id === 'clx_earlybird_002' ||
+        t.tier_id === 'clx_grouppass_006' ||
+        t.tier_id === 'clx_online_007' ||
         (t.tier?.name || t.name || "").toLowerCase().includes("early bird") ||
         (t.tier?.name || t.name || "").toLowerCase().includes("regular") ||
         (t.tier?.name || t.name || "").toLowerCase().includes("attendee") ||
         (t.tier?.name || t.name || "").toLowerCase().includes("group") ||
-        (t.tier?.name || t.name || "").toLowerCase().includes("ground")
+        (t.tier?.name || t.name || "").toLowerCase().includes("ground") ||
+        (t.tier?.name || t.name || "").toLowerCase().includes("event pass")
     );
 
     const hasArcade = tickets?.some((t: any) =>
-        (t.tier?.name || t.name || "").toLowerCase().includes("arcade") ||
-        (t.tier?.name || t.name || "").toLowerCase().includes("wow")
+        t.tier_id === 'clx_arcade_001' ||
+        (t.tier?.name || t.name || "").toLowerCase().includes("arcade")
     );
 
     const isSettlement = hasArcade && !hasFullPass;
