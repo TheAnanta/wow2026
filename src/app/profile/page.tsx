@@ -423,8 +423,9 @@ export default function ProfilePage() {
                           <div className="flex items-center gap-3">
                             {isArcade && !hasFullPass && (
                               <a href="/payment" className="text-xs font-bold px-4 py-2 rounded-full shadow-sm transition-all bg-google-blue text-white hover:brightness-110">
-                                Final Settlement &rarr;
+                                {isArcade} {!hasFullPass} Final Settlement &rarr;
                               </a>
+
                             )}
                             <span className="text-xs font-bold px-4 py-2 rounded-full shadow-sm transition-colors bg-[#a7f3c8] dark:bg-[#005225] text-[#002111] dark:text-[#a7f3c8]">CONFIRMED</span>
                           </div>
