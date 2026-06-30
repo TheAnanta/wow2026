@@ -423,7 +423,7 @@ export default function ProfilePage() {
                           <div className="flex items-center gap-3">
                             {isArcade && !hasFullPass && (
                               <a href="/payment" className="text-xs font-bold px-4 py-2 rounded-full shadow-sm transition-all bg-google-blue text-white hover:brightness-110">
-                                {isArcade} {!hasFullPass} Final Settlement &rarr;
+                                Final Settlement &rarr;
                               </a>
 
                             )}
