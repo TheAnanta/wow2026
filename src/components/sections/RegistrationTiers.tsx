@@ -122,6 +122,7 @@ export const RegistrationTiers = () => {
           <TierCard
             name="Group/Team Pass"
             href={`${baseLink}?tier=group`}
+            isRecommended
             badge={
               <div className="inline-flex items-center gap-1.5 bg-[#e6f4ea] text-[#137333] dark:bg-[#137333]/20 dark:text-[#81c995] px-3 py-1 rounded-full">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -140,8 +141,7 @@ export const RegistrationTiers = () => {
             pricingSubtext={
               <span className="text-[#137333] dark:text-[#81c995]">Save 33% with Group Pass.</span>
             }
-            buttonText="Sold Out"
-            isDisabled
+            buttonText="Get started"
             features={[
               <span className="underline underline-offset-2" key="5x-individual">5x Individual Passes</span>,
               "Save ₹2000 on total",
@@ -156,7 +156,6 @@ export const RegistrationTiers = () => {
             price="₹350"
             buttonText="Get started"
             href={`${baseLink}?tier=online`}
-            isRecommended
             pricingSubtext={
               <>
                 Virtual access to conference & hackathon.
