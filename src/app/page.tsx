@@ -80,7 +80,7 @@ function Home() {
   return (
     <div className="w-full min-h-screen text-grey-900 dark:text-grey-bg! overflow-x-hidden">
       <Header onRegisterClick={() => {
-        router.push('/register');
+        router.push('/register?tier=online');
       }} />
 
       <main>
@@ -101,7 +101,7 @@ function Home() {
         </Swiper> */}
 
         <Hero onRegisterClick={() => {
-          router.push('/register');
+          router.push('/register?tier=online');
         }} />
 
         <div className="page-wrapper flex flex-col">

@@ -279,14 +279,15 @@ export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () 
 
   const buttonText = !isRegistered ? 'Register' : (!hasTicket ? 'Complete registration' : 'Update profile');
 
-  let buttonLink = '/register';
+  let buttonLink = '/register?tier=online';
   if (isRegistered) {
     if (!hasTicket) {
       if (hasCoupon && couponCode) {
         buttonLink = `/payment?promo=${couponCode}`;
       } else {
         const isGroupPassIntent = profile?.intended_tier_id === 'clx_grouppass_006';
-        buttonLink = `/payment${isGroupPassIntent ? '?tier=group' : ''}`;
+        const isOnlineIntent = profile?.intended_tier_id === 'clx_online_007';
+        buttonLink = `/payment${isGroupPassIntent ? '?tier=group' : (isOnlineIntent ? '?tier=online' : '?tier=online')}`;
       }
     } else {
       buttonLink = '/register?update=true';
@@ -298,7 +299,7 @@ export default function HeroSection({ onRegisterClick }: { onRegisterClick?: () 
     if (!isLoggedIn) {
       try {
         await signInWithGoogle();
-        router.push('/register');
+        router.push('/register?tier=online');
       } catch (err) {
         console.error('Sign in failed:', err);
       }
