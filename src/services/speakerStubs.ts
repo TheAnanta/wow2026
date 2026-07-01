@@ -39,6 +39,15 @@ const mockSpeakers: Speaker[] = [
     isGDE: true,
   },
   {
+    id: '120',
+    name: 'Ajoe',
+    title: 'Google Developer Expert, Cloud',
+    pronouns: 'He/Him',
+    topics: ['Cloud'],
+    avatar: 'ajoe.png',
+    isGDE: true,
+  },
+  {
     id: '103',
     name: 'Ashok Vishwakarma',
     title: 'Google Developer Expert, Web',
