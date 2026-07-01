@@ -6,7 +6,7 @@
     "venue": "Auditorium",
     "time": "08:30 AM to 10:00 AM",
     "format": "Check In",
-    "date": "28 June 2025",
+    "date": "4 July 2026",
     "speakers": []
   },
   {
@@ -16,7 +16,7 @@
     "venue": "Auditorium",
     "time": "10:00 AM to 10:10 AM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "4 July 2026",
     "speakers": []
   },
   {
@@ -26,7 +26,7 @@
     "venue": "Auditorium",
     "time": "10:10 AM to 10:20 AM",
     "format": "Talk",
-    "date": "28 June 2025",
+    "date": "4 July 2026",
     "speakers": []
   },
   {
@@ -36,7 +36,7 @@
     "venue": "Auditorium",
     "time": "11:40 AM to 12:10 PM",
     "format": "Workshop",
-    "date": "28 June 2025",
+    "date": "4 July 2026",
     "speakers": []
   }
 ]

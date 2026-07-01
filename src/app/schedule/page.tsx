@@ -118,7 +118,7 @@ const AgendaPage: React.FC = () => {
           track: s.tags[0] || "General",
           format: s.tags[1] || "Talk",
           venue: s.tags[2] || "Main Stage",
-          date: s.tags[3] || "28 June 2025"
+          date: s.tags[3] || "4 July 2026"
         }));
         setSessions(formatted);
       } catch (e) {
@@ -230,12 +230,12 @@ const AgendaPage: React.FC = () => {
       return [...otherTracks, ...loungeTrack];
     };
 
-    const day1Tracks = getTracksForDay("28 June 2025");
-    const day2Tracks = getTracksForDay("29 June 2025");
+    const day1Tracks = getTracksForDay("4 July 2026");
+    const day2Tracks = getTracksForDay("5 July 2026");
 
     return [
-      { weekday: "Sat", day: 28, tracks: day1Tracks, dateStr: "28 June 2025" },
-      { weekday: "Sun", day: 29, tracks: day2Tracks, dateStr: "29 June 2025" },
+      { weekday: "Sat", day: 28, tracks: day1Tracks, dateStr: "4 July 2026" },
+      { weekday: "Sun", day: 29, tracks: day2Tracks, dateStr: "5 July 2026" },
     ].filter((day) => day.tracks.length > 0);
   }, [
     sessions,
