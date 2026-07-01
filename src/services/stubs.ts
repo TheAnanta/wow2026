@@ -305,8 +305,8 @@ export const fetchSessions = async (filters: { q?: string }): Promise<Session[]>
     // --- Day 2 ---
     {
       id: 'aud-14',
-      title: 'Breakfast',
-      description: 'Join us for BREAKFAST at Auditorium.',
+      title: 'Refreshment',
+      description: 'Join us for refreshments at Auditorium.',
       thumbnail: '/images/io24-featured-keynote-developer.webp',
       tags: ['General', 'Networking', 'Auditorium', '29 June 2025'],
       topics: ['topic-general'],
